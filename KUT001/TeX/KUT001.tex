@@ -1,0 +1,262 @@
+\documentclass[a4paper, 10pt, ]{article}
+
+\input{./COMMONFILES/preamble.tex}
+
+% -----------------------------------------------------------------------------
+
+\def\oznacenieCelku{Kolekcia učebných textov}
+
+% -----------------------------------------------------------------------------
+
+\def\KUTporadoveCislo{001}
+
+% \def\oznacenieVerzie{v1.0}
+\def\oznacenieVerzie{\phantom{v1.0}}
+
+\def\mesiacRok{február 2024}
+
+\def\authorslabel{}
+
+
+
+
+
+
+% -----------------------------------------------------------------------------
+
+\begin{document}
+
+
+% -----------------------------------------------------------------------------
+% Uvodny nadpis
+
+\noindent
+\parbox[t][18mm][c]{0.3\textwidth}{%
+\raisebox{-0.9\height}{%
+\phantom{.}\includegraphics[height=18mm]{./COMMONFILES/URKFEIlogo.pdf}%
+}%
+}%
+\parbox[t][18mm][c]{0.7\textwidth}{%
+\raggedleft
+
+
+
+\sffamily
+\fontsize{16pt}{18pt}
+\fontseries{sbc}
+\selectfont
+
+\noindent
+\textcolor[rgb]{0.75, 0.75, 0.75}{\textls[30]{\oznacenieCelku}}
+}%
+
+\noindent
+\parbox[t][16mm][b]{0.5\textwidth}{%
+\raggedright
+
+\color{Gray}
+\sffamily
+
+
+\fontsize{8pt}{10pt}
+\selectfont
+
+\authorslabel
+
+\fontsize{6pt}{10pt}
+\selectfont
+
+urk.fei.stuba.sk
+
+\fontsize{12pt}{12pt}
+\selectfont
+\mesiacRok
+
+
+}%
+\parbox[t][16mm][b]{0.5\textwidth}{%
+\raggedleft
+
+\sffamily
+% \color{Gray}
+% \lstyle 
+
+\fontsize{6pt}{6pt}
+\selectfont
+
+\textcolor[rgb]{0.68, 0.68, 0.68}{\oznacenieVerzie}
+
+% \textcolor[rgb]{0.68, 0.68, 0.68}{počet strán: \pageref{LastPage}}
+
+\fontsize{14pt}{14pt}
+% \fontseries{sbc}
+\selectfont
+
+\bfseries
+
+\includegraphics[height=12pt]{./COMMONFILES/KUT_logo_v0.1.pdf}%
+% \oznacenieCasti%
+{%
+% \lstyle
+% \pstyle
+\textls[-50]{\KUTporadoveCislo}
+}%
+
+}%
+
+% -----------------------------------------------------------------------------
+
+
+
+
+\vspace{6mm}
+
+% ---------------------------------------------
+\sffamily
+\bfseries
+\fontsize{18pt}{21pt}
+\selectfont
+
+\begin{flushleft}
+	O rozklade na diferenciálne \\rovnice prvého rádu
+\end{flushleft}
+
+\bigskip
+
+% -----------------------------------------------------------------------------
+\normalsize
+\normalfont
+% -----------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+\noindent
+\lettrine[lines=1, nindent=1pt, loversize=0.0]{P}{re} 
+diferenciálne rovnice, aké tu máme na mysli, platí, že každú diferenciálnu rovnicu vyššieho rádu je možné rozložiť na sústavu rovníc nižšieho rádu.
+
+
+
+\paragraph{Diferenciálna rovnica}
+
+Majme obyčajnú diferenciálnu rovnicu, ktorú je možné využiť na opis dynamického systému. Vo všeobecnosti:
+\begin{equation}
+    a_n \frac{\text{d}^n y(t)}{\text{d}t^n} 
+    + a_{n-1} \frac{\text{d}^{n-1} y(t)}{\text{d}t^{n-1}}
+    +
+    \cdots
+    +
+    a_0 y(t)
+    =
+    b_m \frac{\text{d}^m u(t)}{\text{d}t^m} 
+    + b_{m-1} \frac{\text{d}^{m-1} u(t)}{\text{d}t^{m-1}}
+    +
+    \cdots
+    +
+    b_0 u(t)
+\end{equation}
+kde $y(t)$ je výstupná veličina (výstupný signál) a ide teda prirodzene o časovú závislosť, funkciu v čase. Čas je označený písmenom $t$. Vstupná veličina (vstupný signál) je $u(t)$. Koeficienty $a_n, \ldots, a_0$ a $b_m, \ldots, b_0$ sú konštantné, nemenia sa v čase.
+
+Číslo $n$ udáva najvyššiu časovú deriváciu výstupného signálu a číslo $m$ udáva najvyššiu časovú deriváciu vstupného signálu. Uvažujeme samozrejme kauzálny dynamický systém a preto $n>m$.
+
+Poznámka: časovú deriváciu je často praktické označovať bodkou nad signálom namiesto klasického označenia $\frac{\text{d}}{\text{d}t}$. Napríklad $\frac{\text{d}^2 y(t)}{\text{d}t^2}$ označíme ako $\ddot y(t)$.
+
+Hovoríme, že diferenciálna rovnica je $n$-tého rádu. Podľa najvyššej derivácie výstupnej veličiny. Najnižší možný rád diferenciálnej rovnice je prvý rád, $n=1$.
+
+
+
+\paragraph{Postup rozkladu formou príkladu}
+
+Vo všeobecnosti platí, že každú diferenciálnu rovnicu vyššieho rádu je možné rozložiť (prepísať, transformovať) na sústavu rovníc prvého rádu. Ich počet je minimálne $n$.
+
+Ako príklad uvažujme diferenciálnu rovnicu v tvare
+\begin{equation} \label{povonadr2}
+    a_2 \ddot y(t) + a_1 \dot y(t) + a_0 y(t) = b_0 u(t)
+\end{equation}
+
+Úlohou je rozložiť túto diferenciálnu rovnicu druhého rádu na dve diferenciálne rovnice prvého rádu.
+
+Pre tieto dve nové rovnice je potrebné uvažovať dve veličiny, ktoré budú na mieste neznámej v nových diferenciálnych rovniciach. Označme ich $x_1(t)$ a $x_2(t)$.
+
+Hľadáme teda dve diferenciálne rovnice, inak vyjadrené hľadáme
+\begin{align*}
+    \dot x_1(t) &= \quad ? \\
+    \dot x_2(t) &= \quad ? 
+\end{align*}
+pritom na pravej strane je potrebné mať len také členy, ktoré obsahujú len nové veličiny $x_1(t)$ a $x_2(t)$ a neobsahujú pôvodnú veličinu $y(t)$. Mimochodom, veličina $u(t)$, teda vstupný signál systému, je z hľadiska riešenia diferenciálnej rovnice známa. Neznámou je výstupná veličina $y(t)$. Signál $u(t)$ preto môže nezmenený figurovať v nových hľadaných diferenciálnych rovniciach. Dosiahnuť uvedené je možné nasledujúcim postupom. 
+
+Ako prvé \emph{zvoľme}
+\begin{equation} \label{volba1}
+    x_1(t) = y(t)
+\end{equation}
+To znamená
+\begin{equation}
+    \dot x_1(t) = \dot y(t)
+\end{equation}
+čo však nie je v tvare aký hľadáme. Na pravej strane vystupuje pôvodná veličina $y(t)$.
+
+Druhou voľbou preto nech je
+\begin{equation} \label{volba2}
+    x_2(t) = \dot y(t)
+\end{equation}
+pretože potom môžeme písať prvú diferenciálnu rovnicu v tvare
+\begin{equation}
+    \dot x_1(t) = x_2(t)
+\end{equation}
+Ostáva zostaviť druhú diferenciálnu rovnicu. 
+
+Keďže sme zvolili \eqref{volba2}, tak je zrejmé, že platí
+\begin{equation} 
+    \dot x_2(t) = \ddot y(t)
+\end{equation}
+Otázkou je $\ddot y(t) = \ ?$ Odpoveďou je pôvodná diferenciálna rovnica druhého rádu. Upravme \eqref{povonadr2} na tvar
+\begin{align}
+     \ddot y(t) + \frac{a_1}{a_2} \dot y(t) + \frac{a_0}{a_2} y(t) &= \frac{b_0}{a_2} u(t) \\
+     \ddot y(t) &= - \frac{a_1}{a_2} \dot y(t) - \frac{a_0}{a_2} y(t) +  \frac{b_0}{a_2} u(t) 
+\end{align}
+To znamená, že
+\begin{equation}  \label{druhadr_1}
+    \dot x_2(t) = - \frac{a_1}{a_2} \dot y(t) - \frac{a_0}{a_2} y(t) +  \frac{b_0}{a_2} u(t) 
+\end{equation}
+čo však stále nie je požadovaný tvar druhej hľadanej diferenciálnej rovnice. Na pravej strane rovnice \eqref{druhadr_1} môžu figurovať len nové veličiny $x_1(t)$ a $x_2(t)$, nie pôvodná veličina $y(t)$. Stačí si však všimnúť skôr zvolené \eqref{volba1} a \eqref{volba2}. Potom môžeme písať
+\begin{equation}  \label{druhadr_2}
+    \dot x_2(t) = - \frac{a_1}{a_2}  x_2(t) - \frac{a_0}{a_2} x_1(t) +  \frac{b_0}{a_2} u(t) 
+\end{equation}
+čo je druhá hľadaná diferenciálna rovnica prvého rádu.
+
+
+
+
+
+\paragraph{Záver}
+
+Diferenciálnu rovnicu druhého rádu
+\begin{equation} 
+    a_2 \ddot y(t) + a_1 \dot y(t) + a_0 y(t) = b_0 u(t)
+\end{equation}
+sme transformovali na sústavu diferenciálnych rovníc prvého rádu
+\begin{align}
+    \dot x_1(t) &= x_2(t) \\
+    \dot x_2(t) &= - \frac{a_1}{a_2}  x_2(t) - \frac{a_0}{a_2} x_1(t) +  \frac{b_0}{a_2} u(t) 
+\end{align}
+
+
+
+
+
+
+
+
+
+
+
+
+% -----------------------------------------------------------------------------
+\end{document}
+% -----------------------------------------------------------------------------
