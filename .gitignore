@@ -26,6 +26,7 @@ dev
 *.bbl
 *.blg
 *.run.xml
+*.bcf
 
 
 
