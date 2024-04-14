@@ -1,0 +1,324 @@
+\documentclass[a4paper, 10pt, ]{article}
+
+\input{./COMMONFILES/preamble.tex}
+
+% -----------------------------------------------------------------------------
+
+\def\oznacenieCelku{Kolekcia učebných textov}
+
+% -----------------------------------------------------------------------------
+
+
+\def\KUTporadoveCislo{002}
+
+% \def\oznacenieVerzie{v1.0}
+\def\oznacenieVerzie{\phantom{v1.0}}
+
+\def\mesiacRok{marec 2024}
+
+\def\authorslabel{MT}
+
+
+
+
+
+% -----------------------------------------------------------------------------
+
+\begin{document}
+
+% -----------------------------------------------------------------------------
+% Uvodny nadpis
+
+\noindent
+\parbox[t][18mm][c]{0.3\textwidth}{%
+\raisebox{-0.9\height}{%
+\phantom{.}\includegraphics[height=18mm]{./COMMONFILES/URKFEIlogo.pdf}%
+}%
+}%
+\parbox[t][18mm][c]{0.7\textwidth}{%
+\raggedleft
+
+\sffamily
+\fontsize{16pt}{18pt}
+\fontseries{sbc}
+\selectfont
+
+\noindent
+\textcolor[rgb]{0.75, 0.75, 0.75}{\textls[25]{\oznacenieCelku}}
+}%
+
+\noindent
+\parbox[t][16mm][b]{0.5\textwidth}{%
+\raggedright
+
+\color{Gray}
+\sffamily
+
+\fontsize{12pt}{12pt}
+\selectfont
+\mesiacRok
+
+\fontsize{6pt}{10pt}
+\selectfont
+github.com/PracovnyBod/KUT
+
+\fontsize{8pt}{10pt}
+\selectfont
+\authorslabel
+
+
+
+
+}%
+\parbox[t][16mm][b]{0.5\textwidth}{%
+\raggedleft
+
+\sffamily
+
+\fontsize{6pt}{6pt}
+\selectfont
+
+\textcolor[rgb]{0.68, 0.68, 0.68}{\oznacenieVerzie}
+
+
+\fontsize{14pt}{14pt}
+\selectfont
+
+\bfseries
+
+\includegraphics[height=12pt]{./COMMONFILES/KUT_logo_v0.1.pdf}%
+{%
+\textls[-50]{\KUTporadoveCislo}
+}%
+}%
+
+% -----------------------------------------------------------------------------
+
+
+
+
+\vspace{6mm}
+
+% ---------------------------------------------
+\sffamily
+\bfseries
+\fontsize{18pt}{21pt}
+\selectfont
+
+\begin{flushleft}
+	O~stave a~začiatočných podmienkach dynamického systému
+\end{flushleft}
+
+\bigskip
+
+% -----------------------------------------------------------------------------
+\normalsize
+\normalfont
+% -----------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+\noindent
+\lettrine[lines=1, nindent=1pt, loversize=0.0]{S}{tav} 
+systému a~začiatočné podmienky systému sú relatívne široké pojmy. Cieľom je tu načrtnúť pohľad klasickej Teórie systémov.
+
+
+
+\paragraph{Zotrvačnosť}
+
+Ak hovoríme o~dynamickom systéme, obvykle máme na mysli \emph{zotrvačný} systém.
+
+\emph{Bezzotrvačný} systém je taký, ktorého výstup závisí len od okamžitej hodnoty vstupu. Minulé hodnoty vstupu nemajú vplyv na aktuálnu hodnotu výstupu. Príkladom bezzotrvačného systému môže byť odporový delič napätia.
+
+O~\emph{zotrvačnom} systéme možno premýšľať ako o~systéme „s pamäťou“. Jeho aktuálny výstup závisí od okamžitej hodnoty vstupu a~aj od hodnôt vstupu v~minulosti. Takýto systém je \emph{kauzálny}.
+
+
+Mimochodom, teoreticky je možné hovoriť aj o~nekauzálnych systémoch. v~takom prípade výstup závisí aj od budúcich hodnôt vstupu. Slová \emph{zotrvačnosť} a~\emph{kauzalita} tu odporúčame vnímať najmä z fyzikálneho hľadiska.
+
+Príkladom zotrvačného kauzálneho systému môže byť elektrický kondenzátor. Aktuálny elektrický náboj $Q(t)$ na kondenzátore je daný takpovediac celou „históriou“ elektrického prúdu $I(t)$ cez kondenzátor. Formálne, náboj v~čase $t_0$ bude
+\begin{equation}
+    Q(t_0) = \int_{-\infty}^{t_0}I(t) \text{d}t
+\end{equation}
+
+
+\paragraph{Stav systému}
+
+Predošlý príklad navádza na otázky typu ako ďaleko do minulosti ešte ovplyvňujú hodnoty vstupu terajší výstup? Je azda potrebné poznať takpovediac úplnú minulosť systému? Ukazuje sa tu pojem \emph{stav systému}.
+
+Spomínaný náboj $Q$ na kondenzátore má v~čase $t_0$ nejakú hodnotu. Označme ju~$Q_0$. Kondenzátor ako systém je teda v~takom stave, že jeho veličina má hodnotu~$Q_0$. Je to tak presne v~čase $t_0$. 
+
+Ak by sme prišli k tomuto systému v~čase $t_0$, vedeli by sme zistiť, že je v~nejakom stave. v~tomto prípade vyjadriteľnom hodnotou~$Q_0$. Ak by sme chceli zmeniť hodnotu náboja na kondenzátore, teda to v~akom je stave, musíme nejaký čas pôsobiť na vstupe tohto systému (priviesť napätie na svorky kondenzátora).
+
+Poznáme stav systému na začiatku nášho pôsobenia na vstupe a~následne na konci pôsobenia bude vo všeobecnosti systém v~inom stave ako na začiatku. Systém je v~každom čase v~nejakom stave.
+
+Na rozdiel od značne intuitívneho stavu systému v~prípade kondenzátora, určiť ktoré veličiny udávajú stav systému a~či ich vieme merať je samostatná otázka.
+
+
+
+
+
+
+\paragraph{Príklad s mechanickým systémom}
+
+% Poznámka: na tento príklad nadväzujeme aj v~ďalšej časti textu. \medskip
+
+Uvažujme posuvný pohyb telesa s hmotnosťou $m$, na ktoré pôsobí sila $u(t)$. Vo všeobecnosti časovo premenlivá sila je vstupom systému. Teleso sa pohybuje po priamke. Poloha tohto telesa, teda jeho vzdialenosť od stanoveného bodu nula nech je výstupnou veličinou systému. Označme $y(t)$.
+
+\begin{center}
+
+    \vbox{%
+        \makebox[\textwidth][c]{%
+        \input{../SVG/mechTeleso.pdf_tex}
+        }
+        \figcaption{Posuvný pohyb telesa s hmotnosťou $m$.}
+    }
+	\label{mechTeleso}
+
+\end{center}
+
+Pohybová rovnica v~tomto prípade je\footnote{Newtonove $F = ma$}
+\begin{equation} \label{pohybr}
+    m \ddot y(t) = u(t)
+\end{equation}
+Opisuje uvedenú situáciu ako dynamický systém. Dáva do vzťahu vstup a~výstup systému. Je to diferenciálna rovnica druhého rádu.
+
+Ako však určiť v~akom stave je systém? 
+
+Čo potrebujeme poznať, aby sme dokázali určiť výstup systému od nejakého začiatočného času $t_0$ ďalej, teda na intervale $\langle t_0, t \rangle$?
+
+Poloha, výstup systému, je daná začiatočnou polohou v~čase $t_0$, označme $y_0$, a~ďalej je daná integrálom rýchlosti telesa $\dot y(t)$ na uvedenom intervale.
+\begin{equation}
+    y(t) = y_0 + \int_{t_0}^{t}\dot y(\tau) \text{d}\tau
+\end{equation}
+kde samozrejme $\tau \in \langle t_0, t \rangle$.
+
+Čím je však potom daný priebeh rýchlosti $\dot y(t)$? Na intervale $\langle t_0, t \rangle$ zjavne musí platiť
+\begin{equation}
+    \dot y(t) = z_0 + \int_{t_0}^{t}\ddot y(\tau) \text{d}\tau
+\end{equation}
+kde $z_0$ je začiatočná rýchlosť telesa v~čase $t_0$ a~$\ddot y(t)$ je časový priebeh zrýchlenia telesa. 
+
+Poznáme časový priebeh zrýchlenia na intervale $\langle t_0, t \rangle$? Áno. Priamo vďaka diferenciálnej rovnici opisujúcej samotný systém. Z rovnice \eqref{pohybr} priamo vyplýva
+\begin{equation}
+    \dot y(t) = \frac{1}{m} \int_{t_0}^{t}  u(\tau) \text{d}\tau
+\end{equation}
+Časový priebeh vstupného signálu $u(t)$ vo všeobecnosti poznáme. Vstupnú veličinu máme v~moci my.
+
+Na určenie výstupu systému v~čase $t$ sme teda potrebovali poznať nasledovné: začiatočnú polohu, začiatočnú rýchlosť a~časový priebeh vstupnej veličiny od začiatku po čas $t$.
+
+Stav systému na začiatku ale nie len na začiatku je daný dvomi veličinami. Polohou a~rýchlosťou. Ich hodnoty je možné považovať za stav systému. Tieto veličiny možno označiť ako stavové veličiny systému.
+
+Stav systému sa zmení ak nejaký čas bude pôsobiť vstupný signál.
+
+
+\paragraph{Stavový vektor}
+
+Stavových veličín je vo všeobecnosti niekoľko. Minimálne toľko akého rádu je diferenciálna rovnica opisujúca dynamický systém. Hovoríme tak o~ráde systému. V~predchádzajúcom príklade je systém  druhého rádu, $n=2$.
+
+Je praktické usporiadať stavové veličiny do stavového vektora. V~predchádzajúcom príklade sa stavový vektor skladá z dvoch stavových veličín. Stavový vektor označme $x(t)$, formálne sa jeho rozmer uvádza ako $x(t) \in \mathbb R^n$.
+\begin{equation}
+    x(t) = 
+    \begin{bmatrix}
+        y(t) \\ \dot y(t)
+    \end{bmatrix}
+\end{equation}
+kde sme uviedli stavové veličiny z predchádzajúceho príkladu. Zvyčajne sa stavové veličiny označujú samostatnými symbolmi, typicky
+\begin{equation}
+    x(t) = 
+    \begin{bmatrix}
+        x_1(t) \\ x_2(t)
+    \end{bmatrix}
+\end{equation}
+
+Prvky stavového vektora $x(t)$ môžu nadobúdať rôzne hodnoty, inými slovami vektor $x(t)$ je v~nejakom priestore, hovoríme o~\emph{stavovom priestore}.
+
+
+\paragraph{Opis systému v~stavovom priestore}
+
+Okrem diferenciálnej rovnice, v~ktorej figurujú vstup a~výstup systému, je možné systém opísať aj sústavou diferenciálnych rovníc, v~ktorých  figurujú stavové veličiny. Ide o~sústavu sústavu diferenciálnych rovníc prvého rádu, v~ktorých neznámou premenou je stavová veličina. Hovoríme o~opise systému v~stavovom priestore.
+
+V~nadväznosti na predchádzajúci príklad uvážme opis mechanického systému v~stavovom priestore. Stavové veličiny máme označené $x_1$ a~$x_2$. Hľadáme sústavu diferenciálnych rovníc
+\begin{align*}
+    \dot x_1(t) &= \quad ? \\
+    \dot x_2(t) &= \quad ? 
+\end{align*}
+pričom na pravej strane rovníc môžu vystupovať len stavové veličiny a~vstupný signál.
+
+Veličina $x_1(t)$ je poloha. Veličina $x_2(t)$ je jej časová derivácia, teda rýchlosť. Časová derivácia rýchlosti je zrýchlenie a~zo samotnej pohybovej rovnice plynie, že zrýchlenie sa rovná výrazu $\frac{1}{m} u(t)$, teda je dané vstupom systému. Takže
+\begin{subequations}
+    \begin{align}
+        \dot x_1(t) &= x_2(t) \\
+        \dot x_2(t) &= \frac{1}{m} u(t)
+    \end{align}    
+\end{subequations}
+je sústava diferenciálnych rovníc prvého rádu opisujúca predmetný dynamický systém. Vzťah výstupu systému a~stavových veličín je pri tom tiež jasný
+\begin{equation}
+    y(t) = x_1(t)
+\end{equation}
+
+Ak uvážime stavový vektor $x(t)$, uvedené je možné zapísať vo vektorovo-maticovom tvare
+\begin{subequations}
+    \begin{align}
+        \begin{bmatrix}
+            \dot x_1(t) \\ \dot x_2(t)
+        \end{bmatrix}
+        & =
+        \begin{bmatrix}
+            0 & 1 \\ 0 & 0
+        \end{bmatrix}
+        \begin{bmatrix}
+            x_1(t) \\ x_2(t)
+        \end{bmatrix}
+        +
+        \begin{bmatrix}
+            0 \\ \frac{1}{m}
+        \end{bmatrix}
+        u(t)
+        \\
+        y(t)
+        &=
+        \begin{bmatrix}
+            1 & 0
+        \end{bmatrix}
+        \begin{bmatrix}
+            x_1(t) \\ x_2(t)
+        \end{bmatrix}
+    \end{align}
+\end{subequations}
+
+V~takýchto prípadoch sa opis systému v~stavovom priestore zapisuje v~tvare
+\begin{subequations}
+    \begin{align}
+        \dot x(t) &= A x(t) + b u(t) \\
+        y(t) &= c^\naT x(t)
+    \end{align}
+\end{subequations}
+kde $A$ je matica, $b$ a~$c$ sú vektory. V~predchádzajúcom príklade $A \in \mathbb R^{2\times 2}$, $b \in \mathbb R^{2}$ a~$c \in \mathbb R^{2}$. 
+
+
+
+
+
+
+
+
+\nocite{*}
+
+\printbibliography[title={Odporúčaná literatúra}]
+
+
+
+% -----------------------------------------------------------------------------
+
+\end{document}
+
+% -----------------------------------------------------------------------------
