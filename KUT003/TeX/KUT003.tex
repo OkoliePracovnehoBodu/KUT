@@ -1,0 +1,389 @@
+\documentclass[a4paper, 10pt, ]{article}
+
+\input{./COMMONFILES/preamble.tex}
+
+% -----------------------------------------------------------------------------
+
+\def\oznacenieCelku{Kolekcia učebných textov}
+
+% -----------------------------------------------------------------------------
+
+
+\def\KUTporadoveCislo{003}
+
+\def\oznacenieVerzie{v0.9}
+% \def\oznacenieVerzie{\phantom{v1.0}}
+
+\def\mesiacRok{apríl 2024}
+
+\def\authorslabel{MT}
+
+
+
+
+
+% -----------------------------------------------------------------------------
+
+\begin{document}
+
+% -----------------------------------------------------------------------------
+% Uvodny nadpis
+
+\noindent
+\parbox[t][18mm][c]{0.3\textwidth}{%
+\raisebox{-0.9\height}{%
+\phantom{.}\includegraphics[height=18mm]{./COMMONFILES/URKFEIlogo.pdf}%
+}%
+}%
+\parbox[t][18mm][c]{0.7\textwidth}{%
+\raggedleft
+
+\sffamily
+\fontsize{16pt}{18pt}
+\fontseries{sbc}
+\selectfont
+
+\noindent
+\textcolor[rgb]{0.75, 0.75, 0.75}{\textls[25]{\oznacenieCelku}}
+}%
+
+\noindent
+\parbox[t][16mm][b]{0.5\textwidth}{%
+\raggedright
+
+\color{Gray}
+\sffamily
+
+\fontsize{12pt}{12pt}
+\selectfont
+\mesiacRok
+
+\fontsize{6pt}{10pt}
+\selectfont
+github.com/PracovnyBod/KUT
+
+\fontsize{8pt}{10pt}
+\selectfont
+\authorslabel
+
+
+
+
+}%
+\parbox[t][16mm][b]{0.5\textwidth}{%
+\raggedleft
+
+\sffamily
+
+\fontsize{6pt}{6pt}
+\selectfont
+
+\textcolor[rgb]{0.68, 0.68, 0.68}{\oznacenieVerzie}
+
+
+\fontsize{14pt}{14pt}
+\selectfont
+
+\bfseries
+
+\includegraphics[height=12pt]{./COMMONFILES/KUT_logo_v0.1.pdf}%
+{%
+\textls[-50]{\KUTporadoveCislo}
+}%
+}%
+
+% -----------------------------------------------------------------------------
+
+
+
+
+\vspace{6mm}
+
+% ---------------------------------------------
+\sffamily
+\bfseries
+\fontsize{18pt}{21pt}
+\selectfont
+
+\begin{flushleft}
+	O regulačnom obvode
+\end{flushleft}
+
+\bigskip
+
+% -----------------------------------------------------------------------------
+\normalsize
+\normalfont
+% -----------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+\noindent
+\lettrine[lines=1, nindent=1pt, loversize=0.0]{R}{egulačný} 
+obvod sa vo všeobecnosti skladá z riadiaceho systému a~z riadeného systému. Zahŕňa tri základné signály. Výstupnú veličinu $y(t)$, akčný zásah $u(t)$ a~referenčný signál $r(t)$. 
+
+
+
+\section{Všeobecný uzavretý regulačný obvod}
+
+Schematicky sa všeobecný uzavretý regulačný obvod znázorňuje nasledovne:
+
+\begin{center}
+
+    \vbox{%
+    \makebox[\textwidth][c]{%
+	\input{../SVG/schURO_vseob.pdf_tex}
+	}
+
+    % \vspace{-2mm}
+
+	\figcaption{Všeobecný uzavretý regulačný obvod.}
+    \label{schURO_vseob.pdf}
+    }
+
+\end{center}
+
+Výstupom riadeného systému je veličina, ktorá, okrem iného, hovorí o~splnení cieľa riadenia. Cieľom riadenia napríklad je, aby táto veličina dosiahla istú hodnotu, prípadne aby priebeh tejto veličiny v~čase vykazoval isté dynamické vlastnosti, a~podobne. Pre skrátenie sa práve táto veličina nazýva ako výstupná veličina (celého obvodu). Označuje sa $y(t)$.
+
+Úlohou riadiaceho systému je splniť cieľ riadenia. Výstupom riadiaceho systému je tzv. akčný zásah (označuje sa $u(t)$). Je to signál (veličina), pomocou ktorého riadiaci systém ovplyvňuje riadený systém. Akčný zásah je teda na vstupe riadeného systému.
+
+Pre splnenie cieľa riadenia potrebuje riadiaci systém dostať príkaz typicky vo forme signálu, ktorý je referenčným signálom (označuje sa $r(t)$) alebo žiadanou hodnotou (označuje sa $w(t)$, v angličtine \emph{setpoint}). Druhou informáciou, ktorú riadiaci systém potrebuje pre splnenie cieľa, je spätná väzba z výstupu riadeného systému.
+
+S využitím uvedeného, teda spätnej väzby a~referenčného signálu (alebo žiadanej hodnoty), riadiaci systém akčným zásahom ovplyvňuje riadiaci systém tak, aby bol splnený cieľ riadenia. Pre zvýraznenie princípu spätnej väzby sa výsledný principiálny regulačný obvod nazýva \emph{Uzavretý regulačný obvod} (URO).
+
+
+
+
+\section{Regulačná odchýlka}
+
+Značne typickým uzavretým regulačným obvodom je taký, v ktorom sa využíva regulačná odchýlka.
+
+Regulačná odchýlka $e(t)$ je rozdiel žiadanej hodnoty $w(t)$ (setpoint) a~výstupnej veličiny riadeného systému $y(t)$, teda
+\begin{align} \label{regodch}
+    e(t) = w(t) - y(t)
+\end{align}
+Je zrejmé, že ak je regulačná odchýlka nulová, tak cieľ riadenia je splnený.
+
+V tomto prípade je URO možné schematicky znázorniť nasledovne:
+
+\begin{center}
+
+    \vbox{%
+    \makebox[\textwidth][c]{%
+	\input{../SVG/schURO_regodch.pdf_tex}
+	}
+
+	\figcaption{Uzavretý regulačný obvod s regulačnou odchýlkou a~regulátorom.}
+    \label{schURO_regodch.pdf}
+    }
+	
+
+\end{center}
+
+Je možné konštatovať, že na obr.~\ref{schURO_regodch.pdf} je celkový riadiaci systém tvorený dvomi prvkami: výpočtom regulačnej odchýlky a~regulátorom. Typicky, vstupom regulátora je regulačná odchýlka.
+
+Pre zdôraznenie faktu, že v uvedenom prípade ide jednoznačne (už z princípu informácie o~odchýlke \eqref{regodch}) o~zápornú spätnú väzbu môžeme kresliť schému nasledovne:
+
+
+
+\begin{center}
+
+    \vbox{%
+    \makebox[\textwidth][c]{%
+	\input{../SVG/schURO_regodchminus.pdf_tex}
+	}
+
+    \vspace{-2mm}
+
+	\figcaption{Uzavretý regulačný obvod s blokom vyjadrujúcim zápornú spätnú väzbu.}
+	\label{schURO_regodchminus.pdf}
+    }
+
+\end{center}
+
+
+
+
+\section{Lineárny uzavretý regulačný obvod}
+
+V prípade, že riadiaci a~riadený systém je možné opísať ako lineárne dynamické systémy, hovoríme o~lineárnom uzavretom regulačnom obvode.
+
+Typicky hovoríme, že regulátor, ktorého vstupom je regulačná odchýlka, a~riadený systém je vtedy možné reprezentovať prenosovými funkciami. Klasický lineárny uzavretý regulačný obvod je potom možné schematicky znázorniť nasledovne:
+
+\begin{center}
+
+    \vbox{%
+    \makebox[\textwidth][c]{%
+	\input{../SVG/schLinURO_basic.pdf_tex}
+	}
+
+    \vspace{-3mm}
+
+	\figcaption{Lineárny uzavretý regulačný obvod.}
+    \label{schLinURO_basic.pdf}
+    }
+	
+
+\end{center}
+
+
+V tomto prípade všetky bloky v schéme sú tvorené prenosovými funkciami (aj $-1$ je v princípe prenosová funkcia) pričom $G_R(s)$ je prenosová funkcia regulátora a~$G_S(s)$ je prenosová funkcia riadeného systému (hovorí sa tiež prenosová funkcia riadenej sústavy).
+
+Avšak, ak sú blokmi URO prenosové funkcie, potom namiesto časových signálov je možné uvažovať ich Laplaceove obrazy (L-obrazy), teda $W(s)$, $E(s)$, $U(s)$ a~$Y(s)$.
+
+
+\subsection{Otvorený regulačný obvod}
+
+S využitím algebry prenosových funkcií vidíme, že $G_R(s)$ a~$G_S(s)$ sú v sérii a~teda máme
+\begin{align}
+    G_{ORO}(s) = G_R(s) G_S(s)
+\end{align}
+pričom $G_{ORO}(s)$ je prenosová funkcia súvisiaca s pojmom \emph{otvorený regulačný obvod} -- je to situácia keď sa neuvažuje spätná väzba (obvod nie je uzavretý).
+
+\begin{center}
+
+    \vspace{-2mm}
+
+    \vbox{%
+    \makebox[\textwidth][c]{%
+	\input{../SVG/schLinORO_basic.pdf_tex}
+	}
+
+    \vspace{-3mm}
+
+	\figcaption{Otvorený regulačný obvod.}
+    \label{schLinORO_basic.pdf}
+    }
+	
+
+\end{center}
+
+
+
+
+\subsection{Prenosová funkcia URO}
+
+Zároveň, na URO je potom jednoduché pozrieť sa ako na jeden celok. Celkovým výstupom URO je výstupná veličina $y(t)$, ktorej L-obraz je $Y(s)$, a~celkovým vstupom URO je žiadaná hodnota $w(t)$ s obrazom $W(s)$. Pomer obrazov $W(s)$ a~$Y(s)$ je prenosovou funkciou URO.
+\begin{align}
+    \frac{Y(s)}{W(s)} = G_{URO}(s)
+\end{align}
+
+Prenosovú funkciu URO je ďalej možné konkretizovať s využitím algebry prenosových funkcií. S využitím $G_{ORO}(s)$ máme situáciu:
+
+\begin{center}
+
+    \vspace{-1mm}
+
+    \vbox{%
+    \makebox[\textwidth][c]{%
+	\input{../SVG/schLinURO_basic_soro.pdf_tex}
+	}
+
+    \vspace{-1mm}
+
+	\figcaption{Prenosová funkcia otvoreného regulačného obvodu v lineárnom uzavretom regulačnom obvode.}
+    \label{schLinURO_basic_soro.pdf}
+    }
+
+\end{center}
+
+\noindent
+a~teda
+\begin{align}
+    G_{URO}(s) = \frac{G_{ORO}(s)}{1+G_{ORO}(s)} = \frac{G_R(s) G_S(s)}{1 + G_R(s) G_S(s)}
+\end{align}
+Tejto prenosovej funkcii sa tiež hovorí prenosová funkcia riadenia.
+
+
+\subsection{Iné prenosové funkcie v URO}
+
+Obdobne je možné skúmať aj iné pomery L-obrazov signálov v uzavretom regulačnom obvode. Napríklad tzv. prenosová funkcia regulačnej odchýlky
+\begin{align}
+    \frac{E(s)}{W(s)} = G_E(s)
+\end{align}
+V tomto prípade teda:
+
+\begin{center}
+
+    \vbox{%
+    \makebox[\textwidth][c]{%
+	\input{../SVG/schLinURO_GE.pdf_tex}
+	}
+
+	\figcaption{Schéma URO pre vyjadrenie prenosovej funkcie regulačnej odchýlky.}
+    \label{schLinURO_GE.pdf}
+    }
+
+\end{center}
+
+\noindent
+a
+\begin{align}
+    G_E(s) = \frac{1}{1+G_{ORO}(s)} = \frac{1}{1 + G_R(s) G_S(s)}
+\end{align}
+
+Túto skutočnosť je možné využiť pri skúmaní dynamiky a~ustáleného stavu regulačnej odchýlky. Regulačná odchýlka totiž priamo hovorí o~splnení či nesplnení cieľa riadenia.
+
+Typickým je tiež uvažovať tzv. poruchu akčného zásahu a~skúmať jej vplyv na výstup URO. Situácia vyzerá nasledovne:
+
+\begin{center}
+
+    \vbox{%
+    \makebox[\textwidth][c]{%
+	\input{../SVG/schLinURO_basic_porucha.pdf_tex}
+	}
+
+	\figcaption{Lineárny uzavretý regulačný obvod s uvažovaním poruchy akčného zásahu.}
+    \label{schLinURO_basic_porucha.pdf}
+    }
+
+\end{center}
+
+Pre izolovanie vplyvu poruchy na výstupnú veličinu je v prvom rade potrebné neuvažovať vplyv samotnej žiadanej hodnoty, teda $W(s) = 0$. Potom hovoríme a~prenosovej funkcii poruchy ak
+\begin{align}
+    \frac{Y(s)}{D(s)} = G_D(s)
+\end{align}
+teda:
+
+\begin{center}
+
+    \vbox{%
+    \makebox[\textwidth][c]{%
+	\input{../SVG/schLinURO_GD.pdf_tex}
+	}
+
+	\figcaption{Schéma URO pre vyjadrenie prenosovej funkcie poruchy.}
+    \label{schLinURO_GD.pdf}
+    }
+
+\end{center}
+
+\noindent
+a
+\begin{align}
+    G_D(s) = \frac{G_S(s)}{1 + G_S(s) G_R(s)}
+\end{align}
+
+
+
+
+
+
+
+
+
+
+% -----------------------------------------------------------------------------
+
+\end{document}
+
+% -----------------------------------------------------------------------------
