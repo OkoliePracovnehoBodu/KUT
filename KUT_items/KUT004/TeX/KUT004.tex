@@ -1,0 +1,235 @@
+\documentclass[a4paper, 10pt, ]{article}
+
+\input{./COMMONFILES/preamble.tex}
+
+% -----------------------------------------------------------------------------
+
+\def\oznacenieCelku{Kolekcia učebných textov}
+
+% -----------------------------------------------------------------------------
+
+
+\def\KUTporadoveCislo{004}
+
+% \def\oznacenieVerzie{v0.9}
+\def\oznacenieVerzie{\phantom{v1.0}}
+
+\def\mesiacRok{apríl 2024}
+
+\def\authorslabel{MT}
+
+
+
+
+
+% -----------------------------------------------------------------------------
+
+\begin{document}
+
+% -----------------------------------------------------------------------------
+% Uvodny nadpis
+
+\noindent
+\parbox[t][18mm][c]{0.3\textwidth}{%
+\raisebox{-0.9\height}{%
+\phantom{.}\includegraphics[height=18mm]{./COMMONFILES/URKFEIlogo.pdf}%
+}%
+}%
+\parbox[t][18mm][c]{0.7\textwidth}{%
+\raggedleft
+
+\sffamily
+\fontsize{16pt}{18pt}
+\fontseries{sbc}
+\selectfont
+
+\noindent
+\textcolor[rgb]{0.75, 0.75, 0.75}{\textls[25]{\oznacenieCelku}}
+}%
+
+\noindent
+\parbox[t][16mm][b]{0.5\textwidth}{%
+\raggedright
+
+\color{Gray}
+\sffamily
+
+\fontsize{12pt}{12pt}
+\selectfont
+\mesiacRok
+
+\fontsize{6pt}{10pt}
+\selectfont
+github.com/PracovnyBod/KUT
+
+\fontsize{8pt}{10pt}
+\selectfont
+\authorslabel
+
+
+
+
+}%
+\parbox[t][16mm][b]{0.5\textwidth}{%
+\raggedleft
+
+\sffamily
+
+\fontsize{6pt}{6pt}
+\selectfont
+
+\textcolor[rgb]{0.68, 0.68, 0.68}{\oznacenieVerzie}
+
+
+\fontsize{14pt}{14pt}
+\selectfont
+
+\bfseries
+
+\includegraphics[height=12pt]{./COMMONFILES/KUT_logo_v0.1.pdf}%
+{%
+\textls[-50]{\KUTporadoveCislo}
+}%
+}%
+
+% -----------------------------------------------------------------------------
+
+
+
+
+\vspace{6mm}
+
+% ---------------------------------------------
+\sffamily
+\bfseries
+\fontsize{18pt}{21pt}
+\selectfont
+
+\begin{flushleft}
+	O PID regulátore
+\end{flushleft}
+
+\bigskip
+
+% -----------------------------------------------------------------------------
+\normalsize
+\normalfont
+% -----------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+\noindent
+\lettrine[lines=1, nindent=1pt, loversize=0.0]{M}{edzi} 
+najviac rozšírené súčasti riadiacich systémov vo všeobecnosti patrí PID regulátor. Využíva regulačnú odchýlku a je ho možné opísať pomocou lineárneho dynamického systému a teda pomocou prenosovej funkcie.
+
+
+Názov \emph{PID} regulátor vystihuje skutočnosť, že tento regulátor má tri principiálne zložky. Proporcionálnu, Integračnú a derivačnú. Ide pri tom o tri spôsoby ako sa tu využíva informácia o regulačnej odchýlke.
+
+Regulátor v skutočnosti pracuje s tromi signálmi. Prvým je samotná regulačná odchýlka $e(t) = w(t) - y(t)$. Z regulačnej odchýlky sa získavajú ďalšie dva signály. Časový integrál regulačnej odchýlky a časová derivácia regulačnej odchýlky. Formálnejšie
+\begin{align}
+    e_i(t) = \int e(t) \text{d}t
+\end{align}
+je časový integrál regulačnej odchýlky a
+\begin{align}
+    e_d(t) = \frac{\text{d}e(t)}{\text{d}t}
+\end{align}
+je časová derivácia regulačnej odchýlky.
+
+Každý z týchto signálov je násobený (zosilnený) nejakou nastaviteľnou konštantou (parametrom regulátora) a výsledný akčný zásah $u(t)$ je súčet týchto troch členov, teda
+\begin{align}
+    u(t) = P e(t) + I  \int e(t) \text{d}t + D  \frac{\text{d}e(t)}{\text{d}t}
+\end{align}
+kde $P$, $I$ a $D$ sú parametre (konštanty, čísla, zosilnenia) regulátora.
+
+
+
+
+
+\paragraph{Prenosová funkcia PID regulátora}
+
+
+Zo všeobecného hľadiska je vstupom regulátora regulačná odchýlka -- signál $e(t)$. Jeho L-obrazom je $E(s)$. Výstupom regulátora je akčný zásah, ktorého L-obrazom je $U(s)$. Prenosová funkcia PID regulátora potom formálne je
+\begin{align}
+    G_R(s) = \frac{U(s)}{E(s)}
+\end{align}
+alebo teda akčný zásah je
+\begin{align}
+    U(s) = G_R(s) E(s)
+\end{align}
+
+L-obrazom integrálu regulačnej odchýlky je $\frac{1}{s} E(s)$ a L-obrazom derivácie regulačnej odchýlky je $sE(s)$. Potom akčný zásah je
+\begin{align}
+    U(s) = P E(s) + I  \frac{1}{s} E(s) + D  sE(s)
+\end{align}
+konvenčne sa v~tejto súvislosti pre označenie parametrov PID používajú $r_0$, $r_{-1}$ a~$r_1$, kde číselný index má vyjadrovať mocninu premennej $s$, pri ktorej sa parameter nachádza. Teda
+\begin{align}
+    U(s) = r_0 E(s) + r_{-1}  \frac{1}{s} E(s) + r_1  sE(s)
+\end{align}
+
+Prenosová funkcia PID regulátora je potom v tvare
+\begin{align} \label{tfPID}
+    G_R(s) = r_0  + r_{-1}  \frac{1}{s}  + r_1  s
+\end{align}
+Tento tvar sa nazýva zložkový tvar, totiž, túto prenosovú funkciu je možné vyjadriť aj v tvare
+\begin{align}
+    G_R(s) = P \left( 1 +  \frac{1}{T_I s}  +  T_D  s \right)
+\end{align}
+kde zmyslom je zavedenie časových konštánt $T_I$ a $T_D$ (tieto parametre majú rozmer času) a pri tom platí $P = r_0$, $T_I = \frac{r_0}{r_{-1}}$ a $T_I = \frac{r_1}{r_0}$.
+
+Len pre názornosť, ak by sme chceli vyjadriť prenosovú funkciu \eqref{tfPID} ako jediný zlomok, potom
+\begin{align} \label{tfPID2}
+    G_R(s) =  \frac{ r_1 s^2 + r_0 s + r_{-1} }{s}
+\end{align}
+kde je zrejmé, že stupeň čitateľa je vyšší ako stupeň menovateľa a teda ide o~nekauzálny systém. To súvisí so skutočnosťou, že realizovať časovú deriváciu, takú, pri ktorej by bola veľkosť časového úseku $\text{d}t$ nekonečne malá, je nereálne. V praxi je možné realizovať kvalitnú aproximáciu ideálnej časovej derivácie, čo sa v týchto súvislostiach prejaví tak, že obrazom signálu v derivačnej zložke nie je $sE(s)$, ale iný výraz, taký, že to má za následok splnenie podmienky kauzality v celkovej prenosovej funkcii PID regulátora.
+
+
+
+
+
+
+\paragraph{Bloková schéma PID regulátora}
+
+Schematicky, pomocou základných funkčných prvkov, vzhľadom na jeho prenosovú funkciu, je možné PID regulátor znázorniť nasledovne:
+
+\begin{center}
+
+    \vspace{-1mm}
+
+    \vbox{%
+    \makebox[\textwidth][c]{%
+    \input{../SVG/PID_blokSch.pdf_tex}
+	}
+
+    \vspace{-3mm}
+
+	\figcaption{Bloková schéma PID regulátora}
+    \label{PID_blokSch.pdf}
+    }
+	
+
+    \vspace{-1mm}
+
+\end{center}
+
+
+
+
+
+
+
+
+
+% -----------------------------------------------------------------------------
+
+\end{document}
+
+% -----------------------------------------------------------------------------
