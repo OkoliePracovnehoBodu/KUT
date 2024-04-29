@@ -28,7 +28,7 @@ dev
 *.run.xml
 *.bcf
 
-
+*.synctex.gz.sum.synctex
 
 
 slprj
