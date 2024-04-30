@@ -1,0 +1,656 @@
+\documentclass[a4paper, 10pt, ]{article}
+
+\input{./COMMONFILES/preamble.tex}
+
+% -----------------------------------------------------------------------------
+
+\def\oznacenieCelku{Kolekcia učebných textov}
+
+% -----------------------------------------------------------------------------
+
+
+\def\KUTporadoveCislo{005}
+
+% \def\oznacenieVerzie{v0.9}
+\def\oznacenieVerzie{\phantom{v1.0}}
+
+\def\mesiacRok{apríl 2024}
+
+\def\authorslabel{RM}
+
+
+
+
+
+% -----------------------------------------------------------------------------
+
+\begin{document}
+
+% -----------------------------------------------------------------------------
+% Uvodny nadpis
+
+\noindent
+\parbox[t][18mm][c]{0.3\textwidth}{%
+\raisebox{-0.9\height}{%
+\phantom{.}\includegraphics[height=18mm]{./COMMONFILES/URKFEIlogo.pdf}%
+}%
+}%
+\parbox[t][18mm][c]{0.7\textwidth}{%
+\raggedleft
+
+\sffamily
+\fontsize{16pt}{18pt}
+\fontseries{sbc}
+\selectfont
+
+\noindent
+\textcolor[rgb]{0.75, 0.75, 0.75}{\textls[25]{\oznacenieCelku}}
+}%
+
+\noindent
+\parbox[t][16mm][b]{0.5\textwidth}{%
+\raggedright
+
+\color{Gray}
+\sffamily
+
+\fontsize{12pt}{12pt}
+\selectfont
+\mesiacRok
+
+\fontsize{6pt}{10pt}
+\selectfont
+github.com/PracovnyBod/KUT
+
+\fontsize{8pt}{10pt}
+\selectfont
+\authorslabel
+
+
+
+
+}%
+\parbox[t][16mm][b]{0.5\textwidth}{%
+\raggedleft
+
+\sffamily
+
+\fontsize{6pt}{6pt}
+\selectfont
+
+\textcolor[rgb]{0.68, 0.68, 0.68}{\oznacenieVerzie}
+
+
+\fontsize{14pt}{14pt}
+\selectfont
+
+\bfseries
+
+\includegraphics[height=12pt]{./COMMONFILES/KUT_logo_v0.1.pdf}%
+{%
+\textls[-50]{\KUTporadoveCislo}
+}%
+}%
+
+% -----------------------------------------------------------------------------
+
+
+
+
+\vspace{6mm}
+
+% ---------------------------------------------
+\sffamily
+\bfseries
+\fontsize{18pt}{21pt}
+\selectfont
+
+\begin{flushleft}
+    O vlastnostiach lineárnych dynamických systémov
+\end{flushleft}
+
+\bigskip
+
+% -----------------------------------------------------------------------------
+\normalsize
+\normalfont
+% -----------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\section{Stabilita}
+
+Systém je stabilný pokiaľ sa po vychýlení z~rovnovážneho stavu a po odznení všetkých síl, ktoré toto vychýlenie spôsobili, vráti v~konečnom čase do pôvodného rovnovážneho stavu. Alebo pokiaľ sa vstup systému pohybuje v~konečných medziach daných systémom, výstup systému sa bude tiež pohybovať v~určitých konečných medziach.
+
+\subsection{Lineárny systém}
+\label{Stability.LinearSystem}
+
+Predpokladajme, že lineárny systém je opísateľný diferenciálnou rovnicou:
+\begin{equation}
+    \label{Stability.LinearSystem.Equation:LDE}
+    y^{(n)} + a_{n - 1} y^{(n - 1)} + \cdots + a_{1} \dot{y} + a_{0} y = 0    
+\end{equation}
+kde $(n)$ označuje $n$-tú deriváciu podľa času. Všeobecné riešenie tejto rovnice je možné nájsť ako lineárnu kombináciu všetkých riešení v tvare:
+\begin{equation}
+    \label{Stability.LinearSystem.Equation:LDESolution}
+    y = 
+    C_{1}(t) \exp(\lambda_{1} t) + C_{2}(t) \exp(\lambda_{2} t) + \cdots + C_{n}(t) \exp(\lambda_{n} t)
+\end{equation}
+kde $\lambda_{i}, \ i = 1, 2, \cdots, n$ sú vlastné čísla (vo všeobecnosti sú komplexné), získame ich z~charakteristickej rovnice diferenciálnej rovnice (\ref{Stability.LinearSystem.Equation:LDE}):
+\begin{equation}
+    \lambda^{n} + a_{n - 1} \lambda^{n - 1} + \cdots + a_{1} \lambda + a_{0} = 0    
+\end{equation} 
+Koeficienty $C_i(t)$ sú vo všeobecnosti polynómy, ktorých koeficienty sú komplexné čísla. Stupeň jednotlivých polynómov sa určuje podľa násobnosti príslušných vlastných čísel. V prípade, že všetky vlastné čísla sú rozdielne, tak ide o konštanty. V prípade dvojnásobného vlastného čísla $\lambda_{i}$ koeficient $C_{i}$ bude polynóm prvého rádu a tak ďalej.
+
+Aby všeobecné riešenie (\ref{Stability.LinearSystem.Equation:LDESolution}) bolo stabilné (konvergovalo do rovnovážneho stavu $0$) je podstatné, aby každá exponenciála konvergovala do $0$, koeficienty $C_i(t)$ nevplývajú na stabilitu, pretože sú to polynómy, ktoré sú dominované exponenciálnou funkciou. Každé riešenie môžeme zapísať v takomto tvare:
+\begin{align}
+    y &= 
+    C \exp \left( \lambda t \right) = 
+    C \exp \left( \Re\{\lambda\} t + i \, \Im\{\lambda\} t \right) \nonumber \\ &=  
+    C \exp \left( \Re\{\lambda\} t \right) \ \left[ \cos \left( \Im\{\lambda\} t \right) + i \sin \left(\Im\{\lambda\} t \right) \right]
+\end{align}
+kde vidíme, že imaginárna časť vlastného čísla je argumentom funkcií kosínus a sínus. Tieto funkcie sú ohraničené, čiže imaginárna časť nemá vplyv na stabilitu, spôsobuje ale kmity v riešení. Reálna časť vlastného čísla je argumentom exponenciálnej funkcie. Exponenciálna funkcia konverguje do $0$ v prípade, že jej argument je záporný. Z toho vyplýva nasledujúce tvrdenie:
+\begin{theorem}
+    \label{Stability.LinearSystem.Theorem:Stability}
+    Lineárny systém rádu $n$ s vlastnými číslami $\lambda_{i}, \ i = 1, 2, \cdots, n$ je
+    \begin{enumerate}
+        \begin{subequations}
+            \item stabilný pokiaľ pre všetky vlastné čísla $\lambda_{i}$:
+            \begin{equation}
+                \Re\{\lambda_i\} < 0, \quad i = 1, 2, \cdots, n
+            \end{equation}
+
+            \item na hranici stability pokiaľ aspoň pre jedno vlastné číslo $\lambda_{i}$:
+            \begin{equation}
+                \Re\{\lambda_i\} = 0, \quad i = 1, 2, \cdots, n
+            \end{equation}
+            
+            \item nestabilný pokiaľ aspoň pre jedno vlastné číslo $\lambda_{i}$:
+            \begin{equation}
+                \Re\{\lambda_i\} > 0, \quad i = 1, 2, \cdots, n
+            \end{equation}
+        \end{subequations}
+    \end{enumerate}
+\end{theorem}
+
+V prípade stavového systému:
+\begin{equation}
+    \dot{\bm{x}} = \bm{A} \bm{x}
+\end{equation}
+môžeme všeobecné riešenie zapísať v tvare:
+\begin{equation}
+    \bm{x}(t) = \exp(\bm{A} (t - t_i)) \bm{x}(t_i)
+\end{equation}
+Rovnako platí tvrdenie (\ref{Stability.LinearSystem.Theorem:Stability}) a vlastné čísla môžeme získať z charakteristickej rovnice:
+\begin{equation}
+    \det \left\{ \bm{A} - \lambda \bm{I} \right\} = 0
+\end{equation} 
+
+
+\subsection{Stabilita vo všeobecnosti - Lyapunovova teória stability}
+
+Vyšetrovanie stability tak ako je popísané v časti \ref{Stability.LinearSystem} platí len pre lineárne systémy. V~prípade, že chceme vyšetriť stabilitu všeobecného systému v~tvare: 
+\begin{equation}
+    \label{Stability.Lyapunov.Equation:System}
+    \dot{\bm{x}} = \bm{f}(\bm{x})
+\end{equation}
+musíme aplikovať Lyapunovovu teóriu stability. Táto teória je použiteľná aj na lineárne systémy.
+
+\begin{definition}[Stabilita podľa Lyapunova, priama metóda]
+    Dynamický systém (\ref{Stability.Lyapunov.Equation:System}) je lokálne stabilný pokiaľ existuje Lyapunovova funkcia $V: \mathbb{R}^n \rightarrow \mathbb{R}$, pre ktorú platí:
+    \begin{subequations}
+        \begin{enumerate}
+            \item V rovnovážnom stave $\bm{x} = \bm{0}$ platí:
+            \begin{equation}
+                \label{Stability.Lyapunov.Definition.Equation:Equilibrium}
+                V(\bm{0}) = 0 \\
+            \end{equation}
+            
+            \item Lyapunovova funkcia je pozitívne definitná:
+            \begin{equation}
+                \label{Stability.Lyapunov.Definition.Equation:PositiveDefinitness}
+                V(\bm{x}) > 0, \quad \bm{x} \neq \bm{0} \\
+            \end{equation}
+            
+            \item Časová derivácia Lyapunovovej funkcie je negatívne semidefinitná:
+            \begin{equation}
+                \label{Stability.Lyapunov.Definition.Equation:NegativeDefinitness}
+                \dot{V}(\bm{x}) = \sum_{i} \parder{V}{x^i} f^i(\bm{x}) = \nabla V^\top \bm{f}(\bm{x}) \leq 0
+            \end{equation}
+            V prípade asymptotickej stability musí byť negatívne definitná:
+            \begin{equation}
+                \label{Stability.Lyapunov.Definition.Equation:NegativeDefinitnessAsymptotical}
+                \dot{V}(\bm{x}) < 0, \quad \dot{V}(\bm{0}) = 0
+            \end{equation}
+            V diskrétnom prípade sa derivácia nahrádza diferenciou, ostatné tvrdenia platia rovnako:
+            \begin{equation}
+                \label{Stability.Lyapunov.Definition.Equation:NegativeDefinitnessDiscrete}
+                V(\bm{x}_{n + 1}) - V(\bm{x}_{n}) < 0
+            \end{equation}
+
+            \item Pokiaľ je $V(\bm{x})$ radiálne neohraničená:
+            \begin{equation}
+                ||\bm{x}|| \rightarrow \infty \ \Rightarrow \ V(\bm{x}) \rightarrow \infty
+            \end{equation}
+            tak hovoríme, že je systém globálne stabilný.
+        \end{enumerate}
+    \end{subequations}
+\end{definition}
+
+
+\subsection{Diskrétny systém}
+
+Vyšetríme teraz pomocou Lyapunovovej teórie stability stabilitu lineárneho diskrétneho systému v~tvare:
+\begin{equation}
+    \label{Stability.Lyapunov.Discrete.Equation:StateSpaceModel}
+    \bm{x}_{n + 1} = \bm{A} \bm{x}_{n}
+\end{equation}
+
+Zvolíme kandidáta na Lyapunovovu funkciu v~tvare:
+\begin{equation}
+    \label{Stability.Lyapunov.Discrete.Equation:LyapunovCandidate}
+    V(\bm{x}_{n}) = \bm{x}_{n}^\top \bm{P} \bm{x}_{n}
+\end{equation}
+kde $\bm{P}$ musí byť symetrická pozitívne definitná matica, aby bola splnená podmienka (\ref{Stability.Lyapunov.Definition.Equation:PositiveDefinitness})
+
+Ďalej musí byť splnená podmienka (\ref{Stability.Lyapunov.Definition.Equation:NegativeDefinitnessDiscrete}), dosadíme teda (\ref{Stability.Lyapunov.Discrete.Equation:LyapunovCandidate}):
+\begin{equation}
+    \label{Stability.Lyapunov.Discrete.Equation:LyapunovEquation1}
+    \bm{x}_{n + 1}^\top \bm{P} \bm{x}_{n + 1} - \bm{x}_{n}^\top \bm{P} \bm{x}_{n} < 0
+\end{equation}
+a do (\ref{Stability.Lyapunov.Discrete.Equation:LyapunovEquation1}) dosadíme rovnicu systému (\ref{Stability.Lyapunov.Discrete.Equation:StateSpaceModel}) a~stavové vektory vyberieme pred zátvorku $\bm{x}_{n}$:
+\begin{equation}
+    \label{Stability.Lyapunov.Discrete.Equation:LyapunovEquation2}
+    \bm{x}_{n}^\top \left( \bm{A}^\top \bm{P} \bm{A} - \bm{P} \right) \bm{x}_{n} < 0
+\end{equation}
+Rovnica (\ref{Stability.Lyapunov.Discrete.Equation:LyapunovEquation2}) musí platiť pre všetky $\bm{x}_{n}$, teda musí platiť:
+\begin{equation}
+    \label{Stability.Lyapunov.Discrete.Equation:LyapunovEquation3}
+    \bm{A}^\top \bm{P} \bm{A} - \bm{P} < 0
+\end{equation}
+Nerovnicu (\ref{Stability.Lyapunov.Discrete.Equation:LyapunovEquation3}) je náročné riešiť, môžeme ju ale ekvivalentne zapísať ako rovnicu: 
+\begin{equation}
+    \label{Stability.Lyapunov.Discrete.Equation:LyapunovEquation}
+    \bm{A}^\top \bm{P} \bm{A} - \bm{P} = -\bm{Q}
+\end{equation}
+kde $\bm{Q}$ je pozitívne definitná matica. Rovnica (\ref{Stability.Lyapunov.Discrete.Equation:LyapunovEquation}) sa nazýva diskrétna Lyapunovova rovnica, pokiaľ existuje riešenie $\bm{P}$, ktoré je pozitívne definitné, tak systém (\ref{Stability.Lyapunov.Discrete.Equation:StateSpaceModel}) je stabilný.
+
+
+\subsection{Spojitý systém}
+Pomocou Lyapunovovej teórie stability vyšetríme aj stabilitu lineárneho spojitého systému v~tvare:
+\begin{equation}
+    \label{Stability.Lyapunov.Continuous.Equation:StateSpaceModel}
+    \dot{\bm{x}} = \bm{A} \bm{x}
+\end{equation}
+
+Zvolíme kandidáta na Lyapunovovu funkciu tak, aby bola splnená podmienka (\ref{Stability.Lyapunov.Definition.Equation:PositiveDefinitness}):
+\begin{equation}
+    \label{Stability.Lyapunov.Continuous.Equation:LyapunovCandidate}
+    V = \bm{x}^\top \bm{P} \bm{x}
+\end{equation}
+kde $\bm{P}$ musí byť symetrická pozitívne definitná matica.
+
+Vypočítame časovú deriváciu (\ref{Stability.Lyapunov.Continuous.Equation:LyapunovCandidate}) a vyšetríme podmienku (\ref{Stability.Lyapunov.Definition.Equation:NegativeDefinitnessAsymptotical}):
+\begin{equation}
+    \label{Stability.Lyapunov.Continuous.Equation:LyapunovEquation1}
+    \dot{\bm{x}}^\top \bm{P} \bm{x} + \bm{x}^\top \bm{P} \dot{\bm{x}} < 0
+\end{equation}
+Do získaného výrazu (\ref{Stability.Lyapunov.Continuous.Equation:LyapunovEquation1}) dosadíme rovnicu systému (\ref{Stability.Lyapunov.Continuous.Equation:StateSpaceModel}):
+\begin{equation}
+    \label{Stability.Lyapunov.Continuous.Equation:LyapunovEquation2}
+    \bm{x}^\top \left( \bm{A}^\top \bm{P} + \bm{P} \bm{A} \right) \bm{x} < 0
+\end{equation}
+Rovnica (\ref{Stability.Lyapunov.Continuous.Equation:LyapunovEquation2}) musí byť splnená pre každý stav $\bm{x}$ teda:
+\begin{equation}
+    \label{Stability.Lyapunov.Continuous.Equation:LyapunovEquation3}
+    \bm{A}^\top \bm{P} + \bm{P} \bm{A} < 0
+\end{equation}
+Nerovnicu (\ref{Stability.Lyapunov.Continuous.Equation:LyapunovEquation3}) je náročné riešiť, môžeme ju ale ekvivalentne zapísať ako rovnicu: 
+\begin{equation}
+    \label{Stability.Lyapunov.Continuous.Equation:LyapunovEquation}
+    \bm{A}^\top \bm{P} + \bm{P} \bm{A} = -\bm{Q}
+\end{equation}
+kde $\bm{Q}$ je symetrická pozitívne definitná matica. Rovnica (\ref{Stability.Lyapunov.Continuous.Equation:LyapunovEquation}) sa nazýva spojitá Lyapunovova rovnica, pokiaľ existuje riešenie $\bm{P}$, ktoré je pozitívne definitné, tak systém (\ref{Stability.Lyapunov.Continuous.Equation:StateSpaceModel}) je stabilný.
+
+
+
+
+
+
+
+
+\section{Pozorovateľnosť}
+
+Pozorovateľnosť je mierou ako dobre je možné určiť vnútorný stavový vektor na základe výstupov systému. Systém je pozorovateľný, pokiaľ aktuálny stavový vektor je možné určiť len na základe nameraných výstupov systému. 
+
+
+\subsection{Diskrétny systém}
+
+V nasledujúcej časti odvodíme podmienku pozorovateľnosti pre diskrétny lineárny systém:
+\begin{equation}
+    \label{Observability.Discrete.Equation:StateSpaceModel}
+    \bm{x}_{n + 1} = \bm{A} \bm{x}_{n}
+\end{equation}
+kde $\bm{x}_{n}$ je vnútorný stav, ktorý sa budeme snažiť určiť na základe výstupu:
+\begin{equation}
+    \label{Observability.Discrete.Equation:Output}
+    \bm{y}_n = \bm{C} \bm{x}_{n}
+\end{equation}
+
+Na určenie $n$ prvkového stavového vektora potrebujeme práve $n$ meraní výstupu. Rovnicu výstupu (\ref{Observability.Discrete.Equation:Output}) môžeme teda rozpísať do sústavy $n$ rovníc:
+\begin{subequations}
+    \label{Observability.Discrete.Equation:OutputSystem}
+    \begin{align}
+        \bm{y}_0       &= \bm{C} \bm{x}_{0}                \\
+        \bm{y}_1       &= \bm{C} \bm{A} \bm{x}_{0}         \\
+        &\vdotswithin{=}                                   \\
+        \bm{y}_{n - 1} &= \bm{C} \bm{A}^{n - 1} \bm{x}_{0}
+    \end{align}
+\end{subequations}
+Stačí určiť stav $\bm{x}_0$, pretože na základe neho vývojom systému potom vieme dopočítať všetky možné vnútorné stavy. Pridanie ďalšieho merania už neprinesie žiadnu novú informáciu, pretože na základe Cayleyho-Hamiltonovho teorému môžeme $n$-tú mocninu matice napísať ako lineárnu kombináciu jej predošlých $n - 1$ mocnín:
+\begin{equation}
+    \bm{A}^n = \sum_{i = 0}^{n - 1} \alpha_{i} \bm{A}^{i}
+\end{equation}
+čiže nová informácia by bola lineárne závislá od ostatných, to znamená, že už je zahrnutá a nemá zmysel ju znova vniesť do rovníc.
+
+Systém rovníc (\ref{Observability.Discrete.Equation:OutputSystem}) môžeme tiež zapísať maticovo:
+\begin{equation}
+    \label{Observability.Discrete.Equation:OutputSystemMatrix}
+    \begin{bmatrix}
+        \bm{y}_{0}     \\
+        \bm{y}_{1}     \\
+        \vdots         \\
+        \bm{y}_{n - 1} \\
+    \end{bmatrix} = 
+    \underbrace{
+        \begin{bmatrix}
+            \bm{C}                \\
+            \bm{C} \bm{A}         \\
+            \vdots                \\
+            \bm{C} \bm{A}^{n - 1} \\
+        \end{bmatrix}
+    }_{\bs{\mathcal{O}}}
+    \bm{x}_0
+\end{equation}
+Snažíme sa vyriešiť systém (\ref{Observability.Discrete.Equation:OutputSystemMatrix}) vzhľadom na $\bm{x}_{0}$, kde $\bs{\mathcal{O}}$ označuje maticu pozorovateľnosti s~rozmermi $mn \times n$, kde $m$ je počet výstupov. Riešenie bude existovať len vtedy ak matica pozorovateľnosti bude mať plnú hodnosť.
+
+\begin{theorem}
+    Diskrétny lineárny systém (\ref{Observability.Discrete.Equation:StateSpaceModel}) je pozorovateľný pokiaľ matica pozorovateľnosti $\bs{\mathcal{O}}$ má plnú hodnosť:
+    \begin{equation}
+        \label{Observability.Discrete.Equation:ObservabilityTheorem}
+        \rank \left\{ \bs{\mathcal{O}} \right\} = 
+        \rank \left\{
+            \begin{bmatrix}
+                \bm{C}                \\
+                \bm{C} \bm{A}         \\
+                \vdots                \\
+                \bm{C} \bm{A}^{n - 1} \\
+            \end{bmatrix}
+        \right\} = 
+        n
+    \end{equation}
+\end{theorem}
+
+
+\subsection{Spojitý systém}
+
+V nasledujúcej časti odvodíme podmienku pozorovateľnosti pre diskrétny lineárny systém:
+\begin{equation}
+    \label{Observability.Continuous.Equation:StateSpaceModel}
+    \dot{\bm{x}} = \bm{A} \bm{x}
+\end{equation}
+kde $\bm{x}$ je vnútorný stav, ktorý sa budeme snažiť určiť na základe výstupu:
+\begin{equation}
+    \label{Observability.Continuous.Equation:Output}
+    \bm{y} = \bm{C} \bm{x}
+\end{equation}
+Diferenciálna rovnica (\ref{Observability.Continuous.Equation:StateSpaceModel}) má riešenie v tvare:
+\begin{equation}
+    \bm{x}(t) = \exp \left( \bm{A} (t - t_i) \right)
+\end{equation}
+čiže opäť je postačujúce poznať stav v začiatočnom čase $t_i$.
+
+Predpokladáme, že poznáme výstup systému $\bm{y}$ a jeho $n - 1$ derivácií:
+\begin{subequations}
+    \label{Observability.Continuous.Equation:OutputSystem}
+    \begin{align}
+        \dot{\bm{y}}(t_i)     &= \bm{C} \bm{x}(t_i)                \\
+        \ddot{\bm{y}}(t_i)    &= \bm{C} \bm{A} \bm{x}(t_i)         \\
+        &\vdotswithin{=}                                           \\
+        \bm{y}^{(n - 1)}(t_i) &= \bm{C} \bm{A}^{n - 1} \bm{x}(t_i)
+    \end{align}
+\end{subequations}
+Znova platí argument, že na $n$ prvkov stavu potrebujeme práve $n$ informácií, novo pridaná informácia by bola lineárne závislá od ostatných. Snažíme sa teda vyriešiť sústavu rovníc:
+\begin{equation}
+    \label{Observability.Continuous.Equation:OutputSystemMatrix}
+    \begin{bmatrix}
+        \dot{\bm{y}}(t_i)     \\
+        \ddot{\bm{y}}(t_i)    \\
+        \vdots                \\
+        \bm{y}^{(n - 1)}(t_i)
+    \end{bmatrix} = 
+    \underbrace{
+        \begin{bmatrix}
+            \bm{C}                \\
+            \bm{C} \bm{A}         \\
+            \vdots                \\
+            \bm{C} \bm{A}^{n - 1} \\
+        \end{bmatrix}
+    }_{\bs{\mathcal{O}}}
+    \bm{x}(t_i)
+\end{equation}
+ktorá je riešiteľná len vtedy, keď matica pozorovateľnosti $\bs{\mathcal{O}}$, s~rozmermi $mn \times n$, kde $m$ je počet výstupov, má plnú hodnosť.
+
+\begin{theorem}
+    Spojitý lineárny systém (\ref{Observability.Continuous.Equation:StateSpaceModel}) je pozorovateľný pokiaľ matica pozorovateľnosti $\bs{\mathcal{O}}$ má plnú hodnosť:
+    \begin{equation}
+        \label{Observability.Continuous.Equation:ObservabilityTheorem}
+        \rank \left\{ \bs{\mathcal{O}} \right\} = 
+        \rank \left\{
+            \begin{bmatrix}
+                \bm{C}                \\
+                \bm{C} \bm{A}         \\
+                \vdots                \\
+                \bm{C} \bm{A}^{n - 1} \\
+            \end{bmatrix}
+        \right\} = 
+        n
+    \end{equation}
+\end{theorem}
+
+Ako sa dalo očakávať pre diskrétny aj spojitý lineárny systém je podmienka pozorovateľnosti definovaná v~rovnakom tvare.
+
+
+
+
+
+
+
+
+
+\section{Riaditeľnosť}
+
+Riaditeľnosť je vlastnosť dynamických systémov dosiahnuť konečný stav zo začiatočného stavu v~konečnom čase. Hovoríme, že systém je riaditeľný pokiaľ existuje taká postupnosť vstupov, ktorá zabezpečí, že systém sa dostane z ľubovoľného začiatočného stavu do ľubovoľného konečného stavu v~konečnom čase.
+
+\subsection{Diskrétny systém}
+
+Diskrétny lineárny systém je opísaný stavovou rovnicou:
+\begin{equation}
+    \label{Controllability.Discrete.Equation:StateSpaceModel}
+    \bm{x}_{n + 1} = \bm{A} \bm{x}_{n} + \bm{B} \bm{u}_{n}
+\end{equation}
+Vývoj systému (\ref{Controllability.Discrete.Equation:StateSpaceModel}) môžeme rozpísať do sústavy rovníc:
+\begin{subequations}
+    \begin{align}
+        \bm{x}_{1} &= \bm{A} \bm{x}_{0} + \bm{B} \bm{u}_{0} \\
+        \bm{x}_{2} &= \bm{A}^2 \bm{x}_{0} + \bm{A} \bm{B} \bm{u}_{0} + \bm{B} \bm{u}_{1} \\
+        &\vdotswithin{=} \nonumber \\
+        \label{Controllability.Discrete.Equation:ControllabilityEquationFinalState}
+        \bm{x}_{n} &= \bm{A}^{n} \bm{x}_{0} + \bm{A}^{n - 1} \bm{B} \bm{u}_{0} + \cdots + \bm{A} \bm{B} \bm{u}_{n - 2} + \bm{B} \bm{u}_{n - 1}
+    \end{align}
+\end{subequations}
+Rovnica \ref{Controllability.Discrete.Equation:ControllabilityEquationFinalState} opisuje postupnosť ako dosiahnuť konečný stav $\bm{x}_n$, kde $n$ označuje celkový počet stavov. Rovnako ju môžeme zapísať aj v maticovom tvare:
+\begin{equation}
+    \label{Controllability.Discrete.Equation:ControllabilityEquation}
+    \bm{x}_{n} - \bm{A}^{n} \bm{x}_{0} = 
+    \underbrace{
+        \begin{bmatrix}
+            \bm{B} & \bm{A} \bm{B} & \cdots & \bm{A}^{n - 1} \bm{B}
+        \end{bmatrix}
+    }_{\bs{\mathcal{C}}}
+    \begin{bmatrix}
+        \bm{u}_{n - 1} \\
+        \bm{u}_{n - 2} \\
+        \vdots         \\
+        \bm{u}_{0}     \\
+    \end{bmatrix}
+\end{equation}
+kde $\bs{\mathcal{C}}$ označuje maticu riaditeľnosti. Matica $\bs{\mathcal{C}}$ má rozmery $n \times mn$, kde $m$ je počet vstupov (rozmer vektora $\bm{u}$). Rovnicu (\ref{Controllability.Discrete.Equation:ControllabilityEquation}) riešime pre vstupy $\bm{u}_{i}$ a~riešenie existuje pokiaľ matica riaditeľnosti $\bs{\mathcal{C}}$ má plnú hodnosť.
+
+\begin{theorem}
+    Diskrétny lineárny systém (\ref{Controllability.Discrete.Equation:StateSpaceModel}) je riaditeľný pokiaľ matica riaditeľnosti má plnú hodnosť:
+    \begin{equation}
+        \label{Controllability.Discrete.Equation:ControllabilityTheorem}
+        \rank \left\{ \bs{\mathcal{C}} \right\} = 
+        \rank \left\{
+            \begin{bmatrix}
+                \bm{B} & \bm{A} \bm{B} & \cdots & \bm{A}^{n - 1} \bm{B}
+            \end{bmatrix}
+        \right\} = 
+        n
+    \end{equation}
+\end{theorem}
+
+
+
+\subsection{Spojitý systém}
+
+V prípade spojitého lineárneho systému v~stavovom opise:
+\begin{equation}
+    \label{Controllability.Continuous.Equation:StateSpaceModel}
+    \dot{\bm{x}} = \bm{A} \bm{x} + \bm{B} \bm{u}
+\end{equation}
+môžeme riešenie zo začiatočného stavu $\bm{x}(t_i)$ do koncového stavu $\bm{x}(t_f)$ nájsť v~tvare:
+\begin{equation}
+    \label{Controllability.Continuous.Equation:StateSpaceModelSolution}
+    \bm{x}(t_f) = \exp \left( \bm{A} (t_f - t_i) \right) + \int_{t_i}^{t_f} \exp(\bm{A} (t_f - \tau)) \bm{B} \bm{u}(\tau) d\tau
+\end{equation}
+alebo:
+\begin{equation}
+    \label{Controllability.Continuous.Equation:StateSpaceModelSolutionModified}
+    \exp(-\bm{A} t_f) \bm{x}(t_f) - \exp(-\bm{A} t_i) \bm{x}(t_i) = \int_{t_i}^{t_f} \exp(-\bm{A} \tau) \bm{B} \bm{u}(\tau) d\tau
+\end{equation}
+Maticový exponent môžeme vyjadriť ako nekonečný rad:
+\begin{equation}
+    \label{Controllability.Continuous.Equation:MatrixExponent}
+    \exp(\bm{A} \tau) = \sum_{n = 0}^{\infty} \frac{1}{n!} \bm{A}^{n} \tau^{n}
+\end{equation}
+
+Práca s nekonečnými radmi je ale nepraktická. Vďaka Cayleymu-Hamiltonovmu teorému ale môžeme všetky vyššie mocniny ako $n$ matice $\bm{A}$ zapísať ako lineárnu kombináciu nižších mocnín:
+\begin{equation}
+    \bm{A}^{n} = \sum_{i = 0}^{n - 1} \alpha_{i} \bm{A}^{i}
+\end{equation}
+Maticový exponent (\ref{Controllability.Continuous.Equation:MatrixExponent}) môžeme teda prepísať do konečného radu, ktorého koeficienty sú závislé od času $\tau$:
+\begin{equation}
+    \exp(\bm{A} \tau) = \sum_{n = 0}^{n - 1} \alpha_i(\tau) \bm{A}^{i}
+\end{equation}
+kde $n$ v~tomto prípade označuje rád systému (počet prvkov stavového vektora $\bm{x}$). Rovnica (\ref{Controllability.Continuous.Equation:StateSpaceModelSolutionModified}) potom prejde do tvaru:
+\begin{equation}
+    \exp(-\bm{A} t_f) \bm{x}(t_f) - \exp(-\bm{A} t_i) \bm{x}(t_i) = \sum_{n = 0}^{n - 1} \left( \bm{A}^{i} \bm{B} \int_{t_i}^{t_f} \alpha_i(\tau) \bm{u}(\tau) d\tau \right)
+\end{equation}
+alebo miesto sumy môžeme použiť maticové násobenie:
+\begin{multline}
+    \exp(-\bm{A} t_f) \bm{x}(t_f) - \exp(-\bm{A} t_i) \bm{x}(t_i) \\ = 
+    \underbrace{
+        \begin{bmatrix}
+            \bm{B} & \bm{A}\bm{B} & \cdots & \bm{A}^{n - 1} \bm{B}
+        \end{bmatrix}
+    }_{\bs{\mathcal{C}}}
+    \begin{bmatrix}
+        \int_{t_i}^{t_f} \alpha_0(\tau) \bm{u}(\tau) d\tau       \\
+        \int_{t_i}^{t_f} \alpha_1(\tau) \bm{u}(\tau) d\tau       \\
+        \vdots                                                 \\
+        \int_{t_i}^{t_f} \alpha_{n - 1}(\tau) \bm{u}(\tau) d\tau \\
+    \end{bmatrix}
+\end{multline}
+Získali sme sústavu rovníc, ktorej riešenie vráti postupnosť vstupov na dosiahnutie stavu $\bm{x}(t_f)$. Riešenie ale nie je triviálne, je ale postačujúce len poznať, že takéto riešenie existuje. Riešenie bude existovať ak matica riaditeľnosti $\bs{\mathcal{C}}$, s~rozmermi $n \times mn$, kde m je rozmer vstupného vektora $\bm{u}$ a $n$ je rozmer stavového vektora $\bm{x}$, má plnú hodnosť.
+
+\begin{theorem}
+    Spojitý lineárny systém (\ref{Controllability.Continuous.Equation:StateSpaceModel}) je riaditeľný pokiaľ matica riaditeľnosti $\bs{\mathcal{C}}$ má plnú hodnosť:
+    \begin{equation}
+        \label{Controllability.Continuous.Equation:ControllabilityTheorem}
+        \rank \left\{ \bs{\mathcal{C}} \right\} = 
+        \rank \left\{
+            \begin{bmatrix}
+                \bm{B} & \bm{A} \bm{B} & \cdots & \bm{A}^{n - 1} \bm{B}
+            \end{bmatrix}
+        \right\} = 
+        n
+    \end{equation}
+\end{theorem}
+
+
+
+
+
+
+
+
+
+
+\section{Cayleyho-Hamiltonov teorém}
+
+\begin{theorem}
+    Štvorcová matica je riešením svojho charakteristického polynómu.
+
+    \noindent Predpokladajme, že existuje štvorcová matica $\bm{A}$ s charakteristickou rovnicou:
+    \begin{equation}
+        \det \left\{ \bm{A} - \lambda \, \bm{I} \right\} = 0
+    \end{equation}
+    Túto rovnicu je možné rozpísať do tvaru:
+    \begin{equation}
+        \lambda^n + \alpha_{n - 1} \lambda^{n - 1} + \cdots + \alpha_{1} \lambda + \alpha_{0} = 0
+    \end{equation}
+    Po dosadení matice $\bm{A}$ za vlastné čísla $\lambda$:
+    \begin{equation}
+        \bm{A}^n + \alpha_{n - 1} \bm{A}^{n - 1} + \cdots + \alpha_{1} \bm{A} + \alpha_{0} \bm{I} = 0
+    \end{equation}
+    Z toho vidíme, že $n$-tú mocninu matice $\bm{A}$ môžeme zapísať	ako lineárnu kombináciu jej nižších mocnín:
+    \begin{equation}
+        \bm{A}^n = \sum_{i = 0}^{n - 1} \alpha_{i} \bm{A}^{i}
+    \end{equation}
+\end{theorem}
+
+
+
+
+
+
+
+
+
+\end{document}
+
+
+
+
+
+
+
+
+
+
