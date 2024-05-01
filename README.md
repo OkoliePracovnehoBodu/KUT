@@ -15,13 +15,13 @@ Adresár `KUT_items`  obsahuje krátke učebné texty vo forme podadresárov `KU
 
 Každý krátky učebný text (KUT) obsahuje hlavný PDF dokument spravidla v adresári `TeX` s názvom `KUT_###.pdf` a prípadne ďalšie súbory, ktoré sú súčasťou KUT-u. Napríklad vektorové obrázky patriace k textu sú v adresári `SVG` a podobne. 
 
-Adresár `KUT_indexes` obsahuje indexy jednotlivých položiek v adresári `KUT_items`, inými slovami zoznami krátkych učebných textov. Prirodzene zoznam všetkých textov ale tiež aj tematicky zamerané zoznamy. Tieto indexi spravidla obsahujú odkazy na hlavné PDF dokumenty krátkych učebných textov.
+Adresár `KUT_indexes` obsahuje indexy jednotlivých položiek v adresári `KUT_items`, inými slovami zoznami krátkych učebných textov. Prirodzene zoznam všetkých textov ale tiež aj tematicky zamerané zoznamy. Tieto indexy spravidla obsahujú odkazy na hlavné PDF dokumenty krátkych učebných textov.
 
 ### Vývojové vetvy (branches)
 
 Repozitár obsahuje viacero tzv. vetiev.  Hlavná vetva je `main`. Táto vetva obsahuje takpovediac hotové a dokončené krátke učebné texty. Materiál v tejto hlavnej vetve možno považovať za takpovediac overený, vhodný pre bežného používateľa.
 
-Iné vetvy sú napríklad miestom kde autor alebo skupina autorov priebežne vytvára texty a iný obsah. Tipicky obsahuje aj iné adresáre ako hlavná vetva a ich obsah môže byť hodnotný pre pokročilého používateľa. Ďalšia konkretizácia obsahu a učelu týchto iných vetiev je nad rámec týchto vysvetliviek.
+Iné vetvy sú napríklad miestom kde autor alebo skupina autorov priebežne vytvára texty a iný obsah. Typicky obsahuje aj iné adresáre ako hlavná vetva a ich obsah môže byť hodnotný pre pokročilého používateľa. Ďalšia konkretizácia obsahu a účelu týchto iných vetiev je nad rámec týchto vysvetliviek.
 
 
 ## O projekte
