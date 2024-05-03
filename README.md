@@ -34,4 +34,4 @@ Napríklad ak je v skupine predmetov spoločnou témou teória automatického ri
 
 
 ##
-#highqualitycontent: [@novatuha](https://www.instagram.com/novatuha/)
+<span style="font-size:0.68em;">#highqualitycontent: [@novatuha](https://www.instagram.com/novatuha/)</span>
