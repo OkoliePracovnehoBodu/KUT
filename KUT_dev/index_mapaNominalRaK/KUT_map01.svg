@@ -1,0 +1,3063 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="420mm"
+   height="297mm"
+   viewBox="0 0 420 297"
+   version="1.1"
+   id="svg1"
+   inkscape:version="1.3.2 (091e20e, 2023-11-25, custom)"
+   sodipodi:docname="KUT_map01.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     inkscape:zoom="0.8699308"
+     inkscape:cx="377.04148"
+     inkscape:cy="515.55825"
+     inkscape:window-width="3765"
+     inkscape:window-height="1577"
+     inkscape:window-x="67"
+     inkscape:window-y="1113"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer8"
+     showgrid="true"
+     showguides="true">
+    <inkscape:grid
+       id="grid4"
+       units="mm"
+       originx="0"
+       originy="0"
+       spacingx="5"
+       spacingy="5"
+       empcolor="#737373"
+       empopacity="0.18039216"
+       color="#0099e5"
+       opacity="0.0627451"
+       empspacing="6"
+       dotted="false"
+       gridanglex="30"
+       gridanglez="30"
+       visible="false"
+       enabled="true" />
+  </sodipodi:namedview>
+  <defs
+     id="defs1">
+    <marker
+       style="overflow:visible"
+       id="marker27"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Dot"
+       markerWidth="1"
+       markerHeight="1"
+       viewBox="0 0 1 1"
+       inkscape:isstock="true"
+       inkscape:collect="always"
+       preserveAspectRatio="xMidYMid">
+      <path
+         transform="scale(0.5)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:none"
+         d="M 5,0 C 5,2.76 2.76,5 0,5 -2.76,5 -5,2.76 -5,0 c 0,-2.76 2.3,-5 5,-5 2.76,0 5,2.24 5,5 z"
+         sodipodi:nodetypes="sssss"
+         id="path27" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="marker26"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Dot"
+       markerWidth="1"
+       markerHeight="1"
+       viewBox="0 0 1 1"
+       inkscape:isstock="true"
+       inkscape:collect="always"
+       preserveAspectRatio="xMidYMid">
+      <path
+         transform="scale(0.5)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:none"
+         d="M 5,0 C 5,2.76 2.76,5 0,5 -2.76,5 -5,2.76 -5,0 c 0,-2.76 2.3,-5 5,-5 2.76,0 5,2.24 5,5 z"
+         sodipodi:nodetypes="sssss"
+         id="path26" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="Dot"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Dot"
+       markerWidth="1"
+       markerHeight="1"
+       viewBox="0 0 1 1"
+       inkscape:isstock="true"
+       inkscape:collect="always"
+       preserveAspectRatio="xMidYMid">
+      <path
+         transform="scale(0.5)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:none"
+         d="M 5,0 C 5,2.76 2.76,5 0,5 -2.76,5 -5,2.76 -5,0 c 0,-2.76 2.3,-5 5,-5 2.76,0 5,2.24 5,5 z"
+         sodipodi:nodetypes="sssss"
+         id="path17" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="Dot-5"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Dot"
+       markerWidth="1"
+       markerHeight="1"
+       viewBox="0 0 1 1"
+       inkscape:isstock="true"
+       inkscape:collect="always"
+       preserveAspectRatio="xMidYMid">
+      <path
+         transform="scale(0.5)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:none"
+         d="M 5,0 C 5,2.76 2.76,5 0,5 -2.76,5 -5,2.76 -5,0 c 0,-2.76 2.3,-5 5,-5 2.76,0 5,2.24 5,5 z"
+         sodipodi:nodetypes="sssss"
+         id="path17-6" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="marker26-8"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Dot"
+       markerWidth="1"
+       markerHeight="1"
+       viewBox="0 0 1 1"
+       inkscape:isstock="true"
+       inkscape:collect="always"
+       preserveAspectRatio="xMidYMid">
+      <path
+         transform="scale(0.5)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:none"
+         d="M 5,0 C 5,2.76 2.76,5 0,5 -2.76,5 -5,2.76 -5,0 c 0,-2.76 2.3,-5 5,-5 2.76,0 5,2.24 5,5 z"
+         sodipodi:nodetypes="sssss"
+         id="path26-9" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="Dot-4"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Dot"
+       markerWidth="1"
+       markerHeight="1"
+       viewBox="0 0 1 1"
+       inkscape:isstock="true"
+       inkscape:collect="always"
+       preserveAspectRatio="xMidYMid">
+      <path
+         transform="scale(0.5)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:none"
+         d="M 5,0 C 5,2.76 2.76,5 0,5 -2.76,5 -5,2.76 -5,0 c 0,-2.76 2.3,-5 5,-5 2.76,0 5,2.24 5,5 z"
+         sodipodi:nodetypes="sssss"
+         id="path17-2" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="marker26-2"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Dot"
+       markerWidth="1"
+       markerHeight="1"
+       viewBox="0 0 1 1"
+       inkscape:isstock="true"
+       inkscape:collect="always"
+       preserveAspectRatio="xMidYMid">
+      <path
+         transform="scale(0.5)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:none"
+         d="M 5,0 C 5,2.76 2.76,5 0,5 -2.76,5 -5,2.76 -5,0 c 0,-2.76 2.3,-5 5,-5 2.76,0 5,2.24 5,5 z"
+         sodipodi:nodetypes="sssss"
+         id="path26-90" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="Dot-5-1"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Dot"
+       markerWidth="1"
+       markerHeight="1"
+       viewBox="0 0 1 1"
+       inkscape:isstock="true"
+       inkscape:collect="always"
+       preserveAspectRatio="xMidYMid">
+      <path
+         transform="scale(0.5)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:none"
+         d="M 5,0 C 5,2.76 2.76,5 0,5 -2.76,5 -5,2.76 -5,0 c 0,-2.76 2.3,-5 5,-5 2.76,0 5,2.24 5,5 z"
+         sodipodi:nodetypes="sssss"
+         id="path17-6-4" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="marker26-8-7"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Dot"
+       markerWidth="1"
+       markerHeight="1"
+       viewBox="0 0 1 1"
+       inkscape:isstock="true"
+       inkscape:collect="always"
+       preserveAspectRatio="xMidYMid">
+      <path
+         transform="scale(0.5)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:none"
+         d="M 5,0 C 5,2.76 2.76,5 0,5 -2.76,5 -5,2.76 -5,0 c 0,-2.76 2.3,-5 5,-5 2.76,0 5,2.24 5,5 z"
+         sodipodi:nodetypes="sssss"
+         id="path26-9-5" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="Dot-4-1"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Dot"
+       markerWidth="1"
+       markerHeight="1"
+       viewBox="0 0 1 1"
+       inkscape:isstock="true"
+       inkscape:collect="always"
+       preserveAspectRatio="xMidYMid">
+      <path
+         transform="scale(0.5)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:none"
+         d="M 5,0 C 5,2.76 2.76,5 0,5 -2.76,5 -5,2.76 -5,0 c 0,-2.76 2.3,-5 5,-5 2.76,0 5,2.24 5,5 z"
+         sodipodi:nodetypes="sssss"
+         id="path17-2-9" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="marker27-1"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Dot"
+       markerWidth="1"
+       markerHeight="1"
+       viewBox="0 0 1 1"
+       inkscape:isstock="true"
+       inkscape:collect="always"
+       preserveAspectRatio="xMidYMid">
+      <path
+         transform="scale(0.5)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:none"
+         d="M 5,0 C 5,2.76 2.76,5 0,5 -2.76,5 -5,2.76 -5,0 c 0,-2.76 2.3,-5 5,-5 2.76,0 5,2.24 5,5 z"
+         sodipodi:nodetypes="sssss"
+         id="path27-2" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="marker26-2-8"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Dot"
+       markerWidth="1"
+       markerHeight="1"
+       viewBox="0 0 1 1"
+       inkscape:isstock="true"
+       inkscape:collect="always"
+       preserveAspectRatio="xMidYMid">
+      <path
+         transform="scale(0.5)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:none"
+         d="M 5,0 C 5,2.76 2.76,5 0,5 -2.76,5 -5,2.76 -5,0 c 0,-2.76 2.3,-5 5,-5 2.76,0 5,2.24 5,5 z"
+         sodipodi:nodetypes="sssss"
+         id="path26-90-8" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="Dot-4-1-4"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Dot"
+       markerWidth="1"
+       markerHeight="1"
+       viewBox="0 0 1 1"
+       inkscape:isstock="true"
+       inkscape:collect="always"
+       preserveAspectRatio="xMidYMid">
+      <path
+         transform="scale(0.5)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:none"
+         d="M 5,0 C 5,2.76 2.76,5 0,5 -2.76,5 -5,2.76 -5,0 c 0,-2.76 2.3,-5 5,-5 2.76,0 5,2.24 5,5 z"
+         sodipodi:nodetypes="sssss"
+         id="path17-2-9-6" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="marker27-1-7"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Dot"
+       markerWidth="1"
+       markerHeight="1"
+       viewBox="0 0 1 1"
+       inkscape:isstock="true"
+       inkscape:collect="always"
+       preserveAspectRatio="xMidYMid">
+      <path
+         transform="scale(0.5)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:none"
+         d="M 5,0 C 5,2.76 2.76,5 0,5 -2.76,5 -5,2.76 -5,0 c 0,-2.76 2.3,-5 5,-5 2.76,0 5,2.24 5,5 z"
+         sodipodi:nodetypes="sssss"
+         id="path27-2-7" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="marker26-2-8-1"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Dot"
+       markerWidth="1"
+       markerHeight="1"
+       viewBox="0 0 1 1"
+       inkscape:isstock="true"
+       inkscape:collect="always"
+       preserveAspectRatio="xMidYMid">
+      <path
+         transform="scale(0.5)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:none"
+         d="M 5,0 C 5,2.76 2.76,5 0,5 -2.76,5 -5,2.76 -5,0 c 0,-2.76 2.3,-5 5,-5 2.76,0 5,2.24 5,5 z"
+         sodipodi:nodetypes="sssss"
+         id="path26-90-8-7" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="Dot-4-1-4-7"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Dot"
+       markerWidth="1"
+       markerHeight="1"
+       viewBox="0 0 1 1"
+       inkscape:isstock="true"
+       inkscape:collect="always"
+       preserveAspectRatio="xMidYMid">
+      <path
+         transform="scale(0.5)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:none"
+         d="M 5,0 C 5,2.76 2.76,5 0,5 -2.76,5 -5,2.76 -5,0 c 0,-2.76 2.3,-5 5,-5 2.76,0 5,2.24 5,5 z"
+         sodipodi:nodetypes="sssss"
+         id="path17-2-9-6-3" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="marker27-1-7-8"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Dot"
+       markerWidth="1"
+       markerHeight="1"
+       viewBox="0 0 1 1"
+       inkscape:isstock="true"
+       inkscape:collect="always"
+       preserveAspectRatio="xMidYMid">
+      <path
+         transform="scale(0.5)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:none"
+         d="M 5,0 C 5,2.76 2.76,5 0,5 -2.76,5 -5,2.76 -5,0 c 0,-2.76 2.3,-5 5,-5 2.76,0 5,2.24 5,5 z"
+         sodipodi:nodetypes="sssss"
+         id="path27-2-7-2" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="marker26-2-8-1-5"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Dot"
+       markerWidth="1"
+       markerHeight="1"
+       viewBox="0 0 1 1"
+       inkscape:isstock="true"
+       inkscape:collect="always"
+       preserveAspectRatio="xMidYMid">
+      <path
+         transform="scale(0.5)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:none"
+         d="M 5,0 C 5,2.76 2.76,5 0,5 -2.76,5 -5,2.76 -5,0 c 0,-2.76 2.3,-5 5,-5 2.76,0 5,2.24 5,5 z"
+         sodipodi:nodetypes="sssss"
+         id="path26-90-8-7-0" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="Dot-4-1-4-7-6"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Dot"
+       markerWidth="1"
+       markerHeight="1"
+       viewBox="0 0 1 1"
+       inkscape:isstock="true"
+       inkscape:collect="always"
+       preserveAspectRatio="xMidYMid">
+      <path
+         transform="scale(0.5)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:none"
+         d="M 5,0 C 5,2.76 2.76,5 0,5 -2.76,5 -5,2.76 -5,0 c 0,-2.76 2.3,-5 5,-5 2.76,0 5,2.24 5,5 z"
+         sodipodi:nodetypes="sssss"
+         id="path17-2-9-6-3-0" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="marker27-1-7-8-0"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Dot"
+       markerWidth="1"
+       markerHeight="1"
+       viewBox="0 0 1 1"
+       inkscape:isstock="true"
+       inkscape:collect="always"
+       preserveAspectRatio="xMidYMid">
+      <path
+         transform="scale(0.5)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:none"
+         d="M 5,0 C 5,2.76 2.76,5 0,5 -2.76,5 -5,2.76 -5,0 c 0,-2.76 2.3,-5 5,-5 2.76,0 5,2.24 5,5 z"
+         sodipodi:nodetypes="sssss"
+         id="path27-2-7-2-6" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="marker26-2-8-1-5-4"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Dot"
+       markerWidth="1"
+       markerHeight="1"
+       viewBox="0 0 1 1"
+       inkscape:isstock="true"
+       inkscape:collect="always"
+       preserveAspectRatio="xMidYMid">
+      <path
+         transform="scale(0.5)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:none"
+         d="M 5,0 C 5,2.76 2.76,5 0,5 -2.76,5 -5,2.76 -5,0 c 0,-2.76 2.3,-5 5,-5 2.76,0 5,2.24 5,5 z"
+         sodipodi:nodetypes="sssss"
+         id="path26-90-8-7-0-9" />
+    </marker>
+  </defs>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1" />
+  <g
+     inkscape:groupmode="layer"
+     id="layer2"
+     inkscape:label="BaseGrid"
+     transform="translate(1.7166624e-6,10.000003)">
+    <g
+       id="g5085-21-5-3-9-9"
+       transform="rotate(-90,92.500002,-48.500006)"
+       style="stroke:#7f7f7f;stroke-opacity:1">
+      <path
+         inkscape:connector-curvature="0"
+         id="path4992-8-6-1-4-6"
+         d="M 24,-131.00001 23.999999,269"
+         style="fill:none;stroke:#7f7f7f;stroke-width:0.35;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         sodipodi:nodetypes="cc" />
+      <path
+         sodipodi:nodetypes="cc"
+         inkscape:connector-curvature="0"
+         id="path4992-0-3-7-6-7-2"
+         d="M 24.480283,265.01772 24,269"
+         style="fill:none;stroke:#7f7f7f;stroke-width:0.35;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <path
+         sodipodi:nodetypes="cc"
+         inkscape:connector-curvature="0"
+         id="path4992-0-7-7-8-1-2-6"
+         d="M 23.519717,265.01772 24,269"
+         style="fill:none;stroke:#7f7f7f;stroke-width:0.35;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    </g>
+    <g
+       id="g5085-21-5-3-9-9-2"
+       transform="rotate(-90,120,-1.0000072)"
+       style="stroke:#7f7f7f;stroke-opacity:1">
+      <path
+         inkscape:connector-curvature="0"
+         id="path4992-8-6-1-4-6-2"
+         d="M 24,-111.00001 V 279"
+         style="fill:none;stroke:#7f7f7f;stroke-width:0.35;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         sodipodi:nodetypes="cc" />
+    </g>
+    <g
+       id="g5085-21-5-3-9-9-2-6"
+       transform="rotate(-90,137.5,16.499994)"
+       style="stroke:#7f7f7f;stroke-opacity:1">
+      <path
+         inkscape:connector-curvature="0"
+         id="path4992-8-6-1-4-6-2-4"
+         d="M 24,-111.00001 V 279"
+         style="fill:none;stroke:#7f7f7f;stroke-width:0.35;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         sodipodi:nodetypes="cc" />
+    </g>
+    <g
+       id="g5085-21-5-3-9-9-6"
+       transform="translate(15.999999,111.00001)"
+       style="stroke:#7f7f7f;stroke-opacity:1">
+      <path
+         inkscape:connector-curvature="0"
+         id="path4992-8-6-1-4-6-7"
+         d="m 24,-101.00001 0,264.99999"
+         style="fill:none;stroke:#7f7f7f;stroke-width:0.35;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         sodipodi:nodetypes="cc" />
+    </g>
+    <text
+       xml:space="preserve"
+       style="font-size:5.64444px;font-family:'Latin Modern Roman';-inkscape-font-specification:'Latin Modern Roman, ';text-align:center;text-anchor:middle;fill:#000000;stroke:none;stroke-width:0.264583;stroke-linecap:round;stroke-opacity:1"
+       x="209.91533"
+       y="-0.054168776"
+       id="text4"><tspan
+         sodipodi:role="line"
+         id="tspan4"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:5.64444px;font-family:'Latin Modern Sans';-inkscape-font-specification:'Latin Modern Sans Bold';text-align:center;text-anchor:middle;stroke:none;stroke-width:0.264583"
+         x="209.91533"
+         y="-0.054168776">Mapa nominálneho študijného plánu</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:3.88056px;font-family:'Latin Modern Roman';-inkscape-font-specification:'Latin Modern Roman, ';text-align:start;text-anchor:start;fill:#000000;stroke:none;stroke-width:0.264583;stroke-linecap:round;stroke-opacity:1"
+       x="9.5890121"
+       y="27.693104"
+       id="text4-1"><tspan
+         sodipodi:role="line"
+         id="tspan4-3"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:3.88056px;font-family:'Latin Modern Sans';-inkscape-font-specification:'Latin Modern Sans Bold';text-align:start;text-anchor:start;stroke:none;stroke-width:0.264583"
+         x="9.5890121"
+         y="27.693104">Univerzitné</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:4.23333px;font-family:'Latin Modern Roman';-inkscape-font-specification:'Latin Modern Roman, ';text-align:center;text-anchor:middle;fill:#000000;stroke:none;stroke-width:0.264583;stroke-linecap:round;stroke-opacity:1"
+       x="210.05927"
+       y="6.0508451"
+       id="text4-5"><tspan
+         sodipodi:role="line"
+         id="tspan4-9"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.23333px;font-family:'Latin Modern Sans';-inkscape-font-specification:'Latin Modern Sans';text-align:center;text-anchor:middle;stroke:none;stroke-width:0.264583"
+         x="210.05927"
+         y="6.0508451">Bakalársky študijný program Robotika a kybernetika</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:3.52778px;font-family:'Latin Modern Roman';-inkscape-font-specification:'Latin Modern Roman, ';text-align:center;text-anchor:middle;fill:#000000;stroke:none;stroke-width:0.264583;stroke-linecap:round;stroke-opacity:1"
+       x="404.44373"
+       y="15.852668"
+       id="text4-5-1"><tspan
+         sodipodi:role="line"
+         id="tspan4-9-7"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52778px;font-family:'Latin Modern Sans';-inkscape-font-specification:'Latin Modern Sans';text-align:start;text-anchor:start;fill:#808080;fill-opacity:1;stroke:none;stroke-width:0.264583"
+         x="404.44373"
+         y="15.852668">čas</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:3.52778px;font-family:'Latin Modern Roman';-inkscape-font-specification:'Latin Modern Roman, ';text-align:center;text-anchor:middle;fill:#000000;stroke:none;stroke-width:0.264583;stroke-linecap:round;stroke-opacity:1"
+       x="9.6528654"
+       y="13.319722"
+       id="text4-5-1-2"><tspan
+         sodipodi:role="line"
+         id="tspan4-9-7-6"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52778px;font-family:'Latin Modern Sans';-inkscape-font-specification:'Latin Modern Sans';text-align:start;text-anchor:start;fill:#808080;fill-opacity:1;stroke:none;stroke-width:0.264583"
+         x="9.6528654"
+         y="13.319722">kategória </tspan><tspan
+         sodipodi:role="line"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52778px;font-family:'Latin Modern Sans';-inkscape-font-specification:'Latin Modern Sans';text-align:start;text-anchor:start;fill:#808080;fill-opacity:1;stroke:none;stroke-width:0.264583"
+         x="9.6528654"
+         y="17.729446"
+         id="tspan5">predmetov</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:3.52778px;font-family:'Latin Modern Roman';-inkscape-font-specification:'Latin Modern Roman, ';text-align:center;text-anchor:middle;fill:#000000;stroke:none;stroke-width:0.264583;stroke-linecap:round;stroke-opacity:1"
+       x="9.710721"
+       y="33.744106"
+       id="text4-5-1-2-0"><tspan
+         sodipodi:role="line"
+         id="tspan4-9-7-6-3"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52778px;font-family:'Latin Modern Sans';-inkscape-font-specification:'Latin Modern Sans';text-align:start;text-anchor:start;fill:#808080;fill-opacity:1;stroke:none;stroke-width:0.264583"
+         x="9.710721"
+         y="33.744106">Matematika</tspan><tspan
+         sodipodi:role="line"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52778px;font-family:'Latin Modern Sans';-inkscape-font-specification:'Latin Modern Sans';text-align:start;text-anchor:start;fill:#808080;fill-opacity:1;stroke:none;stroke-width:0.264583"
+         x="9.710721"
+         y="38.153831"
+         id="tspan2">Fyzika</tspan><tspan
+         sodipodi:role="line"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52778px;font-family:'Latin Modern Sans';-inkscape-font-specification:'Latin Modern Sans';text-align:start;text-anchor:start;fill:#808080;fill-opacity:1;stroke:none;stroke-width:0.264583"
+         x="9.710721"
+         y="42.563557"
+         id="tspan3">Elektrotechnika</tspan><tspan
+         sodipodi:role="line"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52778px;font-family:'Latin Modern Sans';-inkscape-font-specification:'Latin Modern Sans';text-align:start;text-anchor:start;fill:#808080;fill-opacity:1;stroke:none;stroke-width:0.264583"
+         x="9.710721"
+         y="46.973282"
+         id="tspan11">Elektronika</tspan><tspan
+         sodipodi:role="line"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52778px;font-family:'Latin Modern Sans';-inkscape-font-specification:'Latin Modern Sans';text-align:start;text-anchor:start;fill:#808080;fill-opacity:1;stroke:none;stroke-width:0.264583"
+         x="9.710721"
+         y="51.383007"
+         id="tspan10">Angličtina</tspan><tspan
+         sodipodi:role="line"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52778px;font-family:'Latin Modern Sans';-inkscape-font-specification:'Latin Modern Sans';text-align:start;text-anchor:start;fill:#808080;fill-opacity:1;stroke:none;stroke-width:0.264583"
+         x="9.710721"
+         y="55.792732"
+         id="tspan9">Šport</tspan><tspan
+         sodipodi:role="line"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52778px;font-family:'Latin Modern Sans';-inkscape-font-specification:'Latin Modern Sans';text-align:start;text-anchor:start;fill:#808080;fill-opacity:1;stroke:none;stroke-width:0.264583"
+         x="9.710721"
+         y="60.202457"
+         id="tspan27">Ekonómia</tspan><tspan
+         sodipodi:role="line"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52778px;font-family:'Latin Modern Sans';-inkscape-font-specification:'Latin Modern Sans';text-align:start;text-anchor:start;fill:#808080;fill-opacity:1;stroke:none;stroke-width:0.264583"
+         x="9.710721"
+         y="64.612183"
+         id="tspan15">Záverečná práca</tspan><tspan
+         sodipodi:role="line"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52778px;font-family:'Latin Modern Sans';-inkscape-font-specification:'Latin Modern Sans';text-align:start;text-anchor:start;fill:#808080;fill-opacity:1;stroke:none;stroke-width:0.264583"
+         x="9.710721"
+         y="69.021904"
+         id="tspan5-5" /></text>
+    <g
+       id="g5085-21-5-3-9-9-6-6"
+       transform="translate(136,116.00001)"
+       style="stroke:#7f7f7f;stroke-opacity:1">
+      <path
+         inkscape:connector-curvature="0"
+         id="path4992-8-6-1-4-6-7-4"
+         d="m 24,-101.00001 2e-6,259.99999"
+         style="fill:none;stroke:#7f7f7f;stroke-width:0.35;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         sodipodi:nodetypes="cc" />
+    </g>
+    <g
+       id="g5085-21-5-3-9-9-6-6-2"
+       transform="translate(76.000001,121.00001)"
+       style="stroke:#7f7f7f;stroke-opacity:1;stroke-dasharray:4,1;stroke-dashoffset:0">
+      <path
+         inkscape:connector-curvature="0"
+         id="path4992-8-6-1-4-6-7-4-9"
+         d="m 24,-101.00001 0,254.99999"
+         style="fill:none;stroke:#7f7f7f;stroke-width:0.35;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:4,1;stroke-opacity:1;stroke-dashoffset:0"
+         sodipodi:nodetypes="cc" />
+    </g>
+    <text
+       xml:space="preserve"
+       style="font-size:3.52778px;font-family:'Latin Modern Roman';-inkscape-font-specification:'Latin Modern Roman, ';text-align:center;text-anchor:middle;fill:#000000;stroke:none;stroke-width:0.264583;stroke-linecap:round;stroke-opacity:1"
+       x="44.695034"
+       y="13.297255"
+       id="text4-5-1-2-5"><tspan
+         sodipodi:role="line"
+         id="tspan4-9-7-6-1"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:3.52778px;font-family:'Latin Modern Sans';-inkscape-font-specification:'Latin Modern Sans Bold';text-align:start;text-anchor:start;fill:#808080;fill-opacity:1;stroke:none;stroke-width:0.264583"
+         x="44.695034"
+         y="13.297255">ročník 1.</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:3.52778px;font-family:'Latin Modern Roman';-inkscape-font-specification:'Latin Modern Roman, ';text-align:center;text-anchor:middle;fill:#000000;stroke:none;stroke-width:0.264583;stroke-linecap:round;stroke-opacity:1"
+       x="44.901222"
+       y="17.690641"
+       id="text4-5-1-2-5-9"><tspan
+         sodipodi:role="line"
+         id="tspan4-9-7-6-1-2"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52778px;font-family:'Latin Modern Sans';-inkscape-font-specification:'Latin Modern Sans';text-align:start;text-anchor:start;fill:#808080;fill-opacity:1;stroke:none;stroke-width:0.264583"
+         x="44.901222"
+         y="17.690641">zimný semester</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:3.52778px;font-family:'Latin Modern Roman';-inkscape-font-specification:'Latin Modern Roman, ';text-align:center;text-anchor:middle;fill:#000000;stroke:none;stroke-width:0.264583;stroke-linecap:round;stroke-opacity:1"
+       x="104.71425"
+       y="17.690641"
+       id="text4-5-1-2-5-9-8"><tspan
+         sodipodi:role="line"
+         id="tspan4-9-7-6-1-2-5"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52778px;font-family:'Latin Modern Sans';-inkscape-font-specification:'Latin Modern Sans';text-align:start;text-anchor:start;fill:#808080;fill-opacity:1;stroke:none;stroke-width:0.264583"
+         x="104.71425"
+         y="17.690641">letný semester</tspan></text>
+    <g
+       id="g5085-21-5-3-9-9-6-6-0"
+       transform="translate(256,116.00001)"
+       style="stroke:#7f7f7f;stroke-opacity:1">
+      <path
+         inkscape:connector-curvature="0"
+         id="path4992-8-6-1-4-6-7-4-99"
+         d="m 24,-101.00001 5e-6,259.99999"
+         style="fill:none;stroke:#7f7f7f;stroke-width:0.35;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         sodipodi:nodetypes="cc" />
+    </g>
+    <g
+       id="g5085-21-5-3-9-9-6-6-2-8"
+       transform="translate(196,121.00001)"
+       style="stroke:#7f7f7f;stroke-opacity:1;stroke-dasharray:4,1;stroke-dashoffset:0">
+      <path
+         inkscape:connector-curvature="0"
+         id="path4992-8-6-1-4-6-7-4-9-1"
+         d="m 24,-101.00001 3e-6,254.99999"
+         style="fill:none;stroke:#7f7f7f;stroke-width:0.35;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:4,1;stroke-opacity:1;stroke-dashoffset:0"
+         sodipodi:nodetypes="cc" />
+    </g>
+    <text
+       xml:space="preserve"
+       style="font-size:3.52778px;font-family:'Latin Modern Roman';-inkscape-font-specification:'Latin Modern Roman, ';text-align:center;text-anchor:middle;fill:#000000;stroke:none;stroke-width:0.264583;stroke-linecap:round;stroke-opacity:1"
+       x="164.69504"
+       y="13.297255"
+       id="text4-5-1-2-5-3"><tspan
+         sodipodi:role="line"
+         id="tspan4-9-7-6-1-9"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:3.52778px;font-family:'Latin Modern Sans';-inkscape-font-specification:'Latin Modern Sans Bold';text-align:start;text-anchor:start;fill:#808080;fill-opacity:1;stroke:none;stroke-width:0.264583"
+         x="164.69504"
+         y="13.297255">ročník 2.</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:3.52778px;font-family:'Latin Modern Roman';-inkscape-font-specification:'Latin Modern Roman, ';text-align:center;text-anchor:middle;fill:#000000;stroke:none;stroke-width:0.264583;stroke-linecap:round;stroke-opacity:1"
+       x="164.90121"
+       y="17.690641"
+       id="text4-5-1-2-5-9-4"><tspan
+         sodipodi:role="line"
+         id="tspan4-9-7-6-1-2-0"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52778px;font-family:'Latin Modern Sans';-inkscape-font-specification:'Latin Modern Sans';text-align:start;text-anchor:start;fill:#808080;fill-opacity:1;stroke:none;stroke-width:0.264583"
+         x="164.90121"
+         y="17.690641">zimný semester</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:3.52778px;font-family:'Latin Modern Roman';-inkscape-font-specification:'Latin Modern Roman, ';text-align:center;text-anchor:middle;fill:#000000;stroke:none;stroke-width:0.264583;stroke-linecap:round;stroke-opacity:1"
+       x="224.71425"
+       y="17.690641"
+       id="text4-5-1-2-5-9-8-5"><tspan
+         sodipodi:role="line"
+         id="tspan4-9-7-6-1-2-5-4"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52778px;font-family:'Latin Modern Sans';-inkscape-font-specification:'Latin Modern Sans';text-align:start;text-anchor:start;fill:#808080;fill-opacity:1;stroke:none;stroke-width:0.264583"
+         x="224.71425"
+         y="17.690641">letný semester</tspan></text>
+    <g
+       id="g5085-21-5-3-9-9-6-6-0-0"
+       transform="translate(376.00001,116.00001)"
+       style="stroke:#7f7f7f;stroke-opacity:1">
+      <path
+         inkscape:connector-curvature="0"
+         id="path4992-8-6-1-4-6-7-4-99-9"
+         d="m 24,-101.00001 -3e-6,259.99999"
+         style="fill:none;stroke:#7f7f7f;stroke-width:0.35;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         sodipodi:nodetypes="cc" />
+    </g>
+    <g
+       id="g5085-21-5-3-9-9-6-6-2-8-4"
+       transform="translate(316.00001,121.00001)"
+       style="stroke:#7f7f7f;stroke-opacity:1;stroke-dasharray:4,1;stroke-dashoffset:0">
+      <path
+         inkscape:connector-curvature="0"
+         id="path4992-8-6-1-4-6-7-4-9-1-2"
+         d="m 24,-101.00001 -4e-6,254.99999"
+         style="fill:none;stroke:#7f7f7f;stroke-width:0.35;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:4, 1;stroke-dashoffset:0;stroke-opacity:1"
+         sodipodi:nodetypes="cc" />
+    </g>
+    <text
+       xml:space="preserve"
+       style="font-size:3.52778px;font-family:'Latin Modern Roman';-inkscape-font-specification:'Latin Modern Roman, ';text-align:center;text-anchor:middle;fill:#000000;stroke:none;stroke-width:0.264583;stroke-linecap:round;stroke-opacity:1"
+       x="284.69504"
+       y="13.297255"
+       id="text4-5-1-2-5-3-7"><tspan
+         sodipodi:role="line"
+         id="tspan4-9-7-6-1-9-0"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:3.52778px;font-family:'Latin Modern Sans';-inkscape-font-specification:'Latin Modern Sans Bold';text-align:start;text-anchor:start;fill:#808080;fill-opacity:1;stroke:none;stroke-width:0.264583"
+         x="284.69504"
+         y="13.297255">ročník 3.</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:3.52778px;font-family:'Latin Modern Roman';-inkscape-font-specification:'Latin Modern Roman, ';text-align:center;text-anchor:middle;fill:#000000;stroke:none;stroke-width:0.264583;stroke-linecap:round;stroke-opacity:1"
+       x="284.90125"
+       y="17.690641"
+       id="text4-5-1-2-5-9-4-1"><tspan
+         sodipodi:role="line"
+         id="tspan4-9-7-6-1-2-0-2"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52778px;font-family:'Latin Modern Sans';-inkscape-font-specification:'Latin Modern Sans';text-align:start;text-anchor:start;fill:#808080;fill-opacity:1;stroke:none;stroke-width:0.264583"
+         x="284.90125"
+         y="17.690641">zimný semester</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:3.52778px;font-family:'Latin Modern Roman';-inkscape-font-specification:'Latin Modern Roman, ';text-align:center;text-anchor:middle;fill:#000000;stroke:none;stroke-width:0.264583;stroke-linecap:round;stroke-opacity:1"
+       x="344.71426"
+       y="17.690641"
+       id="text4-5-1-2-5-9-8-5-5"><tspan
+         sodipodi:role="line"
+         id="tspan4-9-7-6-1-2-5-4-5"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52778px;font-family:'Latin Modern Sans';-inkscape-font-specification:'Latin Modern Sans';text-align:start;text-anchor:start;fill:#808080;fill-opacity:1;stroke:none;stroke-width:0.264583"
+         x="344.71426"
+         y="17.690641">letný semester</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:3.88056px;font-family:'Latin Modern Roman';-inkscape-font-specification:'Latin Modern Roman, ';text-align:start;text-anchor:start;fill:#000000;stroke:none;stroke-width:0.264583;stroke-linecap:round;stroke-opacity:1"
+       x="9.6468678"
+       y="102.6931"
+       id="text4-1-9"><tspan
+         sodipodi:role="line"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:3.88056px;font-family:'Latin Modern Sans';-inkscape-font-specification:'Latin Modern Sans Bold';text-align:start;text-anchor:start;stroke:none;stroke-width:0.264583"
+         x="9.6468678"
+         y="102.6931"
+         id="tspan6">Informatika</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:3.52778px;font-family:'Latin Modern Roman';-inkscape-font-specification:'Latin Modern Roman, ';text-align:center;text-anchor:middle;fill:#000000;stroke:none;stroke-width:0.264583;stroke-linecap:round;stroke-opacity:1"
+       x="9.9051018"
+       y="109.02666"
+       id="text4-5-1-2-0-7"><tspan
+         sodipodi:role="line"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52778px;font-family:'Latin Modern Sans';-inkscape-font-specification:'Latin Modern Sans';text-align:start;text-anchor:start;fill:#808080;fill-opacity:1;stroke:none;stroke-width:0.264583"
+         x="9.9051018"
+         y="109.02666"
+         id="tspan5-5-3">(mimo ÚRK)</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:3.52778px;font-family:'Latin Modern Roman';-inkscape-font-specification:'Latin Modern Roman, ';text-align:center;text-anchor:middle;fill:#000000;stroke:none;stroke-width:0.264583;stroke-linecap:round;stroke-opacity:1"
+       x="9.9051018"
+       y="150.19757"
+       id="text4-5-1-2-0-7-0"><tspan
+         sodipodi:role="line"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52778px;font-family:'Latin Modern Sans';-inkscape-font-specification:'Latin Modern Sans';text-align:start;text-anchor:start;fill:#808080;fill-opacity:1;stroke:none;stroke-width:0.264583"
+         x="9.9051018"
+         y="150.19757"
+         id="tspan5-5-3-4">Zabezpečuje</tspan><tspan
+         sodipodi:role="line"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52778px;font-family:'Latin Modern Sans';-inkscape-font-specification:'Latin Modern Sans';text-align:start;text-anchor:start;fill:#808080;fill-opacity:1;stroke:none;stroke-width:0.264583"
+         x="9.9051018"
+         y="154.6073"
+         id="tspan17">ÚRK</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:3.88056px;font-family:'Latin Modern Roman';-inkscape-font-specification:'Latin Modern Roman, ';text-align:start;text-anchor:start;fill:#000000;stroke:none;stroke-width:0.264583;stroke-linecap:round;stroke-opacity:1"
+       x="9.5890121"
+       y="137.6931"
+       id="text4-1-5"><tspan
+         sodipodi:role="line"
+         id="tspan4-3-8"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:3.88056px;font-family:'Latin Modern Sans';-inkscape-font-specification:'Latin Modern Sans Bold';text-align:start;text-anchor:start;stroke:none;stroke-width:0.264583"
+         x="9.5890121"
+         y="137.6931">Robotika</tspan><tspan
+         sodipodi:role="line"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:3.88056px;font-family:'Latin Modern Sans';-inkscape-font-specification:'Latin Modern Sans Bold';text-align:start;text-anchor:start;stroke:none;stroke-width:0.264583"
+         x="9.5890121"
+         y="142.54379"
+         id="tspan12">a kybernetika</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:3.88056px;font-family:'Latin Modern Roman';-inkscape-font-specification:'Latin Modern Roman, ';text-align:start;text-anchor:start;fill:#000000;stroke:none;stroke-width:0.264583;stroke-linecap:round;stroke-opacity:1"
+       x="9.5890102"
+       y="267.70511"
+       id="text4-1-5-8"><tspan
+         sodipodi:role="line"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:3.88056px;font-family:'Latin Modern Sans';-inkscape-font-specification:'Latin Modern Sans Bold';text-align:start;text-anchor:start;stroke:none;stroke-width:0.264583"
+         x="9.5890102"
+         y="267.70511"
+         id="tspan12-7">Iné</tspan></text>
+    <g
+       id="g5085-21-5-3-9-9-2-6-7"
+       transform="rotate(-90,202.5,81.49999)"
+       style="stroke:#7f7f7f;stroke-opacity:1">
+      <path
+         inkscape:connector-curvature="0"
+         id="path4992-8-6-1-4-6-2-4-3"
+         d="M 24,-111.00001 V 279"
+         style="fill:none;stroke:#7f7f7f;stroke-width:0.35;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         sodipodi:nodetypes="cc" />
+    </g>
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer3"
+     inkscape:label="Subjects"
+     style="display:inline">
+    <g
+       id="g5"
+       transform="translate(1.7166624e-6,10.000003)">
+      <text
+         xml:space="preserve"
+         style="font-size:3.52778px;font-family:'Latin Modern Roman';-inkscape-font-specification:'Latin Modern Roman, ';text-align:start;text-anchor:start;fill:#000000;stroke:none;stroke-width:0.264583;stroke-linecap:round;stroke-opacity:1"
+         x="44.858887"
+         y="27.525887"
+         id="text4-1-0"><tspan
+           sodipodi:role="line"
+           id="tspan4-3-1"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:3.52778px;font-family:'Latin Modern Sans';-inkscape-font-specification:'Latin Modern Sans Bold';text-align:start;text-anchor:start;stroke:none;stroke-width:0.264583"
+           x="44.858887"
+           y="27.525887">Telesná kultúra 1</tspan></text>
+      <rect
+         style="fill:none;fill-opacity:1;stroke:#0039a6;stroke-width:0.25;stroke-linecap:round;stroke-dasharray:none;stroke-opacity:1"
+         id="rect5"
+         width="55"
+         height="10"
+         x="42.477337"
+         y="22.477331"
+         rx="3"
+         ry="3" />
+    </g>
+    <g
+       id="g5-51"
+       transform="translate(0.02266483,139.99967)"
+       style="display:inline">
+      <text
+         xml:space="preserve"
+         style="font-size:3.52778px;font-family:'Latin Modern Roman';-inkscape-font-specification:'Latin Modern Roman, ';text-align:start;text-anchor:start;fill:#000000;stroke:none;stroke-width:0.264583;stroke-linecap:round;stroke-opacity:1"
+         x="44.858887"
+         y="27.525887"
+         id="text4-1-0-4"><tspan
+           sodipodi:role="line"
+           id="tspan4-3-1-0"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:3.52778px;font-family:'Latin Modern Sans';-inkscape-font-specification:'Latin Modern Sans Bold';text-align:start;text-anchor:start;stroke:none;stroke-width:0.264583"
+           x="44.858887"
+           y="27.525887">Úvod do inžinierstva</tspan><tspan
+           sodipodi:role="line"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:3.52778px;font-family:'Latin Modern Sans';-inkscape-font-specification:'Latin Modern Sans Bold';text-align:start;text-anchor:start;stroke:none;stroke-width:0.264583"
+           x="44.858887"
+           y="31.935612"
+           id="tspan13">a bezpečnosť </tspan><tspan
+           sodipodi:role="line"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:3.52778px;font-family:'Latin Modern Sans';-inkscape-font-specification:'Latin Modern Sans Bold';text-align:start;text-anchor:start;stroke:none;stroke-width:0.264583"
+           x="44.858887"
+           y="36.345337"
+           id="tspan24">v elektrotechnike</tspan></text>
+      <rect
+         style="fill:none;fill-opacity:1;stroke:#0039a6;stroke-width:0.25;stroke-linecap:round;stroke-dasharray:none;stroke-opacity:1"
+         id="rect5-2"
+         width="55"
+         height="20"
+         x="42.477337"
+         y="22.477331"
+         rx="3"
+         ry="3" />
+    </g>
+    <g
+       id="g5-32"
+       transform="translate(1.7166624e-6,24.999669)">
+      <text
+         xml:space="preserve"
+         style="font-size:3.52778px;font-family:'Latin Modern Roman';-inkscape-font-specification:'Latin Modern Roman, ';text-align:start;text-anchor:start;fill:#000000;stroke:none;stroke-width:0.264583;stroke-linecap:round;stroke-opacity:1"
+         x="44.858887"
+         y="27.525887"
+         id="text4-1-0-0"><tspan
+           sodipodi:role="line"
+           id="tspan4-3-1-7"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:3.52778px;font-family:'Latin Modern Sans';-inkscape-font-specification:'Latin Modern Sans Bold';text-align:start;text-anchor:start;stroke:none;stroke-width:0.264583"
+           x="44.858887"
+           y="27.525887">Anglický jazyk 1</tspan></text>
+      <rect
+         style="fill:none;fill-opacity:1;stroke:#0039a6;stroke-width:0.25;stroke-linecap:round;stroke-dasharray:none;stroke-opacity:1"
+         id="rect5-3"
+         width="55"
+         height="10"
+         x="42.477337"
+         y="22.477331"
+         rx="3"
+         ry="3" />
+    </g>
+    <g
+       id="g5-32-5"
+       transform="translate(0.02266483,85.049669)"
+       style="display:inline">
+      <text
+         xml:space="preserve"
+         style="font-size:3.52778px;font-family:'Latin Modern Roman';-inkscape-font-specification:'Latin Modern Roman, ';text-align:start;text-anchor:start;fill:#000000;stroke:none;stroke-width:0.264583;stroke-linecap:round;stroke-opacity:1"
+         x="44.858887"
+         y="27.525887"
+         id="text4-1-0-0-27"><tspan
+           sodipodi:role="line"
+           id="tspan4-3-1-7-43"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:3.52778px;font-family:'Latin Modern Sans';-inkscape-font-specification:'Latin Modern Sans Bold';text-align:start;text-anchor:start;stroke:none;stroke-width:0.264583"
+           x="44.858887"
+           y="27.525887">Logické systémy</tspan></text>
+      <rect
+         style="fill:none;fill-opacity:1;stroke:#00bed0;stroke-width:0.35;stroke-linecap:round;stroke-dasharray:none;stroke-opacity:1"
+         id="rect5-3-3"
+         width="55"
+         height="10"
+         x="42.477337"
+         y="22.477331"
+         rx="3"
+         ry="3" />
+    </g>
+    <g
+       id="g5-32-5-4"
+       transform="translate(60.022667,120.04967)"
+       style="display:inline">
+      <text
+         xml:space="preserve"
+         style="font-size:3.52778px;font-family:'Latin Modern Roman';-inkscape-font-specification:'Latin Modern Roman, ';text-align:start;text-anchor:start;fill:#000000;stroke:none;stroke-width:0.264583;stroke-linecap:round;stroke-opacity:1"
+         x="44.858887"
+         y="27.525887"
+         id="text4-1-0-0-27-93"><tspan
+           sodipodi:role="line"
+           id="tspan4-3-1-7-43-4"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:3.52778px;font-family:'Latin Modern Sans';-inkscape-font-specification:'Latin Modern Sans Bold';text-align:start;text-anchor:start;stroke:none;stroke-width:0.264583"
+           x="44.858887"
+           y="27.525887">Architektúra počítačov</tspan></text>
+      <rect
+         style="fill:none;fill-opacity:1;stroke:#00bed0;stroke-width:0.35;stroke-linecap:round;stroke-dasharray:none;stroke-opacity:1"
+         id="rect5-3-3-9"
+         width="55"
+         height="10"
+         x="42.477337"
+         y="22.477331"
+         rx="3"
+         ry="3" />
+    </g>
+    <g
+       id="g5-32-5-6"
+       transform="translate(120.15182,85.049669)"
+       style="display:inline">
+      <text
+         xml:space="preserve"
+         style="font-size:3.52778px;font-family:'Latin Modern Roman';-inkscape-font-specification:'Latin Modern Roman, ';text-align:start;text-anchor:start;fill:#000000;stroke:none;stroke-width:0.264583;stroke-linecap:round;stroke-opacity:1"
+         x="44.858887"
+         y="27.525887"
+         id="text4-1-0-0-27-9"><tspan
+           sodipodi:role="line"
+           id="tspan4-3-1-7-43-89"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:3.52778px;font-family:'Latin Modern Sans';-inkscape-font-specification:'Latin Modern Sans Bold';text-align:start;text-anchor:start;stroke:none;stroke-width:0.264583"
+           x="44.858887"
+           y="27.525887">Počítačové seite</tspan></text>
+      <rect
+         style="fill:none;fill-opacity:1;stroke:#00bed0;stroke-width:0.35;stroke-linecap:round;stroke-dasharray:none;stroke-opacity:1"
+         id="rect5-3-3-2"
+         width="55"
+         height="10"
+         x="42.477337"
+         y="22.477331"
+         rx="3"
+         ry="3" />
+    </g>
+    <g
+       id="g5-32-5-3"
+       transform="translate(0.02266483,100.04967)"
+       style="display:inline">
+      <text
+         xml:space="preserve"
+         style="font-size:3.45722px;font-family:'Latin Modern Roman';-inkscape-font-specification:'Latin Modern Roman, ';text-align:start;text-anchor:start;fill:#000000;stroke:none;stroke-width:0.264583;stroke-linecap:round;stroke-opacity:1"
+         x="44.858887"
+         y="27.525887"
+         id="text4-1-0-0-27-5"><tspan
+           sodipodi:role="line"
+           id="tspan4-3-1-7-43-8"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:3.45722px;font-family:'Latin Modern Sans';-inkscape-font-specification:'Latin Modern Sans Bold';text-align:start;text-anchor:start;stroke:none;stroke-width:0.264583"
+           x="44.858887"
+           y="27.525887">Algoritmizácia </tspan><tspan
+           sodipodi:role="line"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:3.45722px;font-family:'Latin Modern Sans';-inkscape-font-specification:'Latin Modern Sans Bold';text-align:start;text-anchor:start;stroke:none;stroke-width:0.264583"
+           x="44.858887"
+           y="31.847412"
+           id="tspan22">a programovanie</tspan></text>
+      <rect
+         style="fill:none;fill-opacity:1;stroke:#00bed0;stroke-width:0.35;stroke-linecap:round;stroke-dasharray:none;stroke-opacity:1"
+         id="rect5-3-3-0"
+         width="55"
+         height="15"
+         x="42.477337"
+         y="22.477331"
+         rx="3"
+         ry="3" />
+    </g>
+    <g
+       id="g5-32-4"
+       transform="translate(0.02266483,70.124669)">
+      <text
+         xml:space="preserve"
+         style="font-size:3.52778px;font-family:'Latin Modern Roman';-inkscape-font-specification:'Latin Modern Roman, ';text-align:start;text-anchor:start;fill:#000000;stroke:none;stroke-width:0.264583;stroke-linecap:round;stroke-opacity:1"
+         x="44.858887"
+         y="27.525887"
+         id="text4-1-0-0-8"><tspan
+           sodipodi:role="line"
+           id="tspan4-3-1-7-5"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:3.52778px;font-family:'Latin Modern Sans';-inkscape-font-specification:'Latin Modern Sans Bold';text-align:start;text-anchor:start;stroke:none;stroke-width:0.264583"
+           x="44.858887"
+           y="27.525887">Matematika 1</tspan></text>
+      <rect
+         style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.5;stroke-linecap:round;stroke-dasharray:none;stroke-opacity:1"
+         id="rect5-3-0"
+         width="55"
+         height="10"
+         x="42.477337"
+         y="22.477331"
+         rx="3"
+         ry="3" />
+    </g>
+    <g
+       id="g5-32-4-3"
+       transform="translate(60.022667,70.124669)">
+      <text
+         xml:space="preserve"
+         style="font-size:3.52778px;font-family:'Latin Modern Roman';-inkscape-font-specification:'Latin Modern Roman, ';text-align:start;text-anchor:start;fill:#000000;stroke:none;stroke-width:0.264583;stroke-linecap:round;stroke-opacity:1"
+         x="44.858887"
+         y="27.525887"
+         id="text4-1-0-0-8-9"><tspan
+           sodipodi:role="line"
+           id="tspan4-3-1-7-5-7"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:3.52778px;font-family:'Latin Modern Sans';-inkscape-font-specification:'Latin Modern Sans Bold';text-align:start;text-anchor:start;stroke:none;stroke-width:0.264583"
+           x="44.858887"
+           y="27.525887">Matematika 2</tspan></text>
+      <rect
+         style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.5;stroke-linecap:round;stroke-dasharray:none;stroke-opacity:1"
+         id="rect5-3-0-9"
+         width="55"
+         height="10"
+         x="42.477337"
+         y="22.477331"
+         rx="3"
+         ry="3" />
+    </g>
+    <g
+       id="g5-32-4-3-8"
+       transform="translate(120.02267,70.124669)">
+      <text
+         xml:space="preserve"
+         style="font-size:3.52778px;font-family:'Latin Modern Roman';-inkscape-font-specification:'Latin Modern Roman, ';text-align:start;text-anchor:start;fill:#000000;stroke:none;stroke-width:0.264583;stroke-linecap:round;stroke-opacity:1"
+         x="44.858887"
+         y="27.525887"
+         id="text4-1-0-0-8-9-6"><tspan
+           sodipodi:role="line"
+           id="tspan4-3-1-7-5-7-3"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:3.52778px;font-family:'Latin Modern Sans';-inkscape-font-specification:'Latin Modern Sans Bold';text-align:start;text-anchor:start;stroke:none;stroke-width:0.264583"
+           x="44.858887"
+           y="27.525887">Matematika 3</tspan></text>
+      <rect
+         style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.5;stroke-linecap:round;stroke-dasharray:none;stroke-opacity:1"
+         id="rect5-3-0-9-7"
+         width="55"
+         height="10"
+         x="42.477337"
+         y="22.477331"
+         rx="3"
+         ry="3" />
+    </g>
+    <g
+       id="g5-32-7"
+       transform="translate(60.04533,24.999669)">
+      <text
+         xml:space="preserve"
+         style="font-size:3.52778px;font-family:'Latin Modern Roman';-inkscape-font-specification:'Latin Modern Roman, ';text-align:start;text-anchor:start;fill:#000000;stroke:none;stroke-width:0.264583;stroke-linecap:round;stroke-opacity:1"
+         x="44.858887"
+         y="27.525887"
+         id="text4-1-0-0-2"><tspan
+           sodipodi:role="line"
+           id="tspan4-3-1-7-4"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:3.52778px;font-family:'Latin Modern Sans';-inkscape-font-specification:'Latin Modern Sans Bold';text-align:start;text-anchor:start;stroke:none;stroke-width:0.264583"
+           x="44.858887"
+           y="27.525887">Anglický jazyk 2</tspan></text>
+      <rect
+         style="fill:none;fill-opacity:1;stroke:#0039a6;stroke-width:0.25;stroke-linecap:round;stroke-dasharray:none;stroke-opacity:1"
+         id="rect5-3-8"
+         width="55"
+         height="10"
+         x="42.477337"
+         y="22.477331"
+         rx="3"
+         ry="3" />
+    </g>
+    <g
+       id="g5-32-7-7"
+       transform="translate(60.022665,39.999335)">
+      <text
+         xml:space="preserve"
+         style="font-size:3.52778px;font-family:'Latin Modern Roman';-inkscape-font-specification:'Latin Modern Roman, ';text-align:start;text-anchor:start;fill:#000000;stroke:none;stroke-width:0.264583;stroke-linecap:round;stroke-opacity:1"
+         x="44.858887"
+         y="27.525887"
+         id="text4-1-0-0-2-2"><tspan
+           sodipodi:role="line"
+           id="tspan4-3-1-7-4-6"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:3.52778px;font-family:'Latin Modern Sans';-inkscape-font-specification:'Latin Modern Sans Bold';text-align:start;text-anchor:start;stroke:none;stroke-width:0.264583"
+           x="44.858887"
+           y="27.525887">Elektrotechnika</tspan></text>
+      <rect
+         style="fill:none;fill-opacity:1;stroke:#0039a6;stroke-width:0.25;stroke-linecap:round;stroke-dasharray:none;stroke-opacity:1"
+         id="rect5-3-8-6"
+         width="55"
+         height="10"
+         x="42.477337"
+         y="22.477331"
+         rx="3"
+         ry="3" />
+    </g>
+    <g
+       id="g5-32-7-7-0"
+       transform="translate(240,39.999335)">
+      <text
+         xml:space="preserve"
+         style="font-size:3.52778px;font-family:'Latin Modern Roman';-inkscape-font-specification:'Latin Modern Roman, ';text-align:start;text-anchor:start;fill:#000000;stroke:none;stroke-width:0.264583;stroke-linecap:round;stroke-opacity:1"
+         x="44.858887"
+         y="27.525887"
+         id="text4-1-0-0-2-2-8"><tspan
+           sodipodi:role="line"
+           id="tspan4-3-1-7-4-6-1"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:3.52778px;font-family:'Latin Modern Sans';-inkscape-font-specification:'Latin Modern Sans Bold';text-align:start;text-anchor:start;stroke:none;stroke-width:0.264583"
+           x="44.858887"
+           y="27.525887">Elektronické systémy</tspan></text>
+      <rect
+         style="fill:none;fill-opacity:1;stroke:#0039a6;stroke-width:0.25;stroke-linecap:round;stroke-dasharray:none;stroke-opacity:1"
+         id="rect5-3-8-6-2"
+         width="55"
+         height="10"
+         x="42.477337"
+         y="22.477331"
+         rx="3"
+         ry="3" />
+    </g>
+    <g
+       id="g5-32-7-1"
+       transform="translate(240,24.999669)">
+      <text
+         xml:space="preserve"
+         style="font-size:3.52778px;font-family:'Latin Modern Roman';-inkscape-font-specification:'Latin Modern Roman, ';text-align:start;text-anchor:start;fill:#000000;stroke:none;stroke-width:0.264583;stroke-linecap:round;stroke-opacity:1"
+         x="44.858887"
+         y="27.525887"
+         id="text4-1-0-0-2-3"><tspan
+           sodipodi:role="line"
+           id="tspan4-3-1-7-4-09"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:3.52778px;font-family:'Latin Modern Sans';-inkscape-font-specification:'Latin Modern Sans Bold';text-align:start;text-anchor:start;stroke:none;stroke-width:0.264583"
+           x="44.858887"
+           y="27.525887">Bakalársky projekt 1</tspan></text>
+      <rect
+         style="fill:none;fill-opacity:1;stroke:#0039a6;stroke-width:0.25;stroke-linecap:round;stroke-dasharray:none;stroke-opacity:1"
+         id="rect5-3-8-7"
+         width="55"
+         height="10"
+         x="42.477337"
+         y="22.477331"
+         rx="3"
+         ry="3" />
+    </g>
+    <g
+       id="g5-32-7-1-3"
+       transform="translate(300.04535,24.999669)">
+      <text
+         xml:space="preserve"
+         style="font-size:3.52778px;font-family:'Latin Modern Roman';-inkscape-font-specification:'Latin Modern Roman, ';text-align:start;text-anchor:start;fill:#000000;stroke:none;stroke-width:0.264583;stroke-linecap:round;stroke-opacity:1"
+         x="44.858887"
+         y="27.525887"
+         id="text4-1-0-0-2-3-6"><tspan
+           sodipodi:role="line"
+           id="tspan4-3-1-7-4-09-9"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:3.52778px;font-family:'Latin Modern Sans';-inkscape-font-specification:'Latin Modern Sans Bold';text-align:start;text-anchor:start;stroke:none;stroke-width:0.264583"
+           x="44.858887"
+           y="27.525887">Bakalársky projekt 2</tspan></text>
+      <rect
+         style="fill:none;fill-opacity:1;stroke:#0039a6;stroke-width:0.25;stroke-linecap:round;stroke-dasharray:none;stroke-opacity:1"
+         id="rect5-3-8-7-0"
+         width="55"
+         height="10"
+         x="42.477337"
+         y="22.477331"
+         rx="3"
+         ry="3" />
+    </g>
+    <g
+       id="g5-32-7-1-3-6"
+       transform="translate(300.6481,39.999335)">
+      <text
+         xml:space="preserve"
+         style="font-size:3.52778px;font-family:'Latin Modern Roman';-inkscape-font-specification:'Latin Modern Roman, ';text-align:start;text-anchor:start;fill:#000000;stroke:none;stroke-width:0.264583;stroke-linecap:round;stroke-opacity:1"
+         x="44.858887"
+         y="27.525887"
+         id="text4-1-0-0-2-3-6-4"><tspan
+           sodipodi:role="line"
+           id="tspan4-3-1-7-4-09-9-7"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:3.52778px;font-family:'Latin Modern Sans';-inkscape-font-specification:'Latin Modern Sans Bold';text-align:start;text-anchor:start;stroke:none;stroke-width:0.264583"
+           x="44.858887"
+           y="27.525887">Bakalárska záverečná práca</tspan></text>
+      <rect
+         style="fill:none;fill-opacity:1;stroke:#0039a6;stroke-width:0.25;stroke-linecap:round;stroke-dasharray:none;stroke-opacity:1"
+         id="rect5-3-8-7-0-8"
+         width="55"
+         height="10"
+         x="42.477337"
+         y="22.477331"
+         rx="3"
+         ry="3" />
+    </g>
+    <g
+       id="g5-32-7-9"
+       transform="translate(180.04533,24.999669)">
+      <text
+         xml:space="preserve"
+         style="font-size:3.52778px;font-family:'Latin Modern Roman';-inkscape-font-specification:'Latin Modern Roman, ';text-align:start;text-anchor:start;fill:#000000;stroke:none;stroke-width:0.264583;stroke-linecap:round;stroke-opacity:1"
+         x="44.82917"
+         y="27.525887"
+         id="text4-1-0-0-2-0"><tspan
+           sodipodi:role="line"
+           id="tspan4-3-1-7-4-0"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:3.52778px;font-family:'Latin Modern Sans';-inkscape-font-specification:'Latin Modern Sans Bold';text-align:start;text-anchor:start;stroke:none;stroke-width:0.264583"
+           x="44.82917"
+           y="27.525887">Manažment kvality</tspan></text>
+      <rect
+         style="fill:none;fill-opacity:1;stroke:#0039a6;stroke-width:0.25;stroke-linecap:round;stroke-dasharray:none;stroke-opacity:1"
+         id="rect5-3-8-5"
+         width="55"
+         height="10"
+         x="42.477337"
+         y="22.477331"
+         rx="3"
+         ry="3" />
+    </g>
+    <g
+       id="g5-32-7-9-1"
+       transform="translate(180.04533,39.999335)"
+       style="display:inline">
+      <text
+         xml:space="preserve"
+         style="font-size:3.52778px;font-family:'Latin Modern Roman';-inkscape-font-specification:'Latin Modern Roman, ';text-align:start;text-anchor:start;fill:#000000;stroke:none;stroke-width:0.264583;stroke-linecap:round;stroke-opacity:1"
+         x="44.82917"
+         y="27.525887"
+         id="text4-1-0-0-2-0-8"><tspan
+           sodipodi:role="line"
+           id="tspan4-3-1-7-4-0-9"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:3.52778px;font-family:'Latin Modern Sans';-inkscape-font-specification:'Latin Modern Sans Bold';text-align:start;text-anchor:start;stroke:none;stroke-width:0.264583"
+           x="44.82917"
+           y="27.525887">Základy finančtníctva</tspan></text>
+      <rect
+         style="fill:none;fill-opacity:1;stroke:#0039a6;stroke-width:0.25;stroke-linecap:round;stroke-dasharray:none;stroke-opacity:1"
+         id="rect5-3-8-5-5"
+         width="55"
+         height="10"
+         x="42.477337"
+         y="22.477331"
+         rx="3"
+         ry="3" />
+    </g>
+    <g
+       id="g5-32-7-9-1-3"
+       transform="translate(180.04533,54.999669)"
+       style="display:inline">
+      <text
+         xml:space="preserve"
+         style="font-size:3.52778px;font-family:'Latin Modern Roman';-inkscape-font-specification:'Latin Modern Roman, ';text-align:start;text-anchor:start;fill:#000000;stroke:none;stroke-width:0.264583;stroke-linecap:round;stroke-opacity:1"
+         x="44.82917"
+         y="27.525887"
+         id="text4-1-0-0-2-0-8-8"><tspan
+           sodipodi:role="line"
+           id="tspan4-3-1-7-4-0-9-5"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:3.52778px;font-family:'Latin Modern Sans';-inkscape-font-specification:'Latin Modern Sans Bold';text-align:start;text-anchor:start;stroke:none;stroke-width:0.264583"
+           x="44.82917"
+           y="27.525887">Základy manažmentu</tspan><tspan
+           sodipodi:role="line"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:3.52778px;font-family:'Latin Modern Sans';-inkscape-font-specification:'Latin Modern Sans Bold';text-align:start;text-anchor:start;stroke:none;stroke-width:0.264583"
+           x="44.82917"
+           y="31.935612"
+           id="tspan25">a podnikania</tspan></text>
+      <rect
+         style="fill:none;fill-opacity:1;stroke:#0039a6;stroke-width:0.25;stroke-linecap:round;stroke-dasharray:none;stroke-opacity:1"
+         id="rect5-3-8-5-5-3"
+         width="55"
+         height="15"
+         x="42.477337"
+         y="22.477331"
+         rx="3"
+         ry="3" />
+    </g>
+    <g
+       id="g5-5"
+       transform="translate(60.022664,10.000003)">
+      <text
+         xml:space="preserve"
+         style="font-size:3.52778px;font-family:'Latin Modern Roman';-inkscape-font-specification:'Latin Modern Roman, ';text-align:start;text-anchor:start;fill:#000000;stroke:none;stroke-width:0.264583;stroke-linecap:round;stroke-opacity:1"
+         x="44.858887"
+         y="27.525887"
+         id="text4-1-0-6"><tspan
+           sodipodi:role="line"
+           id="tspan4-3-1-4"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:3.52778px;font-family:'Latin Modern Sans';-inkscape-font-specification:'Latin Modern Sans Bold';text-align:start;text-anchor:start;stroke:none;stroke-width:0.264583"
+           x="44.858887"
+           y="27.525887">Telesná kultúra 2</tspan></text>
+      <rect
+         style="fill:none;fill-opacity:1;stroke:#0039a6;stroke-width:0.25;stroke-linecap:round;stroke-dasharray:none;stroke-opacity:1"
+         id="rect5-1"
+         width="55"
+         height="10"
+         x="42.477337"
+         y="22.477331"
+         rx="3"
+         ry="3" />
+    </g>
+    <g
+       id="g5-4"
+       transform="translate(120.02267,10.000003)">
+      <text
+         xml:space="preserve"
+         style="font-size:3.52778px;font-family:'Latin Modern Roman';-inkscape-font-specification:'Latin Modern Roman, ';text-align:start;text-anchor:start;fill:#000000;stroke:none;stroke-width:0.264583;stroke-linecap:round;stroke-opacity:1"
+         x="44.858887"
+         y="27.525887"
+         id="text4-1-0-2"><tspan
+           sodipodi:role="line"
+           id="tspan4-3-1-42"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:3.52778px;font-family:'Latin Modern Sans';-inkscape-font-specification:'Latin Modern Sans Bold';text-align:start;text-anchor:start;stroke:none;stroke-width:0.264583"
+           x="44.858887"
+           y="27.525887">Telesná kultúra 3</tspan></text>
+      <rect
+         style="fill:none;fill-opacity:1;stroke:#0039a6;stroke-width:0.25;stroke-linecap:round;stroke-dasharray:none;stroke-opacity:1"
+         id="rect5-4"
+         width="55"
+         height="10"
+         x="42.477337"
+         y="22.477331"
+         rx="3"
+         ry="3" />
+    </g>
+    <g
+       id="g5-6"
+       transform="translate(180.02267,10.000003)">
+      <text
+         xml:space="preserve"
+         style="font-size:3.52778px;font-family:'Latin Modern Roman';-inkscape-font-specification:'Latin Modern Roman, ';text-align:start;text-anchor:start;fill:#000000;stroke:none;stroke-width:0.264583;stroke-linecap:round;stroke-opacity:1"
+         x="44.858887"
+         y="27.525887"
+         id="text4-1-0-27"><tspan
+           sodipodi:role="line"
+           id="tspan4-3-1-2"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:3.52778px;font-family:'Latin Modern Sans';-inkscape-font-specification:'Latin Modern Sans Bold';text-align:start;text-anchor:start;stroke:none;stroke-width:0.264583"
+           x="44.858887"
+           y="27.525887">Telesná kultúra 4</tspan></text>
+      <rect
+         style="fill:none;fill-opacity:1;stroke:#0039a6;stroke-width:0.25;stroke-linecap:round;stroke-dasharray:none;stroke-opacity:1"
+         id="rect5-8"
+         width="55"
+         height="10"
+         x="42.477337"
+         y="22.477331"
+         rx="3"
+         ry="3" />
+    </g>
+    <g
+       id="g5-9"
+       transform="translate(240.02267,10.000003)">
+      <text
+         xml:space="preserve"
+         style="font-size:3.52778px;font-family:'Latin Modern Roman';-inkscape-font-specification:'Latin Modern Roman, ';text-align:start;text-anchor:start;fill:#000000;stroke:none;stroke-width:0.264583;stroke-linecap:round;stroke-opacity:1"
+         x="44.858887"
+         y="27.525887"
+         id="text4-1-0-9"><tspan
+           sodipodi:role="line"
+           id="tspan4-3-1-9"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:3.52778px;font-family:'Latin Modern Sans';-inkscape-font-specification:'Latin Modern Sans Bold';text-align:start;text-anchor:start;stroke:none;stroke-width:0.264583"
+           x="44.858887"
+           y="27.525887">Telesná kultúra 5</tspan></text>
+      <rect
+         style="fill:none;fill-opacity:1;stroke:#0039a6;stroke-width:0.25;stroke-linecap:round;stroke-dasharray:none;stroke-opacity:1"
+         id="rect5-11"
+         width="55"
+         height="10"
+         x="42.477337"
+         y="22.477331"
+         rx="3"
+         ry="3" />
+    </g>
+    <g
+       id="g5-3"
+       transform="translate(300.02267,10.000003)">
+      <text
+         xml:space="preserve"
+         style="font-size:3.52778px;font-family:'Latin Modern Roman';-inkscape-font-specification:'Latin Modern Roman, ';text-align:start;text-anchor:start;fill:#000000;stroke:none;stroke-width:0.264583;stroke-linecap:round;stroke-opacity:1"
+         x="44.858887"
+         y="27.525887"
+         id="text4-1-0-65"><tspan
+           sodipodi:role="line"
+           id="tspan4-3-1-3"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:3.52778px;font-family:'Latin Modern Sans';-inkscape-font-specification:'Latin Modern Sans Bold';text-align:start;text-anchor:start;stroke:none;stroke-width:0.264583"
+           x="44.858887"
+           y="27.525887">Telesná kultúra 6</tspan></text>
+      <rect
+         style="fill:none;fill-opacity:1;stroke:#0039a6;stroke-width:0.25;stroke-linecap:round;stroke-dasharray:none;stroke-opacity:1"
+         id="rect5-5"
+         width="55"
+         height="10"
+         x="42.477337"
+         y="22.477331"
+         rx="3"
+         ry="3" />
+    </g>
+    <g
+       id="g5-32-4-3-87"
+       transform="translate(60.022665,55.124001)">
+      <text
+         xml:space="preserve"
+         style="font-size:3.52778px;font-family:'Latin Modern Roman';-inkscape-font-specification:'Latin Modern Roman, ';text-align:start;text-anchor:start;fill:#000000;stroke:none;stroke-width:0.264583;stroke-linecap:round;stroke-opacity:1"
+         x="44.858887"
+         y="27.525887"
+         id="text4-1-0-0-8-9-7"><tspan
+           sodipodi:role="line"
+           id="tspan4-3-1-7-5-7-5"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:3.52778px;font-family:'Latin Modern Sans';-inkscape-font-specification:'Latin Modern Sans Bold';text-align:start;text-anchor:start;stroke:none;stroke-width:0.264583"
+           x="44.858887"
+           y="27.525887">Fyzika</tspan></text>
+      <rect
+         style="fill:none;fill-opacity:1;stroke:#8311b3;stroke-width:0.5;stroke-linecap:round;stroke-dasharray:none;stroke-opacity:1"
+         id="rect5-3-0-9-6"
+         width="55"
+         height="10"
+         x="42.477337"
+         y="22.477331"
+         rx="3"
+         ry="3" />
+    </g>
+    <g
+       id="g5-32-4-3-87-0"
+       transform="translate(0.02266667,55.124001)">
+      <text
+         xml:space="preserve"
+         style="font-size:3.52778px;font-family:'Latin Modern Roman';-inkscape-font-specification:'Latin Modern Roman, ';text-align:start;text-anchor:start;fill:#000000;stroke:none;stroke-width:0.264583;stroke-linecap:round;stroke-opacity:1"
+         x="44.858887"
+         y="27.525887"
+         id="text4-1-0-0-8-9-7-8"><tspan
+           sodipodi:role="line"
+           id="tspan4-3-1-7-5-7-5-3"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:3.52778px;font-family:'Latin Modern Sans';-inkscape-font-specification:'Latin Modern Sans Bold';text-align:start;text-anchor:start;stroke:none;stroke-width:0.264583"
+           x="44.858887"
+           y="27.525887">Úvod do fyziky</tspan></text>
+      <rect
+         style="fill:none;fill-opacity:1;stroke:#8311b3;stroke-width:0.5;stroke-linecap:round;stroke-dasharray:2, 1;stroke-dashoffset:0;stroke-opacity:1"
+         id="rect5-3-0-9-6-0"
+         width="55"
+         height="10"
+         x="42.477337"
+         y="22.477331"
+         rx="3"
+         ry="3" />
+    </g>
+    <g
+       id="g5-32-5-6-9"
+       transform="translate(180.04533,100.04967)"
+       style="display:inline">
+      <text
+         xml:space="preserve"
+         style="font-size:3.52778px;font-family:'Latin Modern Roman';-inkscape-font-specification:'Latin Modern Roman, ';text-align:start;text-anchor:start;fill:#000000;stroke:none;stroke-width:0.264583;stroke-linecap:round;stroke-opacity:1"
+         x="44.858887"
+         y="27.525887"
+         id="text4-1-0-0-27-9-0"><tspan
+           sodipodi:role="line"
+           id="tspan4-3-1-7-43-89-7"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:3.52778px;font-family:'Latin Modern Sans';-inkscape-font-specification:'Latin Modern Sans Bold';text-align:start;text-anchor:start;stroke:none;stroke-width:0.264583"
+           x="44.858887"
+           y="27.525887">Objektovo orientované</tspan><tspan
+           sodipodi:role="line"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:3.52778px;font-family:'Latin Modern Sans';-inkscape-font-specification:'Latin Modern Sans Bold';text-align:start;text-anchor:start;stroke:none;stroke-width:0.264583"
+           x="44.858887"
+           y="31.935612"
+           id="tspan1">programovanie</tspan></text>
+      <rect
+         style="fill:none;fill-opacity:1;stroke:#00bed0;stroke-width:0.35;stroke-linecap:round;stroke-dasharray:none;stroke-opacity:1"
+         id="rect5-3-3-2-6"
+         width="55"
+         height="15"
+         x="42.477337"
+         y="22.477331"
+         rx="3"
+         ry="3" />
+    </g>
+    <g
+       id="g5-51-9"
+       transform="translate(0.02266483,164.99967)"
+       style="display:inline">
+      <text
+         xml:space="preserve"
+         style="font-size:3.52778px;font-family:'Latin Modern Roman';-inkscape-font-specification:'Latin Modern Roman, ';text-align:start;text-anchor:start;fill:#000000;stroke:none;stroke-width:0.264583;stroke-linecap:round;stroke-opacity:1"
+         x="44.858887"
+         y="27.525887"
+         id="text4-1-0-4-7"><tspan
+           sodipodi:role="line"
+           id="tspan4-3-1-0-4"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:3.52778px;font-family:'Latin Modern Sans';-inkscape-font-specification:'Latin Modern Sans Bold';text-align:start;text-anchor:start;stroke:none;stroke-width:0.264583"
+           x="44.858887"
+           y="27.525887">Spoločensko-vedné</tspan><tspan
+           sodipodi:role="line"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:3.52778px;font-family:'Latin Modern Sans';-inkscape-font-specification:'Latin Modern Sans Bold';text-align:start;text-anchor:start;stroke:none;stroke-width:0.264583"
+           x="44.858887"
+           y="31.935612"
+           id="tspan13-3">základy kybernetiky</tspan></text>
+      <rect
+         style="fill:none;fill-opacity:1;stroke:#0039a6;stroke-width:0.25;stroke-linecap:round;stroke-dasharray:none;stroke-opacity:1"
+         id="rect5-2-3"
+         width="55"
+         height="15"
+         x="42.477337"
+         y="22.477331"
+         rx="3"
+         ry="3" />
+    </g>
+    <g
+       id="g5-91"
+       transform="translate(0.02266334,249.92767)"
+       style="display:inline">
+      <text
+         xml:space="preserve"
+         style="font-size:3.52778px;font-family:'Latin Modern Roman';-inkscape-font-specification:'Latin Modern Roman, ';text-align:start;text-anchor:start;fill:#000000;stroke:none;stroke-width:0.264583;stroke-linecap:round;stroke-opacity:1"
+         x="44.858887"
+         y="27.525887"
+         id="text4-1-0-7"><tspan
+           sodipodi:role="line"
+           id="tspan4-3-1-40"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:3.52778px;font-family:'Latin Modern Sans';-inkscape-font-specification:'Latin Modern Sans Bold';text-align:start;text-anchor:start;stroke:none;stroke-width:0.264583"
+           x="44.858887"
+           y="27.525887">Rozhranie človek-stroj</tspan></text>
+      <rect
+         style="fill:none;fill-opacity:1;stroke:#0039a6;stroke-width:0.25;stroke-linecap:round;stroke-dasharray:none;stroke-opacity:1"
+         id="rect5-51"
+         width="55"
+         height="10"
+         x="42.477337"
+         y="22.477331"
+         rx="3"
+         ry="3" />
+    </g>
+    <g
+       id="g5-32-5-4-7"
+       transform="translate(120.15182,120.04967)"
+       style="display:inline">
+      <text
+         xml:space="preserve"
+         style="font-size:3.52778px;font-family:'Latin Modern Roman';-inkscape-font-specification:'Latin Modern Roman, ';text-align:start;text-anchor:start;fill:#000000;stroke:none;stroke-width:0.264583;stroke-linecap:round;stroke-opacity:1"
+         x="44.858887"
+         y="27.525887"
+         id="text4-1-0-0-27-93-4"><tspan
+           sodipodi:role="line"
+           id="tspan4-3-1-7-43-4-1"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:3.52778px;font-family:'Latin Modern Sans';-inkscape-font-specification:'Latin Modern Sans Bold';text-align:start;text-anchor:start;stroke:none;stroke-width:0.264583"
+           x="44.858887"
+           y="27.525887">Operačné systémy RT</tspan></text>
+      <rect
+         style="fill:none;fill-opacity:1;stroke:#00bed0;stroke-width:0.35;stroke-linecap:round;stroke-dasharray:none;stroke-opacity:1"
+         id="rect5-3-3-9-4"
+         width="55"
+         height="10"
+         x="42.477337"
+         y="22.477331"
+         rx="3"
+         ry="3" />
+    </g>
+    <g
+       id="g5-32-4-3-8-0"
+       transform="translate(120.15182,140.12467)"
+       style="display:inline">
+      <text
+         xml:space="preserve"
+         style="font-size:3.52778px;font-family:'Latin Modern Roman';-inkscape-font-specification:'Latin Modern Roman, ';text-align:start;text-anchor:start;fill:#000000;stroke:none;stroke-width:0.264583;stroke-linecap:round;stroke-opacity:1"
+         x="44.858887"
+         y="27.525887"
+         id="text4-1-0-0-8-9-6-3"><tspan
+           sodipodi:role="line"
+           id="tspan4-3-1-7-5-7-3-2"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:3.52778px;font-family:'Latin Modern Sans';-inkscape-font-specification:'Latin Modern Sans Bold';text-align:start;text-anchor:start;stroke:none;stroke-width:0.264583"
+           x="44.858887"
+           y="27.525887">Modelovanie a riadenie </tspan><tspan
+           sodipodi:role="line"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:3.52778px;font-family:'Latin Modern Sans';-inkscape-font-specification:'Latin Modern Sans Bold';text-align:start;text-anchor:start;stroke:none;stroke-width:0.264583"
+           x="44.858887"
+           y="31.935612"
+           id="tspan18">systémov</tspan></text>
+      <rect
+         style="fill:none;fill-opacity:1;stroke:#ff0000;stroke-width:0.5;stroke-linecap:round;stroke-dasharray:none;stroke-opacity:1"
+         id="rect5-3-0-9-7-8"
+         width="55"
+         height="15"
+         x="42.477337"
+         y="22.477331"
+         rx="3"
+         ry="3" />
+    </g>
+    <g
+       id="g5-32-4-3-8-0-0"
+       transform="translate(180.04533,140.12467)"
+       style="display:inline">
+      <text
+         xml:space="preserve"
+         style="font-size:3.52778px;font-family:'Latin Modern Roman';-inkscape-font-specification:'Latin Modern Roman, ';text-align:start;text-anchor:start;fill:#000000;stroke:none;stroke-width:0.264583;stroke-linecap:round;stroke-opacity:1"
+         x="44.858887"
+         y="27.525887"
+         id="text4-1-0-0-8-9-6-3-9"><tspan
+           sodipodi:role="line"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:3.52778px;font-family:'Latin Modern Sans';-inkscape-font-specification:'Latin Modern Sans Bold';text-align:start;text-anchor:start;stroke:none;stroke-width:0.264583"
+           x="44.858887"
+           y="27.525887"
+           id="tspan18-7">Číslicové riadenie</tspan></text>
+      <rect
+         style="fill:none;fill-opacity:1;stroke:#ff0000;stroke-width:0.5;stroke-linecap:round;stroke-dasharray:none;stroke-opacity:1"
+         id="rect5-3-0-9-7-8-6"
+         width="55"
+         height="15"
+         x="42.477337"
+         y="22.477331"
+         rx="3"
+         ry="3" />
+    </g>
+    <g
+       id="g5-32-4-3-8-0-0-56"
+       transform="translate(180.04533,200.12467)"
+       style="display:inline">
+      <text
+         xml:space="preserve"
+         style="font-size:3.52778px;font-family:'Latin Modern Roman';-inkscape-font-specification:'Latin Modern Roman, ';text-align:start;text-anchor:start;fill:#000000;stroke:none;stroke-width:0.264583;stroke-linecap:round;stroke-opacity:1"
+         x="44.858887"
+         y="27.525887"
+         id="text4-1-0-0-8-9-6-3-9-4"><tspan
+           sodipodi:role="line"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:3.52778px;font-family:'Latin Modern Sans';-inkscape-font-specification:'Latin Modern Sans Bold';text-align:start;text-anchor:start;stroke:none;stroke-width:0.264583"
+           x="44.858887"
+           y="27.525887"
+           id="tspan18-7-1">Technické prostriedky </tspan><tspan
+           sodipodi:role="line"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:3.52778px;font-family:'Latin Modern Sans';-inkscape-font-specification:'Latin Modern Sans Bold';text-align:start;text-anchor:start;stroke:none;stroke-width:0.264583"
+           x="44.858887"
+           y="31.935612"
+           id="tspan20">riadenia</tspan></text>
+      <rect
+         style="fill:none;fill-opacity:1;stroke:#ff7d00;stroke-width:0.5;stroke-linecap:round;stroke-dasharray:none;stroke-opacity:1"
+         id="rect5-3-0-9-7-8-6-90"
+         width="55"
+         height="15"
+         x="42.477337"
+         y="22.477331"
+         rx="3"
+         ry="3" />
+    </g>
+    <g
+       id="g5-32-4-3-8-0-0-56-3"
+       transform="translate(240,200.12467)"
+       style="display:inline">
+      <text
+         xml:space="preserve"
+         style="font-size:3.52778px;font-family:'Latin Modern Roman';-inkscape-font-specification:'Latin Modern Roman, ';text-align:start;text-anchor:start;fill:#000000;stroke:none;stroke-width:0.264583;stroke-linecap:round;stroke-opacity:1"
+         x="44.858887"
+         y="27.525887"
+         id="text4-1-0-0-8-9-6-3-9-4-9"><tspan
+           sodipodi:role="line"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:3.52778px;font-family:'Latin Modern Sans';-inkscape-font-specification:'Latin Modern Sans Bold';text-align:start;text-anchor:start;stroke:none;stroke-width:0.264583"
+           x="44.858887"
+           y="27.525887"
+           id="tspan20-39">Pohybové systémy</tspan></text>
+      <rect
+         style="fill:none;fill-opacity:1;stroke:#ff7d00;stroke-width:0.5;stroke-linecap:round;stroke-dasharray:none;stroke-opacity:1"
+         id="rect5-3-0-9-7-8-6-90-0"
+         width="55"
+         height="15"
+         x="42.477337"
+         y="22.477331"
+         rx="3"
+         ry="3" />
+    </g>
+    <g
+       id="g5-32-4-3-8-0-0-56-6"
+       transform="translate(180.04533,220.12467)"
+       style="display:inline">
+      <text
+         xml:space="preserve"
+         style="font-size:3.52778px;font-family:'Latin Modern Roman';-inkscape-font-specification:'Latin Modern Roman, ';text-align:start;text-anchor:start;fill:#000000;stroke:none;stroke-width:0.264583;stroke-linecap:round;stroke-opacity:1"
+         x="44.858887"
+         y="27.525887"
+         id="text4-1-0-0-8-9-6-3-9-4-1"><tspan
+           sodipodi:role="line"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:3.52778px;font-family:'Latin Modern Sans';-inkscape-font-specification:'Latin Modern Sans Bold';text-align:start;text-anchor:start;stroke:none;stroke-width:0.264583"
+           x="44.858887"
+           y="27.525887"
+           id="tspan20-3">Robotika</tspan></text>
+      <rect
+         style="fill:none;fill-opacity:1;stroke:#ff7d00;stroke-width:0.5;stroke-linecap:round;stroke-dasharray:none;stroke-opacity:1"
+         id="rect5-3-0-9-7-8-6-90-5"
+         width="55"
+         height="15"
+         x="42.477337"
+         y="22.477331"
+         rx="3"
+         ry="3" />
+    </g>
+    <g
+       id="g5-32-4-3-8-0-0-5"
+       transform="translate(300.6481,140.12467)"
+       style="display:inline">
+      <text
+         xml:space="preserve"
+         style="font-size:3.52778px;font-family:'Latin Modern Roman';-inkscape-font-specification:'Latin Modern Roman, ';text-align:start;text-anchor:start;fill:#000000;stroke:none;stroke-width:0.264583;stroke-linecap:round;stroke-opacity:1"
+         x="44.858887"
+         y="27.525887"
+         id="text4-1-0-0-8-9-6-3-9-1"><tspan
+           sodipodi:role="line"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:3.52778px;font-family:'Latin Modern Sans';-inkscape-font-specification:'Latin Modern Sans Bold';text-align:start;text-anchor:start;stroke:none;stroke-width:0.264583"
+           x="44.858887"
+           y="27.525887"
+           id="tspan18-7-8">Spojité procesy</tspan></text>
+      <rect
+         style="fill:none;fill-opacity:1;stroke:#ff0000;stroke-width:0.5;stroke-linecap:round;stroke-dasharray:none;stroke-opacity:1"
+         id="rect5-3-0-9-7-8-6-9"
+         width="55"
+         height="15"
+         x="42.477337"
+         y="22.477331"
+         rx="3"
+         ry="3" />
+    </g>
+    <g
+       id="g5-32-4-3-8-0-6"
+       transform="translate(120.15182,160.12467)"
+       style="display:inline">
+      <text
+         xml:space="preserve"
+         style="font-size:3.52778px;font-family:'Latin Modern Roman';-inkscape-font-specification:'Latin Modern Roman, ';text-align:start;text-anchor:start;fill:#000000;stroke:none;stroke-width:0.264583;stroke-linecap:round;stroke-opacity:1"
+         x="44.858887"
+         y="27.525887"
+         id="text4-1-0-0-8-9-6-3-5"><tspan
+           sodipodi:role="line"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:3.52778px;font-family:'Latin Modern Sans';-inkscape-font-specification:'Latin Modern Sans Bold';text-align:start;text-anchor:start;stroke:none;stroke-width:0.264583"
+           x="44.858887"
+           y="27.525887"
+           id="tspan18-4">Filtrácia </tspan><tspan
+           sodipodi:role="line"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:3.52778px;font-family:'Latin Modern Sans';-inkscape-font-specification:'Latin Modern Sans Bold';text-align:start;text-anchor:start;stroke:none;stroke-width:0.264583"
+           x="44.858887"
+           y="31.935612"
+           id="tspan19">a spracovanie signálov</tspan></text>
+      <rect
+         style="fill:none;fill-opacity:1;stroke:#ff0000;stroke-width:0.5;stroke-linecap:round;stroke-dasharray:none;stroke-opacity:1"
+         id="rect5-3-0-9-7-8-7"
+         width="55"
+         height="15"
+         x="42.477337"
+         y="22.477331"
+         rx="3"
+         ry="3" />
+    </g>
+    <g
+       id="g5-32-4-3-8-0-0-0"
+       transform="translate(240,160.12467)"
+       style="display:inline">
+      <text
+         xml:space="preserve"
+         style="font-size:3.52778px;font-family:'Latin Modern Roman';-inkscape-font-specification:'Latin Modern Roman, ';text-align:start;text-anchor:start;fill:#000000;stroke:none;stroke-width:0.264583;stroke-linecap:round;stroke-opacity:1"
+         x="44.858887"
+         y="27.525887"
+         id="text4-1-0-0-8-9-6-3-9-6"><tspan
+           sodipodi:role="line"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:3.52778px;font-family:'Latin Modern Sans';-inkscape-font-specification:'Latin Modern Sans Bold';text-align:start;text-anchor:start;stroke:none;stroke-width:0.264583"
+           x="44.858887"
+           y="27.525887"
+           id="tspan18-7-88">Riadiace systémy</tspan></text>
+      <rect
+         style="fill:none;fill-opacity:1;stroke:#ff0000;stroke-width:0.5;stroke-linecap:round;stroke-dasharray:none;stroke-opacity:1"
+         id="rect5-3-0-9-7-8-6-2"
+         width="55"
+         height="15"
+         x="42.477337"
+         y="22.477331"
+         rx="3"
+         ry="3" />
+    </g>
+    <g
+       id="g5-32-4-3-8-0-0-56-3-5"
+       transform="translate(240,220.12467)"
+       style="display:inline">
+      <text
+         xml:space="preserve"
+         style="font-size:3.52778px;font-family:'Latin Modern Roman';-inkscape-font-specification:'Latin Modern Roman, ';text-align:start;text-anchor:start;fill:#000000;stroke:none;stroke-width:0.264583;stroke-linecap:round;stroke-opacity:1"
+         x="44.858887"
+         y="27.525887"
+         id="text4-1-0-0-8-9-6-3-9-4-9-9"><tspan
+           sodipodi:role="line"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:3.52778px;font-family:'Latin Modern Sans';-inkscape-font-specification:'Latin Modern Sans Bold';text-align:start;text-anchor:start;stroke:none;stroke-width:0.264583"
+           x="44.858887"
+           y="27.525887"
+           id="tspan20-39-1">Riadenie</tspan><tspan
+           sodipodi:role="line"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:3.52778px;font-family:'Latin Modern Sans';-inkscape-font-specification:'Latin Modern Sans Bold';text-align:start;text-anchor:start;stroke:none;stroke-width:0.264583"
+           x="44.858887"
+           y="31.935612"
+           id="tspan21">robotických manipulátorov</tspan></text>
+      <rect
+         style="fill:none;fill-opacity:1;stroke:#ff7d00;stroke-width:0.5;stroke-linecap:round;stroke-dasharray:none;stroke-opacity:1"
+         id="rect5-3-0-9-7-8-6-90-0-0"
+         width="55"
+         height="15"
+         x="42.477337"
+         y="22.477331"
+         rx="3"
+         ry="3" />
+    </g>
+    <g
+       id="g5-32-4-3-8-0-0-56-3-5-7"
+       transform="translate(240,180.17099)"
+       style="display:inline">
+      <text
+         xml:space="preserve"
+         style="font-size:3.52778px;font-family:'Latin Modern Roman';-inkscape-font-specification:'Latin Modern Roman, ';text-align:start;text-anchor:start;fill:#000000;stroke:none;stroke-width:0.264583;stroke-linecap:round;stroke-opacity:1"
+         x="44.858887"
+         y="27.525887"
+         id="text4-1-0-0-8-9-6-3-9-4-9-9-1"><tspan
+           sodipodi:role="line"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:3.52778px;font-family:'Latin Modern Sans';-inkscape-font-specification:'Latin Modern Sans Bold';text-align:start;text-anchor:start;stroke:none;stroke-width:0.264583"
+           x="44.858887"
+           y="27.525887"
+           id="tspan21-0">Výrobné systémy</tspan></text>
+      <rect
+         style="fill:none;fill-opacity:1;stroke:#ff7d00;stroke-width:0.5;stroke-linecap:round;stroke-dasharray:none;stroke-opacity:1"
+         id="rect5-3-0-9-7-8-6-90-0-0-0"
+         width="55"
+         height="15"
+         x="42.477337"
+         y="22.477331"
+         rx="3"
+         ry="3" />
+    </g>
+    <g
+       id="g5-32-4-3-87-2"
+       transform="translate(299.87891,235.12467)"
+       style="display:inline">
+      <text
+         xml:space="preserve"
+         style="font-size:3.52778px;font-family:'Latin Modern Roman';-inkscape-font-specification:'Latin Modern Roman, ';text-align:start;text-anchor:start;fill:#000000;stroke:none;stroke-width:0.264583;stroke-linecap:round;stroke-opacity:1"
+         x="44.858887"
+         y="27.525887"
+         id="text4-1-0-0-8-9-7-7"><tspan
+           sodipodi:role="line"
+           id="tspan4-3-1-7-5-7-5-2"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:3.52778px;font-family:'Latin Modern Sans';-inkscape-font-specification:'Latin Modern Sans Bold';text-align:start;text-anchor:start;stroke:none;stroke-width:0.264583"
+           x="44.858887"
+           y="27.525887">Umelá inteligencia</tspan></text>
+      <rect
+         style="fill:none;fill-opacity:1;stroke:#b3115e;stroke-width:0.5;stroke-linecap:round;stroke-dasharray:none;stroke-opacity:1"
+         id="rect5-3-0-9-6-5"
+         width="55"
+         height="10"
+         x="42.477337"
+         y="22.477331"
+         rx="3"
+         ry="3" />
+    </g>
+    <g
+       id="g5-32-4-3-8-0-0-56-3-5-7-7"
+       transform="translate(299.87891,160.12467)"
+       style="display:inline">
+      <text
+         xml:space="preserve"
+         style="font-size:3.52778px;font-family:'Latin Modern Roman';-inkscape-font-specification:'Latin Modern Roman, ';text-align:start;text-anchor:start;fill:#000000;stroke:none;stroke-width:0.264583;stroke-linecap:round;stroke-opacity:1"
+         x="44.858887"
+         y="27.525887"
+         id="text4-1-0-0-8-9-6-3-9-4-9-9-1-0"><tspan
+           sodipodi:role="line"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:3.52778px;font-family:'Latin Modern Sans';-inkscape-font-specification:'Latin Modern Sans Bold';text-align:start;text-anchor:start;stroke:none;stroke-width:0.264583"
+           x="44.858887"
+           y="27.525887"
+           id="tspan21-0-2">Databázy a vizualizácia</tspan></text>
+      <rect
+         style="fill:none;fill-opacity:1;stroke:#d05300;stroke-width:0.5;stroke-linecap:round;stroke-dasharray:none;stroke-opacity:1"
+         id="rect5-3-0-9-7-8-6-90-0-0-0-5"
+         width="55"
+         height="15"
+         x="42.477337"
+         y="22.477331"
+         rx="3"
+         ry="3" />
+    </g>
+    <g
+       id="g5-32-4-3-8-0-0-56-3-5-7-7-1"
+       transform="translate(300.6481,120.12467)"
+       style="display:inline">
+      <text
+         xml:space="preserve"
+         style="font-size:3.52778px;font-family:'Latin Modern Roman';-inkscape-font-specification:'Latin Modern Roman, ';text-align:start;text-anchor:start;fill:#000000;stroke:none;stroke-width:0.264583;stroke-linecap:round;stroke-opacity:1"
+         x="44.858887"
+         y="27.525887"
+         id="text4-1-0-0-8-9-6-3-9-4-9-9-1-0-6"><tspan
+           sodipodi:role="line"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:3.52778px;font-family:'Latin Modern Sans';-inkscape-font-specification:'Latin Modern Sans Bold';text-align:start;text-anchor:start;stroke:none;stroke-width:0.264583"
+           x="44.858887"
+           y="27.525887"
+           id="tspan21-0-2-6">Priemyselný IoT</tspan></text>
+      <rect
+         style="fill:none;fill-opacity:1;stroke:#0079b1;stroke-width:0.5;stroke-linecap:round;stroke-dasharray:none;stroke-opacity:1"
+         id="rect5-3-0-9-7-8-6-90-0-0-0-5-8"
+         width="55"
+         height="15"
+         x="42.477337"
+         y="22.477331"
+         rx="3"
+         ry="3" />
+    </g>
+    <g
+       id="g5-32-4-3-8-0-0-56-3-5-7-7-7"
+       transform="translate(299.87891,180.17099)"
+       style="display:inline">
+      <text
+         xml:space="preserve"
+         style="font-size:3.52778px;font-family:'Latin Modern Roman';-inkscape-font-specification:'Latin Modern Roman, ';text-align:start;text-anchor:start;fill:#000000;stroke:none;stroke-width:0.264583;stroke-linecap:round;stroke-opacity:1"
+         x="44.858887"
+         y="27.525887"
+         id="text4-1-0-0-8-9-6-3-9-4-9-9-1-0-9"><tspan
+           sodipodi:role="line"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:3.52778px;font-family:'Latin Modern Sans';-inkscape-font-specification:'Latin Modern Sans Bold';text-align:start;text-anchor:start;stroke:none;stroke-width:0.264583"
+           x="44.858887"
+           y="27.525887"
+           id="tspan21-0-2-8">Udalostné systémy</tspan></text>
+      <rect
+         style="fill:none;fill-opacity:1;stroke:#ff7d00;stroke-width:0.5;stroke-linecap:round;stroke-dasharray:none;stroke-opacity:1"
+         id="rect5-3-0-9-7-8-6-90-0-0-0-5-9"
+         width="55"
+         height="15"
+         x="42.477337"
+         y="22.477331"
+         rx="3"
+         ry="3" />
+    </g>
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer6"
+     inkscape:label="kredits">
+    <g
+       id="g22"
+       style="display:inline">
+      <text
+         xml:space="preserve"
+         style="font-size:2.82222px;font-family:'Latin Modern Roman';-inkscape-font-specification:'Latin Modern Roman, ';text-align:center;text-anchor:middle;fill:#000000;stroke:none;stroke-width:0.264583;stroke-linecap:round;stroke-opacity:1"
+         x="91.55407"
+         y="36.958618"
+         id="text4-5-1-2-2"><tspan
+           sodipodi:role="line"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.82222px;font-family:'Latin Modern Sans';-inkscape-font-specification:'Latin Modern Sans';text-align:start;text-anchor:start;fill:#00c1ff;fill-opacity:1;stroke:none;stroke-width:0.264583"
+           x="91.55407"
+           y="36.958618"
+           id="tspan5-8">PP</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-size:2.82222px;font-family:'Latin Modern Roman';-inkscape-font-specification:'Latin Modern Roman, ';text-align:center;text-anchor:middle;fill:#000000;stroke:none;stroke-width:0.264583;stroke-linecap:round;stroke-opacity:1"
+         x="151.55408"
+         y="36.958618"
+         id="text4-5-1-2-2-6"><tspan
+           sodipodi:role="line"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.82222px;font-family:'Latin Modern Sans';-inkscape-font-specification:'Latin Modern Sans';text-align:start;text-anchor:start;fill:#00c1ff;fill-opacity:1;stroke:none;stroke-width:0.264583"
+           x="151.55408"
+           y="36.958618"
+           id="tspan5-8-1">PP</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-size:2.82222px;font-family:'Latin Modern Roman';-inkscape-font-specification:'Latin Modern Roman, ';text-align:center;text-anchor:middle;fill:#000000;stroke:none;stroke-width:0.264583;stroke-linecap:round;stroke-opacity:1"
+         x="211.55408"
+         y="36.958618"
+         id="text4-5-1-2-2-6-2"><tspan
+           sodipodi:role="line"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.82222px;font-family:'Latin Modern Sans';-inkscape-font-specification:'Latin Modern Sans';text-align:start;text-anchor:start;fill:#00c1ff;fill-opacity:1;stroke:none;stroke-width:0.264583"
+           x="211.55408"
+           y="36.958618"
+           id="tspan5-8-1-9">PP</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-size:2.82222px;font-family:'Latin Modern Roman';-inkscape-font-specification:'Latin Modern Roman, ';text-align:center;text-anchor:middle;fill:#000000;stroke:none;stroke-width:0.264583;stroke-linecap:round;stroke-opacity:1"
+         x="331.53143"
+         y="36.958618"
+         id="text4-5-1-2-2-6-8"><tspan
+           sodipodi:role="line"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.82222px;font-family:'Latin Modern Sans';-inkscape-font-specification:'Latin Modern Sans';text-align:start;text-anchor:start;fill:#00c1ff;fill-opacity:1;stroke:none;stroke-width:0.264583"
+           x="331.53143"
+           y="36.958618"
+           id="tspan5-8-1-5">PP</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-size:2.82222px;font-family:'Latin Modern Roman';-inkscape-font-specification:'Latin Modern Roman, ';text-align:center;text-anchor:middle;fill:#000000;stroke:none;stroke-width:0.264583;stroke-linecap:round;stroke-opacity:1"
+         x="391.55408"
+         y="36.958618"
+         id="text4-5-1-2-2-6-0"><tspan
+           sodipodi:role="line"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.82222px;font-family:'Latin Modern Sans';-inkscape-font-specification:'Latin Modern Sans';text-align:start;text-anchor:start;fill:#00c1ff;fill-opacity:1;stroke:none;stroke-width:0.264583"
+           x="391.55408"
+           y="36.958618"
+           id="tspan5-8-1-2">PP</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-size:2.82222px;font-family:'Latin Modern Roman';-inkscape-font-specification:'Latin Modern Roman, ';text-align:center;text-anchor:middle;fill:#000000;stroke:none;stroke-width:0.264583;stroke-linecap:round;stroke-opacity:1"
+         x="91.55407"
+         y="51.958618"
+         id="text4-5-1-2-2-6-82"><tspan
+           sodipodi:role="line"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.82222px;font-family:'Latin Modern Sans';-inkscape-font-specification:'Latin Modern Sans';text-align:start;text-anchor:start;fill:#00c1ff;fill-opacity:1;stroke:none;stroke-width:0.264583"
+           x="91.55407"
+           y="51.958618"
+           id="tspan5-8-1-8">PP</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-size:2.82222px;font-family:'Latin Modern Roman';-inkscape-font-specification:'Latin Modern Roman, ';text-align:center;text-anchor:middle;fill:#000000;stroke:none;stroke-width:0.264583;stroke-linecap:round;stroke-opacity:1"
+         x="151.55408"
+         y="51.958618"
+         id="text4-5-1-2-2-6-4"><tspan
+           sodipodi:role="line"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.82222px;font-family:'Latin Modern Sans';-inkscape-font-specification:'Latin Modern Sans';text-align:start;text-anchor:start;fill:#00c1ff;fill-opacity:1;stroke:none;stroke-width:0.264583"
+           x="151.55408"
+           y="51.958618"
+           id="tspan5-8-1-0">PP</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-size:2.82222px;font-family:'Latin Modern Roman';-inkscape-font-specification:'Latin Modern Roman, ';text-align:center;text-anchor:middle;fill:#000000;stroke:none;stroke-width:0.264583;stroke-linecap:round;stroke-opacity:1"
+         x="271.55408"
+         y="36.958618"
+         id="text4-5-1-2-2-6-3"><tspan
+           sodipodi:role="line"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.82222px;font-family:'Latin Modern Sans';-inkscape-font-specification:'Latin Modern Sans';text-align:start;text-anchor:start;fill:#00c1ff;fill-opacity:1;stroke:none;stroke-width:0.264583"
+           x="271.55408"
+           y="36.958618"
+           id="tspan5-8-1-6">PP</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-size:2.82222px;font-family:'Latin Modern Roman';-inkscape-font-specification:'Latin Modern Roman, ';text-align:center;text-anchor:middle;fill:#000000;stroke:none;stroke-width:0.264583;stroke-linecap:round;stroke-opacity:1"
+         x="331.5321"
+         y="51.958286"
+         id="text4-5-1-2-2-6-7"><tspan
+           sodipodi:role="line"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.82222px;font-family:'Latin Modern Sans';-inkscape-font-specification:'Latin Modern Sans';text-align:start;text-anchor:start;fill:#00c1ff;fill-opacity:1;stroke:none;stroke-width:0.264583"
+           x="331.5321"
+           y="51.958286"
+           id="tspan5-8-1-7">PP</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-size:2.82222px;font-family:'Latin Modern Roman';-inkscape-font-specification:'Latin Modern Roman, ';text-align:center;text-anchor:middle;fill:#000000;stroke:none;stroke-width:0.264583;stroke-linecap:round;stroke-opacity:1"
+         x="331.55408"
+         y="66.958618"
+         id="text4-5-1-2-2-6-1"><tspan
+           sodipodi:role="line"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.82222px;font-family:'Latin Modern Sans';-inkscape-font-specification:'Latin Modern Sans';text-align:start;text-anchor:start;fill:#00c1ff;fill-opacity:1;stroke:none;stroke-width:0.264583"
+           x="331.55408"
+           y="66.958618"
+           id="tspan5-8-1-65">PP</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-size:2.82222px;font-family:'Latin Modern Roman';-inkscape-font-specification:'Latin Modern Roman, ';text-align:center;text-anchor:middle;fill:#000000;stroke:none;stroke-width:0.264583;stroke-linecap:round;stroke-opacity:1"
+         x="391.55408"
+         y="51.958618"
+         id="text4-5-1-2-2-6-829"><tspan
+           sodipodi:role="line"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.82222px;font-family:'Latin Modern Sans';-inkscape-font-specification:'Latin Modern Sans';text-align:start;text-anchor:start;fill:#00c1ff;fill-opacity:1;stroke:none;stroke-width:0.264583"
+           x="391.55408"
+           y="51.958618"
+           id="tspan5-8-1-25">PP</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-size:2.82222px;font-family:'Latin Modern Roman';-inkscape-font-specification:'Latin Modern Roman, ';text-align:center;text-anchor:middle;fill:#000000;stroke:none;stroke-width:0.264583;stroke-linecap:round;stroke-opacity:1"
+         x="391.55408"
+         y="66.948502"
+         id="text4-5-1-2-2-6-33"><tspan
+           sodipodi:role="line"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.82222px;font-family:'Latin Modern Sans';-inkscape-font-specification:'Latin Modern Sans';text-align:start;text-anchor:start;fill:#00c1ff;fill-opacity:1;stroke:none;stroke-width:0.264583"
+           x="391.55408"
+           y="66.948502"
+           id="tspan5-8-1-86">PP</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-size:2.82222px;font-family:'Latin Modern Roman';-inkscape-font-specification:'Latin Modern Roman, ';text-align:center;text-anchor:middle;fill:#000000;stroke:none;stroke-width:0.264583;stroke-linecap:round;stroke-opacity:1"
+         x="151.55408"
+         y="66.958618"
+         id="text4-5-1-2-2-6-79"><tspan
+           sodipodi:role="line"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.82222px;font-family:'Latin Modern Sans';-inkscape-font-specification:'Latin Modern Sans';text-align:start;text-anchor:start;fill:#00c1ff;fill-opacity:1;stroke:none;stroke-width:0.264583"
+           x="151.55408"
+           y="66.958618"
+           id="tspan5-8-1-02">PP</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-size:2.82222px;font-family:'Latin Modern Roman';-inkscape-font-specification:'Latin Modern Roman, ';text-align:center;text-anchor:middle;fill:#000000;stroke:none;stroke-width:0.264583;stroke-linecap:round;stroke-opacity:1"
+         x="151.55408"
+         y="81.958618"
+         id="text4-5-1-2-2-6-79-8"><tspan
+           sodipodi:role="line"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.82222px;font-family:'Latin Modern Sans';-inkscape-font-specification:'Latin Modern Sans';text-align:start;text-anchor:start;fill:#00c1ff;fill-opacity:1;stroke:none;stroke-width:0.264583"
+           x="151.55408"
+           y="81.958618"
+           id="tspan5-8-1-02-6">PP</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-size:2.82222px;font-family:'Latin Modern Roman';-inkscape-font-specification:'Latin Modern Roman, ';text-align:center;text-anchor:middle;fill:#000000;stroke:none;stroke-width:0.264583;stroke-linecap:round;stroke-opacity:1"
+         x="91.55407"
+         y="96.958618"
+         id="text4-5-1-2-2-6-79-2"><tspan
+           sodipodi:role="line"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.82222px;font-family:'Latin Modern Sans';-inkscape-font-specification:'Latin Modern Sans';text-align:start;text-anchor:start;fill:#00c1ff;fill-opacity:1;stroke:none;stroke-width:0.264583"
+           x="91.55407"
+           y="96.958618"
+           id="tspan5-8-1-02-8">PP</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-size:2.82222px;font-family:'Latin Modern Roman';-inkscape-font-specification:'Latin Modern Roman, ';text-align:center;text-anchor:middle;fill:#000000;stroke:none;stroke-width:0.264583;stroke-linecap:round;stroke-opacity:1"
+         x="151.55408"
+         y="96.958618"
+         id="text4-5-1-2-2-6-79-3"><tspan
+           sodipodi:role="line"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.82222px;font-family:'Latin Modern Sans';-inkscape-font-specification:'Latin Modern Sans';text-align:start;text-anchor:start;fill:#00c1ff;fill-opacity:1;stroke:none;stroke-width:0.264583"
+           x="151.55408"
+           y="96.958618"
+           id="tspan5-8-1-02-4">PP</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-size:2.82222px;font-family:'Latin Modern Roman';-inkscape-font-specification:'Latin Modern Roman, ';text-align:center;text-anchor:middle;fill:#000000;stroke:none;stroke-width:0.264583;stroke-linecap:round;stroke-opacity:1"
+         x="211.55408"
+         y="96.958618"
+         id="text4-5-1-2-2-6-79-4"><tspan
+           sodipodi:role="line"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.82222px;font-family:'Latin Modern Sans';-inkscape-font-specification:'Latin Modern Sans';text-align:start;text-anchor:start;fill:#00c1ff;fill-opacity:1;stroke:none;stroke-width:0.264583"
+           x="211.55408"
+           y="96.958618"
+           id="tspan5-8-1-02-5">PP</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-size:2.82222px;font-family:'Latin Modern Roman';-inkscape-font-specification:'Latin Modern Roman, ';text-align:center;text-anchor:middle;fill:#000000;stroke:none;stroke-width:0.264583;stroke-linecap:round;stroke-opacity:1"
+         x="211.55408"
+         y="111.95862"
+         id="text4-5-1-2-2-6-79-4-4"><tspan
+           sodipodi:role="line"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.82222px;font-family:'Latin Modern Sans';-inkscape-font-specification:'Latin Modern Sans';text-align:start;text-anchor:start;fill:#00c1ff;fill-opacity:1;stroke:none;stroke-width:0.264583"
+           x="211.55408"
+           y="111.95862"
+           id="tspan5-8-1-02-5-1">PP</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-size:2.82222px;font-family:'Latin Modern Roman';-inkscape-font-specification:'Latin Modern Roman, ';text-align:center;text-anchor:middle;fill:#000000;stroke:none;stroke-width:0.264583;stroke-linecap:round;stroke-opacity:1"
+         x="211.55408"
+         y="146.95862"
+         id="text4-5-1-2-2-6-79-4-9"><tspan
+           sodipodi:role="line"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.82222px;font-family:'Latin Modern Sans';-inkscape-font-specification:'Latin Modern Sans';text-align:start;text-anchor:start;fill:#00c1ff;fill-opacity:1;stroke:none;stroke-width:0.264583"
+           x="211.55408"
+           y="146.95862"
+           id="tspan5-8-1-02-5-17">PP</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-size:2.82222px;font-family:'Latin Modern Roman';-inkscape-font-specification:'Latin Modern Roman, ';text-align:center;text-anchor:middle;fill:#000000;stroke:none;stroke-width:0.264583;stroke-linecap:round;stroke-opacity:1"
+         x="211.55408"
+         y="166.95862"
+         id="text4-5-1-2-2-6-79-4-46"><tspan
+           sodipodi:role="line"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.82222px;font-family:'Latin Modern Sans';-inkscape-font-specification:'Latin Modern Sans';text-align:start;text-anchor:start;fill:#00c1ff;fill-opacity:1;stroke:none;stroke-width:0.264583"
+           x="211.55408"
+           y="166.95862"
+           id="tspan5-8-1-02-5-4">PP</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-size:2.82222px;font-family:'Latin Modern Roman';-inkscape-font-specification:'Latin Modern Roman, ';text-align:center;text-anchor:middle;fill:#000000;stroke:none;stroke-width:0.264583;stroke-linecap:round;stroke-opacity:1"
+         x="211.55408"
+         y="186.95862"
+         id="text4-5-1-2-2-6-79-4-40"><tspan
+           sodipodi:role="line"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.82222px;font-family:'Latin Modern Sans';-inkscape-font-specification:'Latin Modern Sans';text-align:start;text-anchor:start;fill:#00c1ff;fill-opacity:1;stroke:none;stroke-width:0.264583"
+           x="211.55408"
+           y="186.95862"
+           id="tspan5-8-1-02-5-5">PP</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-size:2.82222px;font-family:'Latin Modern Roman';-inkscape-font-specification:'Latin Modern Roman, ';text-align:center;text-anchor:middle;fill:#000000;stroke:none;stroke-width:0.264583;stroke-linecap:round;stroke-opacity:1"
+         x="271.55408"
+         y="126.95862"
+         id="text4-5-1-2-2-6-79-4-5"><tspan
+           sodipodi:role="line"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.82222px;font-family:'Latin Modern Sans';-inkscape-font-specification:'Latin Modern Sans';text-align:start;text-anchor:start;fill:#00c1ff;fill-opacity:1;stroke:none;stroke-width:0.264583"
+           x="271.55408"
+           y="126.95862"
+           id="tspan5-8-1-02-5-6">PP</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-size:2.82222px;font-family:'Latin Modern Roman';-inkscape-font-specification:'Latin Modern Roman, ';text-align:center;text-anchor:middle;fill:#000000;stroke:none;stroke-width:0.264583;stroke-linecap:round;stroke-opacity:1"
+         x="91.55407"
+         y="111.95862"
+         id="text4-5-1-2-2-6-79-37"><tspan
+           sodipodi:role="line"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.82222px;font-family:'Latin Modern Sans';-inkscape-font-specification:'Latin Modern Sans';text-align:start;text-anchor:start;fill:#00c1ff;fill-opacity:1;stroke:none;stroke-width:0.264583"
+           x="91.55407"
+           y="111.95862"
+           id="tspan5-8-1-02-9">PP</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-size:2.82222px;font-family:'Latin Modern Roman';-inkscape-font-specification:'Latin Modern Roman, ';text-align:center;text-anchor:middle;fill:#000000;stroke:none;stroke-width:0.264583;stroke-linecap:round;stroke-opacity:1"
+         x="91.55407"
+         y="126.93084"
+         id="text4-5-1-2-2-6-79-9"><tspan
+           sodipodi:role="line"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.82222px;font-family:'Latin Modern Sans';-inkscape-font-specification:'Latin Modern Sans';text-align:start;text-anchor:start;fill:#00c1ff;fill-opacity:1;stroke:none;stroke-width:0.264583"
+           x="91.55407"
+           y="126.93084"
+           id="tspan5-8-1-02-7">PP</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-size:2.82222px;font-family:'Latin Modern Roman';-inkscape-font-specification:'Latin Modern Roman, ';text-align:center;text-anchor:middle;fill:#000000;stroke:none;stroke-width:0.264583;stroke-linecap:round;stroke-opacity:1"
+         x="91.55407"
+         y="166.95862"
+         id="text4-5-1-2-2-6-79-46"><tspan
+           sodipodi:role="line"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.82222px;font-family:'Latin Modern Sans';-inkscape-font-specification:'Latin Modern Sans';text-align:start;text-anchor:start;fill:#00c1ff;fill-opacity:1;stroke:none;stroke-width:0.264583"
+           x="91.55407"
+           y="166.95862"
+           id="tspan5-8-1-02-89">PP</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-size:2.82222px;font-family:'Latin Modern Roman';-inkscape-font-specification:'Latin Modern Roman, ';text-align:center;text-anchor:middle;fill:#000000;stroke:none;stroke-width:0.264583;stroke-linecap:round;stroke-opacity:1"
+         x="89.671654"
+         y="191.95862"
+         id="text4-5-1-2-2-6-79-6"><tspan
+           sodipodi:role="line"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.82222px;font-family:'Latin Modern Sans';-inkscape-font-specification:'Latin Modern Sans';text-align:start;text-anchor:start;fill:#00c1ff;fill-opacity:1;stroke:none;stroke-width:0.264583"
+           x="89.671654"
+           y="191.95862"
+           id="tspan5-8-1-02-0">PVP</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-size:2.82222px;font-family:'Latin Modern Roman';-inkscape-font-specification:'Latin Modern Roman, ';text-align:center;text-anchor:middle;display:inline;fill:#000000;stroke:none;stroke-width:0.264583;stroke-linecap:round;stroke-opacity:1"
+         x="269.58768"
+         y="51.958286"
+         id="text4-5-1-2-2-6-79-6-4"><tspan
+           sodipodi:role="line"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.82222px;font-family:'Latin Modern Sans';-inkscape-font-specification:'Latin Modern Sans';text-align:start;text-anchor:start;fill:#00c1ff;fill-opacity:1;stroke:none;stroke-width:0.264583"
+           x="269.58768"
+           y="51.958286"
+           id="tspan5-8-1-02-0-0">PVP</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-size:2.82222px;font-family:'Latin Modern Roman';-inkscape-font-specification:'Latin Modern Roman, ';text-align:center;text-anchor:middle;display:inline;fill:#000000;stroke:none;stroke-width:0.264583;stroke-linecap:round;stroke-opacity:1"
+         x="269.67166"
+         y="66.958618"
+         id="text4-5-1-2-2-6-79-6-60"><tspan
+           sodipodi:role="line"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.82222px;font-family:'Latin Modern Sans';-inkscape-font-specification:'Latin Modern Sans';text-align:start;text-anchor:start;fill:#00c1ff;fill-opacity:1;stroke:none;stroke-width:0.264583"
+           x="269.67166"
+           y="66.958618"
+           id="tspan5-8-1-02-0-2">PVP</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-size:2.82222px;font-family:'Latin Modern Roman';-inkscape-font-specification:'Latin Modern Roman, ';text-align:center;text-anchor:middle;display:inline;fill:#000000;stroke:none;stroke-width:0.264583;stroke-linecap:round;stroke-opacity:1"
+         x="269.67166"
+         y="81.958618"
+         id="text4-5-1-2-2-6-79-6-8"><tspan
+           sodipodi:role="line"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.82222px;font-family:'Latin Modern Sans';-inkscape-font-specification:'Latin Modern Sans';text-align:start;text-anchor:start;fill:#00c1ff;fill-opacity:1;stroke:none;stroke-width:0.264583"
+           x="269.67166"
+           y="81.958618"
+           id="tspan5-8-1-02-0-08">PVP</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-size:2.82222px;font-family:'Latin Modern Roman';-inkscape-font-specification:'Latin Modern Roman, ';text-align:center;text-anchor:middle;fill:#000000;stroke:none;stroke-width:0.264583;stroke-linecap:round;stroke-opacity:1"
+         x="89.671654"
+         y="276.95862"
+         id="text4-5-1-2-2-6-79-6-6"><tspan
+           sodipodi:role="line"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.82222px;font-family:'Latin Modern Sans';-inkscape-font-specification:'Latin Modern Sans';text-align:start;text-anchor:start;fill:#00c1ff;fill-opacity:1;stroke:none;stroke-width:0.264583"
+           x="89.671654"
+           y="276.95862"
+           id="tspan5-8-1-02-0-4">PVP</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-size:2.82222px;font-family:'Latin Modern Roman';-inkscape-font-specification:'Latin Modern Roman, ';text-align:center;text-anchor:middle;fill:#000000;stroke:none;stroke-width:0.264583;stroke-linecap:round;stroke-opacity:1"
+         x="151.4391"
+         y="147.00829"
+         id="text4-5-1-2-2-6-79-3-9"><tspan
+           sodipodi:role="line"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.82222px;font-family:'Latin Modern Sans';-inkscape-font-specification:'Latin Modern Sans';text-align:start;text-anchor:start;fill:#00c1ff;fill-opacity:1;stroke:none;stroke-width:0.264583"
+           x="151.4391"
+           y="147.00829"
+           id="tspan5-8-1-02-4-0">PP</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-size:2.82222px;font-family:'Latin Modern Roman';-inkscape-font-specification:'Latin Modern Roman, ';text-align:center;text-anchor:middle;fill:#000000;stroke:none;stroke-width:0.264583;stroke-linecap:round;stroke-opacity:1"
+         x="91.475044"
+         y="81.985504"
+         id="text4-5-1-2-2-6-79-3-1"><tspan
+           sodipodi:role="line"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.82222px;font-family:'Latin Modern Sans';-inkscape-font-specification:'Latin Modern Sans';text-align:start;text-anchor:start;fill:#00c1ff;fill-opacity:1;stroke:none;stroke-width:0.264583"
+           x="91.475044"
+           y="81.985504"
+           id="tspan5-8-1-02-4-3">VP</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-size:2.82222px;font-family:'Latin Modern Roman';-inkscape-font-specification:'Latin Modern Roman, ';text-align:center;text-anchor:middle;fill:#000000;stroke:none;stroke-width:0.264583;stroke-linecap:round;stroke-opacity:1"
+         x="271.55408"
+         y="166.95862"
+         id="text4-5-1-2-2-6-79-4-40-4"><tspan
+           sodipodi:role="line"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.82222px;font-family:'Latin Modern Sans';-inkscape-font-specification:'Latin Modern Sans';text-align:start;text-anchor:start;fill:#00c1ff;fill-opacity:1;stroke:none;stroke-width:0.264583"
+           x="271.55408"
+           y="166.95862"
+           id="tspan5-8-1-02-5-5-1">PP</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-size:2.82222px;font-family:'Latin Modern Roman';-inkscape-font-specification:'Latin Modern Roman, ';text-align:center;text-anchor:middle;fill:#000000;stroke:none;stroke-width:0.264583;stroke-linecap:round;stroke-opacity:1"
+         x="271.55408"
+         y="226.95862"
+         id="text4-5-1-2-2-6-79-4-40-42"><tspan
+           sodipodi:role="line"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.82222px;font-family:'Latin Modern Sans';-inkscape-font-specification:'Latin Modern Sans';text-align:start;text-anchor:start;fill:#00c1ff;fill-opacity:1;stroke:none;stroke-width:0.264583"
+           x="271.55408"
+           y="226.95862"
+           id="tspan5-8-1-02-5-5-9">PP</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-size:2.82222px;font-family:'Latin Modern Roman';-inkscape-font-specification:'Latin Modern Roman, ';text-align:center;text-anchor:middle;fill:#000000;stroke:none;stroke-width:0.264583;stroke-linecap:round;stroke-opacity:1"
+         x="271.55408"
+         y="246.95862"
+         id="text4-5-1-2-2-6-79-4-40-3"><tspan
+           sodipodi:role="line"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.82222px;font-family:'Latin Modern Sans';-inkscape-font-specification:'Latin Modern Sans';text-align:start;text-anchor:start;fill:#00c1ff;fill-opacity:1;stroke:none;stroke-width:0.264583"
+           x="271.55408"
+           y="246.95862"
+           id="tspan5-8-1-02-5-5-4">PP</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-size:2.82222px;font-family:'Latin Modern Roman';-inkscape-font-specification:'Latin Modern Roman, ';text-align:center;text-anchor:middle;fill:#000000;stroke:none;stroke-width:0.264583;stroke-linecap:round;stroke-opacity:1"
+         x="331.55408"
+         y="186.95862"
+         id="text4-5-1-2-2-6-79-4-40-47"><tspan
+           sodipodi:role="line"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.82222px;font-family:'Latin Modern Sans';-inkscape-font-specification:'Latin Modern Sans';text-align:start;text-anchor:start;fill:#00c1ff;fill-opacity:1;stroke:none;stroke-width:0.264583"
+           x="331.55408"
+           y="186.95862"
+           id="tspan5-8-1-02-5-5-47">PP</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-size:2.82222px;font-family:'Latin Modern Roman';-inkscape-font-specification:'Latin Modern Roman, ';text-align:center;text-anchor:middle;display:inline;fill:#000000;stroke:none;stroke-width:0.264583;stroke-linecap:round;stroke-opacity:1"
+         x="391.55408"
+         y="166.95862"
+         id="text4-5-1-2-2-6-79-4-40-47-5"><tspan
+           sodipodi:role="line"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.82222px;font-family:'Latin Modern Sans';-inkscape-font-specification:'Latin Modern Sans';text-align:start;text-anchor:start;fill:#00c1ff;fill-opacity:1;stroke:none;stroke-width:0.264583"
+           x="391.55408"
+           y="166.95862"
+           id="tspan5-8-1-02-5-5-47-3">PP</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-size:2.82222px;font-family:'Latin Modern Roman';-inkscape-font-specification:'Latin Modern Roman, ';text-align:center;text-anchor:middle;display:inline;fill:#000000;stroke:none;stroke-width:0.264583;stroke-linecap:round;stroke-opacity:1"
+         x="391.55408"
+         y="206.95862"
+         id="text4-5-1-2-2-6-79-4-40-47-6"><tspan
+           sodipodi:role="line"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.82222px;font-family:'Latin Modern Sans';-inkscape-font-specification:'Latin Modern Sans';text-align:start;text-anchor:start;fill:#00c1ff;fill-opacity:1;stroke:none;stroke-width:0.264583"
+           x="391.55408"
+           y="206.95862"
+           id="tspan5-8-1-02-5-5-47-6">PP</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-size:2.82222px;font-family:'Latin Modern Roman';-inkscape-font-specification:'Latin Modern Roman, ';text-align:center;text-anchor:middle;fill:#000000;stroke:none;stroke-width:0.264583;stroke-linecap:round;stroke-opacity:1"
+         x="329.67166"
+         y="206.95862"
+         id="text4-5-1-2-2-6-79-4-40-8"><tspan
+           sodipodi:role="line"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.82222px;font-family:'Latin Modern Sans';-inkscape-font-specification:'Latin Modern Sans';text-align:start;text-anchor:start;fill:#00c1ff;fill-opacity:1;stroke:none;stroke-width:0.264583"
+           x="329.67166"
+           y="206.95862"
+           id="tspan5-8-1-02-5-5-3">PVP</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-size:2.82222px;font-family:'Latin Modern Roman';-inkscape-font-specification:'Latin Modern Roman, ';text-align:center;text-anchor:middle;fill:#000000;stroke:none;stroke-width:0.264583;stroke-linecap:round;stroke-opacity:1"
+         x="329.67166"
+         y="226.95862"
+         id="text4-5-1-2-2-6-79-4-40-9"><tspan
+           sodipodi:role="line"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.82222px;font-family:'Latin Modern Sans';-inkscape-font-specification:'Latin Modern Sans';text-align:start;text-anchor:start;fill:#00c1ff;fill-opacity:1;stroke:none;stroke-width:0.264583"
+           x="329.67166"
+           y="226.95862"
+           id="tspan5-8-1-02-5-5-2">PVP</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-size:2.82222px;font-family:'Latin Modern Roman';-inkscape-font-specification:'Latin Modern Roman, ';text-align:center;text-anchor:middle;display:inline;fill:#000000;stroke:none;stroke-width:0.264583;stroke-linecap:round;stroke-opacity:1"
+         x="389.67166"
+         y="186.95862"
+         id="text4-5-1-2-2-6-79-4-40-9-4"><tspan
+           sodipodi:role="line"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.82222px;font-family:'Latin Modern Sans';-inkscape-font-specification:'Latin Modern Sans';text-align:start;text-anchor:start;fill:#00c1ff;fill-opacity:1;stroke:none;stroke-width:0.264583"
+           x="389.67166"
+           y="186.95862"
+           id="tspan5-8-1-02-5-5-2-2">PVP</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-size:2.82222px;font-family:'Latin Modern Roman';-inkscape-font-specification:'Latin Modern Roman, ';text-align:center;text-anchor:middle;fill:#000000;stroke:none;stroke-width:0.264583;stroke-linecap:round;stroke-opacity:1"
+         x="331.55408"
+         y="246.95862"
+         id="text4-5-1-2-2-6-79-4-40-46"><tspan
+           sodipodi:role="line"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.82222px;font-family:'Latin Modern Sans';-inkscape-font-specification:'Latin Modern Sans';text-align:start;text-anchor:start;fill:#00c1ff;fill-opacity:1;stroke:none;stroke-width:0.264583"
+           x="331.55408"
+           y="246.95862"
+           id="tspan5-8-1-02-5-5-23">PP</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-size:2.82222px;font-family:'Latin Modern Roman';-inkscape-font-specification:'Latin Modern Roman, ';text-align:center;text-anchor:middle;display:inline;fill:#000000;stroke:none;stroke-width:0.264583;stroke-linecap:round;stroke-opacity:1"
+         x="389.67166"
+         y="146.95862"
+         id="text4-5-1-2-2-6-79-4-40-9-8"><tspan
+           sodipodi:role="line"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.82222px;font-family:'Latin Modern Sans';-inkscape-font-specification:'Latin Modern Sans';text-align:start;text-anchor:start;fill:#00c1ff;fill-opacity:1;stroke:none;stroke-width:0.264583"
+           x="389.67166"
+           y="146.95862"
+           id="tspan5-8-1-02-5-5-2-9">PVP</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-size:2.82222px;font-family:'Latin Modern Roman';-inkscape-font-specification:'Latin Modern Roman, ';text-align:center;text-anchor:middle;display:inline;fill:#000000;stroke:none;stroke-width:0.264583;stroke-linecap:round;stroke-opacity:1"
+         x="391.55408"
+         y="261.95862"
+         id="text4-5-1-2-2-6-79-4-40-47-6-9"><tspan
+           sodipodi:role="line"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.82222px;font-family:'Latin Modern Sans';-inkscape-font-specification:'Latin Modern Sans';text-align:start;text-anchor:start;fill:#00c1ff;fill-opacity:1;stroke:none;stroke-width:0.264583"
+           x="391.55408"
+           y="261.95862"
+           id="tspan5-8-1-02-5-5-47-6-4">PP</tspan></text>
+    </g>
+    <g
+       id="g23">
+      <text
+         xml:space="preserve"
+         style="font-weight:bold;font-size:2.46944px;font-family:'Latin Modern Sans';-inkscape-font-specification:'Latin Modern Sans Bold';text-align:end;text-anchor:end;fill:#000000;fill-opacity:1;stroke:#0079b1;stroke-width:0.349999;stroke-linecap:round;stroke-opacity:1"
+         x="95"
+         y="40"
+         id="text23"><tspan
+           sodipodi:role="line"
+           id="tspan23"
+           style="stroke:none;stroke-width:0.35"
+           x="95"
+           y="40">1k</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-weight:bold;font-size:2.46944px;font-family:'Latin Modern Sans';-inkscape-font-specification:'Latin Modern Sans Bold';text-align:end;text-anchor:end;fill:#000000;fill-opacity:1;stroke:#0079b1;stroke-width:0.349999;stroke-linecap:round;stroke-opacity:1"
+         x="155"
+         y="40"
+         id="text23-4"><tspan
+           sodipodi:role="line"
+           id="tspan23-7"
+           style="stroke:none;stroke-width:0.35"
+           x="155"
+           y="40">1k</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-weight:bold;font-size:2.46944px;font-family:'Latin Modern Sans';-inkscape-font-specification:'Latin Modern Sans Bold';text-align:end;text-anchor:end;fill:#000000;fill-opacity:1;stroke:#0079b1;stroke-width:0.349999;stroke-linecap:round;stroke-opacity:1"
+         x="215"
+         y="40"
+         id="text23-5"><tspan
+           sodipodi:role="line"
+           id="tspan23-1"
+           style="stroke:none;stroke-width:0.35"
+           x="215"
+           y="40">1k</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-weight:bold;font-size:2.46944px;font-family:'Latin Modern Sans';-inkscape-font-specification:'Latin Modern Sans Bold';text-align:end;text-anchor:end;fill:#000000;fill-opacity:1;stroke:#0079b1;stroke-width:0.349999;stroke-linecap:round;stroke-opacity:1"
+         x="275"
+         y="40"
+         id="text23-0"><tspan
+           sodipodi:role="line"
+           id="tspan23-0"
+           style="stroke:none;stroke-width:0.35"
+           x="275"
+           y="40">1k</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-weight:bold;font-size:2.46944px;font-family:'Latin Modern Sans';-inkscape-font-specification:'Latin Modern Sans Bold';text-align:end;text-anchor:end;fill:#000000;fill-opacity:1;stroke:#0079b1;stroke-width:0.349999;stroke-linecap:round;stroke-opacity:1"
+         x="335"
+         y="40"
+         id="text23-84"><tspan
+           sodipodi:role="line"
+           id="tspan23-23"
+           style="stroke:none;stroke-width:0.35"
+           x="335"
+           y="40">1k</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-weight:bold;font-size:2.46944px;font-family:'Latin Modern Sans';-inkscape-font-specification:'Latin Modern Sans Bold';text-align:end;text-anchor:end;fill:#000000;fill-opacity:1;stroke:#0079b1;stroke-width:0.349999;stroke-linecap:round;stroke-opacity:1"
+         x="335"
+         y="55"
+         id="text23-84-7"><tspan
+           sodipodi:role="line"
+           id="tspan23-23-7"
+           style="stroke:none;stroke-width:0.35"
+           x="335"
+           y="55">5k</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-weight:bold;font-size:2.46944px;font-family:'Latin Modern Sans';-inkscape-font-specification:'Latin Modern Sans Bold';text-align:end;text-anchor:end;fill:#000000;fill-opacity:1;stroke:#0079b1;stroke-width:0.349999;stroke-linecap:round;stroke-opacity:1"
+         x="335"
+         y="70"
+         id="text23-84-71"><tspan
+           sodipodi:role="line"
+           id="tspan23-23-2"
+           style="stroke:none;stroke-width:0.35"
+           x="335"
+           y="70">6k</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-weight:bold;font-size:2.46944px;font-family:'Latin Modern Sans';-inkscape-font-specification:'Latin Modern Sans Bold';text-align:end;text-anchor:end;fill:#000000;fill-opacity:1;stroke:#0079b1;stroke-width:0.349999;stroke-linecap:round;stroke-opacity:1"
+         x="335"
+         y="190"
+         id="text23-84-71-3"><tspan
+           sodipodi:role="line"
+           id="tspan23-23-2-7"
+           style="stroke:none;stroke-width:0.35"
+           x="335"
+           y="190">6k</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-weight:bold;font-size:2.46944px;font-family:'Latin Modern Sans';-inkscape-font-specification:'Latin Modern Sans Bold';text-align:end;text-anchor:end;fill:#000000;fill-opacity:1;stroke:#0079b1;stroke-width:0.349999;stroke-linecap:round;stroke-opacity:1"
+         x="335"
+         y="210"
+         id="text23-84-71-1"><tspan
+           sodipodi:role="line"
+           id="tspan23-23-2-6"
+           style="stroke:none;stroke-width:0.35"
+           x="335"
+           y="210">6k</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-weight:bold;font-size:2.46944px;font-family:'Latin Modern Sans';-inkscape-font-specification:'Latin Modern Sans Bold';text-align:end;text-anchor:end;fill:#000000;fill-opacity:1;stroke:#0079b1;stroke-width:0.349999;stroke-linecap:round;stroke-opacity:1"
+         x="335"
+         y="230"
+         id="text23-84-71-2"><tspan
+           sodipodi:role="line"
+           id="tspan23-23-2-8"
+           style="stroke:none;stroke-width:0.35"
+           x="335"
+           y="230">6k</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-weight:bold;font-size:2.46944px;font-family:'Latin Modern Sans';-inkscape-font-specification:'Latin Modern Sans Bold';text-align:end;text-anchor:end;fill:#000000;fill-opacity:1;stroke:#0079b1;stroke-width:0.349999;stroke-linecap:round;stroke-opacity:1"
+         x="335"
+         y="250"
+         id="text23-84-71-9"><tspan
+           sodipodi:role="line"
+           id="tspan23-23-2-9"
+           style="stroke:none;stroke-width:0.35"
+           x="335"
+           y="250">6k</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-weight:bold;font-size:2.46944px;font-family:'Latin Modern Sans';-inkscape-font-specification:'Latin Modern Sans Bold';text-align:end;text-anchor:end;fill:#000000;fill-opacity:1;stroke:#0079b1;stroke-width:0.349999;stroke-linecap:round;stroke-opacity:1"
+         x="395"
+         y="40"
+         id="text23-6"><tspan
+           sodipodi:role="line"
+           id="tspan23-3"
+           style="stroke:none;stroke-width:0.35"
+           x="395"
+           y="40">1k</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-weight:bold;font-size:2.46944px;font-family:'Latin Modern Sans';-inkscape-font-specification:'Latin Modern Sans Bold';text-align:end;text-anchor:end;fill:#000000;fill-opacity:1;stroke:#0079b1;stroke-width:0.349999;stroke-linecap:round;stroke-opacity:1"
+         x="95"
+         y="55"
+         id="text23-8"><tspan
+           sodipodi:role="line"
+           id="tspan23-2"
+           style="stroke:none;stroke-width:0.35"
+           x="95"
+           y="55">2k</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-weight:bold;font-size:2.46944px;font-family:'Latin Modern Sans';-inkscape-font-specification:'Latin Modern Sans Bold';text-align:end;text-anchor:end;fill:#000000;fill-opacity:1;stroke:#0079b1;stroke-width:0.349999;stroke-linecap:round;stroke-opacity:1"
+         x="155"
+         y="55"
+         id="text23-8-1"><tspan
+           sodipodi:role="line"
+           id="tspan23-2-26"
+           style="stroke:none;stroke-width:0.35"
+           x="155"
+           y="55">5k</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-weight:bold;font-size:2.46944px;font-family:'Latin Modern Sans';-inkscape-font-specification:'Latin Modern Sans Bold';text-align:end;text-anchor:end;fill:#000000;fill-opacity:1;stroke:#0079b1;stroke-width:0.349999;stroke-linecap:round;stroke-opacity:1"
+         x="155"
+         y="70"
+         id="text23-8-10"><tspan
+           sodipodi:role="line"
+           id="tspan23-2-3"
+           style="stroke:none;stroke-width:0.35"
+           x="155"
+           y="70">6k</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-weight:bold;font-size:2.46944px;font-family:'Latin Modern Sans';-inkscape-font-specification:'Latin Modern Sans Bold';text-align:end;text-anchor:end;fill:#000000;fill-opacity:1;stroke:#0079b1;stroke-width:0.349999;stroke-linecap:round;stroke-opacity:1"
+         x="95"
+         y="85"
+         id="text23-8-3"><tspan
+           sodipodi:role="line"
+           id="tspan23-2-2"
+           style="stroke:none;stroke-width:0.35"
+           x="95"
+           y="85">2k</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-weight:bold;font-size:2.46944px;font-family:'Latin Modern Sans';-inkscape-font-specification:'Latin Modern Sans Bold';text-align:end;text-anchor:end;fill:#000000;fill-opacity:1;stroke:#0079b1;stroke-width:0.349999;stroke-linecap:round;stroke-opacity:1"
+         x="95"
+         y="100"
+         id="text23-8-9"><tspan
+           sodipodi:role="line"
+           id="tspan23-2-7"
+           style="stroke:none;stroke-width:0.35"
+           x="95"
+           y="100">6k</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-weight:bold;font-size:2.46944px;font-family:'Latin Modern Sans';-inkscape-font-specification:'Latin Modern Sans Bold';text-align:end;text-anchor:end;fill:#000000;fill-opacity:1;stroke:#0079b1;stroke-width:0.349999;stroke-linecap:round;stroke-opacity:1"
+         x="95.083961"
+         y="115.02322"
+         id="text23-8-9-0"><tspan
+           sodipodi:role="line"
+           id="tspan23-2-7-6"
+           style="stroke:none;stroke-width:0.35"
+           x="95.083961"
+           y="115.02322">6k</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-weight:bold;font-size:2.46944px;font-family:'Latin Modern Sans';-inkscape-font-specification:'Latin Modern Sans Bold';text-align:end;text-anchor:end;fill:#000000;fill-opacity:1;stroke:#0079b1;stroke-width:0.349999;stroke-linecap:round;stroke-opacity:1"
+         x="95"
+         y="130"
+         id="text23-8-9-3"><tspan
+           sodipodi:role="line"
+           id="tspan23-2-7-7"
+           style="stroke:none;stroke-width:0.35"
+           x="95"
+           y="130">6k</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-weight:bold;font-size:2.46944px;font-family:'Latin Modern Sans';-inkscape-font-specification:'Latin Modern Sans Bold';text-align:end;text-anchor:end;fill:#000000;fill-opacity:1;stroke:#0079b1;stroke-width:0.349999;stroke-linecap:round;stroke-opacity:1"
+         x="95"
+         y="170"
+         id="text23-8-9-06"><tspan
+           sodipodi:role="line"
+           id="tspan23-2-7-77"
+           style="stroke:none;stroke-width:0.35"
+           x="95"
+           y="170">6k</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-weight:bold;font-size:2.46944px;font-family:'Latin Modern Sans';-inkscape-font-specification:'Latin Modern Sans Bold';text-align:end;text-anchor:end;fill:#000000;fill-opacity:1;stroke:#0079b1;stroke-width:0.349999;stroke-linecap:round;stroke-opacity:1"
+         x="95"
+         y="195"
+         id="text23-8-9-06-6"><tspan
+           sodipodi:role="line"
+           id="tspan23-2-7-77-2"
+           style="stroke:none;stroke-width:0.35"
+           x="95"
+           y="195">6k</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-weight:bold;font-size:2.46944px;font-family:'Latin Modern Sans';-inkscape-font-specification:'Latin Modern Sans Bold';text-align:end;text-anchor:end;fill:#000000;fill-opacity:1;stroke:#0079b1;stroke-width:0.349999;stroke-linecap:round;stroke-opacity:1"
+         x="95"
+         y="280"
+         id="text23-8-9-06-0"><tspan
+           sodipodi:role="line"
+           id="tspan23-2-7-77-7"
+           style="stroke:none;stroke-width:0.35"
+           x="95"
+           y="280">6k</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-weight:bold;font-size:2.46944px;font-family:'Latin Modern Sans';-inkscape-font-specification:'Latin Modern Sans Bold';text-align:end;text-anchor:end;fill:#000000;fill-opacity:1;stroke:#0079b1;stroke-width:0.349999;stroke-linecap:round;stroke-opacity:1"
+         x="155"
+         y="85"
+         id="text23-8-10-7"><tspan
+           sodipodi:role="line"
+           id="tspan23-2-3-0"
+           style="stroke:none;stroke-width:0.35"
+           x="155"
+           y="85">6k</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-weight:bold;font-size:2.46944px;font-family:'Latin Modern Sans';-inkscape-font-specification:'Latin Modern Sans Bold';text-align:end;text-anchor:end;fill:#000000;fill-opacity:1;stroke:#0079b1;stroke-width:0.349999;stroke-linecap:round;stroke-opacity:1"
+         x="155"
+         y="100"
+         id="text23-8-10-5"><tspan
+           sodipodi:role="line"
+           id="tspan23-2-3-3"
+           style="stroke:none;stroke-width:0.35"
+           x="155"
+           y="100">6k</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-weight:bold;font-size:2.46944px;font-family:'Latin Modern Sans';-inkscape-font-specification:'Latin Modern Sans Bold';text-align:end;text-anchor:end;fill:#000000;fill-opacity:1;stroke:#0079b1;stroke-width:0.349999;stroke-linecap:round;stroke-opacity:1"
+         x="215"
+         y="115"
+         id="text23-8-10-5-5"><tspan
+           sodipodi:role="line"
+           id="tspan23-2-3-3-9"
+           style="stroke:none;stroke-width:0.35"
+           x="215"
+           y="115">6k</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-weight:bold;font-size:2.46944px;font-family:'Latin Modern Sans';-inkscape-font-specification:'Latin Modern Sans Bold';text-align:end;text-anchor:end;fill:#000000;fill-opacity:1;stroke:#0079b1;stroke-width:0.349999;stroke-linecap:round;stroke-opacity:1"
+         x="215"
+         y="150"
+         id="text23-8-10-5-2"><tspan
+           sodipodi:role="line"
+           id="tspan23-2-3-3-40"
+           style="stroke:none;stroke-width:0.35"
+           x="215"
+           y="150">6k</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-weight:bold;font-size:2.46944px;font-family:'Latin Modern Sans';-inkscape-font-specification:'Latin Modern Sans Bold';text-align:end;text-anchor:end;fill:#000000;fill-opacity:1;stroke:#0079b1;stroke-width:0.349999;stroke-linecap:round;stroke-opacity:1"
+         x="215"
+         y="170"
+         id="text23-8-10-5-8"><tspan
+           sodipodi:role="line"
+           id="tspan23-2-3-3-6"
+           style="stroke:none;stroke-width:0.35"
+           x="215"
+           y="170">6k</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-weight:bold;font-size:2.46944px;font-family:'Latin Modern Sans';-inkscape-font-specification:'Latin Modern Sans Bold';text-align:end;text-anchor:end;fill:#000000;fill-opacity:1;stroke:#0079b1;stroke-width:0.349999;stroke-linecap:round;stroke-opacity:1"
+         x="215"
+         y="190"
+         id="text23-8-10-5-3"><tspan
+           sodipodi:role="line"
+           id="tspan23-2-3-3-5"
+           style="stroke:none;stroke-width:0.35"
+           x="215"
+           y="190">6k</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-weight:bold;font-size:2.46944px;font-family:'Latin Modern Sans';-inkscape-font-specification:'Latin Modern Sans Bold';text-align:end;text-anchor:end;fill:#000000;fill-opacity:1;stroke:#0079b1;stroke-width:0.349999;stroke-linecap:round;stroke-opacity:1"
+         x="215"
+         y="100"
+         id="text23-8-10-5-4"><tspan
+           sodipodi:role="line"
+           id="tspan23-2-3-3-4"
+           style="stroke:none;stroke-width:0.35"
+           x="215"
+           y="100">5k</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-weight:bold;font-size:2.46944px;font-family:'Latin Modern Sans';-inkscape-font-specification:'Latin Modern Sans Bold';text-align:end;text-anchor:end;fill:#000000;fill-opacity:1;stroke:#0079b1;stroke-width:0.349999;stroke-linecap:round;stroke-opacity:1"
+         x="155"
+         y="150"
+         id="text23-8-10-9"><tspan
+           sodipodi:role="line"
+           id="tspan23-2-3-06"
+           style="stroke:none;stroke-width:0.35"
+           x="155"
+           y="150">6k</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-weight:bold;font-size:2.46944px;font-family:'Latin Modern Sans';-inkscape-font-specification:'Latin Modern Sans Bold';text-align:end;text-anchor:end;fill:#000000;fill-opacity:1;stroke:#0079b1;stroke-width:0.349999;stroke-linecap:round;stroke-opacity:1"
+         x="275"
+         y="170"
+         id="text23-8-10-5-87"><tspan
+           sodipodi:role="line"
+           id="tspan23-2-3-3-2"
+           style="stroke:none;stroke-width:0.35"
+           x="275"
+           y="170">6k</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-weight:bold;font-size:2.46944px;font-family:'Latin Modern Sans';-inkscape-font-specification:'Latin Modern Sans Bold';text-align:end;text-anchor:end;fill:#000000;fill-opacity:1;stroke:#0079b1;stroke-width:0.349999;stroke-linecap:round;stroke-opacity:1"
+         x="275"
+         y="130.00012"
+         id="text23-8-10-5-0"><tspan
+           sodipodi:role="line"
+           id="tspan23-2-3-3-97"
+           style="stroke:none;stroke-width:0.35"
+           x="275"
+           y="130.00012">6k</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-weight:bold;font-size:2.46944px;font-family:'Latin Modern Sans';-inkscape-font-specification:'Latin Modern Sans Bold';text-align:end;text-anchor:end;fill:#000000;fill-opacity:1;stroke:#0079b1;stroke-width:0.349999;stroke-linecap:round;stroke-opacity:1"
+         x="275"
+         y="230"
+         id="text23-8-10-5-9"><tspan
+           sodipodi:role="line"
+           id="tspan23-2-3-3-7"
+           style="stroke:none;stroke-width:0.35"
+           x="275"
+           y="230">6k</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-weight:bold;font-size:2.46944px;font-family:'Latin Modern Sans';-inkscape-font-specification:'Latin Modern Sans Bold';text-align:end;text-anchor:end;fill:#000000;fill-opacity:1;stroke:#0079b1;stroke-width:0.349999;stroke-linecap:round;stroke-opacity:1"
+         x="275"
+         y="250"
+         id="text23-8-10-5-52"><tspan
+           sodipodi:role="line"
+           id="tspan23-2-3-3-57"
+           style="stroke:none;stroke-width:0.35"
+           x="275"
+           y="250">6k</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-weight:bold;font-size:2.46944px;font-family:'Latin Modern Sans';-inkscape-font-specification:'Latin Modern Sans Bold';text-align:end;text-anchor:end;fill:#000000;fill-opacity:1;stroke:#0079b1;stroke-width:0.349999;stroke-linecap:round;stroke-opacity:1"
+         x="275"
+         y="55"
+         id="text23-8-10-5-08"><tspan
+           sodipodi:role="line"
+           id="tspan23-2-3-3-8"
+           style="stroke:none;stroke-width:0.35"
+           x="275"
+           y="55">5k</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-weight:bold;font-size:2.46944px;font-family:'Latin Modern Sans';-inkscape-font-specification:'Latin Modern Sans Bold';text-align:end;text-anchor:end;fill:#000000;fill-opacity:1;stroke:#0079b1;stroke-width:0.349999;stroke-linecap:round;stroke-opacity:1"
+         x="275"
+         y="70"
+         id="text23-8-10-5-08-4"><tspan
+           sodipodi:role="line"
+           id="tspan23-2-3-3-8-6"
+           style="stroke:none;stroke-width:0.35"
+           x="275"
+           y="70">5k</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-weight:bold;font-size:2.46944px;font-family:'Latin Modern Sans';-inkscape-font-specification:'Latin Modern Sans Bold';text-align:end;text-anchor:end;fill:#000000;fill-opacity:1;stroke:#0079b1;stroke-width:0.349999;stroke-linecap:round;stroke-opacity:1"
+         x="275"
+         y="85"
+         id="text23-8-10-5-08-1"><tspan
+           sodipodi:role="line"
+           id="tspan23-2-3-3-8-2"
+           style="stroke:none;stroke-width:0.35"
+           x="275"
+           y="85">5k</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-weight:bold;font-size:2.46944px;font-family:'Latin Modern Sans';-inkscape-font-specification:'Latin Modern Sans Bold';text-align:end;text-anchor:end;fill:#000000;fill-opacity:1;stroke:#0079b1;stroke-width:0.349999;stroke-linecap:round;stroke-opacity:1"
+         x="395"
+         y="55"
+         id="text23-84-71-17"><tspan
+           sodipodi:role="line"
+           id="tspan23-23-2-2"
+           style="stroke:none;stroke-width:0.35"
+           x="395"
+           y="55">5k</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-weight:bold;font-size:2.46944px;font-family:'Latin Modern Sans';-inkscape-font-specification:'Latin Modern Sans Bold';text-align:end;text-anchor:end;fill:#000000;fill-opacity:1;stroke:#0079b1;stroke-width:0.349999;stroke-linecap:round;stroke-opacity:1"
+         x="395"
+         y="70"
+         id="text23-84-71-17-1"><tspan
+           sodipodi:role="line"
+           id="tspan23-23-2-2-4"
+           style="stroke:none;stroke-width:0.35"
+           x="395"
+           y="70">1k</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-weight:bold;font-size:2.46944px;font-family:'Latin Modern Sans';-inkscape-font-specification:'Latin Modern Sans Bold';text-align:end;text-anchor:end;fill:#000000;fill-opacity:1;stroke:#0079b1;stroke-width:0.349999;stroke-linecap:round;stroke-opacity:1"
+         x="395"
+         y="150"
+         id="text23-84-71-17-1-1"><tspan
+           sodipodi:role="line"
+           id="tspan23-23-2-2-4-8"
+           style="stroke:none;stroke-width:0.35"
+           x="395"
+           y="150">5k</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-weight:bold;font-size:2.46944px;font-family:'Latin Modern Sans';-inkscape-font-specification:'Latin Modern Sans Bold';text-align:end;text-anchor:end;fill:#000000;fill-opacity:1;stroke:#0079b1;stroke-width:0.349999;stroke-linecap:round;stroke-opacity:1"
+         x="395"
+         y="190"
+         id="text23-84-71-17-1-1-3"><tspan
+           sodipodi:role="line"
+           id="tspan23-23-2-2-4-8-8"
+           style="stroke:none;stroke-width:0.35"
+           x="395"
+           y="190">5k</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-weight:bold;font-size:2.46944px;font-family:'Latin Modern Sans';-inkscape-font-specification:'Latin Modern Sans Bold';text-align:end;text-anchor:end;fill:#000000;fill-opacity:1;stroke:#0079b1;stroke-width:0.349999;stroke-linecap:round;stroke-opacity:1"
+         x="395"
+         y="170"
+         id="text23-84-71-17-1-1-4"><tspan
+           sodipodi:role="line"
+           id="tspan23-23-2-2-4-8-5"
+           style="stroke:none;stroke-width:0.35"
+           x="395"
+           y="170">6k</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-weight:bold;font-size:2.46944px;font-family:'Latin Modern Sans';-inkscape-font-specification:'Latin Modern Sans Bold';text-align:end;text-anchor:end;fill:#000000;fill-opacity:1;stroke:#0079b1;stroke-width:0.349999;stroke-linecap:round;stroke-opacity:1"
+         x="395"
+         y="210"
+         id="text23-84-71-17-1-1-4-9"><tspan
+           sodipodi:role="line"
+           id="tspan23-23-2-2-4-8-5-7"
+           style="stroke:none;stroke-width:0.35"
+           x="395"
+           y="210">6k</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-weight:bold;font-size:2.46944px;font-family:'Latin Modern Sans';-inkscape-font-specification:'Latin Modern Sans Bold';text-align:end;text-anchor:end;fill:#000000;fill-opacity:1;stroke:#0079b1;stroke-width:0.349999;stroke-linecap:round;stroke-opacity:1"
+         x="395"
+         y="265"
+         id="text23-84-71-17-1-1-4-92"><tspan
+           sodipodi:role="line"
+           id="tspan23-23-2-2-4-8-5-2"
+           style="stroke:none;stroke-width:0.35"
+           x="395"
+           y="265">6k</tspan></text>
+    </g>
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer7"
+     inkscape:label="PVPlines"
+     style="display:inline">
+    <path
+       style="fill:none;fill-opacity:1;stroke:#ffe300;stroke-width:0.349999;stroke-linecap:round;stroke-opacity:1;marker-start:url(#Dot);marker-end:url(#marker26)"
+       d="M 394.91605,194.89953 404.93402,185 l 0.066,-20.00001 -10.08396,-9.99438"
+       id="path25" />
+    <path
+       style="fill:none;fill-opacity:1;stroke:#ffe300;stroke-width:0.349999;stroke-linecap:round;stroke-opacity:1;marker-start:url(#Dot-4);marker-mid:url(#marker27);marker-end:url(#marker26-2)"
+       d="m 265.00001,79.999998 v -15 -14.999999"
+       id="path25-78"
+       sodipodi:nodetypes="ccc" />
+    <path
+       style="fill:none;fill-opacity:1;stroke:#ffe300;stroke-width:0.349999;stroke-linecap:round;stroke-opacity:1;marker-start:url(#Dot-5);marker-end:url(#marker26-8)"
+       d="m 325.02207,225 -0.0221,-20.00001"
+       id="path25-7"
+       sodipodi:nodetypes="cc" />
+    <path
+       style="fill:none;fill-opacity:1;stroke:#ffe300;stroke-width:0.349999;stroke-linecap:round;stroke-opacity:1;marker-start:url(#Dot-5-1);marker-end:url(#marker26-8-7)"
+       d="m 85.015381,274.99469 -0.01538,-84.9947"
+       id="path25-7-6"
+       sodipodi:nodetypes="cc" />
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer8"
+     inkscape:label="req">
+    <path
+       style="display:inline;fill:none;fill-opacity:1;stroke:#00b000;stroke-width:0.349999;stroke-linecap:round;stroke-opacity:1;marker-start:url(#Dot-4-1);marker-mid:url(#marker27-1);marker-end:url(#marker26-2-8)"
+       d="m 102.39767,49.999665 -4.795331,3.32e-4"
+       id="path25-78-5"
+       sodipodi:nodetypes="cc" />
+    <path
+       style="display:inline;fill:none;fill-opacity:1;stroke:#00b000;stroke-width:0.349999;stroke-linecap:round;stroke-opacity:1;marker-start:url(#Dot-4-1-4);marker-mid:url(#marker27-1-7);marker-end:url(#marker26-2-8-1)"
+       d="M 102.55356,94.999997 H 97.750002"
+       id="path25-78-5-5"
+       sodipodi:nodetypes="cc" />
+    <path
+       style="display:inline;fill:none;fill-opacity:1;stroke:#00b000;stroke-width:0.349999;stroke-linecap:round;stroke-opacity:1;marker-start:url(#Dot-4-1-4-7);marker-mid:url(#marker27-1-7-8);marker-end:url(#marker26-2-8-1-5)"
+       d="m 162.47151,94.999997 h -4.80356"
+       id="path25-78-5-5-0"
+       sodipodi:nodetypes="cc" />
+    <path
+       style="display:inline;fill:none;fill-opacity:1;stroke:#00b000;stroke-width:0.349999;stroke-linecap:round;stroke-opacity:1;marker-start:url(#Dot-4-1-4-7-6);marker-mid:url(#marker27-1-7-8-0);marker-end:url(#marker26-2-8-1-5-4)"
+       d="M 222.52517,124.91075 H 97.437175"
+       id="path25-78-5-5-0-3"
+       sodipodi:nodetypes="cc" />
+  </g>
+</svg>
