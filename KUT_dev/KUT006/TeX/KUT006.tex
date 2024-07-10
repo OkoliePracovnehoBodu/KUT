@@ -1,0 +1,490 @@
+\documentclass[a4paper, 10pt, ]{article}
+
+\input{./COMMONFILES/preamble.tex}
+
+% -----------------------------------------------------------------------------
+
+\def\oznacenieCelku{Kolekcia učebných textov}
+
+% -----------------------------------------------------------------------------
+
+
+\def\KUTporadoveCislo{006}
+
+% \def\oznacenieVerzie{v0.9}
+\def\oznacenieVerzie{\phantom{v1.0}}
+
+\def\mesiacRok{júl 2024}
+
+\def\authorslabel{MT}
+
+
+
+
+
+% -----------------------------------------------------------------------------
+
+\begin{document}
+
+% -----------------------------------------------------------------------------
+% Uvodny nadpis
+
+\noindent
+\parbox[t][18mm][c]{0.3\textwidth}{%
+\raisebox{-0.9\height}{%
+\phantom{.}\includegraphics[height=18mm]{./COMMONFILES/URKFEIlogo.pdf}%
+}%
+}%
+\parbox[t][18mm][c]{0.7\textwidth}{%
+\raggedleft
+
+\sffamily
+\fontsize{16pt}{18pt}
+\fontseries{sbc}
+\selectfont
+
+\noindent
+\textcolor[rgb]{0.75, 0.75, 0.75}{\textls[25]{\oznacenieCelku}}
+}%
+
+\noindent
+\parbox[t][16mm][b]{0.5\textwidth}{%
+\raggedright
+
+\color{Gray}
+\sffamily
+
+\fontsize{12pt}{12pt}
+\selectfont
+\mesiacRok
+
+\fontsize{6pt}{10pt}
+\selectfont
+github.com/PracovnyBod/KUT
+
+\fontsize{8pt}{10pt}
+\selectfont
+\authorslabel
+
+
+
+
+}%
+\parbox[t][16mm][b]{0.5\textwidth}{%
+\raggedleft
+
+\sffamily
+
+\fontsize{6pt}{6pt}
+\selectfont
+
+\textcolor[rgb]{0.68, 0.68, 0.68}{\oznacenieVerzie}
+
+
+\fontsize{14pt}{14pt}
+\selectfont
+
+\bfseries
+
+\includegraphics[height=12pt]{./COMMONFILES/KUT_logo_v0.1.pdf}%
+{%
+\textls[-50]{\KUTporadoveCislo}
+}%
+}%
+
+% -----------------------------------------------------------------------------
+
+
+
+
+\vspace{6mm}
+
+% ---------------------------------------------
+\sffamily
+\bfseries
+\fontsize{18pt}{21pt}
+\selectfont
+
+\begin{flushleft}
+	O riešení homogénnej lineárnej diferenciálnej rovnice druhého rádu s konštantnými koeficientami
+\end{flushleft}
+
+\bigskip
+
+% -----------------------------------------------------------------------------
+\normalsize
+\normalfont
+% -----------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+\noindent
+\lettrine[lines=1, nindent=1pt, loversize=0.0]{T}{ento} 
+text je spracovaný najmä podľa učebného materiálu \cite{Mihalikova2012}. Cieľom je poskytnúť prehľad v oblasti klasického spôsobu riešenia homogénnej lineárnej diferenciálnej rovnice druhého rádu s konštantnými koeficientami.
+
+V princípe je možné tu uvedenú metódu aplikovať aj na diferenciálne rovnice iného rádu ako druhého. Rovnica druhého rádu však vhodne ilustruje podstatu hľadania riešenia.
+
+
+\section{Štruktúra riešení homogénnej diferenciálnej rovnice}
+
+Najprv zdôrazníme prívlastok \emph{homogénna} v zmysle, že predmetom tohto textu je \emph{všeobecné riešenie} dif. rovnice. Takéto riešenie je možné ďalej konkretizovať v zmysle začiatočných (prípadne okrajových) podmienok. Nezaoberáme sa tu tzv. \emph{partikulárnym} riešením, ktoré je dané prítomnosťou inej funkcie (času) ako je hľadaná neznáma funkcia.
+
+Uvažujme diferenciálnu rovnicu v tvare
+\begin{equation}
+    \ddot y(t) + a_1 \dot y(t) + a_0 y(t) = 0 \label{e03}
+\end{equation}
+kde $y(t)$ je neznáma funkcia času. Túto funkciu hľadáme tak aby bola riešením rovnice \eqref{e03}, teda tak aby po dosadení $y(t)$ a jej derivácií do rovnice \eqref{e03} bola rovnica platná. Pre úplnosť, $a_1 \in \mathbb R$ a $a_2  \in \mathbb R$ sú konštantné koeficienty.
+
+\subsection{Fundamentálne riešenia}
+
+Všeobecné riešenie dif. rovnice \eqref{e03} nájdeme tak, že najprv hľadáme dve lineárne nezávislé riešenia. Tieto riešenia nazývame \emph{fundamentálnymi riešeniami}. Ich lineárna kombinácia je potom všeobecným riešením dif. rovnice \eqref{e03}.
+
+Nech $y_1(t)$ a $y_2(t)$ sú dve riešenia dif. rovnice \eqref{e03}. Potom každá ich lineárna kombinácia $c_1 y_1(t) + c_2 y_2(t) $, $c_1, c_2 \in \mathbb R$ je tiež riešením dif. rovnice \eqref{e03} (vyplýva to z~lineárnosti derivácie). 
+
+Špeciálne, ak $c_1 = c_2 = 0$ dostaneme riešenie $y(t) = 0$. Nazýva sa nulovým riešením alebo \emph{triviálnym riešením}.
+
+Urobme nasledujúcu úvahu. Zoberme dve riešenia $y_1(t)$ a $y_2(t)$, ktoré spĺňajú začiatočné podmienky
+\begin{subequations} \label{eIC}
+    \begin{align}
+        y_1(0) &= 1      &        y_2(0) &= 0       \\
+        \dot y_1(0) &= 0  &      \dot y_2(0) &= 1
+    \end{align}
+\end{subequations}
+Tieto riešenia sú tým určené jednoznačne v zmysle, že žiadne z nich nie je násobkom druhého. Tieto dve riešenia sú teda lineárne nezávislé.
+
+Majme teda dve riešenia $y_1(t)$ a $y_2(t)$, a uvažujme ďalšie riešenie $y_3(t)$ spĺňajúce začiatočné podmienky
+\begin{subequations}
+    \begin{align}
+        y_3(0) &= y_0           \\
+        \dot y_3(0) &= z_0  
+    \end{align}
+\end{subequations}
+Skúsme ukázať, že riešenia $y_1(t)$,  $y_2(t)$ a $y_3(t)$ sú navzájom lineárne závislé, teda existujú $\alpha, \beta \in \mathbb R$ také, že
+\begin{equation}
+    y_3(t) = \alpha y_1(t) + \beta y_2(t) \label{eY3}
+\end{equation}
+Dosadením začiatočných podmienok do rovnice \eqref{eY3} dostaneme
+\begin{subequations}
+    \begin{align}
+        y_0 &= \alpha y_1(0) + \beta y_2(0)    \\
+        z_0 &= \alpha \dot y_1(0) + \beta \dot y_2(0) 
+    \end{align}
+\end{subequations}
+Čísla $\alpha$ a $\beta$ sú riešením tejto sústavy rovníc a sústava má jediné riešenie ak determinant tejto sústavy je nenulový.
+\begin{equation} \label{Wdet}
+    \begin{vmatrix}
+        y_1(0) & y_2(0) \\
+        \dot y_1(0) & \dot y_2(0)
+    \end{vmatrix} 
+    =
+    y_1(0) \dot y_2(0) -  y_2(0) \dot y_1(0)
+    \neq 0
+\end{equation}
+Pre prípad \eqref{eIC} je determinant rovný $1$.
+
+Ak by sme predpokladali, že 
+\begin{subequations} \label{eIC2}
+    \begin{align}
+        y_1(0) &= 1      &        y_2(0) &\neq 0       \\
+        \dot y_1(0) &\neq 0  &      \dot y_2(0) &= 1
+    \end{align}
+\end{subequations}
+tak determinant \eqref{Wdet} môže byť nulový. V tejto situácii ak $y_2(0) = 0$ a $\dot y_2(0) = 0$ tak $y_2(t) = 0$. Taktiež ak $y_2(0) = 0$ a $\dot y_2(0) \neq 0$ a $y_1(0) = 0$ tak existuje $c \in \mathbb R$ také, že
+\begin{align}
+    y_1(0) &= c y_2(0) \\
+    \dot y_1(0) &= c \dot y_2(0)
+\end{align}
+a riešenia $y_1(t)$ a $y_2(t)$ by boli lineárne závislé. Pripomeňme, že hovoríme o situácii, že determinant \eqref{Wdet} je nulový. 
+
+Inými slovami, pri nulovom determinante \eqref{Wdet} môžeme písať
+\begin{equation}
+    \frac{y_1(0)}{y_2(0)} = \frac{\dot y_1(0)}{\dot y_2(0)} = c
+\end{equation}
+Zároveň vieme, že $y_2(t)$ je riešenie dif. rovnice. Potom aj $\tilde y(t) = c y_2(t)$ je riešenie a~tiež platí $\tilde y(0) = c y_2(0)$, $\dot{\tilde{y}}(0) = c \dot y_2(0)$ a teda je možné aby $\tilde y(t) = y_1(t)$. Znamenalo by to, že $y_1(t)$ a $y_2(t)$ sú lineárne závislé, čo je v rozpore s východiskom, že sú lineárne nezávislé.
+
+Ukázali sme, že determinant \eqref{Wdet} je nenulový, tak riešenia $y_1(t)$ a $y_2(t)$ sú lineárne nezávislé.
+
+
+Ďalej je možné konštatovať, že mať jedno riešenie v tomto prípade nestačí. Potrebujeme aspoň dve riešenia. Všeobecné riešenie, alebo inak povedané, všetky riešenia dif. rovnice \eqref{e03}, získame ako lineárnu kombináciu dvoch lineárne nezávislých riešení.
+
+Dve lineárne nezávislé riešenia dif. rovnice nazývame \emph{fundamentálnymi riešeniami} alebo \emph{bázou riešení} dif. rovnice (pozri tiež \cite{Kuben1995}). Je možné ukázať, že riešenia dif. rovnice tvoria vektorový priestor a ten má vždy bázu \cite{Kuben1995}.
+
+Determinant \eqref{Wdet} sa nazýva Wronského determinant, v tomto prípade funkcií $y_1(t)$ a $y_2(t)$, a rozhoduje o lineárnej nezávislosti týchto funkcií.
+
+Všeobecným riešením $y(t)$ nazývame lineárnu kombináciu dvoch fundamentálnych riešení $y_{f1}(t)$ a $y_{f2}(t)$, teda $y(t) = c_1 y_{f1}(t) + c_2 y_{f2}(t)$, kde $c_1, c_2 \in \mathbb R$ sú ľubovoľné konštanty.
+
+Nepoznáme všeobecnú metódu, pomocou ktorej by sme vždy vedeli nájsť fundamentálne riešenia. V praxi sa využívajú rôzne postupy, ktoré sú zvyčajne založené na skúšaní rôznych tvarov riešení. Pri lineárnej diferenciálnej rovnici s konštantnými koeficientmi je možné nájsť riešenia v tvare exponenciálnej funkcie. V prípade dif. rovnice \eqref{e03} je možné hľadať riešenie v tvare $y(t) = e^{s t}$, kde $s \in \mathbb C$.
+
+
+
+\section{Všeobecné riešenie homogénnej diferenciálnej rovnice}
+
+Uvažujme diferenciálnu rovnicu v tvare
+\begin{equation}
+    \ddot y(t) + a_1 \dot y(t) + a_0 y(t) = 0 \label{e01}
+\end{equation}
+kde $a_1 \in \mathbb R$ a $a_2  \in \mathbb R$.
+
+Riešenie rovnice \eqref{e01} hľadajme v tvare 
+\begin{equation}
+    y(t) = e^{s t}
+\end{equation}
+kde $s \in \mathbb C$. Potom
+\begin{align}
+    \dot y(t) &= s e^{s t} \\
+    \ddot y(t) &= s^2 e^{s t}
+\end{align}
+Dosadením do rovnice \eqref{e01} máme
+\begin{subequations}
+    \begin{align}
+        s^2 e^{s t} + a_1 s e^{s t} + a_0 e^{s t} &= 0 \\
+        e^{s t} (s^2 + a_1 s + a_0) &= 0
+    \end{align}
+\end{subequations}
+Keďže $e^{s t} \neq 0$, pretože nehľadáme triviálne riešenie, tak pre nájdenie riešenia musí platiť
+\begin{equation}
+    s^2 + a_1 s + a_0 = 0 \label{e02}
+\end{equation}
+
+
+\paragraph{Charakteristický polynóm a korene charakteristického polynómu}
+
+Rovnica \eqref{e02} sa nazýva \emph{charakteristická rovnica} dif. rovnice \eqref{e01} a~jej riešenia $s_1$ a~$s_2$ sú \emph{charakteristickými číslami} dif. rovnice \eqref{e01}. Inými slovami polynóm $s^2 + a_1 s + a_0$ sa nazýva \emph{charakteristický polynóm} dif. rovnice \eqref{e01}.
+
+Funkcia $e^{s t}$ je riešením dif. rovnice \eqref{e01} ak $s$ je riešením algebraickej rovnice \eqref{e02}. Inými slovami, $e^{s t}$ je riešením dif. rovnice \eqref{e01} ak $s$ je koreňom charakteristického polynómu dif. rovnice. 
+
+
+Vo všeobecnosti môžeme určiť toľko navzájom odlišných funkcií $e^{s t}$, teda riešení diferenciálnej rovnice, koľko koreňov má charakteristický polynóm. V tomto prípade dif. rovnice druhého rádu sú to dva korene. Môžu byť
+\begin{itemize}
+    \item dva navzájom rôzne reálne korene,
+    \item jeden dvojnásobný reálny koreň,
+    \item dva komplexne združené korene.
+\end{itemize}
+Tieto prípady vedú k rôznym typom riešení dif. rovnice.
+
+
+
+
+
+
+
+
+\subsection{Prípad: dva navzájom rôzne reálne korene}
+
+
+Nech charakteristický polynóm má dva navzájom rôzne reálne korene $s_1$ a $s_2$. Potom všeobecné riešenie dif. rovnice \eqref{e01} je
+\begin{equation}
+    y(t) = c_1 e^{s_1 t} + c_2 e^{s_2 t}
+\end{equation}
+kde uvažujeme, že fundamentálnymi riešeniami sú
+\begin{subequations} \label{kfunr}
+    \begin{align}
+        y_{f1}(t) &= e^{s_1 t} \\
+        y_{f2}(t) &= e^{s_2 t}
+    \end{align} 
+\end{subequations}
+Ich Wronskián (Wronského determinant) je
+\begin{equation}
+    \begin{aligned}
+        W(t) &= \begin{vmatrix}
+            e^{s_1 t} & e^{s_2 t} \\
+            s_1 e^{s_1 t} & s_2 e^{s_2 t}
+        \end{vmatrix} \\
+        &=e^{s_1t} s_2 e^{s_2t} - e^{s_2} s_1 e^{s_1t} \\
+        &= e^{(s_1 + s_2) t} (s_2 - s_1) \neq 0
+    \end{aligned}
+\end{equation}
+čím sme ukázali, že sú lineárne nezávislé a potvrdili, že všeobecné riešenie dif. rovnice \eqref{e01} v tomto prípade je
+\begin{equation}
+    y(t) = c_1 e^{s_1 t} + c_2 e^{s_2 t}
+\end{equation}
+
+\subsection{Prípad: jeden dvojnásobný reálny koreň}
+
+Nech charakteristický polynóm má koreň $s$. Riešením dif. rovnice \eqref{e01} je $y_{f1} = e^{st}$. Pre nájdenie všeobecného riešenia však potrebujeme aj druhé fundamentálne riešenie. Ukážme, že $y_{f2} = t e^{st}$ je tiež riešením dif. rovnice \eqref{e01}. Platí
+\begin{subequations}
+    \begin{align}
+        \dot y_{f2} &= e^{st} + s t e^{st} \\
+        \begin{split}
+            \ddot y_{f2} &=  e^{st} s + s \left( e^{st} +  t e^{st} s \right) \\
+            &= s e^{st} + s e^{st} + s^2 t e^{st} \\
+            &= 2 s e^{st} + s^2 t e^{st}
+        \end{split}
+    \end{align}
+\end{subequations}
+Dosadením do dif. rovnice \eqref{e01}
+\begin{subequations}
+    \begin{align}
+        \left( 2 s e^{st} + s^2 t e^{st} \right) + a_1 \left( e^{st} + s t e^{st} \right) + a_0 t e^{st} &= 0 \\
+        2 s e^{st} + s^2 t e^{st} + a_1 e^{st} + a_1 s t e^{st} + a_0 t e^{st} &= 0 \\
+        e^{st} \left( 2 s + s^2 t + a_1 + a_1 s t + a_0 t \right) &= 0 \\
+        e^{st} \left(  t \left( s^2 + a_1s + a_0 \right) + 2s + a_1   \right) &= 0
+    \end{align}
+\end{subequations}
+Keďže
+\begin{align}
+    D &= a_1^2 - 4 a_0 = 0 \\
+    s &= -\frac{a_1}{2}
+\end{align}
+tak
+\begin{align}
+    2s+ a_1 = 2 \left( -\frac{a_1}{2} \right) + a_1 = 0
+\end{align}
+a teda $y_{f2} = t e^{st}$ je riešením dif. rovnice \eqref{e01}.
+Máme teda dve fundamentálne riešenia v tvare
+\begin{subequations}
+    \begin{align}
+        y_{f1} &= e^{st} \\
+        y_{f2} &= t e^{st}
+    \end{align}
+\end{subequations}
+a ostáva ukázať, že sú lineárne nezávislé. Ich Wronského determinant je
+\begin{equation}
+    \begin{aligned}
+        W(t) &= \begin{vmatrix}
+            e^{st} & t e^{st} \\
+            s e^{st} & e^{st} + s t e^{st}
+        \end{vmatrix} \\
+        &= e^{st} \left( e^{st} + s t e^{st} \right) - t e^{st} s e^{st} \\
+        &= e^{2st} + st e^{2st} - st  e^{2st} \\
+        &= e^{2st} \neq 0
+    \end{aligned}
+\end{equation}
+čím sme ukázali, že sú lineárne nezávislé. Všeobecné riešenie dif. rovnice \eqref{e01} v tomto prípade je v tvare
+\begin{equation}
+    y(t) = c_1 e^{st} + c_2 t e^{st}
+\end{equation}
+
+
+
+
+
+\subsection{Prípad: dva komplexne združené korene}
+
+Nech charakteristický polynóm má dva komplexne združené korene
+\begin{subequations}
+    \begin{align}
+        s_1 &= a + j b \\
+        s_2 &= a - j b
+    \end{align}
+\end{subequations}
+kde $a, b \in \mathbb R$ a $j$ je imaginárna jednotka.
+
+V tomto prípade funkcie $e^{(a+jb)t}$ a $e^{(a-jb)t}$ nie sú reálne funkcie. S využitím Eulerovho vzťahu
+\begin{subequations}
+    \begin{align}
+        \begin{split}
+            e^{s_1t} = e^{at}e^{jbt} &= e^{at} \left( \cos(bt) + j \sin(bt) \right) \\
+            &= e^{at} \cos(bt) + j e^{at} \sin(bt)
+        \end{split} \\
+        \begin{split}
+            e^{s_2t} = e^{at}e^{-jbt} &= e^{at} \left( \cos(bt) - j \sin(bt) \right) \\
+            &= e^{at} \cos(bt) - j e^{at} \sin(bt)
+        \end{split} 
+    \end{align}
+\end{subequations}
+Uvedené funkcie sú teda lineárnou kombináciou funkcií
+\begin{subequations}
+    \begin{align}
+        y_{f1}(t) &= e^{at} \cos(bt) \\
+        y_{f2}(t) &= e^{at} \sin(bt)
+    \end{align}
+\end{subequations}
+Ukážme, že $y_{f1}(t)$ a $y_{f2}(t)$ sú riešeniami dif. rovnice \eqref{e01}, a že sú lineárne nezávislé.
+
+Keďže $s_1 = a + jb$ je koreňom charakteristického polynómu, tak
+\begin{subequations}
+    \begin{align}
+        \left( a + jb \right)^2 + a_1 \left( a + jb \right) + a_0 &= 0 \\
+        a^2 + 2 a j b - b^2 + a_1 a + a_1 j b + a_0 &= 0
+    \end{align}
+\end{subequations}
+odkiaľ
+\begin{subequations}
+    \begin{align}
+        j \left( 2 a b + a_1 b \right) &= 0  \label{mv1} \\
+        a^2 - b^2 + a_1a + a_0 &= 0 \label{mv2}
+    \end{align}
+\end{subequations}
+
+Vypočítajme derivácie $y_{f1}(t)$:
+\begin{subequations}
+    \begin{align}
+        \begin{split}
+            \dot y_{f1}(t) &= e^{at} a \cos(bt) + e^{at}  \left( -\sin(bt) \right) b \\
+            &= a e^{at} \cos(bt) - b e^{at} \sin(bt) 
+        \end{split} \\
+        \begin{split}
+            \ddot y_{f1}(t) &= a \left( e^{at} a \cos(bt) - e^{at} b \sin(bt) \right)
+            - b \left( e^{at} a \sin(bt) + e^{at} b \cos(bt) \right) \\
+            &= a^2 e^{at} \cos(bt) - a b e^{at} \sin(bt) - a b e^{at} \sin(bt) - b^2 e^{at} \cos(bt) \\
+            &= \left( a^2 - b^2  \right) e^{at} \cos(bt) - 2 a b e^{at} \sin(bt)
+        \end{split}
+    \end{align}
+\end{subequations}
+
+Dosadením do dif. rovnice \eqref{e01}
+\begin{subequations}
+    \begin{align}
+        \begin{split}
+            &\phantom{+}  \left( a^2 - b^2  \right) e^{at} \cos(bt) - 2 a b e^{at} \sin(bt) 
+            % \\&+ 
+            +
+            a_1 \left( a e^{at} \cos(bt) - b e^{at} \sin(bt) \right) 
+            \\&+
+            a_0 e^{at} \cos(bt) = 0 
+        \end{split} \\
+        \begin{split}
+            &\phantom{+}  \left( a^2 - b^2  \right) e^{at} \cos(bt) - 2 a b e^{at} \sin(bt) 
+            % \\&+
+            +
+            a_1 a e^{at} \cos(bt) - a_1 b e^{at} \sin(bt) 
+            \\&+
+            a_0 e^{at} \cos(bt) = 0 
+        \end{split} \\
+        \begin{split}
+            &\phantom{+}  \left( a^2 - b^2  + a_1 a + a_0 \right) e^{at} \cos(bt) 
+            - 
+            \left( 2 a b + a_1 b \right) e^{at} \sin(bt) = 0
+        \end{split} \label{drf1}
+    \end{align}
+\end{subequations}
+Vieme, že platí \eqref{mv1} a \eqref{mv2} a teda platí aj \eqref{drf1}. Analogicky je možné ukázať, že aj $y_{f2}(t)$ je riešením dif. rovnice \eqref{e01}. Ostáva ukázať, že tieto riešenia sú navzájom lineárne nezávislé. Ich Wronského determinant je
+\begin{equation}
+    \begin{aligned}
+        W(t) &= \begin{vmatrix}
+            e^{at} \cos(bt) & e^{at} \sin(bt) \\
+            a e^{at} \cos(bt) - b e^{at} \sin(bt) & a e^{at} \sin(bt) + b e^{at} \cos(bt)
+        \end{vmatrix} \\
+        &= e^{at} \cos(bt) \left( a e^{at} \sin(bt) + b e^{at} \cos(bt) \right) 
+        - e^{at} \sin(bt) \left( a e^{at} \cos(bt) - b e^{at} \sin(bt) \right) \\
+        &= e^{2at} \left( a \cos(bt) \sin(bt) + b \cos^2(bt) - a \cos(bt) \sin(bt) + b \sin^2(bt) \right) \\
+        &= e^{2at} (b \cos^2(bt) + b \sin^2(bt)) \\
+        &= e^{2at} b \neq 0
+    \end{aligned}
+\end{equation}
+čím sme ukázali, že sú lineárne nezávislé. Všeobecné riešenie dif. rovnice \eqref{e01} v tomto prípade je v tvare
+\begin{equation}
+    y(t) = c_1 e^{at} \cos(bt) + c_2 e^{at} \sin(bt)
+\end{equation}
+
+
+
+\nocite{*}
+
+\printbibliography[title={Referencie a ďalšia literatúra}]
+
+% -----------------------------------------------------------------------------
+
+\end{document}
+
+% -----------------------------------------------------------------------------
