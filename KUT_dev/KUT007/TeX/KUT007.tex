@@ -1,0 +1,546 @@
+\documentclass[a4paper, 10pt, ]{article}
+
+\input{./COMMONFILES/preamble.tex}
+
+% -----------------------------------------------------------------------------
+
+\def\oznacenieCelku{Kolekcia učebných textov}
+
+% -----------------------------------------------------------------------------
+
+
+\def\KUTporadoveCislo{007}
+
+% \def\oznacenieVerzie{v0.9}
+\def\oznacenieVerzie{\phantom{v1.0}}
+
+\def\mesiacRok{júl 2024}
+
+\def\authorslabel{MT}
+
+
+
+
+
+% -----------------------------------------------------------------------------
+
+\begin{document}
+
+% -----------------------------------------------------------------------------
+% Uvodny nadpis
+
+\noindent
+\parbox[t][18mm][c]{0.3\textwidth}{%
+\raisebox{-0.9\height}{%
+\phantom{.}\includegraphics[height=18mm]{./COMMONFILES/URKFEIlogo.pdf}%
+}%
+}%
+\parbox[t][18mm][c]{0.7\textwidth}{%
+\raggedleft
+
+\sffamily
+\fontsize{16pt}{18pt}
+\fontseries{sbc}
+\selectfont
+
+\noindent
+\textcolor[rgb]{0.75, 0.75, 0.75}{\textls[25]{\oznacenieCelku}}
+}%
+
+\noindent
+\parbox[t][16mm][b]{0.5\textwidth}{%
+\raggedright
+
+\color{Gray}
+\sffamily
+
+\fontsize{12pt}{12pt}
+\selectfont
+\mesiacRok
+
+\fontsize{6pt}{10pt}
+\selectfont
+github.com/PracovnyBod/KUT
+
+\fontsize{8pt}{10pt}
+\selectfont
+\authorslabel
+
+
+
+
+}%
+\parbox[t][16mm][b]{0.5\textwidth}{%
+\raggedleft
+
+\sffamily
+
+\fontsize{6pt}{6pt}
+\selectfont
+
+\textcolor[rgb]{0.68, 0.68, 0.68}{\oznacenieVerzie}
+
+
+\fontsize{14pt}{14pt}
+\selectfont
+
+\bfseries
+
+\includegraphics[height=12pt]{./COMMONFILES/KUT_logo_v0.1.pdf}%
+{%
+\textls[-50]{\KUTporadoveCislo}
+}%
+}%
+
+% -----------------------------------------------------------------------------
+
+
+
+
+\vspace{6mm}
+
+% ---------------------------------------------
+\sffamily
+\bfseries
+\fontsize{18pt}{21pt}
+\selectfont
+
+\begin{flushleft}
+	O schematickom znázornení\\ dynamického systému
+\end{flushleft}
+
+\bigskip
+
+% -----------------------------------------------------------------------------
+\normalsize
+\normalfont
+% -----------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+\noindent
+\lettrine[lines=1, nindent=1pt, loversize=0.0]{D}{ynamický} 
+ systém je možné, samozrejme, opísať diferenciálnou rovnicou a túto potom použiť na ďalšiu analýzu. Dynamický systém, alebo diferenciálnu rovnicu, ktorá ho opisuje, je možné znázorniť aj graficky \emph{blokovou schémou}. Takou, ktorá prípadne umožňuje aj opačný postup, teda schéma určuje diferenciálnu rovnicu. Výsledná bloková schéma taktiež umožňuje ďalšiu analýzu dynamického systému.
+
+
+\section{Prvky blokovej schémy}
+
+ Typicky sa v rámci takejto schémy používajú nasledovné prvky a bloky.
+
+ \paragraph{Signál}
+
+ \begin{center}
+
+    \vbox{%
+    \makebox[\textwidth][c]{%
+	\input{../SVG/schB_signal.pdf_tex}
+	}
+
+	\figcaption{Signál v blokovej schéme.}
+    \label{schB_signal.pdf}
+    }
+
+\end{center}
+
+\noindent
+Signál je reprezentovaný čiarou so šípkou, ktorá určuje smer prenosu informácie. Pri čiare je uvedené označenie signálu.
+
+
+\paragraph{Zosilňovač}
+
+\begin{center}
+
+    \vbox{%
+    \makebox[\textwidth][c]{%
+	\input{../SVG/schB_gain.pdf_tex}
+	}
+
+	\figcaption{Zosilňovač v blokovej schéme.}
+    \label{schB_gain.pdf}
+    }
+
+\end{center}
+
+\noindent
+Ide o blok, ktorý vo všeobecnosti zosilňuje signál na vstupe tohto bloku. Samozrejme, môže ísť aj o „zoslabenie“. Inými slovami, tento blok vynásobí hodnotu vstupného signálu $u(t)$ hodnotou parametra $a$ a výstupom je signál $y(t)$. Matematicky zapísané
+\begin{equation}
+    y(t) = a \,  u(t)
+\end{equation}
+Parameter $a$ môže mať ľubovolnú hodnotu, môže byť menší ako $1$ (zoslabenie) alebo záporný.
+
+
+\paragraph{Sumátor}
+
+\begin{center}
+
+    \vbox{%
+    \makebox[\textwidth][c]{%
+	\input{../SVG/schB_sumator.pdf_tex}
+	}
+
+	\figcaption{Sumátor v blokovej schéme.}
+    \label{schB_sumator.pdf}
+    }
+
+\end{center}
+
+\noindent
+Realizuje sčítanie hodnôt dvoch alebo viacerých signálov. Prípadne odčítanie. Príklad matematického zápisu:
+\begin{equation}
+    y(t) = u_1(t) + u_2(t)
+\end{equation}
+
+\paragraph{Integrátor}
+
+\begin{center}
+
+    \vbox{%
+    \makebox[\textwidth][c]{%
+    \input{../SVG/schB_integrator.pdf_tex}
+    }
+
+    \figcaption{Integrátor v blokovej schéme.}
+    \label{schB_integrator.pdf}
+    }
+
+\end{center}
+
+\noindent
+Predstavuje časovú integráciu vstupného signálu v zmysle matematického zápisu
+\begin{equation}
+    y(t) = \int u(t) \, \text{d}t \qquad y(0) = y_0
+\end{equation}
+kde $y_0$ je začiatočná hodnota signálu $y(t)$, teda začiatočná podmienka.
+
+
+
+
+\paragraph{Derivácia \textnormal{(derivátor?)}}
+
+Pre úplnosť uvedieme aj blok realizujúci časovú deriváciu signálu. Je opakom integrátora. Tento blok sa však v praxi používa menej často. Dôvodom je, že implementovať časovú deriváciu je v praxi
+
+\begin{center}
+
+    \vbox{%
+    \makebox[\textwidth][c]{%
+    \input{../SVG/schB_derivacia.pdf_tex}
+    }
+
+    \figcaption{Časová derivácia v blokovej schéme.}
+    \label{schB_derivacia.pdf}
+    }
+
+\end{center}
+
+
+
+
+
+
+
+\section{Príklady}
+
+\subsection{Príklad postupu}
+
+Uvažujme dynamický systém daný diferenciálnou rovnicou v tvare
+\begin{equation} \label{eq:HDR1R}
+    \dot y(t) + a y(t) = 0 \qquad y(0) = y_0
+\end{equation}
+Postup pre zostavenie blokovej schémy dynamického systému môže byť nasledovný.
+
+Rovnica \eqref{eq:HDR1R} je prvého rádu a neznámou je časová funkcia $y(t)$. Prepíšme rovnicu \eqref{eq:HDR1R} tak, aby na ľavej strane bola len najvyššia derivácia neznámej, v tomto prípade signál $\dot y(t)$. Teda
+\begin{equation} \label{eq:HDR1Rs}
+    \dot y(t) = - a y(t)
+\end{equation}
+Rovnica v tomto tvare je východiskom pre zostavenie blokovej schémy. Je totiž zrejmé, že signál $\dot y(t)$  existuje. Inými slovami, to, čo určite máme k dispozícii je signál $\dot y(t)$. Ak by tento signál neexistoval, tak vlastne rovnica \eqref{eq:HDR1Rs} by bola nezmyslom. V schéme teda máme k dispozícii signál $\dot y(t)$.
+\begin{center}
+
+    \vbox{%
+    \makebox[\textwidth][c]{%
+    \input{../SVG/schB_pr0_k1.pdf_tex}
+    }
+
+    \vspace{-5mm}
+
+    \figcaption{Bloková schéma rovnice \eqref{eq:HDR1R}, krok prvý.}
+    \label{schB_pr0_k1.pdf}
+    }
+
+\end{center}
+Rovnica v tvare \eqref{eq:HDR1Rs} tiež priamo ukazuje, že signál $\dot y(t)$ je to isté ako výraz $- a y(t)$. Vieme zostaviť blokovú schému tohto výrazu? Ide zjavne o zosilňovač so zosilnením $-a$, ktorý má na vstupe signál $y(t)$. Pridajme do blokovej schémy:
+\begin{center}
+
+    \vbox{%
+    \makebox[\textwidth][c]{%
+    \input{../SVG/schB_pr0_k2.pdf_tex}
+    }
+
+    \figcaption{Bloková schéma rovnice \eqref{eq:HDR1R}, krok druhý.}
+    \label{schB_pr0_k2.pdf}
+    }
+
+\end{center}
+Keďže doslova $\dot y(t) = - a y(t)$, tak
+\begin{center}
+
+    \vbox{%
+    \makebox[\textwidth][c]{%
+    \input{../SVG/schB_pr0_k3.pdf_tex}
+    }
+
+    \figcaption{Bloková schéma rovnice \eqref{eq:HDR1R}, krok tretí.}
+    \label{schB_pr0_k3.pdf}
+    }
+
+\end{center}
+Pripomeňme, že signál $\dot y(t)$ takpovediac existuje, je k dispozícii. Samotný signál $y(t)$ však nie je k dispozícii. Je potrebné ho vytvoriť z toho, čo už k dispozícii je. Je zrejmé, že signál $y(t)$ je možné získať integrovaním $\dot y(t)$, teda
+\begin{center}
+
+    \vbox{%
+    \makebox[\textwidth][c]{%
+    \input{../SVG/schB_pr0_k4.pdf_tex}
+    }
+
+    \figcaption{Bloková schéma rovnice \eqref{eq:HDR1R}, krok štvrtý.}
+    \label{schB_pr0_k4.pdf}
+    }
+
+\end{center}
+pričom integrátor musí mať začiatočnú podmienku $y(0) = y_0$ (podľa \eqref{eq:HDR1R}).
+\begin{center}
+
+    \vbox{%
+    \makebox[\textwidth][c]{%
+    \input{../SVG/schB_pr0_k4b.pdf_tex}
+    }
+
+    \figcaption{}
+    \label{schB_pr0_k4b.pdf}
+    }
+
+\end{center}
+Napokon
+\begin{center}
+
+    \vbox{%
+    \makebox[\textwidth][c]{%
+    \input{../SVG/schB_pr0_k5.pdf_tex}
+    }
+
+    \figcaption{Bloková schéma rovnice \eqref{eq:HDR1R}.}
+    \label{schB_pr0_k5.pdf}
+    }
+
+\end{center}
+je bloková schéma dynamického systému, ktorá zodpovedá diferenciálnej rovnici \eqref{eq:HDR1R}.
+
+
+
+
+\subsection{Príklad 1}
+
+Uvažujme dynamický systém daný diferenciálnou rovnicou v tvare
+\begin{equation} \label{eq:DR1R}
+    \dot y(t) + a y(t) = b u(t) \qquad y(0) = y_0
+\end{equation}
+kde $a$, $b$ sú konštanty a $u(t)$ je známy vstupný signál.
+
+Rovnicu \eqref{eq:DR1R} prepíšme tak, aby na ľavej strane bola len najvyššia derivácia neznámej, teda signál $\dot y(t)$. Teda
+\begin{equation} \label{eq:DR1Rs}
+    \dot y(t) = - a y(t) + b u(t)
+\end{equation}
+Na začiatku máme k dispozícii signál $\dot y(t)$, teda
+\begin{center}
+
+    \vbox{%
+    \makebox[\textwidth][c]{%
+    \input{../SVG/schB_pr1_k1.pdf_tex}
+    }
+
+    \vspace{-15mm}
+
+    \figcaption{Bloková schéma rovnice \eqref{eq:DR1R}, krok prvý.}
+    \label{schB_pr1_k1.pdf}
+    }
+
+\end{center}
+Signál $\dot y(t)$ je súčtom dvoch iných signálov.
+\begin{center}
+
+    \vbox{%
+    \makebox[\textwidth][c]{%
+    \input{../SVG/schB_pr1_k2.pdf_tex}
+    }
+
+    % \vspace{-5mm}
+
+    \figcaption{Bloková schéma rovnice \eqref{eq:DR1R}, krok druhý.}
+    \label{schB_pr1_k2.pdf}
+    }
+
+\end{center}
+Prvý signál získame zosilnením signálu $y(t)$ zosilňovačom s~parametrom $-a$.
+\begin{center}
+
+    \vbox{%
+    \makebox[\textwidth][c]{%
+    \input{../SVG/schB_pr1_k3.pdf_tex}
+    }
+
+    \figcaption{Bloková schéma rovnice \eqref{eq:DR1R}, krok tretí.}
+    \label{schB_pr1_k3.pdf}
+    }
+
+\end{center}
+Druhý získame zosilnením známeho (dostupného) signálu $u(t)$ zosilňovačom s~parametrom $b$.
+\begin{center}
+
+    \vbox{%
+    \makebox[\textwidth][c]{%
+    \input{../SVG/schB_pr1_k4.pdf_tex}
+    }
+
+    \figcaption{Bloková schéma rovnice \eqref{eq:DR1R}, krok štvrtý.}
+    \label{schB_pr1_k4.pdf}
+    }
+
+\end{center}
+Signál $y(t)$ v tomto kroku však nie je dostupný, je potrebné ho vytvoriť z toho, čo už k dispozícii je. Signál $y(t)$ je možné získať integrovaním signálu $\dot y(t)$.
+\begin{center}
+
+    \vbox{%
+    \makebox[\textwidth][c]{%
+    \input{../SVG/schB_pr1_kf.pdf_tex}
+    }
+
+    \figcaption{Bloková schéma rovnice \eqref{eq:DR1R}.}
+    \label{schB_pr1_kf.pdf}
+    }
+
+\end{center}
+Integrátor musí mať začiatočnú podmienku $y(0) = y_0$ (podľa \eqref{eq:DR1R}).
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\subsection{Príklad 2}
+
+Uvažujme dynamický systém daný diferenciálnou rovnicou v tvare
+\begin{equation} \label{eq:DR2R}
+    \ddot y(t) + a_1 \dot y(t) + a_0 y(t) = b_0 u(t) \qquad y(0) = y_0 \qquad \dot y(0) = z_0
+\end{equation}
+kde $a_0$, $a_1$, $b_0$ sú konštanty a $u(t)$ je známy vstupný signál.
+
+Rovnicu \eqref{eq:DR2R} prepíšme tak, aby na ľavej strane bola len najvyššia derivácia neznámej, teda signál $\ddot y(t)$. Teda
+\begin{equation} \label{eq:DR2Rs}
+    \ddot y(t) = - a_1 \dot y(t) - a_0 y(t) + b_0 u(t)
+\end{equation}
+Na začiatku máme k dispozícii signál $\ddot y(t)$, teda
+\begin{center}
+
+    \vbox{%
+    \makebox[\textwidth][c]{%
+    \input{../SVG/schB_pr2_k1.pdf_tex}
+    }
+
+    \vspace{-30mm}
+
+    \figcaption{Bloková schéma rovnice \eqref{eq:DR2R}, krok prvý.}
+    \label{schB_pr2_k1.pdf}
+    }
+
+\end{center}
+Signál $\ddot y(t)$ je v podstate súčtom troch iných signálov.
+\begin{center}
+
+    \vbox{%
+    \makebox[\textwidth][c]{%
+    \input{../SVG/schB_pr2_k2.pdf_tex}
+    }
+
+    \vspace{-5mm}
+
+    \figcaption{Bloková schéma rovnice \eqref{eq:DR2R}, krok druhý.}
+    \label{schB_pr2_k2.pdf}
+    }
+
+\end{center}
+Prvý signál získame zosilnením signálu $\dot y(t)$ zosilňovačom so zosilnením $a_1$. Signál $\dot y(t)$ je možné získať integrovaním signálu $\ddot y(t)$.
+\begin{center}
+
+    \vbox{%
+    \makebox[\textwidth][c]{%
+    \input{../SVG/schB_pr2_k3.pdf_tex}
+    }
+
+    \vspace{-5mm}
+
+    \figcaption{Bloková schéma rovnice \eqref{eq:DR2R}, krok tretí.}
+    \label{schB_pr2_k3.pdf}
+    }
+
+\end{center}
+Druhý signál získame zosilnením signálu $y(t)$ zosilňovačom so zosilnením $a_0$. Signál $y(t)$ je možné získať integrovaním signálu $\dot y(t)$.
+\begin{center}
+
+    \vbox{%
+    \makebox[\textwidth][c]{%
+    \input{../SVG/schB_pr2_k4.pdf_tex}
+    }
+
+    \figcaption{Bloková schéma rovnice \eqref{eq:DR2R}, krok štvrtý.}
+    \label{schB_pr2_k4.pdf}
+    }
+
+\end{center}
+Tretí signál získame zosilnením známeho (dostupného) signálu $u(t)$ zosilňovačom so zosilnením $b_0$. 
+\begin{center}
+
+    \vbox{%
+    \makebox[\textwidth][c]{%
+    \input{../SVG/schB_pr2_kf.pdf_tex}
+    }
+
+    \figcaption{Bloková schéma rovnice \eqref{eq:DR2R}.}
+    \label{schB_pr2_kf.pdf}
+    }
+
+\end{center}
+Príslušné integrátori vo výslednej schéme musia mať začiatočné podmienky $y(0) = y_0$ a $\dot y(0) = z_0$ (podľa \eqref{eq:DR2R}).
+
+
+
+
+
+
+
+
+
+
+% -----------------------------------------------------------------------------
+
+\end{document}
+
+% -----------------------------------------------------------------------------
