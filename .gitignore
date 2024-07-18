@@ -28,6 +28,7 @@ dev
 *.blg
 *.run.xml
 *.bcf
+*.bcf-SAVE-ERROR
 
 *.synctex.gz.sum.synctex
 
