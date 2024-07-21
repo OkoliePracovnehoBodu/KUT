@@ -131,7 +131,282 @@ github.com/PracovnyBod/KUT
 \lettrine[lines=1, nindent=1pt, loversize=0.0]{L}{aplaceova} 
 transformácia ako taká je širší pojem avšak v tomto texte sa zameriavame len na jej využitie pri riešení diferenciálnych rovníc.
 
+Laplaceova transformácia umožňuje efektívne pracovať s lineárnymi dynamickými systémami. Transformuje a tým zjednodušuje operácie súvisiace s hľadaním riešenia lineárnych diferenciálnych rovníc. Predovšetkým zjednodušuje prácu s konvolučným integrálom alebo konvolučnou rovnicou. Tieto pojmy súvisia s hľadaním riešenia nehomogénnej diferenciálnej rovnice. Sú však nad rámec tohto textu a nebudeme ich tu uvádzať.
 
+
+\section{Definícia}
+
+V hrubých črtách je možné o definícii Laplaceovej transformácie uviesť nasledovné.
+
+Majme časovú funkciu $f(t)$ (s vhodnými vlastnosťami, ktoré tu nebudeme uvádzať). Laplaceova transformácia (LT) transformuje, či mapuje, túto funkciu na inú funkciu. Inú funkciu označme $F(s)$. LT je definovaná podľa vzťahu
+\begin{align}
+    F(s) = \int_0^\infty f(t) e^{-st}\text{d}t
+\end{align}
+kde $s$ je komplexná premenná (komplexné číslo).
+
+
+Hovoríme, že ide o transformáciu z časovej oblasti (domény) do domény komplexnej premennej $s$. Premenná $s$ sa často nazýva aj Laplaceov operátor (súvislosti sa ukážu neskôr). Keďže $s = \sigma + j\omega$ a teda $e^{-(\sigma + j\omega)t}$ je signál obsahujúci vo všeobecnosti aj harmonickú (kmitavú) zložku, v tejto súvislosti hovoríme tiež, že pri LT ide o~transformáciu z časovej oblasti do frekvenčnej oblasti.
+
+Výslednej transformovanej funkcii $F(s)$ sa hovorí tiež \emph{obraz} pôvodného signálu $f(t)$ (alebo Laplaceov obraz signálu).
+
+LT je lineárna transformácia, t.j. ak by sme chceli transformovať súčet dvoch signálov (dvoch časových funkcií) $f(t) + g(t)$ ako celok, tak je to možné urobiť transformáciou signálov jednotlivo a až následne sčítať transformované funkcie $F(s) + G(s)$.
+
+
+
+
+
+\section{Laplaceove obrazy signálov}
+
+Majme signál $f(t)$. Laplaceovym obrazom (L-obrazom) tohto signálu je $F(s)$ (samozrejme v zmysle definície LT) a samotnú operáciu transformácie značíme ako
+\begin{align}
+    F(s)  =  \mathcal L \left\{ f(t) \right\} = \int_0^\infty f(t) e^{-st}\text{d}t
+\end{align}
+
+
+\subsection{Derivácia}
+
+
+Nájdime L-obraz signálu $\frac{\text{d}f(t)}{dt}$ (alebo teda signálu $\dot f(t)$), teda
+\begin{align}
+    \mathcal L \left\{ \frac{\text{d}f(t)}{dt} \right\} = \int_0^\infty \frac{\text{d}f(t)}{\text{d}t} e^{-st}\text{d}t
+\end{align}
+Tento integrál je možné nájsť metódou per partes, pri ktorej vo všeobecnosti platí
+\begin{align}
+    \int_0^\infty u(t)v^\prime(t)\text{d}t = \left[ u(t)v(t) \right]_0^\infty - \int_0^\infty u^\prime(t) v(t) \text{d}t
+\end{align}
+Uvažujme tu $u(t) = e^{-st}$ a $v(t) = f(t)$, potom
+\begin{equation}
+    \begin{aligned}
+        \int_0^\infty \frac{\text{d}f(t)}{\text{d}t} e^{-st}\text{d}t
+            &=  \left[ e^{-st} f(t) \right]_0^\infty - (-s)  \int_0^\infty f(t) e^{-st}\text{d}t \\
+            &= 0 - f(0) + s F(s) \\
+            &= s F(s) - f(0)
+    \end{aligned}
+\end{equation}
+je L-obraz signálu $\frac{\text{d}f(t)}{dt}$.
+
+
+
+
+
+
+\subsection{Integrál}
+
+Obdobne by sme mohli hľadať aj obraz signálu $\int_0^t f(\tau) \text{d}\tau$, teda
+\begin{align}
+    \mathcal L \left\{ \int_0^t f(\tau) \text{d}\tau \right\} = \int_0^\infty \left(\int_0^t f(\tau) \text{d}\tau \right) e^{-st}\text{d}t
+\end{align}
+Hľadajme L-obraz tak, že zavedieme signál $g(t) = \int_0^t f(\tau) \text{d}\tau$ čo potom znamená, že $\dot g(t) = f(t)$. Hľadáme $\mathcal L \left\{ g(t) \right\} = G(s)$. Najskôr si však všimnime, že
+\begin{equation}
+    \begin{aligned}
+        \mathcal L \left\{ \dot g(t) \right\} =& s G(s) - g(0) \\
+        & s G(s) - g(0) = F(s)
+    \end{aligned}
+\end{equation}
+a k tomu vidíme, že $g(0) = \int_0^0 f(\tau) \text{d}\tau = 0$. Teda
+\begin{subequations}
+    \begin{align}
+        sG(s) &= F(s) \\
+        G(s) &= \frac{1}{s} F(s)
+    \end{align}
+\end{subequations}
+čím sme našli
+\begin{align}
+    \mathcal L \left\{ \int_0^t f(\tau) \text{d}\tau \right\} = \frac{1}{s} F(s)
+\end{align}
+
+
+
+
+
+
+\subsection{Obraz Dirackovho impulzu}
+
+Dirackov impulz je signál taký, že (napríklad)
+\begin{align}
+    \delta(t) =
+    \left\{
+        \begin{aligned}
+            &0 & \text{ak $t \neq 0$} \\
+            &\infty & \text{ak $t = 0$}
+        \end{aligned}
+    \right.
+\end{align}
+pričom z princípu platí
+\begin{align}
+    \int_{-\infty}^\infty \delta(\tau) \text{d}\tau = 1
+\end{align}
+
+Totiž, v závislosti od toho ako by sme presnejšie matematicky špecifikovali Dirackov impulz $\delta(t)$ by sa konkrétne spôsoby aplikácie LT (výpočet integrálu) mohli formálne líšiť, avšak v každom prípade vždy platí
+\begin{align}
+    \mathcal L \left\{ \delta(t) \right\} = 1
+\end{align}
+
+
+
+
+
+\subsection{Obraz jednotkového skoku}
+Pri tzv. jednotkovom skoku sa uvažuje, že v čase $0$ sa hodnota signálu skokovo zmení z $0$ na $1$ (má hodnotu „jedna jednotka“). Keďže sa tu nachádzame len v čase väčšom ako nula, môžeme uvažovať, že tu hľadáme obraz signálu $f(t) = 1$, teda
+\begin{equation}
+    \begin{aligned}
+        \mathcal L \left\{ 1 \right\} &= \int_0^\infty 1 e^{-st}\text{d}t \\
+        &= \left[ - \frac{1}{s} e^{-st} \right]_0^\infty \\
+        &= 0 - \frac{1}{s} e^{-s0} \\
+        &= \frac{1}{s}
+    \end{aligned}
+\end{equation}
+
+
+
+\subsection{Obraz exponencialnej funkcie}
+\label{vyhlcast}
+
+Nájdime obraz $f(t) = e^{at}$.
+\begin{equation}
+    \begin{aligned}
+        F(s) &= \int_0^\infty e^{at} e^{-st}\text{d}t \\
+        &= \int_0^\infty e^{(a-s)t}\text{d}t \\
+        &= \left[ \frac{1}{a-s} e^{(a-s)t} \right]_0^\infty \\
+        &= 0 - \frac{1}{a-s} \\
+        &= \frac{1}{s - a}
+    \end{aligned}
+\end{equation}
+
+
+
+
+\subsection{Obraz časového posunutia}
+
+Majme signál $f(t)$. Signál posunutý v čase je $f(t-D)$ (v zmysle vstupno-výstupného oneskorenia, alebo dopravného oneskorenia). Obrazom $f(t)$ je $F(s)$. Obrazom $f(t-D)$ je
+\begin{align}
+    \int_0^\infty f(t-D) e^{-st} \text{d}t
+\end{align}
+Zaveďme substitúciu $\tau  = t-D$, teda $t=\tau+D$ a tiež $\text{d}t = \text{d}\tau$ keďže $D$ je v čase konštantné. Potom
+\begin{align}
+    \int_0^\infty f(\tau) e^{-s(\tau+D)} \text{d}\tau = e^{-sD} \int_0^\infty f(\tau) e^{-s\tau} \text{d}\tau
+\end{align}
+a je zrejmé, že
+\begin{align}
+    e^{-sD} F(s)
+\end{align}
+je obrazom posunutého signálu $f(t-D)$.
+
+
+
+
+
+
+
+\section{Laplaceov obraz a originál riešenia diferenciálnej rovnice}
+
+\subsection{Príklad s homogénnou diferenciálnou rovnicou}
+
+Majme diferenciálnu rovnicu
+\begin{align}  \label{prrov}
+    \dot y(t) - a y(t) = 0 \qquad y(0) = y_0
+\end{align}
+Na jednotlivé signály v tejto rovnici aplikujme LT.
+\begin{align}
+    \left( s Y(s) - y(0)  \right) - a Y(s) = 0
+\end{align}
+kde $Y(s)$ je obrazom signálu $y(t)$. $Y(s)$ je teda obrazom riešenia rovnice. Vyjadrime $Y(s)$:
+\begin{align}
+    \begin{aligned}
+        (s-a)Y(s) - y(0) &= 0 \\
+        Y(s) &= \frac{1}{(s-a)} y(0)
+    \end{aligned}
+\end{align}
+
+Otázka je, ak poznáme signál v s-oblasti (v Laplaceovej doméne), vieme určiť pôvodný signál v časovej oblasti? Vieme nájsť pomocou obrazu riešenia $Y(s)$ samotné riešenie $y(t)$?
+
+V tomto prípade je vzhľadom na časť~\ref{vyhlcast} jasné, že
+\begin{align} \label{prries}
+    \mathcal L ^{-1} \left\{ Y(s) \right\} = y(t) = e^{at}y(0)
+\end{align}
+kde $\mathcal L ^{-1} \left\{  \right\}$ predstavuje  inverznú LT transformáciu. Tiež je jasné, že \eqref{prries} je správne riešenie diferenciálnej rovnice \eqref{prrov}.
+
+
+
+\subsection{Inverzná Laplaceova transformácia}
+
+Značíme ju ako
+\begin{align}
+    \mathcal L ^{-1} \left\{ F(s) \right\} = f(t)
+\end{align}
+pričom formálne ide o operáciu definovanú vzťahom
+\begin{align}
+    f(t) = \frac{1}{2\pi j} \int_{\sigma-j\omega}^{\sigma + j\omega} F(s) e^{st} \text{d}s
+\end{align}
+
+Výpočet inverznej LT spravidla nie je jednoduchý. V praxi sa využíva tabuľka Laplaceových obrazov signálov, ktorá uvádza L-obrazy a k nim prislúchajúce časové signály. Tabuľka obsahuje výber typických a dôležitých signálov využívaných pri analýze dynamických systémov.
+
+Zložitý obraz riešenia diferenciálnej rovnice je zväčša možné upraviť tak, že je v~ňom vidieť jednotlivé dielčie obrazy zodpovedajúce typickým signálom (uvedeným v tabuľke). Z typických časových signálov sa potom vyskladá časová funkcia zodpovedajúca celkovému riešeniu (v časovej oblasti).
+
+\subsection{Príklad s nehomogénnou diferenciálnou rovnicou}
+
+
+Majme rovnicu
+\begin{align}
+    \ddot y(t) +4 \dot y(t) + 3y(t) = u(t) \qquad y(0) = 3, \dot y(0) = -2
+\end{align}
+kde vstupný signál $u(t) = 12$ (konštantný v čase). Aplikujme LT
+\begin{align}
+    \big( s \mathcal L \{\dot y\} - \dot y(0) \big) + 4 \left( sY(s) - y(0) \right) + 3 Y(s) &=  U(s) \\
+    \Big( s \big( sY(s) - y(0) \big) - \dot y(0) \Big) + 4sY(s) - 4y(0) + 3Y(s) &= U(s) \\
+    s^2Y(s) - sy(0) - \dot y(0)  + 4sY(s) - 4y(0) + 3Y(s) &= U(s) \\
+    s^2Y(s)   + 4sY(s)  + 3Y(s) - sy(0) - \dot y(0) - 4y(0) &= U(s)
+\end{align}
+a teda
+\begin{align}
+    \left( s^2   + 4s  + 3\right)Y(s) &= sy(0) +  \dot y(0) + 4y(0) + U(s) \\
+    Y(s) &= \frac{sy(0) +  \dot y(0) + 4y(0)}{\left( s^2   + 4s  + 3\right)} + \frac{1}{\left( s^2   + 4s  + 3\right)}U(s)
+\end{align}
+
+
+Poznáme aj konkrétny tvar obrazu $U(s)$, keďže $u(t) = 12$, tak $U(s) = 12 \frac{1}{s}$, teda
+\begin{align}
+    Y(s) &= \frac{sy(0) +  \dot y(0) + 4y(0)}{\left( s^2   + 4s  + 3\right)} + \frac{1}{\left( s^2   + 4s  + 3\right)} 12 \frac{1}{s}
+\end{align}
+a toto je obrazom riešenia diferenciálnej rovnice.
+
+Všimnime si, že sú tu prítomné dve zložky
+\begin{align} \label{vvzlozky}
+    Y(s)
+    &=
+    \underbrace{
+    \frac{3s + 10}{\left( s^2   + 4s  + 3\right)}
+    }_{\text{vlastná zložka}}
+    +
+    \underbrace{
+    \frac{12}{\left( s^2   + 4s  + 3\right) s}
+    }_{\text{vnútená zložka}}
+\end{align}
+kde sme aj číselne dosadili hodnoty začiatočných podmienok.
+
+
+Keď je obraz riešenia v tvare \eqref{vvzlozky} je prakticky nemožné priradiť k nemu originálny časový signál -- nie sú tam očividné typické obrazy typických signálov.
+
+Rozložme na parciálne zlomky
+\begin{align}
+    \frac{3s + 10}{\left( s^2   + 4s  + 3\right)} &= \frac{7}{2(s+1)} - \frac{1}{2(s+3)} \label{pz1} \\
+    \frac{12}{\left( s^2   + 4s  + 3\right) s} &= \frac{4}{s} - \frac{6}{(s+1)} + \frac{2}{(s+3)} \label{pz2}
+\end{align}
+a tým sa hneď stáva zrejmé, že \eqref{pz1} má originál
+\begin{align}
+    y_{vlast}(t) = \frac{7}{2} e^{-t} - \frac{1}{2} e^{-3t}
+\end{align}
+a \eqref{pz2} ma originál
+\begin{align}
+    y_{vnut}(t) = 4 - 6 e^{-t} + 2 e^{-3t}
+\end{align}
+Celkové riešenie je
+\begin{align}
+    \begin{aligned}
+        y(t) &= \frac{7}{2} e^{-t} - \frac{1}{2} e^{-3t} +  4 - 6 e^{-t} + 2 e^{-3t} \\
+        &= 4 - \frac{5}{2} e^{-t} + \frac{3}{2} e^{-3t}
+    \end{aligned}
+\end{align}
 
 
 
