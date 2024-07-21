@@ -25,12 +25,14 @@ for item in items:
 
 
 
-output_file = 'idx00_tablecontent.tex'
+output_file = 'idx00_maintable.tex'
 
 with open(output_file, 'w') as file:
     for item, extracted_string in data:
 
         extracted_string = extracted_string.replace('\\', '')
+
+        print(item, extracted_string)
 
         file.write(f"\\href{{run:../../KUT_items/{item}/TeX/{item}.pdf}}{{{item}}} & {extracted_string} \\\\\n")
 
