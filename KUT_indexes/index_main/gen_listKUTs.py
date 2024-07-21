@@ -1,4 +1,4 @@
-
+# -*- coding: utf-8 -*-
 
 import os
 
@@ -11,7 +11,7 @@ data = []
 for item in items:
     item_texfile = directory + '/' + item + '/TeX/' + item + '.tex'
 
-    with open(item_texfile, 'r') as file:
+    with open(item_texfile, 'r', encoding='utf-8') as file:
         content = file.read()
         start_marker = '\\begin{flushleft}'
         end_marker = '\\end{flushleft}'
@@ -27,14 +27,14 @@ for item in items:
 
 output_file = 'idx00_maintable.tex'
 
-with open(output_file, 'w') as file:
+with open(output_file, 'w', encoding='utf-8') as file:
     for item, extracted_string in data:
 
-        extracted_string = extracted_string.replace('\\', '')
+        extracted_string = extracted_string.replace('\\', ' ')
 
         print(item, extracted_string)
 
-        file.write(f"\\href{{run:../../KUT_items/{item}/TeX/{item}.pdf}}{{{item}}} & {extracted_string} \\\\\n")
+        file.write(f"\\href{{run:../../KUT_items/{item}/TeX/{item}.pdf}}{{{item}}} & {extracted_string} \\\\ \\addlinespace[3pt]  \n")
 
 
 
