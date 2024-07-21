@@ -296,6 +296,24 @@ je obrazom posunutého signálu $f(t-D)$.
 
 
 
+\section{Inverzná Laplaceova transformácia}
+
+Na tomto mieste je vhodné uviesť opak Laplaceovej transformácie, teda inverznú Laplaceovu transformáciu. Značíme ju ako
+\begin{align}
+    \mathcal L ^{-1} \left\{ F(s) \right\} = f(t)
+\end{align}
+pričom formálne ide o operáciu definovanú vzťahom
+\begin{align}
+    f(t) = \frac{1}{2\pi j} \int_{\sigma-j\omega}^{\sigma + j\omega} F(s) e^{st} \text{d}s
+\end{align}
+
+Výpočet inverznej LT spravidla nie je jednoduchý. V praxi sa využíva tabuľka Laplaceových obrazov signálov, ktorá uvádza L-obrazy a k nim prislúchajúce časové signály. Tabuľka obsahuje výber typických a dôležitých signálov využívaných pri analýze dynamických systémov.
+
+Zložitý obraz riešenia diferenciálnej rovnice je zväčša možné upraviť tak, že je v~ňom vidieť jednotlivé dielčie obrazy zodpovedajúce typickým signálom (uvedeným v tabuľke). Z typických časových signálov sa potom vyskladá časová funkcia zodpovedajúca celkovému riešeniu (v časovej oblasti).
+
+
+
+
 
 
 \section{Laplaceov obraz a originál riešenia diferenciálnej rovnice}
@@ -328,20 +346,8 @@ kde $\mathcal L ^{-1} \left\{  \right\}$ predstavuje  inverznú LT transformáci
 
 
 
-\subsection{Inverzná Laplaceova transformácia}
 
-Značíme ju ako
-\begin{align}
-    \mathcal L ^{-1} \left\{ F(s) \right\} = f(t)
-\end{align}
-pričom formálne ide o operáciu definovanú vzťahom
-\begin{align}
-    f(t) = \frac{1}{2\pi j} \int_{\sigma-j\omega}^{\sigma + j\omega} F(s) e^{st} \text{d}s
-\end{align}
 
-Výpočet inverznej LT spravidla nie je jednoduchý. V praxi sa využíva tabuľka Laplaceových obrazov signálov, ktorá uvádza L-obrazy a k nim prislúchajúce časové signály. Tabuľka obsahuje výber typických a dôležitých signálov využívaných pri analýze dynamických systémov.
-
-Zložitý obraz riešenia diferenciálnej rovnice je zväčša možné upraviť tak, že je v~ňom vidieť jednotlivé dielčie obrazy zodpovedajúce typickým signálom (uvedeným v tabuľke). Z typických časových signálov sa potom vyskladá časová funkcia zodpovedajúca celkovému riešeniu (v časovej oblasti).
 
 \subsection{Príklad s nehomogénnou diferenciálnou rovnicou}
 
@@ -351,24 +357,29 @@ Majme rovnicu
     \ddot y(t) +4 \dot y(t) + 3y(t) = u(t) \qquad y(0) = 3, \dot y(0) = -2
 \end{align}
 kde vstupný signál $u(t) = 12$ (konštantný v čase). Aplikujme LT
+\begin{subequations}
 \begin{align}
     \big( s \mathcal L \{\dot y\} - \dot y(0) \big) + 4 \left( sY(s) - y(0) \right) + 3 Y(s) &=  U(s) \\
     \Big( s \big( sY(s) - y(0) \big) - \dot y(0) \Big) + 4sY(s) - 4y(0) + 3Y(s) &= U(s) \\
     s^2Y(s) - sy(0) - \dot y(0)  + 4sY(s) - 4y(0) + 3Y(s) &= U(s) \\
     s^2Y(s)   + 4sY(s)  + 3Y(s) - sy(0) - \dot y(0) - 4y(0) &= U(s)
 \end{align}
+\end{subequations}
 a teda
+\begin{subequations}
 \begin{align}
     \left( s^2   + 4s  + 3\right)Y(s) &= sy(0) +  \dot y(0) + 4y(0) + U(s) \\
     Y(s) &= \frac{sy(0) +  \dot y(0) + 4y(0)}{\left( s^2   + 4s  + 3\right)} + \frac{1}{\left( s^2   + 4s  + 3\right)}U(s)
 \end{align}
+\end{subequations}
 
-
+\vbox{
 Poznáme aj konkrétny tvar obrazu $U(s)$, keďže $u(t) = 12$, tak $U(s) = 12 \frac{1}{s}$, teda
 \begin{align}
     Y(s) &= \frac{sy(0) +  \dot y(0) + 4y(0)}{\left( s^2   + 4s  + 3\right)} + \frac{1}{\left( s^2   + 4s  + 3\right)} 12 \frac{1}{s}
 \end{align}
 a toto je obrazom riešenia diferenciálnej rovnice.
+}
 
 Všimnime si, že sú tu prítomné dve zložky
 \begin{align} \label{vvzlozky}
@@ -407,6 +418,8 @@ Celkové riešenie je
         &= 4 - \frac{5}{2} e^{-t} + \frac{3}{2} e^{-3t}
     \end{aligned}
 \end{align}
+
+
 
 
 
