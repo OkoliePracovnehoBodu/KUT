@@ -1,0 +1,408 @@
+\documentclass[a4paper, 10pt, ]{article}
+
+\input{./COMMONFILES/preamble.tex}
+
+% -----------------------------------------------------------------------------
+
+\def\oznacenieCelku{Kolekcia učebných textov}
+
+% -----------------------------------------------------------------------------
+
+
+\def\KUTporadoveCislo{000}
+
+% \def\oznacenieVerzie{v0.9}
+\def\oznacenieVerzie{\phantom{v1.0}}
+
+\def\mesiacRok{júl 2024}
+
+\def\authorslabel{MT}
+
+
+
+
+
+% -----------------------------------------------------------------------------
+
+\begin{document}
+
+% -----------------------------------------------------------------------------
+% Uvodny nadpis
+
+\noindent
+\parbox[t][18mm][c]{0.3\textwidth}{%
+\raisebox{-0.9\height}{%
+\phantom{.}\includegraphics[height=18mm]{./COMMONFILES/URKFEIlogo.pdf}%
+}%
+}%
+\parbox[t][18mm][c]{0.7\textwidth}{%
+\raggedleft
+
+\sffamily
+\fontsize{16pt}{18pt}
+\fontseries{sbc}
+\selectfont
+
+\noindent
+\textcolor[rgb]{0.75, 0.75, 0.75}{\textls[25]{\oznacenieCelku}}
+}%
+
+\noindent
+\parbox[t][16mm][b]{0.5\textwidth}{%
+\raggedright
+
+\color{Gray}
+\sffamily
+
+\fontsize{12pt}{12pt}
+\selectfont
+\mesiacRok
+
+\fontsize{6pt}{10pt}
+\selectfont
+github.com/PracovnyBod/KUT
+
+\fontsize{8pt}{10pt}
+\selectfont
+\authorslabel
+
+
+
+
+}%
+\parbox[t][16mm][b]{0.5\textwidth}{%
+\raggedleft
+
+\sffamily
+
+\fontsize{6pt}{6pt}
+\selectfont
+
+\textcolor[rgb]{0.68, 0.68, 0.68}{\oznacenieVerzie}
+
+
+\fontsize{14pt}{14pt}
+\selectfont
+
+\bfseries
+
+\includegraphics[height=12pt]{./COMMONFILES/KUT_logo_v0.1.pdf}%
+{%
+\textls[-50]{\KUTporadoveCislo}
+}%
+}%
+
+% -----------------------------------------------------------------------------
+
+
+
+
+\vspace{6mm}
+
+% ---------------------------------------------
+\sffamily
+\bfseries
+\fontsize{18pt}{21pt}
+\selectfont
+
+\begin{flushleft}
+	Riešené otázky a úlohy: analytické riešenie diferenciálnych rovníc
+\end{flushleft}
+
+\bigskip
+
+% -----------------------------------------------------------------------------
+\normalsize
+\normalfont
+% -----------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+\noindent
+\lettrine[lines=1, nindent=1pt, loversize=0.0]{Ú}{lohy} 
+sú zamerané na analytické riešenie lineárnych diferenciálnych rovníc metódou charakteristickej rovnice a s využitím Laplaceovej transformácie. Táto zbierka je predovšetkým doplnkom k predchádzajúcim textom:
+
+\medskip
+
+\noindent
+\begin{tabular*}{\textwidth}{ @{} >{\sffamily}p{2.0cm} @{\extracolsep{\fill}} p{11cm}<{\raggedright}}
+
+    % \midrule
+
+    \href{run:../../../KUT_items/KUT006/TeX/KUT006.pdf}{KUT006} & O riešení homogénnej lineárnej diferenciálnej rovnice druhého rádu s~konštantnými koeficientami \\ \addlinespace[3pt]  
+    \href{run:../../../KUT_items/KUT008/TeX/KUT008.pdf}{KUT008} & O využití Laplaceovej transformácie  pri riešení diferenciálnych rovníc \\  
+    
+    % \midrule
+
+\end{tabular*}
+
+\medskip
+
+\section{Úvodné poznámky}
+
+Pri hľadaní riešenia metódou charakteristickej rovnice je možné využiť nasledujúce konštatovania:
+\begin{enumerate}[leftmargin=0pt, labelsep=4mm, itemsep=0pt]
+    \item Ak má charakteristická rovnica $n$ navzájom rôznych riešení $s_i$ pre $i = 1, \ldots, n$, potom zodpovedajúce fundamentálne riešenia (módy) sú: $e^{s_1 t}$, $e^{s_2 t}$, \ldots, $e^{s_n t}$.
+    \item Ak sa medzi $n$ koreňmi charakteristického polynómu vyskytne $k$-násobný koreň, vytvoríme $k$ lineárne závislých riešení: $e^{s_i t}$, $t e^{s_i t}$, \ldots, $t^{k-1} e^{s_i t}$
+    \item V prípade výskytu dvojice komplexne združených koreňov charakteristického polynómu, $s_{1,2} = \alpha \pm j \beta$, kde $j$ je imaginárna jednotka, využijeme na určenie fundamentálnych riešení Eulerov vzťah
+    \begin{equation*}
+        e^{\left(\alpha \pm j \beta\right)t} = e^{\alpha t} \left( \cos\beta t \pm j \sin \beta t\right)
+    \end{equation*}
+    Preto potom možno písať príslušné fundamentálne riešenie v tvare
+    \begin{equation*}
+        c_1 e^{\left(\alpha + j \beta\right)t} + c_2 e^{\left(\alpha - j \beta\right)t} = e^{\alpha t} \left( c^\prime \cos\beta t + c^{\prime\prime} \sin \beta t\right)
+    \end{equation*}
+    kde sú imaginárne časti nulové.
+\end{enumerate}
+
+Pri využití Laplaceovej transformácie je potrebné využiť tabuľku Laplaceových obrazov signálov, ktorá je dostupná napríklad v predchádzajúcom texte \href{run:../../../KUT_items/KUT009/TeX/KUT009.pdf}{\sffamily KUT009}. Vybrané položky sú uvedené v nasledujúcej tabuľke:
+
+\medskip
+
+\newcommand{\Laplace}[1]{\ensuremath{\mathcal{L}{\left\{#1\right\}}}}
+\newcommand{\InvLap}[1]{\ensuremath{\mathcal{L}^{-1}{\left\{#1\right\}}}}
+
+\begin{centering}
+
+    \begin{tabular*}{0.68\textwidth}{ r @{\extracolsep{\fill}} l }
+        \toprule
+        $f(t)$                                  & $F(s)$                                \\
+        \addlinespace[3pt]
+        $\dot f(t)$                             & $sF(s) - f(0)$                        \\
+        \addlinespace[3pt]
+        $\displaystyle \frac{\text{d}^n f(t)}{\text{d}t^n}$                                 & $s^nF(s) - s^{(n-1)} f(0) - \cdots - f^{(n-1)}(0)$ \\[1pt]    
+        \addlinespace[3pt]
+        $1$                                     & $\dfrac{1}{s}$                        \\
+        \addlinespace[3pt]
+        $\delta(t)$                             & $1$                                   \\
+        \addlinespace[3pt]
+        $e^{-at}$                               & $\dfrac{1}{s+a}$                      \\
+        \bottomrule
+    \end{tabular*}
+
+\end{centering}
+
+
+
+
+
+
+
+
+\section{Otázky}
+
+\noindent
+\begin{itemize}[leftmargin=0pt, labelsep=3mm, itemsep=0pt]
+    
+
+
+	\item[\textsf{\bfseries Otázka 1}] {\sffamily Čo je riešením obyčajnej diferenciálnej rovnice (vo všeobecnosti)?}
+	
+    Riešením diferenciálnej rovnice je \emph{funkcia} pričom v kontexte dynamických systémov ide o \emph{funkciu času}. 
+    Inými slovami, neznámou v rovnici je funkcia času (časová závislosť, signál). Diferenciálnou sa rovnica nazýva preto, že sa v nej nachádzajú aj derivácie neznámej funkcie. Obyčajnou sa diferenciálna rovnica nazýva preto, že neznámou je funkcia len jednej premennej (času).
+
+
+
+    \item[\textsf{\bfseries Otázka 2}] {\sffamily Aký je rozdiel medzi homogénnou a nehomogénnou obyčajnou diferenciálnou rovnicou?}
+    
+    Homogénnou nazývame diferenciálnu rovnicu vtedy, keď v nej figuruje len samotná neznáma funkcia. Nefigurujú v nej iné funkcie. V kontexte dynamických systémov ide typicky o prípad, keď systém nemá žiadny vstupný signál (vstupný signál je nulový). Ak sa členy rovnice obsahujúce neznámu a jej derivácie presunú na ľavú stranu rovnice, pravá strana bude nulová
+    
+    Nehomogénnou nazývame diferenciálnu rovnicu vtedy, keď v nej figuruje aj iná funkcia ako samotná neznáma funkcia. V kontexte dynamických systémov ide o prípad, keď systém má vstupný signál. Ak sa členy rovnice obsahujúce neznámu a jej derivácie presunú na ľavú stranu rovnice, pravá strana bude nenulová, bude obsahovať členy obsahujúce vstupný signál (vrátane jeho derivácií).
+
+
+
+\end{itemize}
+
+
+
+
+
+
+\section{Úlohy}
+
+\noindent
+\begin{itemize}[leftmargin=0pt, labelsep=3mm, itemsep=0pt]
+
+	\item[\textsf{\bfseries Úloha 1}] {\sffamily%
+    Nájdite analytické riešenie diferenciálnej rovnice. Použite metódu charakteristickej rovnice.
+	\begin{equation*} 
+        \dot y(t) + a y(t) = 0  \qquad y(0) = y_0 \qquad a \in \mathbb{R}
+    \end{equation*}
+    
+    Riešenie:}
+
+    Prvým krokom je stanovenie charakteristickej rovnice. Tú je možné určiť nahradením derivácií neznámej funkcie mocninami pomocnej premennej, označme ju $s$. Napríklad prvú deriváciu $\dot y(t)$ nahradíme $s^1$, nultú deriváciu $y(t)$ nahradíme $s^0$. Charakteristická rovnica pre danú diferenciálnu rovnicu bude
+    \begin{equation}
+        s + a = 0
+    \end{equation}
+
+    Druhým krokom je stanovenie fundamentálnych riešení diferenciálnej rovnice, ktoré sú dané riešeniami charakteristickej rovnice. Riešením charakteristickej rovnice je 
+    \begin{equation}
+        s_1 = -a
+    \end{equation}
+    Fundamentálne riešenie je teda len jedno
+    \begin{equation}
+        y_{f1}(t) = e^{-at}
+    \end{equation}
+
+    Tretím krokom je stanovenie všeobecného riešenia dif. rovnice. Je lineárnou kombináciou fundamentálnych riešení. Teda
+    \begin{equation}
+        y(t) = c_1 e^{-at}
+    \end{equation}
+    kde $c_1 \in \mathbb{R}$ je konštanta. 
+    
+    Štvrtým krokom je stanovenie konkrétneho riešenia dif. rovnice v prípade, ak sú dané začiatočné podmienky. Konkrétne ide o stanovenie hodnoty konštanty $c_1$. Pre čas $t = 0$ má všeobecné riešenie tvar
+    \begin{equation}
+        y(0)  = c_1 \, e^{(-a) 0} = c_1
+    \end{equation}
+    Samotná hodnota $y(0)$ je známa, keďže máme začiatočnú podmienku $y(0) = y_0$. Takže
+    \begin{equation}
+        c_1 = y_0
+    \end{equation}
+    To znamená, že riešenie úlohy je:
+    \begin{equation}
+        y(t)  = y_0 \, e^{(-a) t}
+    \end{equation}
+
+    
+
+    \item[\textsf{\bfseries Úloha 2}] {\sffamily%
+    Nájdite analytické riešenie diferenciálnej rovnice. Použite metódu charakteristickej rovnice.
+	\begin{equation*} 
+        \ddot y(t) + (a+b) \dot y(t) + a b y(t) = 0  \qquad y(0) = y_0 \qquad \dot y(0) = z_0 \qquad a,b \in \mathbb{R}
+    \end{equation*}
+    
+    Riešenie:}
+
+    Prvým krokom je stanovenie charakteristickej rovnice. V tomto prípade
+    \begin{equation}
+        s^2 + (a+b) s + a b = 0 
+    \end{equation}
+
+    V druhom kroku pre stanovenie fundamentálnych riešení hľadáme riešenia charakteristickej rovnice. Vo všeobecnosti
+    \begin{equation}
+        s_{1,2} = \frac{-(a + b) \pm \sqrt{(a + b)^2 - 4  ab}}{2}
+    \end{equation}
+    avšak v tomto prípade tiež vidíme, že
+    \begin{equation}
+        s^2 + (a+b) s + a b = (s + a)(s + b)
+    \end{equation}
+    Riešenia charakteristickej rovnice teda sú
+    \begin{subequations}
+        \begin{align}
+            s_1 &= -a \\
+            s_2 &= -b
+        \end{align}
+    \end{subequations}
+    Zodpovedajúce fundamentálne riešenia sú
+    \begin{subequations}
+        \begin{align}
+            y_{f1}(t) &= e^{-at} \\
+            y_{f2}(t) &= e^{-bt}
+        \end{align}
+    \end{subequations}
+
+    Tretím krokom je stanovenie všeobecného riešenia dif. rovnice. Je lineárnou kombináciou fundamentálnych riešení. Teda
+    \begin{equation}
+        y(t) = c_1 e^{-at} + c_2 e^{-bt}
+    \end{equation}
+    kde $c_1, c_2 \in \mathbb{R}$ sú konštanty.
+
+    Vo štvrtom kroku je možné na základe začiatočných podmienok stanoviť konkrétne riešenie. Pre čas $t = 0$ má všeobecné riešenie tvar
+    \begin{equation}
+        y(0)  = c_1 \, e^{(-a) 0} + c_2 \, e^{(-b) 0} = c_1 + c_2   
+    \end{equation}
+    Derivácia všeobecného riešenia je
+    \begin{equation}
+        \dot y(t) = -a c_1 e^{-at} - b c_2 e^{-bt}
+    \end{equation}
+    Pre čas $t = 0$ má derivácia všeobecného riešenia tvar
+    \begin{equation}
+        \dot y(0)  = -a c_1 - b c_2
+    \end{equation}
+    Z uvedeného vyplýva sústava dvoch rovníc o dvoch neznámych konštantách $c_1$ a $c_2$
+    % \begin{subequations}
+    %     \begin{align}
+    %         c_1 + c_2 &= y_0 \\
+    %         -a c_1 - b c_2 &= z_0
+    %     \end{align}
+    % \end{subequations}
+    % Do druhej rovnice dosaďme $c_1 = y_0 - c_2$
+
+
+
+
+
+
+
+    % \begin{subequations}
+    %     \begin{align}
+    %         -a (y_0 - c_2) - b c_2 &= z_0 \\
+    %         -a y_0 + a c_2 + b c_2 &= z_0 \\
+    %         c_2 (a + b) &= z_0 + a y_0 \\
+    %         c_2 &= \frac{z_0 + a y_0}{a + b}
+    %     \end{align}
+    % \end{subequations}
+
+
+   
+
+
+
+    % Druhým krokom je stanovenie fundamentálnych riešení diferenciálnej rovnice, ktoré sú dané riešeniami charakteristickej rovnice. Riešením charakteristickej rovnice je 
+    % \begin{equation}
+    %     s_1 = -a
+    % \end{equation}
+    % Fundamentálne riešenie je teda len jedno
+    % \begin{equation}
+    %     y_{f1}(t) = e^{-at}
+    % \end{equation}
+
+    % Tretím krokom je stanovenie všeobecného riešenia dif. rovnice. Je lineárnou kombináciou fundamentálnych riešení. Teda
+    % \begin{equation}
+    %     y(t) = c_1 e^{-at}
+    % \end{equation}
+    % kde $c_1 \in \mathbb{R}$ je konštanta. 
+    
+    % Štvrtým krokom je stanovenie konkrétneho riešenia dif. rovnice v prípade, ak sú dané začiatočné podmienky. Konkrétne ide o stanovenie hodnoty konštanty $c_1$. Pre čas $t = 0$ má všeobecné riešenie tvar
+    % \begin{equation}
+    %     y(0)  = c_1 \, e^{(-a) 0} = c_1
+    % \end{equation}
+    % Samotná hodnota $y(0)$ je známa, keďže máme začiatočnú podmienku $y(0) = y_0$. Takže
+    % \begin{equation}
+    %     c_1 = y_0
+    % \end{equation}
+    % To znamená, že riešenie úlohy je:
+    % \begin{equation}
+    %     y(t)  = y_0 \, e^{(-a) t}
+    % \end{equation}    
+    
+
+
+
+\end{itemize}
+
+
+
+
+
+
+
+
+
+
+
+% -----------------------------------------------------------------------------
+
+\end{document}
+
+% -----------------------------------------------------------------------------
