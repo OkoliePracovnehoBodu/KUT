@@ -1,0 +1,831 @@
+\documentclass[a4paper, 10pt, ]{article}
+
+\input{./COMMONFILES/preamble.tex}
+
+% -----------------------------------------------------------------------------
+
+\def\oznacenieCelku{Kolekcia učebných textov}
+
+% -----------------------------------------------------------------------------
+
+
+\def\KUTporadoveCislo{010}
+
+% \def\oznacenieVerzie{v0.9}
+\def\oznacenieVerzie{\phantom{v1.0}}
+
+\def\mesiacRok{júl 2024}
+
+\def\authorslabel{MT}
+
+
+
+
+
+
+% -----------------------------------------------------------------------------
+
+\begin{document}
+
+% -----------------------------------------------------------------------------
+% Uvodny nadpis
+
+\noindent
+\parbox[t][18mm][c]{0.3\textwidth}{%
+\raisebox{-0.9\height}{%
+\phantom{.}\includegraphics[height=18mm]{./COMMONFILES/URKFEIlogo.pdf}%
+}%
+}%
+\parbox[t][18mm][c]{0.7\textwidth}{%
+\raggedleft
+
+\sffamily
+\fontsize{16pt}{18pt}
+\fontseries{sbc}
+\selectfont
+
+\noindent
+\textcolor[rgb]{0.75, 0.75, 0.75}{\textls[25]{\oznacenieCelku}}
+}%
+
+\noindent
+\parbox[t][16mm][b]{0.5\textwidth}{%
+\raggedright
+
+\color{Gray}
+\sffamily
+
+\fontsize{12pt}{12pt}
+\selectfont
+\mesiacRok
+
+\fontsize{6pt}{10pt}
+\selectfont
+github.com/PracovnyBod/KUT
+
+\fontsize{8pt}{10pt}
+\selectfont
+\authorslabel
+
+
+
+
+}%
+\parbox[t][16mm][b]{0.5\textwidth}{%
+\raggedleft
+
+\sffamily
+
+\fontsize{6pt}{6pt}
+\selectfont
+
+\textcolor[rgb]{0.68, 0.68, 0.68}{\oznacenieVerzie}
+
+
+\fontsize{14pt}{14pt}
+\selectfont
+
+\bfseries
+
+\includegraphics[height=12pt]{./COMMONFILES/KUT_logo_v0.1.pdf}%
+{%
+\textls[-50]{\KUTporadoveCislo}
+}%
+}%
+
+% -----------------------------------------------------------------------------
+
+
+
+
+\vspace{6mm}
+
+% ---------------------------------------------
+\sffamily
+\bfseries
+\fontsize{18pt}{21pt}
+\selectfont
+
+\begin{flushleft}
+	Mini zbierka riešených úloh: analytické riešenie diferenciálnych rovníc
+\end{flushleft}
+
+\bigskip
+
+% -----------------------------------------------------------------------------
+\normalsize
+\normalfont
+% -----------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+\noindent
+\lettrine[lines=1, nindent=1pt, loversize=0.0]{Ú}{lohy} 
+sú zamerané na analytické riešenie lineárnych diferenciálnych rovníc metódou charakteristickej rovnice a s využitím Laplaceovej transformácie. Táto zbierka je predovšetkým doplnkom k predchádzajúcim textom:
+
+\medskip
+
+\noindent
+\begin{tabular*}{\textwidth}{ @{} >{\sffamily}p{2.0cm} @{\extracolsep{\fill}} p{11cm}<{\raggedright}}
+
+    % \midrule
+
+    \href{run:../../../KUT_items/KUT006/TeX/KUT006.pdf}{KUT006} & O riešení homogénnej lineárnej diferenciálnej rovnice druhého rádu s~konštantnými koeficientami \\ \addlinespace[3pt]  
+    \href{run:../../../KUT_items/KUT008/TeX/KUT008.pdf}{KUT008} & O využití Laplaceovej transformácie  pri riešení diferenciálnych rovníc \\  
+    
+    % \midrule
+
+\end{tabular*}
+
+\medskip
+
+\section{Úvodné poznámky}
+
+Pri hľadaní riešenia metódou charakteristickej rovnice je možné využiť nasledujúce konštatovania:
+\begin{enumerate}[leftmargin=0pt, labelsep=4mm, itemsep=0pt]
+    \item Ak má charakteristická rovnica $n$ navzájom rôznych riešení $s_i$ pre $i = 1, \ldots, n$, potom zodpovedajúce fundamentálne riešenia (módy) sú: $e^{s_1 t}$, $e^{s_2 t}$, \ldots, $e^{s_n t}$.
+    \item Ak sa medzi $n$ koreňmi charakteristického polynómu vyskytne $k$-násobný koreň, vytvoríme $k$ lineárne závislých riešení: $e^{s_i t}$, $t e^{s_i t}$, \ldots, $t^{k-1} e^{s_i t}$
+    \item V prípade výskytu dvojice komplexne združených koreňov charakteristického polynómu, $s_{1,2} = \alpha \pm j \beta$, kde $j$ je imaginárna jednotka, využijeme na určenie fundamentálnych riešení Eulerov vzťah
+    \begin{equation*}
+        e^{\left(\alpha \pm j \beta\right)t} = e^{\alpha t} \left( \cos\beta t \pm j \sin \beta t\right)
+    \end{equation*}
+    Preto potom možno písať príslušné fundamentálne riešenie v tvare
+    \begin{equation*}
+        c_1 e^{\left(\alpha + j \beta\right)t} + c_2 e^{\left(\alpha - j \beta\right)t} = e^{\alpha t} \left( c^\prime \cos\beta t + c^{\prime\prime} \sin \beta t\right)
+    \end{equation*}
+    kde sú imaginárne časti nulové.
+\end{enumerate}
+
+Pri využití Laplaceovej transformácie je potrebné využiť tabuľku Laplaceových obrazov signálov, ktorá je dostupná napríklad v predchádzajúcom texte \href{run:../../../KUT_items/KUT009/TeX/KUT009.pdf}{\sffamily KUT009}. Vybrané položky sú uvedené v nasledujúcej tabuľke:
+
+\medskip
+
+\newcommand{\Laplace}[1]{\ensuremath{\mathcal{L}{\left\{#1\right\}}}}
+\newcommand{\InvLap}[1]{\ensuremath{\mathcal{L}^{-1}{\left\{#1\right\}}}}
+
+\begin{centering}
+
+    \begin{tabular*}{0.68\textwidth}{ r @{\extracolsep{\fill}} l }
+        \toprule
+        $f(t)$                                  & $F(s)$                                \\
+        \addlinespace[3pt]
+        $\dot f(t)$                             & $sF(s) - f(0)$                        \\
+        \addlinespace[3pt]
+        $\displaystyle \frac{\text{d}^n f(t)}{\text{d}t^n}$                                 & $s^nF(s) - s^{(n-1)} f(0) - \cdots - f^{(n-1)}(0)$ \\[1pt]    
+        \addlinespace[3pt]
+        $1$                                     & $\dfrac{1}{s}$                        \\
+        \addlinespace[3pt]
+        $\delta(t)$                             & $1$                                   \\
+        \addlinespace[3pt]
+        $e^{-at}$                               & $\dfrac{1}{s+a}$                      \\
+        \bottomrule
+    \end{tabular*}
+
+\end{centering}
+
+
+
+
+
+
+
+
+\section{Otázky}
+
+\noindent
+\begin{itemize}[leftmargin=0pt, labelsep=3mm, itemsep=0pt]
+    
+
+
+	\item[\textsf{\bfseries Otázka 1}] {\sffamily Čo je riešením obyčajnej diferenciálnej rovnice (vo všeobecnosti)?}
+	
+    Riešením diferenciálnej rovnice je \emph{funkcia} pričom v kontexte dynamických systémov ide o \emph{funkciu času}. 
+    Inými slovami, neznámou v rovnici je funkcia času (časová závislosť, signál). Diferenciálnou sa rovnica nazýva preto, že sa v nej nachádzajú aj derivácie neznámej funkcie. Obyčajnou sa diferenciálna rovnica nazýva preto, že neznámou je funkcia len jednej premennej (času).
+
+
+
+    \item[\textsf{\bfseries Otázka 2}] {\sffamily Aký je rozdiel medzi homogénnou a nehomogénnou obyčajnou diferenciálnou rovnicou?}
+    
+    Homogénnou nazývame diferenciálnu rovnicu vtedy, keď v nej figuruje len samotná neznáma funkcia. Nefigurujú v nej iné funkcie. V kontexte dynamických systémov ide typicky o prípad, keď systém nemá žiadny vstupný signál (vstupný signál je nulový). Ak sa členy rovnice obsahujúce neznámu a jej derivácie presunú na ľavú stranu rovnice, pravá strana bude nulová
+    
+    Nehomogénnou nazývame diferenciálnu rovnicu vtedy, keď v nej figuruje aj iná funkcia ako samotná neznáma funkcia. V kontexte dynamických systémov ide o prípad, keď systém má vstupný signál. Ak sa členy rovnice obsahujúce neznámu a jej derivácie presunú na ľavú stranu rovnice, pravá strana bude nenulová, bude obsahovať členy obsahujúce vstupný signál (vrátane jeho derivácií).
+
+
+
+\end{itemize}
+
+
+
+
+
+
+\section{Úlohy}
+
+\noindent
+\begin{itemize}[leftmargin=0pt, labelsep=3mm, itemsep=0pt]
+
+	\item[\textsf{\bfseries Úloha 1}] {\sffamily%
+    Nájdite analytické riešenie diferenciálnej rovnice. Použite metódu charakteristickej rovnice.
+	\begin{equation*} 
+        \dot y(t) + a y(t) = 0  \qquad y(0) = y_0 \qquad a \in \mathbb{R}
+    \end{equation*}
+    
+    Riešenie:}
+
+    Prvým krokom je stanovenie charakteristickej rovnice. Tú je možné určiť nahradením derivácií neznámej funkcie mocninami pomocnej premennej, označme ju $s$. Napríklad prvú deriváciu $\dot y(t)$ nahradíme $s^1$, nultú deriváciu $y(t)$ nahradíme $s^0$. Charakteristická rovnica pre danú diferenciálnu rovnicu bude
+    \begin{equation}
+        s + a = 0
+    \end{equation}
+
+    Druhým krokom je stanovenie fundamentálnych riešení diferenciálnej rovnice, ktoré sú dané riešeniami charakteristickej rovnice. Riešením charakteristickej rovnice je 
+    \begin{equation}
+        s_1 = -a
+    \end{equation}
+    Fundamentálne riešenie je teda len jedno
+    \begin{equation}
+        y_{f1}(t) = e^{-at}
+    \end{equation}
+
+    Tretím krokom je stanovenie všeobecného riešenia dif. rovnice. Je lineárnou kombináciou fundamentálnych riešení. Teda
+    \begin{equation}
+        y(t) = c_1 e^{-at}
+    \end{equation}
+    kde $c_1 \in \mathbb{R}$ je konštanta. 
+    
+    Štvrtým krokom je stanovenie konkrétneho riešenia dif. rovnice v prípade, ak sú dané začiatočné podmienky. Konkrétne ide o stanovenie hodnoty konštanty $c_1$. Pre čas $t = 0$ má všeobecné riešenie tvar
+    \begin{equation}
+        y(0)  = c_1 \, e^{(-a) 0} = c_1
+    \end{equation}
+    Samotná hodnota $y(0)$ je známa, keďže máme začiatočnú podmienku $y(0) = y_0$. Takže
+    \begin{equation}
+        c_1 = y_0
+    \end{equation}
+    To znamená, že riešenie úlohy je:
+    \begin{equation}
+        y(t)  = y_0 \, e^{(-a) t}
+    \end{equation}
+
+    
+
+    \item[\textsf{\bfseries Úloha 2}] {\sffamily%
+    Nájdite analytické riešenie diferenciálnej rovnice. Použite metódu charakteristickej rovnice.
+    \begin{equation*} 
+        \ddot y(t) + (a+b) \dot y(t) + a b y(t) = 0  \qquad y(0) = y_0 \qquad \dot y(0) = z_0 \qquad a,b \in \mathbb{R}
+    \end{equation*}
+    
+    Riešenie:}
+
+    Prvým krokom je stanovenie charakteristickej rovnice. V tomto prípade
+    \begin{equation}
+        s^2 + (a+b) s + a b = 0 
+    \end{equation}
+
+    V druhom kroku pre stanovenie fundamentálnych riešení hľadáme riešenia charakteristickej rovnice. Vo všeobecnosti
+    \begin{equation}
+        s_{1,2} = \frac{-(a + b) \pm \sqrt{(a + b)^2 - 4  ab}}{2}
+    \end{equation}
+    avšak v tomto prípade tiež vidíme, že
+    \begin{equation}
+        s^2 + (a+b) s + a b = (s + a)(s + b)
+    \end{equation}
+    Riešenia charakteristickej rovnice teda sú
+    \begin{subequations}
+        \begin{align}
+            s_1 &= -a \\
+            s_2 &= -b
+        \end{align}
+    \end{subequations}
+    Zodpovedajúce fundamentálne riešenia sú
+    \begin{subequations}
+        \begin{align}
+            y_{f1}(t) &= e^{-at} \\
+            y_{f2}(t) &= e^{-bt}
+        \end{align}
+    \end{subequations}
+
+    Tretím krokom je stanovenie všeobecného riešenia dif. rovnice. Je lineárnou kombináciou fundamentálnych riešení. Teda
+    \begin{equation}
+        y(t) = c_1 e^{-at} + c_2 e^{-bt}
+    \end{equation}
+    kde $c_1, c_2 \in \mathbb{R}$ sú konštanty.
+
+    Vo štvrtom kroku je možné na základe začiatočných podmienok stanoviť konkrétne riešenie. Pre čas $t = 0$ má všeobecné riešenie tvar
+    \begin{equation}
+        y(0)  = c_1 \, e^{(-a) 0} + c_2 \, e^{(-b) 0} = c_1 + c_2   
+    \end{equation}
+    Derivácia všeobecného riešenia je
+    \begin{equation}
+        \dot y(t) = -a c_1 e^{-at} - b c_2 e^{-bt}
+    \end{equation}
+    Pre čas $t = 0$ má derivácia všeobecného riešenia tvar
+    \begin{equation}
+        \dot y(0)  = -a c_1 - b c_2
+    \end{equation}
+    Z uvedeného vyplýva sústava dvoch rovníc o dvoch neznámych konštantách $c_1$ a $c_2$
+    \begin{subequations}
+        \begin{align}
+            c_1 + c_2 &= y_0 \\
+            -a c_1 - b c_2 &= z_0
+        \end{align}
+    \end{subequations}
+    Do druhej rovnice dosaďme $c_1 = y_0 - c_2$
+    \begin{subequations}
+        \begin{align}
+            -a (y_0 - c_2) - b c_2 &= z_0 \\
+            -a y_0 + a c_2 - b c_2 &= z_0 \\
+            c_2 (a - b) &= z_0 + a y_0 \\
+            c_2 &= \frac{z_0 + a y_0}{a - b}
+        \end{align}
+    \end{subequations}
+    potom
+    \begin{subequations}
+        \begin{align}
+            c_1 &= y_0 - c_2 \\
+            c_1 &= y_0 - \frac{z_0 + a y_0}{a - b} \\  
+            c_1 &= \frac{y_0 (a - b) - z_0 - a y_0}{a - b}\\
+            c_1 &= \frac{y_0 a - y_0 b - z_0 - a y_0}{a - b}\\
+            c_1 &= \frac{- y_0 b - z_0}{a - b}          
+        \end{align}
+    \end{subequations}
+    Konkrétne riešenie úlohy teda je
+    \begin{equation}
+        y(t) = \frac{- y_0 b - z_0}{a - b} e^{-at} + \frac{z_0 + a y_0}{a - b} e^{-bt}
+    \end{equation}
+
+
+
+
+
+
+
+
+    \item[\textsf{\bfseries Úloha 3}] {\sffamily%
+    Nájdite analytické riešenie diferenciálnej rovnice. Použite metódu charakteristickej rovnice.
+	\begin{equation*} 
+        \ddot y(t) + 3\dot y(t) + 2 y(t) = 0 \qquad y(0)=3 \qquad \dot y(0) = -2
+    \end{equation*}
+    
+    Riešenie:}
+
+    Prvým krokom je stanovenie charakteristickej rovnice. V tomto prípade
+    \begin{equation}
+        s^2 + 3s + 2 = 0
+    \end{equation}
+
+    V druhom kroku pre stanovenie fundamentálnych riešení hľadáme riešenia charakteristickej rovnice. Riešením charakteristickej rovnice sú
+    \begin{subequations}
+        \begin{align}
+            s_1 &= -1 \\
+            s_2 &= -2
+        \end{align}
+    \end{subequations}
+    Zodpovedajúce fundamentálne riešenia sú
+    \begin{subequations}
+        \begin{align}
+            y_{f1}(t) &= e^{-t} \\
+            y_{f2}(t) &= e^{-2t}
+        \end{align}
+    \end{subequations}
+
+    Tretím krokom je stanovenie všeobecného riešenia dif. rovnice. Je lineárnou kombináciou fundamentálnych riešení. Teda
+    \begin{equation}
+        y(t) = c_1 e^{-t} + c_2 e^{-2t}
+    \end{equation}
+    kde $c_1, c_2 \in \mathbb{R}$ sú konštanty.
+
+    Vo štvrtom kroku je možné na základe začiatočných podmienok stanoviť konkrétne riešenie. Pre čas $t = 0$ má všeobecné riešenie tvar
+    \begin{equation}
+        y(0)  = c_1 \, e^{(-1) 0} + c_2 \, e^{(-2) 0} = c_1 + c_2
+    \end{equation}
+    Tým sme takpovediac zúžitkovali informáciu o začiatočnej hodnote $y(0) = 3$. Druhá začiatočná podmienka sa týka derivácie riešenia. Derivácia všeobecného riešenia je
+    \begin{equation}
+        \dot y(t) = - c_1 e^{-t} - 2 c_2 e^{-2t}
+    \end{equation}
+    Pre čas $t = 0$ má derivácia všeobecného riešenia tvar
+    \begin{equation}
+        \dot y(0)  = - c_1 - 2 c_2
+    \end{equation}
+    Z uvedeného vyplýva sústava dvoch rovníc o dvoch neznámych konštantách $c_1$ a $c_2$
+    \begin{subequations}
+        \begin{align}
+            c_1 + c_2 &= 3 \\
+            - c_1 - 2 c_2 &= -2
+        \end{align}
+    \end{subequations}
+    Platí $c_2 = 3-c_1$, a teda
+    \begin{subequations}
+        \begin{align}
+            - c_1 - 2 (3 - c_1) &= -2 \\
+            - c_1 - 6 + 2 c_1 &= -2 \\
+            c_1 &= 4
+        \end{align}
+    \end{subequations}
+    potom
+    \begin{subequations}
+        \begin{align}
+            c_2 &= 3 - c_1 \\
+            c_2 &= 3 - 4 \\
+            c_2 &= -1
+        \end{align}
+    \end{subequations}
+    Našli sme funkciu $y(t)$, ktorá je riešením diferenciálnej rovnice pre konkrétne začiatočné podmienky
+    \begin{equation}
+        y(t) = 4 e^{-t} - e^{-2t}
+    \end{equation}
+
+
+
+
+
+    \item[\textsf{\bfseries Úloha 4}] {\sffamily%
+    Nájdite analytické riešenie diferenciálnej rovnice. Použite Laplaceovu transformáciu.
+    \begin{equation*} 
+        \ddot y(t) + (a+b) \dot y(t) + a b y(t) = 0  \qquad y(0) = y_0 \qquad \dot y(0) = z_0 \qquad a,b \in \mathbb{R}
+    \end{equation*}
+    
+    Riešenie:}
+
+    Na jednotlivé členy diferenciálnej rovnice aplikujeme Laplaceovu transformáciu. 
+    \begin{subequations}
+        \begin{align}
+            \Laplace{\ddot y(t)} &= s^2 Y(s) - s y(0) - \dot y(0) \\
+            \Laplace{(a+b) \dot y(t)} &= (a+b) (s Y(s) - y(0)) \\
+            \Laplace{a b y(t)} &= a b Y(s)
+        \end{align}
+    \end{subequations}
+    Potom rovnica v Laplaceovej oblasti bude
+    \begin{subequations}
+        \begin{align}
+            s^2 Y(s) - s y(0) - \dot y(0) + (a+b) (s Y(s) - y(0)) + a b Y(s) = 0 \\
+            s^2 Y(s) - s y_0 - z_0 + (a+b) (s Y(s) - y_0) + a b Y(s) = 0 \\
+            s^2 Y(s) - s y_0 - z_0 + a s Y(s) + b s Y(s) - a y_0 - b y_0 + a b Y(s) = 0 
+        \end{align}
+    \end{subequations}
+    Členy obsahujúce $Y(s)$ zoskupíme na ľavej strane rovnice
+    \begin{equation}
+        Y(s) (s^2 + a s + b s + a b) = s y_0 + z_0 + a y_0 + b y_0
+    \end{equation}
+    Obrazom riešenia dif. rovnice teda je
+    \begin{equation}
+        Y(s) = \frac{s y_0 + z_0 + a y_0 + b y_0}{s^2 + (a+b) s + a b}
+    \end{equation}
+    Zaujíma nás však originál tohto obrazu. V uvedenom tvare obrazu však nie je možné nájsť jeho originál s využitím tabuľky Laplaceových obrazov signálov. Obraz je potrebné prepísať na jednoduchšie výrazy, typicky je účelným rozklad na parciálne zlomky.
+    Menovateľ $s^2 + (a+b) s + a b$ je  kvadratický polynóm, ktorý má dva rôzne korene a tie sú
+    \begin{subequations}
+        \begin{align}
+            s_1 &= -a \\
+            s_2 &= -b
+        \end{align}
+    \end{subequations}
+    Takže platí
+    \begin{equation}
+        Y(s) = \frac{s y_0 + z_0 + a y_0 + b y_0}{s^2 + (a+b) s + a b} = \frac{s y_0 + z_0 + a y_0 + b y_0}{(s+a)(s+b)} =\frac{A}{s + a} + \frac{B}{s + b}
+    \end{equation}
+    kde $A$ a $B$ sú neznáme konštanty. To je možné zapísať aj v tvare
+    \begin{equation}
+        s y_0 + z_0 + a y_0 + b y_0 = A (s + b) + B (s + a)
+    \end{equation}
+    Uvedené platí pre akékoľvek $s$, teda aj pre $s = -a$ a $s = -b$. Pre $s = -a$ dostaneme
+    \begin{subequations}
+        \begin{align}
+            -a y_0 + z_0 + a y_0 + b y_0 &= A (-a + b) + B (-a + a) \\
+            z_0 + b y_0 &= A (-a + b) \\
+            A &= \frac{z_0 + b y_0}{-a + b}
+        \end{align}
+    \end{subequations}
+    Pre $s = -b$ dostaneme
+    \begin{subequations}
+        \begin{align}
+            -b y_0 + z_0 + a y_0 + b y_0 &= A (-b + b) + B (-b + a) \\
+            z_0 + a y_0 &= B (-b + a) \\
+            B &= \frac{z_0 + a y_0}{-b + a}
+        \end{align}
+    \end{subequations}
+    Obraz riešenia dif. rovnice potom je v tvare
+    \begin{equation}
+        Y(s) = \frac{z_0 + b y_0}{-a + b} \left( \frac{1}{s + a} \right)+ \frac{z_0 + a y_0}{-b + a} \left( \frac{1}{s + b} \right)
+    \end{equation}
+    Originálom k výrazu $\frac{1}{s + a}$ je v zmysle tabuľky Laplaceových obrazov signálov funkcia $e^{-at}$. Originálom k výrazu $\frac{1}{s + b}$ je v zmysle tabuľky Laplaceových obrazov signálov funkcia $e^{-bt}$. Preto originálom obrazu riešenia dif. rovnice je
+    \begin{equation}
+        y(t) = \frac{z_0 + b y_0}{-a + b} e^{-at} + \frac{z_0 + a y_0}{-b + a} e^{-bt}
+    \end{equation}
+    Našli sme riešenie diferenciálnej rovnice pre dané začiatočné podmienky.
+
+
+
+    
+
+
+
+    \item[\textsf{\bfseries Úloha 5}] {\sffamily%
+    Nájdite analytické riešenie diferenciálnej rovnice. Použite Laplaceovu transformáciu.
+    \begin{equation*} 
+       \dot y(t) + a y(t) = b u(t)  \qquad y(0) = 0  \qquad u(t) = \delta(t) \qquad a,b \in \mathbb{R}
+    \end{equation*}
+    kde $\delta(t)$ je Dirackov impulz.
+    
+    Riešenie:}
+
+    Na jednotlivé členy diferenciálnej rovnice aplikujeme Laplaceovu transformáciu.
+    \begin{subequations}
+        \begin{align}
+            \Laplace{\dot y(t)} &= s Y(s) - y(0) \\
+            \Laplace{a y(t)} &= a Y(s) \\
+            \Laplace{b u(t)} &= b U(s) = b \cdot 1
+        \end{align}
+    \end{subequations}
+    Potom rovnica v Laplaceovej oblasti bude
+    \begin{subequations}
+        \begin{align}
+            s Y(s) - y(0) + a Y(s) = b \\
+            s Y(s) + a Y(s) = b
+        \end{align}
+    \end{subequations}
+    Členy obsahujúce $Y(s)$ zoskupíme na ľavej strane rovnice
+    \begin{equation}
+        Y(s) (s + a) = b
+    \end{equation}
+    Obrazom riešenia dif. rovnice teda je
+    \begin{equation}
+        Y(s) = \frac{b}{s + a} = b\, \frac{1}{s + a}
+    \end{equation}
+    Zaujíma nás však originál tohto obrazu. V tomto prípade je priamo z tabuľky Laplaceových obrazov signálov zrejmé, že originálom je funkcia
+    \begin{equation}
+        y(t) = b\, e^{-at}
+    \end{equation}
+    čím sme našli riešenie diferenciálnej rovnice.
+
+
+
+
+    \item[\textsf{\bfseries Úloha 6}] {\sffamily%
+    Nájdite analytické riešenie diferenciálnej rovnice. Použite Laplaceovu transformáciu.
+    \begin{equation*} 
+       \dot y(t) + a y(t) = b u(t)  \qquad y(0) = y_0  \qquad u(t) = 1 \qquad a, b \in \mathbb{R}
+    \end{equation*}
+    kde $u(t)$ je v tejto súvislosti skoková zmena vstupného signálu v čase $t=0$.
+    
+    Riešenie:}
+
+    Na jednotlivé členy diferenciálnej rovnice aplikujeme Laplaceovu transformáciu.
+    \begin{subequations}
+        \begin{align}
+            \Laplace{\dot y(t)} &= s Y(s) - y(0) \\
+            \Laplace{a y(t)} &= a Y(s) \\
+            \Laplace{b u(t)} &= b U(s) = b \cdot \frac{1}{s}
+        \end{align}
+    \end{subequations}
+    Potom rovnica v Laplaceovej oblasti bude
+    \begin{subequations}
+        \begin{align}
+            s Y(s) - y(0) + a Y(s) = b \frac{1}{s} \\
+            s Y(s) - y_0 + a Y(s) = b \frac{1}{s}
+        \end{align}
+    \end{subequations}
+    Členy obsahujúce $Y(s)$ zoskupíme na ľavej strane rovnice
+    \begin{equation}
+        Y(s) (s + a) =  y_0 + b \frac{1}{s}
+    \end{equation}
+    Obrazom riešenia dif. rovnice teda je
+    \begin{equation}
+        Y(s) = \frac{y_0}{s + a} + b \frac{1}{s(s + a)}
+    \end{equation}
+    Zaujíma nás však originál tohto obrazu. Prvý výraz je 
+    \begin{equation}
+        Y_1(s) = \frac{y_0}{s + a}
+    \end{equation}
+    Súvisí so začiatočnou podmienkou a jeho originálom (podľa tabuľky Laplaceových obrazov) je funkcia
+    \begin{equation}
+        y_1(t) = y_0 e^{-at}
+    \end{equation}
+    Druhý výraz je
+    \begin{equation}
+        Y_2(s) =  \frac{b}{s(s + a)}
+    \end{equation}
+    Súvisí so vstupným signálom $u(t)$ a nie je možné priamo určiť jeho originál z tabuľky Laplaceových obrazov signálov. Preto je potrebné využiť rozklad na parciálne zlomky. V tomto prípade
+    \begin{equation}
+        Y_2(s) = \frac{b}{s(s + a)} = \frac{A}{s} + \frac{B}{s + a}
+    \end{equation}
+    kde $A$ a $B$ sú neznáme konštanty. To je možné zapísať aj v tvare 
+    \begin{equation}
+        b = A (s + a) + B s	
+    \end{equation}
+    Uvedené platí pre akékoľvek $s$, teda aj pre $s = 0$ a $s = -a$. Pre $s = 0$ dostaneme
+    \begin{subequations}
+        \begin{align}
+            b &= A a \\
+            A &= \frac{b}{a}
+        \end{align}
+    \end{subequations}
+    Pre $s = -a$ dostaneme
+    \begin{subequations}
+        \begin{align}
+            b &= B (-a) \\
+            B &= \frac{-b}{a}
+        \end{align}
+    \end{subequations}
+    Teda
+    \begin{equation}
+        Y_2(s) = \frac{b}{a} \left( \frac{1}{s} \right) - \frac{b}{a} \left( \frac{1}{s + a} \right)
+    \end{equation}
+    a originálna funkcia je
+    \begin{equation}
+        y_2(t) = \frac{b}{a} - \frac{b}{a} e^{-at}  
+    \end{equation}
+    Súčet $y_1(t) + y_2(t)$ je riešením diferenciálnej rovnice
+    \begin{equation}
+        y(t) = y_0 e^{-at} + \frac{b}{a} - \frac{b}{a} e^{-at}
+    \end{equation}
+
+
+
+
+
+
+            
+
+
+
+    \item[\textsf{\bfseries Úloha 7}] {\sffamily%
+    Nájdite analytické riešenie diferenciálnej rovnice. Použite Laplaceovu transformáciu.
+    \begin{equation*} 
+        \ddot y(t) + 4 \dot y(t) + 3y(t) = u(t)    \qquad y(0) = 3 \qquad \dot y(0) = -2  \qquad u(t) = 1 
+    \end{equation*}
+        
+    Riešenie:}
+
+    Na jednotlivé členy diferenciálnej rovnice aplikujeme Laplaceovu transformáciu.
+    \begin{subequations}
+        \begin{align}
+            \Laplace{\ddot y(t)} &= s^2 Y(s) - s y(0) - \dot y(0) \\
+            \Laplace{4 \dot y(t)} &= 4 (s Y(s) - y(0)) \\
+            \Laplace{3 y(t)} &= 3 Y(s) \\
+            \Laplace{u(t)} &= U(s) = \frac{1}{s}
+        \end{align}
+    \end{subequations}
+    Potom rovnica v Laplaceovej oblasti bude
+    \begin{subequations}
+        \begin{align}
+            s^2 Y(s) - s y(0) - \dot y(0) + 4 s Y(s) - 4 y(0) + 3 Y(s) = \frac{1}{s} \\
+            s^2 Y(s) - s \cdot 3 - (-2) + 4 s Y(s) - 4 \cdot 3 + 3 Y(s) = \frac{1}{s} \\
+            s^2 Y(s) - 3 s + 2 + 4 s Y(s) - 12 + 3 Y(s) = \frac{1}{s} \\
+            s^2 Y(s) + 4 s Y(s) + 3 Y(s) = 3 s + 10 + \frac{1}{s}
+        \end{align}
+    \end{subequations}
+    Členy obsahujúce $Y(s)$ zoskupíme na ľavej strane rovnice
+    \begin{equation}
+        Y(s) (s^2 + 4 s + 3) = 3 s + 10 + \frac{1}{s}
+    \end{equation}
+    Obrazom riešenia dif. rovnice teda je
+    \begin{equation}
+        Y(s) = \frac{3 s + 10}{s^2 + 4 s + 3} + \frac{1}{s(s^2 + 4 s + 3)}
+    \end{equation}
+    Zaujíma nás však originál tohto obrazu. Prvý výraz je
+    \begin{equation}
+        Y_1(s) = \frac{3 s + 10}{s^2 + 4 s + 3}
+    \end{equation}
+    Súvisí so začiatočnými podmienkami a nie je možné priamo určiť jeho originál z~tabuľky Laplaceových obrazov signálov. Preto je potrebné využiť rozklad na parciálne zlomky. Výraz v menovateli $s^2 + 4 s + 3$ je kvadratický polynóm, ktorý má dva rôzne korene a~tie sú
+    \begin{equation}
+        s_{1,2} = \frac{-(4) \pm \sqrt{4^2 - 4 \cdot 3}}{2} = \frac{-4 \pm \sqrt{4}}{2} = \frac{-4 \pm 2}{2}
+    \end{equation}
+    teda
+    \begin{subequations}
+        \begin{align}
+            s_1 &= -1 \\
+            s_2 &= -3
+        \end{align}
+    \end{subequations}
+    Potom v tomto prípade
+    \begin{equation}
+        Y_1(s) = \frac{3 s + 10}{s^2 + 4 s + 3} = \frac{A}{s + 1} + \frac{B}{s + 3}
+    \end{equation}   
+    kde $A$ a $B$ sú neznáme konštanty. To je možné zapísať aj v tvare
+    \begin{equation}
+        3 s + 10 = A (s + 3) + B (s + 1)
+    \end{equation}
+    Uvedené platí pre akékoľvek $s$, teda aj pre $s = -1$ a $s = -3$. Pre $s = -1$ dostaneme
+    \begin{subequations}
+        \begin{align}
+            -3 + 10 &= A (-1 + 3) \\
+            7 &= 2 A \\
+            A &= \frac{7}{2}
+        \end{align}
+    \end{subequations}
+    Pre $s = -3$ dostaneme
+    \begin{subequations}
+        \begin{align}
+            -9 + 10 &= B (-3 + 1) \\
+            1 &= -2 B \\
+            B &= -\frac{1}{2}
+        \end{align}
+    \end{subequations}
+    Teda
+    \begin{equation}
+        Y_1(s) = \frac{3 s + 10}{s^2 + 4 s + 3} = \frac{7}{2} \left( \frac{1}{s + 1} \right) - \frac{1}{2} \left( \frac{1}{s + 3} \right)
+    \end{equation}
+    a originálna funkcia je
+    \begin{equation}
+        y_1(t) = \frac{7}{2} e^{-t} - \frac{1}{2} e^{-3t}
+    \end{equation}
+    Druhý výraz je
+    \begin{equation}
+        Y_2(s) = \frac{1}{s(s^2 + 4 s + 3)}
+    \end{equation}
+    Súvisí so vstupným signálom $u(t)$ a nie je možné priamo určiť jeho originál z tabuľky Laplaceových obrazov signálov. Preto je potrebné využiť rozklad na parciálne zlomky. V tomto prípade
+    \begin{equation}
+        Y_2(s) = \frac{1}{s(s^2 + 4 s + 3)} = \frac{C}{s} + \frac{D}{s + 1} + \frac{E}{s + 3}
+    \end{equation}
+    kde $C$, $D$ a $E$ sú neznáme konštanty. To je možné zapísať aj v tvare
+    \begin{equation}
+        1 = C (s + 1)(s + 3) + D s (s + 3) + E s (s + 1)
+    \end{equation}
+    Uvedené platí pre akékoľvek $s$, teda aj pre $s = 0$, $s = -1$ a $s = -3$. Pre $s = 0$ dostaneme
+    \begin{subequations}
+        \begin{align}
+            1 &= C (0 + 1)(0 + 3) \\
+            1 &= 3 C \\
+            C &= \frac{1}{3}
+        \end{align}
+    \end{subequations}
+    Pre $s = -1$ dostaneme
+    \begin{subequations}
+        \begin{align}
+            1 &= D (-1)(-1 + 3) \\
+            1 &= 2 D \\
+            D &= \frac{1}{2}
+        \end{align}
+    \end{subequations}
+    Pre $s = -3$ dostaneme
+    \begin{subequations}
+        \begin{align}
+            1 &= E (-3)(-3 + 1) \\
+            1 &= 6 E \\
+            E &= \frac{1}{6}
+        \end{align}
+    \end{subequations}
+    Teda
+    \begin{equation}
+        Y_2(s) = \frac{1}{s(s^2 + 4 s + 3)} = \frac{1}{3} \left( \frac{1}{s} \right) + \frac{1}{2} \left( \frac{1}{s + 1} \right) + \frac{1}{6} \left( \frac{1}{s + 3} \right)
+    \end{equation}
+    a originálna funkcia je
+    \begin{equation}
+        y_2(t) = \frac{1}{3} + \frac{1}{2} e^{-t} + \frac{1}{6} e^{-3t}
+    \end{equation}
+    Súčet $y_1(t) + y_2(t)$ je riešením diferenciálnej rovnice
+    \begin{subequations}
+        \begin{align}
+            y(t) &= \frac{7}{2} e^{-t} - \frac{1}{2} e^{-3t} + \frac{1}{3} + \frac{1}{2} e^{-t} + \frac{1}{6} e^{-3t} \\
+            y(t) &= 4 e^{-t} - \frac{1}{3} e^{-3t} + \frac{1}{3}
+        \end{align}
+    \end{subequations}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{itemize}
+
+
+
+
+
+
+
+
+
+
+
+% -----------------------------------------------------------------------------
+
+\end{document}
+
+% -----------------------------------------------------------------------------
