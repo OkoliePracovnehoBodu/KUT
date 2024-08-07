@@ -353,26 +353,113 @@ Označme
 	\end{align}
 \end{subequations}
 a výraz
-\begin{align}
+\begin{equation}
 	G(s) = \frac{B(s)}{A(s)}
-\end{align}
+\end{equation}
 vyjadruje prenosovú funkciu systému.
+
+
+
 
 
 
 \section{Definícia s využitím Laplaceovej transformácie}
 
+Prenosová funkcia je definovaná ako pomer Laplaceovho obrazu výstupného signálu systému k Laplaceovmu obrazu vstupného signálu pri nulových začiatočných podmienkach systému.
+
+Laplaceova transformácia sa týka lineárnych časovo invariantných systémov. Majme teda takýto systém, ktorého vstupným signálom je signál $u(t)$ a výstupným signálom je signál $y(t)$. V zmysle Laplaceovej transformácie existuje obraz vstupného signálu $U(s)$ a obraz výstupného signálu $Y(s)$ pričom tieto obrazy sú stanovené pri nulových začiatočných podmienkach systému.
+
+Ilustrujme na príklade. Lineárny časovo invariantný systém nech je daný dif. rovnicou v tvare
+\begin{equation}
+    a_1 \dot y(t) + a_0 y(t) = b_0 u(t)
+\end{equation}
+kde $y(t)$ a $u(t)$ sú samozrejme výstupný a vstupný signál. Koeficienty $a_1, a_0, b_0 \in \mathbb R$ sú konštantné. Aplikujme Laplaceovu transformáciu na prvky danej dif. rovnice.
+\begin{align}
+    \begin{aligned}
+        a_1 \mathcal{L} \left\{ \dot y(t) \right\} + a_0 \mathcal{L} \left\{ y(t) \right\} &= b_0 \mathcal{L} \left\{ u(t) \right\} \\
+        a_1 s Y(s) - a_1 y(0) + a_0 Y(s) &= b_0 U(s)
+    \end{aligned}
+\end{align}
+Pri nulových začiatočných podmienkach potom platí
+\begin{equation}
+    a_1 s Y(s) + a_0 Y(s) = b_0 U(s)
+\end{equation}
+Prenosová funkcia je definovaná ako pomer $Y(s)/U(s)$, teda
+\begin{subequations}
+    \begin{align}
+        Y(s) \left( a_1 s + a_0 \right) &= b_0 U(s) \\
+        \frac{Y(s)}{U(s)} &= \frac{b_0}{a_1 s + a_0}
+    \end{align}
+\end{subequations}
+Ako samostatný objekt sa prenosová funkcia označuje samostatne, napríklad sko $G(s)$, teda v tomto prípade
+\begin{equation} \label{prenosfunkciapriklad}
+    G(s) = \frac{b_0}{a_1 s + a_0}  
+\end{equation}
+a vo všeobecnosti
+\begin{equation}
+    G(s) = \frac{Y(s)}{U(s)}
+\end{equation}
+Z iného hľadiska má tiež zmysel samostatne označovať polynómy v čitateli a menovateli prenosovej funkcie. Polynóm v čitateli sa typicky označuje ako $B(s)$ a polynóm v~menovateli sa označuje ako $A(s)$. V tomto prípade 
+\begin{equation}
+    B(s) = b_0 \qquad A(s) = a_1 s + a_0
+\end{equation}
+a vo všeobecnosti teda
+\begin{equation}
+    G(s) = \frac{B(s)}{A(s)}
+\end{equation}
+
+    
 
 
 
 
+\section{Súvisiace pojmy}
+
+Prenosová funkcia je opisuje lineárny časovo invariantný dynamický systém pričom je dané, že začiatočné podmienky systému sú nulové. Daný dynamický systém je možné opísať diferenciálnou rovnicou alebo prenosovou funkciou a tieto dva opisy sú ekvivalentné. 
+
+Uvažujme prenosovú funkciu vo všeobecnosti
+\begin{equation}
+    G(s) = \frac{B(s)}{A(s)}
+\end{equation}
+kde $A(s)$ a $B(s)$ sú polynómy, ktorých nezávisle premenná je Laplaceov operátor $s$~(pritom $s$ je komplexné číslo). 
+
+Polynóm $A(s)$ má stupeň $n$ a polynóm $B(s)$ má stupeň $m$.
+
+Reálne/skutočné dynamické deje/systémy „v prírode“ sú samozrejme kauzálne\footnote{Nekauzalita je skôr matematická/abstraktná záležitosť.}, teda výstup je následkom diania v súčastnosti a minulosti. Ak prenosová funkcia opisuje kauzálny systém, potom pre stupne polynómov $A(s)$ a $B(s)$ platí $n \geq m$.
+
+Polynóm $A(s)$ sa nazýva charakteristický polynóm prenosovej funkcie. Pojem charakteristická rovnica alebo charakteristický polynóm je používaný aj v kontexte analytických metód riešenia lineárnych dif. rovníc. Ide pritom o ekvivalentné pojmy, charakteristický polynóm prenosovej funkcie je to isté ako charakteristický polynóm lineárnej diferenciálnej rovnice.
+
+Stupeň polynómu $A(s)$, teda hodnota $n$, sa nazýva rád prenosovej funkcie. Ide o~ekvivalent pojmu rád dynamického systému (najvyšší stupeň derivácie neznámej v~dif. rovnici).
+
+Korene polynómu $A(s)$ sa nazývajú póly prenosovej funkcie. Ekvivalentne je možné hovoriť o póloch lineárneho dynamického systému. Keďže ide o korene charakteristického polynómu, s pólmi systému priamo súvisia fundamentálne riešenia dif. rovnice. Fundamentálne riešenia sú dané pólmi systému. Iný termín pre fundamentálne riešenia je \emph{módy dynamického systému}.
+
+Z hľadiska stability dynamického systému hovoríme, že systém je stabilný ak sú všetky póly systému v ľavej polrovine komplexnej roviny. Inými slovami, systém je stabilný ak reálne časti všetkých pólov sú záporné. Pod stabilitou systému samozrejme myslíme stabilitu rovnovážneho stavu daného lineárneho dynamického systému.
 
 
+Korene polynómu $B(s)$ sa nazývajú nuly prenosovej funkcie (nuly lineárneho dynamického systému).
 
+Nuly systému súvisia predovšetkým so vstupným signálom systému. Širšia interpretácia prenosovej funkcie, ako vieme, sa zaoberá skúmaním vplyvu exponenciálneho vstupného signálu $u(t) = e^{st}$ ($s$ je komplexné číslo) na výstup systému. Zjednodušene povedané, nuly nulujú zodpovedajúce vstupné exponenciálne signály. Neprenesú sa na výstup. Poloha nuly v komplexnej rovine určuje signál $e^{st}$, ktorý je nulovaný a~neprenesie sa na výstup (neovplyvní výstupnú veličinu). Ďalšia diskusia v tejto veci je nad rámec tohto textu a čitateľ sa odkazuje na zodpovedajúcu literatúru, napríklad aj \cite{Aastroem2020}.
 
-
-
-
+V súvislosti s prenosovou funkciou, o ktorej uvažujeme v tvare
+\begin{equation}
+    G(s) = \frac{Y(s)}{U(s)}
+\end{equation}
+je užitočné využívať \emph{vetu o konečnej hodnote riešenia}. Ak máme k dispozícii obraz riešenia diferenciálnej rovnice, teda obraz výstupného signálu systému $Y(s)$, potom veta o konečnej hodnote hovorí, že konečná hodnota výstupného signálu $y(t)$, označme túto hodnotu symbolom $y(\infty)$, je daná ako
+\begin{equation}
+    y(\infty) = \lim_{s \to 0} s\ Y(s)   
+\end{equation}
+Napríklad, poznáme prenosovú funkciu \eqref{prenosfunkciapriklad} a napríklad vstupom systému je jednotkový skok, ktorého Laplaceov obraz je $U(s) = 1/s$. Potom obraz výstupného signálu je
+\begin{equation}
+    Y(s) = G(s) U(s) = \left( \frac{b_0}{a_1 s + a_0} \right) \frac{1}{s}  
+\end{equation}
+Konečná hodnota tohto signálu bude
+\begin{subequations}
+    \begin{align}
+        y(\infty) &= \lim_{s \to 0} s\ Y(s) = \lim_{s \to 0} s \left( \frac{b_0}{a_1 s + a_0} \right) \frac{1}{s} 
+        \\
+        &= \lim_{s \to 0} \left( \frac{b_0}{a_1 s + a_0} \right) = \frac{b_0}{a_0}        
+    \end{align}
+\end{subequations}
 
 
 
