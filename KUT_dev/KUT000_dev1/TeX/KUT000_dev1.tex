@@ -107,7 +107,7 @@ github.com/PracovnyBod/KUT
 \selectfont
 
 \begin{flushleft}
-    A
+    Systém prvého rádu:\\ vlastnosti a charakteristiky
 \end{flushleft}
 
 \bigskip
@@ -129,8 +129,112 @@ github.com/PracovnyBod/KUT
 
 
 \noindent
-\lettrine[lines=1, nindent=1pt, loversize=0.0]{P}{renosová} 
-funkcia je nástroj pre matematické modelovanie lineárnych časovo-invariantných dynamických systémov. Prenosovú funkciu je možné vidieť aj ako jeden blok v blokovej schéme, teda:
+\lettrine[lines=1, nindent=1pt, loversize=0.0]{C}{ieľom} 
+textu je súhrn vlastností a charakteristík dynamického systému, ktorý má jeden vstupný signál $u(t)$ a jeden výstupný signál $y(t)$ a~tieto sú spojité v čase. Uvažuje sa lineárny, časovo invariantný dynamický systém.
+
+Pojem \emph{rád systému} má v podstate rovnaký význam ako pri diferenciálnej rovnici. Diferenciálna rovnica $n$-tého rádu opisuje dynamický systém $n$-tého rádu. Dif. rovnica $n$-tého rádu je taká, v ktorej vystupuje maximálne $n$-tá derivácia neznámej. V kontexte prenosovej funkcie systému to znamená, že charakteristický polynóm systému je $n$-tého stupňa.
+
+Osobitne uvedieme, že samozrejme uvažujeme \emph{kauzálny systém}, teda výstup systému je následkom diania v súčastnosti a minulosti. Z matematického hľadiska na prenosovú funkciu to znamená, že pre stupne polynómov $A(s)$ a $B(s)$ platí $n \geq m$ pričom charakteristický polynóm $A(s)$ má stupeň $n$, polynóm $B(s)$ má stupeň $m$ a uvažujme prenosovú funkciu v tvare
+\begin{equation}
+    G(s) = \frac{B(s)}{A(s)}
+\end{equation}
+
+Navyše, v praxi, pri matematickom modelovaní reálnych systémov, má v mnohých prípadoch význam hovoriť o systémoch, ktoré sami o sebe neobsahujú „zdroj energie“, sú len „energetickým spotrebičom“, sú \emph{energeticky disipatívne}. V takomto prípade pre prenosovú funkciu platí, že jej relatívny stupeň $n^\star = n-m$ je $n^\star \geq 1$.
+
+
+
+\section{Matematický opis}
+
+
+\subsection{Prenosová funkcia systému prvého rádu}
+
+Vzhľadom na predpoklady uvedené vyššie, prenosová funkcia systému prvého rádu je vo všeobecnosti v tvare
+\begin{equation}
+    G(s) = \frac{b_0}{a_1 s + a_0}
+\end{equation}
+kde $b_0$, $a_1$ a $a_0$ reálne čísla. Typicky (a často veľmi užitočne) sa však uvádza $A(s)$ ako monický polynóm, taký, ktorý má pri najvyššej mocnine $s$ koeficient rovný $1$. Teda v~tomto prípade
+\begin{equation}
+    G(s) = \frac{b_0}{s + a_0}
+\end{equation}
+Pre úplnosť teda $B(s) = b_0$ je stupňa $m=0$ a $A(s) = s + a_0$ je stupňa $n=1$. Koeficienty týchto polynómov sú parametrami systému.
+
+
+
+\subsection{Diferenciálna rovnica systému prvého rádu}
+
+Aby sme nadviazali na predchádzajúci odsek a zároveň ukázali prepis systému z~prenosovej funkcie na diferenciálnu rovnicu, tak konštatujme, že
+\begin{equation}
+    G(s) = \frac{Y(s)}{U(s)}
+\end{equation}
+kde $Y(s)$ je Laplaceov obraz výstupného signálu a $U(s)$ je Laplaceov obraz vstupného signálu. V tomto prípade teda
+\begin{subequations}
+\begin{align}
+    Y(s) &= G(s) U(s) = \frac{b_0}{s + a_0} U(s) \\
+    \left(s + a_0\right) Y(s) &= b_0 U(s) \\
+    s Y(s) + a_0 Y(s) &= b_0 U(s) \\
+    s Y(s)  &= -  a_0 Y(s) b_0 U(s) 
+\end{align}
+\end{subequations}
+a teda diferenciálna rovnica je
+\begin{equation} \label{difrovnicanavsimnutie}
+    \dot y(t) = - a_0 y(t) + b_0 u(t)
+\end{equation}
+
+Prepis opačným smerom, z dif. rovnice na prenosovú funkciu, je samozrejme štandardné aplikovanie Laplaceovej transformácie na rovnicu \eqref{difrovnicanavsimnutie} pri nulových začiatočných podmienkach. 
+
+
+
+
+
+\subsection{Opis systému v stavovom priestore}
+
+V stavovom priestore je potrebne zaviesť stavový vektor $x(t) \in \mathbb R^n$. Vo všeobecnosti je opis lineárneho systému v stavovom priestore v tvare
+\begin{subequations}
+\begin{align}
+    \dot x(t) &= A x(t) + b u(t) \\
+    y(t) &= c^\naT x(t) 
+\end{align}
+\end{subequations}
+kde $A \in \mathbb R^{n \times n}$, $b \in \mathbb R^n$ a $c \in \mathbb R^n$ sú matica a vektory a ide o parametre systému. 
+
+Pri stanovení vektora $x(t)$ ide vo všeobecnosti o prepis diferenciálnej rovnice vyššieho rádu na sústavu rovníc prvého rádu. V tomto prípade máme dif. rovnicu \eqref{difrovnicanavsimnutie} čo už je rovnica prvého rádu. Formálne teda zvoľme
+\begin{equation}
+    x_1(t) = y(t)
+\end{equation}
+a teda
+\begin{equation}
+    \dot x_1(t) = \dot y(t) = - a_0 x_1(t) + b_0 u(t)
+\end{equation}
+je vlastne „sústava“ jednej diferenciálnej rovnice. Formálne:
+\begin{subequations}
+\begin{align}
+    \dot x_1(t) &= - a_0 x_1(t) + b_0 u(t) \\
+    y(t) &= x_1(t)
+\end{align}
+\end{subequations}
+je opis systému v stavovom priestore kde $x_1(t)$ je stavová veličina. Pre úplnosť, stavový vektor v tomto prípade je $x(t) = x_1(t)$ a matica $A = -a_0$, vektor $b = b_0$ a vektor $c = 1$.
+
+
+
+
+\section{Stabilita}
+
+TODO
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
