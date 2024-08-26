@@ -117,7 +117,7 @@ github.com/PracovnyBod/KUT
 \normalfont
 % -----------------------------------------------------------------------------
 
-
+\lstset{style=mystyle}
 
 
 
@@ -301,8 +301,256 @@ V prípade lineárnych systémov je prevodová charakteristika priamka a bez str
 
 
 
+\section{Impulzná charakteristika}
+
+Impulzná charakteristika je odpoveď systému na Dirackov impulz.
+
+\bigskip
+
+Dirackov impulz je impulz, ktorý má jednotkovú plochu a jeho šírka je nekonečne malá. Inými slovami ide o impulz, ktorý je nulový pre $t \neq 0$ a má jednotkovú plochu pre $t = 0$. Laplaceov obraz Dirackovho impulzu je $U(s) = 1$.
+
+Keďže máme k dispozícii matematický opis systému, impulznú charakteristiku môžeme nájsť analyticky. Prenosová funkcia systému prvého rádu je \eqref{eq:prvyradprenosovafunkcia}. Laplaceov obraz vstupného signálu je $U(s) = 1$. Laplaceov obraz výstupného signálu potom bude
+\begin{subequations}
+\begin{align}
+    Y(s) &= G(s) U(s) = \frac{b_0}{s + a_0} \cdot 1 \\
+    Y(s) &= \frac{b_0}{s + a_0} \\
+    Y(s) &= b_0 \frac{1}{s + a_0}  
+\end{align}
+\end{subequations}
+Originál tohto obrazu potom je
+\begin{equation} \label{eq:ICH1R}
+    y(t) = b_0 e^{-a_0 t} 
+\end{equation}
+čo je časová funkcia, ktorá je analytickým vyjadrením impulznej charakteristiky systému. 
+
+
+
+Je zrejmé, že pre impulznú charakteristiku (ICH) je možné rozlišovať kvalitatívne rôzne prípady určené v tomto prípade jediným pólom systému. Pól systému je $s_1 = -a_0$. 
+
+V kontexte vyššie uvedeného možno rozlišovať prípady: statický systém prvého rádu (SS1R), astatický systém prvého rádu (AS1R) a nestabilný systém.
+
+
+
+
+
+\subsection{ICH SS1R}
+Časová funkcia \eqref{eq:ICH1R} bude impulznou charakteristikou statického systému prvého rádu ak $a_0 > 0$. Zvoľme $a_0 = 1$ a napríklad $b_0 = 1$. Na nasledujúcom obrázku je graf výslednej časovej funkcie
+
+\begin{center}
+
+    \vbox{%
+        \makebox[\textwidth][c]{%
+        \includegraphics{ICH_SS1R_p1.pdf}
+        }
+
+        \figcaption{Impulzná charakteristika statického systému prvého rádu pre $a_0 = 1$ a $b_0 = 1$}
+        \label{ICH_SS1R_p1}
+    }%vbox
+
+\end{center}
+
+
+
+\subsection{ICH AS1R}
+Časová funkcia \eqref{eq:ICH1R} bude impulznou charakteristikou astatického systému prvého rádu ak $a_0 = 0$. Na nasledujúcom obrázku je graf výslednej časovej funkcie
+
+\begin{center}
+
+    \vbox{%
+        \makebox[\textwidth][c]{%
+        \includegraphics{ICH_AS1R_p1.pdf}
+        }
+
+        \figcaption{Impulzná charakteristika statického systému prvého rádu pre $a_0 = 0$ a $b_0 = 1$}
+        \label{ICH_AS1R_p1}
+    }%vbox
+
+\end{center}
+
+
+\subsection{ICH nestabilného systému prvého rádu}
+Pre úplnosť uveďme aj prípad, keď $a_0 < 0$, teda systém je nestabilný. Zvoľme $a_0 = -1$. Na nasledujúcom obrázku je graf výslednej časovej funkcie
+
+\begin{center}
+
+    \vbox{%
+        \makebox[\textwidth][c]{%
+        \includegraphics{ICH_unstable1R_p1.pdf}
+        }
+
+        \figcaption{Impulzná charakteristika statického systému prvého rádu pre $a_0 = -1$ a $b_0 = 1$}
+        \label{ICH_unstable1R_p1}
+    }%vbox
+
+\end{center}
+
+
+
+
 
 \section{Prechodová charakteristika}
+
+Prechodová charakteristika je odpoveď systému na jednotkový skok.
+
+\bigskip
+
+Jednotkový skok je signál, ktorý je nulový pre $t < 0$ a má jednotkovú veľkosť pre $t \geq 0$. Ide o skokovú zmenu v čase $t=0$. Laplaceov obraz jednotkového skoku je $U(s) = \frac{1}{s}$.
+
+Keďže máme k dispozícii matematický opis systému, prechodovú charakteristiku môžeme	nájsť analyticky. Prenosová funkcia systému prvého rádu je \eqref{eq:prvyradprenosovafunkcia}. Laplaceov obraz vstupného signálu je $U(s) = \frac{1}{s}$. Laplaceov obraz výstupného signálu potom bude
+\begin{subequations}
+\begin{align}
+    Y(s) &= G(s) U(s) = \frac{b_0}{s + a_0} \frac{1}{s} \\
+    Y(s) &= \frac{b_0}{s(s + a_0)}
+\end{align}
+\end{subequations}
+Pre hľadanie originálu tohto obrazu je výhodné prepísať tento výraz na parciálny zlomok
+\begin{subequations}
+\begin{align}
+    \frac{b_0}{s(s + a_0)} &= \frac{A}{s} + \frac{B}{s + a_0} \\
+    b_0 &= A(s + a_0) + B s
+\end{align}
+\end{subequations}
+kde $A$ a $B$ sú neznáme koeficienty. Uvedené platí pre akúkoľvek hodnotu $s$. Pre $s = 0$ dostaneme
+\begin{subequations}
+\begin{align}
+    b_0 &= A a_0 \\
+    A &= \frac{b_0}{a_0}
+\end{align}
+\end{subequations}
+Pre $s = -a_0$ dostaneme
+\begin{subequations}
+\begin{align}
+    b_0 &= B (-a_0) \\
+    B &= -\frac{b_0}{a_0}
+\end{align}
+\end{subequations}
+Obraz výstupného signálu je teda
+\begin{equation}
+    Y(s) = \frac{b_0}{a_0} \frac{1}{s} - \frac{b_0}{a_0} \frac{1}{s + a_0}
+\end{equation}
+a jeho originál
+\begin{subequations}
+\begin{align}
+    y(t) &= \frac{b_0}{a_0} - \frac{b_0}{a_0} e^{-a_0 t} \\
+    y(t) &= \frac{b_0}{a_0} \left(1 - e^{-a_0 t}\right)  \label{eq:PCH1Rfull}
+\end{align}
+\end{subequations}
+čo je časová funkcia, ktorá je analytickým vyjadrením prechodovej charakteristiky systému. V uvedenom sme zjavne predpokladali, že $a_0 \neq 0$. 
+
+Ak $a_0 = 0$, potom obraz výstupného signálu je
+\begin{subequations}
+\begin{align}
+    Y(s) &= \frac{b_0}{s^2} \\
+    Y(s) &= b_0 \frac{1}{s^2}
+\end{align}
+\end{subequations}
+a jeho originál je
+\begin{equation} \label{eq:PCH1Rint}
+    y(t) = b_0 t
+\end{equation}
+čo je časová funkcia, ktorá je analytickým vyjadrením prechodovej charakteristiky systému ak $a_0 = 0$.
+
+
+
+Je zrejmé, že pre prechodovú charakteristiku (PCH) je možné rozlišovať kvalitatívne rôzne prípady určené v tomto prípade jediným pólom systému. Pól systému je $s_1 = -a_0$.
+
+V kontexte vyššie uvedeného možno rozlišovať prípady: statický systém prvého rádu (SS1R), astatický systém prvého rádu (AS1R) a nestabilný systém.
+
+
+
+
+
+
+\subsection{PCH SS1R}
+
+Časová funkcia \eqref{eq:PCH1Rfull} bude prechodovou charakteristikou statického systému prvého rádu ak $a_0 > 0$. Zvoľme $a_0 = 1$ a napríklad $b_0 = 1$. Na nasledujúcom obrázku je graf výslednej časovej funkcie
+
+\begin{center}
+
+    \vbox{%
+        \makebox[\textwidth][c]{%
+        \includegraphics{PCH_SS1R_p1.pdf}
+        }
+
+        \figcaption{Prechodová charakteristika statického systému prvého rádu pre $a_0 = 1$ a $b_0 = 1$}
+        \label{PCH_SS1R_p1}
+    }%vbox
+
+\end{center}
+
+
+
+\subsection{PCH AS1R}
+
+Časová funkcia \eqref{eq:PCH1Rint} bude prechodovou charakteristikou astatického systému prvého rádu ak $a_0 = 0$. Na nasledujúcom obrázku je graf výslednej časovej funkcie
+
+\begin{center}
+
+    \vbox{%
+        \makebox[\textwidth][c]{%
+        \includegraphics{PCH_AS1R_p1.pdf}
+        }
+
+        \figcaption{Prechodová charakteristika statického systému prvého rádu pre $a_0 = 0$ a~$b_0 = 1$}
+        \label{PCH_AS1R_p1}
+    }%vbox
+
+\end{center}
+
+
+\subsection{PCH nestabilného systému prvého rádu}
+
+Pre úplnosť uveďme aj prípad, keď $a_0 < 0$, teda systém je nestabilný. Zvoľme $a_0 = -1$. Na nasledujúcom obrázku je graf výslednej časovej funkcie
+
+\begin{center}
+
+    \vbox{%
+        \makebox[\textwidth][c]{%
+        \includegraphics{PCH_unstable1R_p1.pdf}
+        }
+
+        \figcaption{Prechodová charakteristika statického systému prvého rádu pre $a_0 = -1$ a~$b_0 = 1$}
+        \label{PCH_unstable1R_p1}
+    }%vbox
+
+\end{center}
+
+
+
+
+
+
+
+
+
+
+
+
+\section{Prílohy}
+
+V tejto časti sú prezentované skripty v programovacom jazyku Python, pomocou ktorých je možné nakresliť vyššie uvedené grafy impulzných a prechodových charakteristík. Skripty sú prezentované formou Jupyter notebooku a v nasledujúcich sekciách sú zobrazené jednotlivé bunky týchto notebookov
+
+\subsection{Python skript pre vykreslenie grafov impulzných charakteristík}
+
+\input{../PY/jupynotex/tex/ICH1Ripynb_2-.tex}
+
+
+\subsection{Python skript pre vykreslenie grafov prechodových charakteristík}
+
+\input{../PY/jupynotex/tex/PCH1Ripynb_2-.tex}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
