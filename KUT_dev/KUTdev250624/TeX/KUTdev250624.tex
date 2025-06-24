@@ -1,0 +1,647 @@
+\documentclass[a4paper, 10pt, ]{article}
+
+\input{./COMMONFILES/preamble.tex}
+
+% -----------------------------------------------------------------------------
+
+\def\oznacenieCelku{Kolekcia učebných textov}
+
+% -----------------------------------------------------------------------------
+
+
+\def\KUTporadoveCislo{dev250624}
+
+% \def\oznacenieVerzie{v0.9}
+\def\oznacenieVerzie{\phantom{v1.0}}
+
+\def\mesiacRok{jún 2025}
+
+\def\authorslabel{MT}
+
+
+
+
+
+
+% -----------------------------------------------------------------------------
+
+\begin{document}
+
+% -----------------------------------------------------------------------------
+% Uvodny nadpis
+
+\noindent
+\parbox[t][18mm][c]{0.3\textwidth}{%
+\raisebox{-0.9\height}{%
+\phantom{.}\includegraphics[height=18mm]{./COMMONFILES/URKFEIlogo.pdf}%
+}%
+}%
+\parbox[t][18mm][c]{0.7\textwidth}{%
+\raggedleft
+
+\sffamily
+\fontsize{16pt}{18pt}
+\fontseries{sbc}
+\selectfont
+
+\noindent
+\textcolor[rgb]{0.75, 0.75, 0.75}{\textls[25]{\oznacenieCelku}}
+}%
+
+\noindent
+\parbox[t][16mm][b]{0.5\textwidth}{%
+\raggedright
+
+\color{Gray}
+\sffamily
+
+\fontsize{12pt}{12pt}
+\selectfont
+\mesiacRok
+
+\fontsize{6pt}{10pt}
+\selectfont
+github.com/OkoliePracovnehoBodu/KUT
+
+\fontsize{8pt}{10pt}
+\selectfont
+\authorslabel
+
+
+
+
+}%
+\parbox[t][16mm][b]{0.5\textwidth}{%
+\raggedleft
+
+\sffamily
+
+\fontsize{6pt}{6pt}
+\selectfont
+
+\textcolor[rgb]{0.68, 0.68, 0.68}{\oznacenieVerzie}
+
+
+\fontsize{14pt}{14pt}
+\selectfont
+
+\bfseries
+
+\includegraphics[height=12pt]{./COMMONFILES/KUT_logo_v0.1.pdf}%
+{%
+\textls[-50]{\KUTporadoveCislo}
+}%
+}%
+
+% -----------------------------------------------------------------------------
+
+
+
+
+\vspace{6mm}
+
+% ---------------------------------------------
+\sffamily
+\bfseries
+\fontsize{18pt}{21pt}
+\selectfont
+
+\begin{flushleft}
+    Náučný príklad: meranie prevodovej charakteristiky dynamického systému LMOT
+\end{flushleft}
+
+\bigskip
+
+% -----------------------------------------------------------------------------
+\normalsize
+\normalfont
+% -----------------------------------------------------------------------------
+
+\lstset{style=mystyle}
+
+
+
+
+
+
+
+
+
+
+\noindent
+\lettrine[lines=1, nindent=1pt, loversize=0.0]{C}{ieľom} 
+textu je opis laboratórneho dynamického systému LMOT z hľadiska jeho statických vlastností.
+
+
+\section{Opis dynamického systému LMOT}
+
+TODO\ldots
+
+
+\section{Návrh merania}
+
+Z opisu predmetného dynamického systému vyplýva, že systém má jeden výstupný signál, jeden vstupný signál a manuálne nastaviteľnú prevádzkovú podmienku.
+
+\paragraph{Rozsahy a jednotky signálov}
+
+Vstupný a výstupný signál nadobúdajú hodnoty v~rozsahu $0$ až $10$ pričom ide o~napäťové signály vo voltoch [V].
+
+Prevádzková podmienka systému sa nastavuje manuálne otáčaním potenciometra. Signál o polohe potenciometra nadobúda hodnoty v rozsahu $0$ [V] až $10$ [V].
+
+\paragraph{Voľba ustálených hodnôt vstupov}
+
+O predmetnom systéme je známe, že výstup systému sa ustáli vždy ak sú vstupy systému ustálené. Pre vyšetrovanie ustálených stavov je teda možné využiť celý rozsah vstupného signálu a celý rozsah prevádzkových podmienok.
+
+Návrh uvažuje ustálené hodnoty vstupného signálu uvedené v tabuľke~\ref{tab:ustalene_hodnoty_vstupneho_signalu} a zároveň ustálené hodnoty reprezentujúce prevádzkové podmienky podľa tabuľky \ref{tab:ustalene_hodnoty_podmienok}.
+
+
+\begin{center}
+
+\vspace{-10pt}    
+    
+\tabcaption{Ustálené hodnoty vstupného signálu [V]}
+\label{tab:ustalene_hodnoty_vstupneho_signalu}
+
+\lstyle
+
+\begin{tabular*}{\textwidth}{@{ \extracolsep{\fill}} ccccccccccc}
+\toprule
+0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 \\
+\bottomrule
+\end{tabular*}
+
+
+\tabcaption{Ustálené hodnoty signálu o prevádkových podmienkach [V]}
+\label{tab:ustalene_hodnoty_podmienok}
+
+\lstyle
+
+\begin{tabular*}{\textwidth}{@{ \extracolsep{\fill}} ccccccccccc}
+\toprule
+0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 \\
+\bottomrule
+\end{tabular*}
+
+\end{center}
+
+
+\paragraph{Voľba časového intervalu pre ustálenie výstupu systému}
+
+Empirické skúsenosti so systémom ukazujú, že z praktického hľadiska sa systém ustáli do $15$ sekúnd po zmene na vstupe systému. Ukazuje sa však aj náchylnosť systému k poruchám spôsobeným zväčša mechanickými nedostatkami a vibráciami zrejme spôsobujúcimi zmeny trenia v mechanických častiach systému. Pre pozorovanie a~vyhodnotenie vplyvu týchto porúch v ustálenom stave je časový interval pre ustálenie zvolený na $120$ sekúnd.
+
+
+
+\paragraph{Postup merania}
+
+Vzhľadom na uvedené voľby ustálených hodnôt a časového intervalu návrh predpokladá nasledovný postup.
+
+\begin{enumerate}[leftmargin=0pt, labelsep=4mm, itemsep=0pt]
+    \item Manuálne nastavenie prevádzkových podmienok na hodnotu z tabuľky~\ref{tab:ustalene_hodnoty_podmienok}.
+    \item Postupná zmena vstupného signálu na hodnoty z tabuľky~\ref{tab:ustalene_hodnoty_vstupneho_signalu} so zvoleným časovým intervalom. Takúto postupnú zmenu vyjadruje nasledujúca tabuľka \ref{tab:postupna_zmena_vstupneho_signalu}.
+    
+\end{enumerate}
+
+
+\begin{center}
+
+\vspace{-10pt}    
+
+\tabcaption{Postupná zmena vstupného signálu}
+\label{tab:postupna_zmena_vstupneho_signalu}
+
+\lstyle
+
+\begin{tabular*}{\textwidth}{@{ \extracolsep{\fill}} cc}
+\toprule
+Čas zmeny vstupného signálu [s] & Hodnota vstupného signál [V] \\
+\midrule
+0 & 0 \\
+120 & 1 \\
+240 & 2 \\
+360 & 3 \\
+480 & 4 \\
+600 & 5 \\
+720 & 6 \\
+840 & 7 \\
+960 & 8 \\
+1080 & 9 \\
+1200 & 10 \\
+\bottomrule
+\end{tabular*}
+
+\end{center}
+
+Celková dĺžka merania je teda $1200 + 120 = 1320$ sekúnd a počas tejto doby sú prevádzkové podmienky konštantné.
+
+
+
+\section{Získané dáta}
+
+Príklad získaných dát podľa uvedeného postupu je znázornený na nasledujúcom obrázku.
+
+
+\begin{center}
+
+    \vbox{%
+        \makebox[\textwidth][c]{%
+        \includegraphics{fj_01_data_pot0_panel_1.pdf}
+        }
+
+        \makebox[\textwidth][c]{%
+        \includegraphics{fj_01_data_pot0_panel_3.pdf}
+        }
+
+        \makebox[\textwidth][c]{%
+        \includegraphics{fj_01_data_pot0_panel_2.pdf}
+        }
+
+        \figcaption{ 
+            Získané dáta pre vstupný signál a výstupný signál systému LMOT pri manuálne nastavenej prevádzkovej podmienke $0$ [V].
+        }
+        \label{fj_01_data_pot0}
+    }%vbox
+
+\end{center}
+
+Získané dáta pre ostatné prevádzkové podmienky sú uvedené v prílohách tohto textu. Vizualizované sú tu tak dáta pre všetky prevádzkové podmienky, ktoré sú v~tabuľke~\ref{tab:ustalene_hodnoty_podmienok}.
+
+
+
+
+\section{Spracovanie dát}
+
+
+
+
+
+
+
+
+\begin{center}
+
+    \vbox{%
+        \makebox[\textwidth][c]{%
+        \includegraphics{fj_02_data_pot0_panel_1.pdf}
+        }
+
+        \makebox[\textwidth][c]{%
+        \includegraphics{fj_02_data_pot0_panel_3.pdf}
+        }
+
+
+        \figcaption{ 
+            Získané dáta pre vstupný signál a výstupný signál systému LMOT pri manuálne nastavenej prevádzkovej podmienke $0$ [V].
+        }
+        \label{fj_02_data_pot0}
+    }%vbox
+
+\end{center}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\newpage
+
+\section{Prílohy}
+
+
+\paragraph{Meranie ustálených hodnôt pri prevádkovej podmienke 1 [V]}
+
+\begin{center}
+
+    \vbox{%
+        \makebox[\textwidth][c]{%
+        \includegraphics{fj_01_data_pot1_panel_1.pdf}
+        }
+
+        \makebox[\textwidth][c]{%
+        \includegraphics{fj_01_data_pot1_panel_3.pdf}
+        }
+
+        \makebox[\textwidth][c]{%
+        \includegraphics{fj_01_data_pot1_panel_2.pdf}
+        }
+
+        \figcaption{ 
+            Získané dáta pre vstupný signál a výstupný signál systému LMOT pri manuálne nastavenej prevádzkovej podmienke $1$ [V].
+        }
+        \label{fj_01_data_pot1}
+    }%vbox
+
+\end{center}
+
+\vfill
+
+\paragraph{Meranie ustálených hodnôt pri prevádkovej podmienke 2 [V]}
+
+\begin{center}
+
+    \vbox{%
+        \makebox[\textwidth][c]{%
+        \includegraphics{fj_01_data_pot2_panel_1.pdf}
+        }
+
+        \makebox[\textwidth][c]{%
+        \includegraphics{fj_01_data_pot2_panel_3.pdf}
+        }
+
+        \makebox[\textwidth][c]{%
+        \includegraphics{fj_01_data_pot2_panel_2.pdf}
+        }
+
+        \figcaption{ 
+            Získané dáta pre vstupný signál a výstupný signál systému LMOT pri manuálne nastavenej prevádzkovej podmienke $2$ [V].
+        }
+        \label{fj_01_data_pot2}
+    }%vbox
+
+\end{center}
+
+\vfill
+
+\phantom{}
+
+\pagebreak
+
+
+
+\paragraph{Meranie ustálených hodnôt pri prevádkovej podmienke 3 [V]}
+
+\begin{center}
+
+    \vbox{%
+        \makebox[\textwidth][c]{%
+        \includegraphics{fj_01_data_pot3_panel_1.pdf}
+        }
+
+        \makebox[\textwidth][c]{%
+        \includegraphics{fj_01_data_pot3_panel_3.pdf}
+        }
+
+        \makebox[\textwidth][c]{%
+        \includegraphics{fj_01_data_pot3_panel_2.pdf}
+        }
+
+        \figcaption{ 
+            Získané dáta pre vstupný signál a výstupný signál systému LMOT pri manuálne nastavenej prevádzkovej podmienke $3$ [V].
+        }
+        \label{fj_01_data_pot3}
+    }%vbox
+
+\end{center}
+
+\vfill
+
+\paragraph{Meranie ustálených hodnôt pri prevádkovej podmienke 4 [V]}
+
+\begin{center}
+
+    \vbox{%
+        \makebox[\textwidth][c]{%
+        \includegraphics{fj_01_data_pot4_panel_1.pdf}
+        }
+
+        \makebox[\textwidth][c]{%
+        \includegraphics{fj_01_data_pot4_panel_3.pdf}
+        }
+
+        \makebox[\textwidth][c]{%
+        \includegraphics{fj_01_data_pot4_panel_2.pdf}
+        }
+
+        \figcaption{ 
+            Získané dáta pre vstupný signál a výstupný signál systému LMOT pri manuálne nastavenej prevádzkovej podmienke $4$ [V].
+        }
+
+        \label{fj_01_data_pot4}
+    }%vbox
+
+\end{center}
+
+\vfill
+
+\phantom{}
+
+\pagebreak
+
+\paragraph{Meranie ustálených hodnôt pri prevádkovej podmienke 5 [V]}
+
+\begin{center}
+
+    \vbox{%
+        \makebox[\textwidth][c]{%
+        \includegraphics{fj_01_data_pot5_panel_1.pdf}
+        }
+
+        \makebox[\textwidth][c]{%
+        \includegraphics{fj_01_data_pot5_panel_3.pdf}
+        }
+
+        \makebox[\textwidth][c]{%
+        \includegraphics{fj_01_data_pot5_panel_2.pdf}
+        }
+
+        \figcaption{ 
+            Získané dáta pre vstupný signál a výstupný signál systému LMOT pri manuálne nastavenej prevádzkovej podmienke $5$ [V].
+        }
+
+        \label{fj_01_data_pot5}
+
+    }%vbox
+
+\end{center}
+
+\vfill
+
+\paragraph{Meranie ustálených hodnôt pri prevádkovej podmienke 6 [V]}
+
+\begin{center}
+
+    \vbox{%
+        \makebox[\textwidth][c]{%
+        \includegraphics{fj_01_data_pot6_panel_1.pdf}
+        }
+
+        \makebox[\textwidth][c]{%
+        \includegraphics{fj_01_data_pot6_panel_3.pdf}
+        }
+
+        \makebox[\textwidth][c]{%
+        \includegraphics{fj_01_data_pot6_panel_2.pdf}
+        }
+
+        \figcaption{ 
+            Získané dáta pre vstupný signál a výstupný signál systému LMOT pri manuálne nastavenej prevádzkovej podmienke $6$ [V].
+        }
+
+        \label{fj_01_data_pot6}
+
+    }%vbox
+
+\end{center}
+
+\vfill
+
+\phantom{}
+
+\pagebreak
+
+\paragraph{Meranie ustálených hodnôt pri prevádkovej podmienke 7 [V]}
+
+\begin{center}
+
+    \vbox{%
+        \makebox[\textwidth][c]{%
+        \includegraphics{fj_01_data_pot7_panel_1.pdf}
+        }
+
+        \makebox[\textwidth][c]{%
+        \includegraphics{fj_01_data_pot7_panel_3.pdf}
+        }
+
+        \makebox[\textwidth][c]{%
+        \includegraphics{fj_01_data_pot7_panel_2.pdf}
+        }
+
+        \figcaption{ 
+            Získané dáta pre vstupný signál a výstupný signál systému LMOT pri manuálne nastavenej prevádzkovej podmienke $7$ [V].
+        }
+
+        \label{fj_01_data_pot7}
+
+    }%vbox
+
+\end{center}
+
+\vfill
+
+\paragraph{Meranie ustálených hodnôt pri prevádkovej podmienke 8 [V]}
+
+\begin{center}
+
+    \vbox{%
+        \makebox[\textwidth][c]{%
+        \includegraphics{fj_01_data_pot8_panel_1.pdf}
+        }
+
+        \makebox[\textwidth][c]{%
+        \includegraphics{fj_01_data_pot8_panel_3.pdf}
+        }
+
+        \makebox[\textwidth][c]{%
+        \includegraphics{fj_01_data_pot8_panel_2.pdf}
+        }
+
+        \figcaption{ 
+            Získané dáta pre vstupný signál a výstupný signál systému LMOT pri manuálne nastavenej prevádzkovej podmienke $8$ [V].
+        }
+
+        \label{fj_01_data_pot8}
+
+    }%vbox
+
+\end{center}
+
+\vfill
+
+\phantom{}
+
+\pagebreak
+
+\paragraph{Meranie ustálených hodnôt pri prevádkovej podmienke 9 [V]}
+
+\begin{center}
+
+    \vbox{%
+        \makebox[\textwidth][c]{%
+        \includegraphics{fj_01_data_pot9_panel_1.pdf}
+        }
+
+        \makebox[\textwidth][c]{%
+        \includegraphics{fj_01_data_pot9_panel_3.pdf}
+        }
+
+        \makebox[\textwidth][c]{%
+        \includegraphics{fj_01_data_pot9_panel_2.pdf}
+        }
+
+        \figcaption{ 
+            Získané dáta pre vstupný signál a výstupný signál systému LMOT pri manuálne nastavenej prevádzkovej podmienke $9$ [V].
+        }
+
+        \label{fj_01_data_pot9}
+
+    }%vbox
+
+\end{center}
+
+\vfill
+
+\paragraph{Meranie ustálených hodnôt pri prevádkovej podmienke 10 [V]}
+
+\begin{center}
+
+    \vbox{%
+        \makebox[\textwidth][c]{%
+        \includegraphics{fj_01_data_pot10_panel_1.pdf}
+        }
+
+        \makebox[\textwidth][c]{%
+        \includegraphics{fj_01_data_pot10_panel_3.pdf}
+        }
+
+        \makebox[\textwidth][c]{%
+        \includegraphics{fj_01_data_pot10_panel_2.pdf}
+        }
+
+        \figcaption{ 
+            Získané dáta pre vstupný signál a výstupný signál systému LMOT pri manuálne nastavenej prevádzkovej podmienke $10$ [V].
+        }
+
+        \label{fj_01_data_pot10}
+
+    }%vbox
+
+\end{center}
+
+\vfill
+
+\phantom{}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+% -----------------------------------------------------------------------------
+
+\end{document}
+
+% -----------------------------------------------------------------------------
