@@ -1,18 +1,13 @@
 # .gitignore
 .vscode
-
-
-
+desktop.ini
 
 old
 dev
 
 
 
-
 .ipynb_checkpoints
-
-
 
 *.pyc
 
@@ -35,6 +30,13 @@ dev
 
 slprj
 *.slxc
+
+
+
+
+
+
+
 
 
 
