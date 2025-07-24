@@ -1,0 +1,435 @@
+\documentclass[a4paper, 10pt, ]{article}
+
+\input{./COMMONFILES/preamble.tex}
+
+% -----------------------------------------------------------------------------
+
+\def\oznacenieCelku{Kolekcia učebných textov}
+
+% -----------------------------------------------------------------------------
+
+
+\def\KUTporadoveCislo{dev250724}
+
+\def\oznacenieVerzie{v0.9}
+% \def\oznacenieVerzie{\phantom{v1.0}}
+
+\def\mesiacRok{júl 2025}
+
+\def\authorslabel{MT}
+
+
+
+
+
+
+% -----------------------------------------------------------------------------
+
+\begin{document}
+
+% -----------------------------------------------------------------------------
+% Uvodny nadpis
+
+\noindent
+\parbox[t][18mm][c]{0.3\textwidth}{%
+\raisebox{-0.9\height}{%
+\phantom{.}\includegraphics[height=18mm]{./COMMONFILES/URKFEIlogo.pdf}%
+}%
+}%
+\parbox[t][18mm][c]{0.7\textwidth}{%
+\raggedleft
+
+\sffamily
+\fontsize{16pt}{18pt}
+\fontseries{sbc}
+\selectfont
+
+\noindent
+\textcolor[rgb]{0.75, 0.75, 0.75}{\textls[25]{\oznacenieCelku}}
+}%
+
+\noindent
+\parbox[t][16mm][b]{0.5\textwidth}{%
+\raggedright
+
+\color{Gray}
+\sffamily
+
+\fontsize{12pt}{12pt}
+\selectfont
+\mesiacRok
+
+\fontsize{6pt}{10pt}
+\selectfont
+github.com/OkoliePracovnehoBodu/KUT
+
+\fontsize{8pt}{10pt}
+\selectfont
+\authorslabel
+
+
+
+
+}%
+\parbox[t][16mm][b]{0.5\textwidth}{%
+\raggedleft
+
+\sffamily
+
+\fontsize{6pt}{6pt}
+\selectfont
+
+\textcolor[rgb]{0.68, 0.68, 0.68}{\oznacenieVerzie}
+
+
+\fontsize{14pt}{14pt}
+\selectfont
+
+\bfseries
+
+\includegraphics[height=12pt]{./COMMONFILES/KUT_logo_v0.1.pdf}%
+{%
+\textls[-50]{\KUTporadoveCislo}
+}%
+}%
+
+% -----------------------------------------------------------------------------
+
+
+
+
+\vspace{6mm}
+
+% ---------------------------------------------
+\sffamily
+\bfseries
+\fontsize{18pt}{21pt}
+\selectfont
+
+\begin{flushleft}
+    Laboratórium kybernetiky:\\ zoznam laboratórnych zariadení
+\end{flushleft}
+
+\bigskip
+
+% -----------------------------------------------------------------------------
+\normalsize
+\normalfont
+% -----------------------------------------------------------------------------
+
+\lstset{style=mystyle}
+
+
+
+
+
+
+
+
+
+
+\noindent
+\lettrine[lines=1, nindent=1pt, loversize=0.0]{C}{ieľom} 
+textu je opis laboratórnych zariadení, výpočtovej techniky a ich rozmiestnenia v Laboratóriu kybernetiky.
+
+\medskip
+
+\noindent
+Posledná akzualizácia údajov tu uvedených: júl 2025
+
+
+\section{Osobné počítače s meracími kartami}
+
+Meriacou kartou sa v tomto prípade rozumie PCI karta rozširujúca možnosti počítača o~funkcie súvisiace s meraním a generovaním analógových a digitálnych signálov.
+
+V Laboratóriu kybernetiky sa používa meracia karta Advantech PCI-1711 a niektoré jej varianty alebo príbuzné karty.
+
+
+
+\subsection{Miestnosť D328}
+
+Zoznam počítačov s meracími kartami a ich vybrané parametre sú uvedené v~tabuľke~\ref{tab:PCsWithMeasurementCards}. Rozmiestnenie počítačov s meracími kartami v miestnosti D328 je zobrazené na obrázku \ref{D328map_v1}.
+
+
+
+
+
+\begin{center}
+
+\tabcaption{PC s meracími kartami a ich vybrané parametre}
+\label{tab:PCsWithMeasurementCards}    
+
+\begin{tabular*}{\textwidth}{ @{\extracolsep{\fill}} p{3.5cm} p{8.5cm}}
+\toprule
+Oznečenie počítača & Vybrané parametre \\
+\midrule
+\textsf{\textbf{LK\textl{10}}} 
+& 
+\makebox[0pt][t]{%
+\begin{tabular}{@{}l >{\lstyle}l}
+CPU & i3-2100 (rok uvedenia na trh 2011)\\
+RAM & 8 GB \\
+mer. karta & Advantech PCI-1711
+\end{tabular}
+}%
+\\
+\midrule
+\textsf{\textbf{LK\textl{31}}} 
+& 
+\makebox[0pt][t]{%
+\begin{tabular}{@{}l >{\lstyle}l}
+CPU & i7-4770 (rok uvedenia na trh 2013)\\
+RAM & 8 GB \\
+mer. karta & Advantech PCI-1711U
+\end{tabular}
+}%
+\\
+\midrule
+\textsf{\textbf{LK\textl{32}}} 
+& 
+\makebox[0pt][t]{%
+\begin{tabular}{@{}l >{\lstyle}l}
+CPU & i7-2600 (rok uvedenia na trh 2011) \\
+RAM & 8 GB \\
+mer. karta & Advantech PCI-1711U
+\end{tabular}
+}%
+\\
+\midrule
+\textsf{\textbf{LK\textl{23}}} 
+& 
+\makebox[0pt][t]{%
+\begin{tabular}{@{}l >{\lstyle}l}
+CPU & i5-4570 (rok uvedenia na trh 2013)\\
+RAM & 8 GB \\
+mer. karta & Advantech PCI-1716
+\end{tabular}
+}%
+\\
+\bottomrule
+\end{tabular*}
+
+\end{center}
+
+
+
+
+\begin{center}
+
+    \makebox[\textwidth][c]{%
+    \input{../SVG/D328map_v1.pdf_tex}
+    }
+
+	\figcaption{Rozmiestnenie počítačov s meracími kartami v miestnosti D328} 
+	\label{D328map_v1}
+
+\end{center}
+
+
+
+
+
+
+\subsection{Miestnosť D330}
+
+Zoznam počítačov s meracími kartami a ich vybrané parametre sú uvedené v~tabuľke~\ref{tab:PCsWithMeasurementCards2}. Rozmiestnenie počítačov s meracími kartami v miestnosti D330 je zobrazené na obrázku \ref{D330map_v1}.
+
+
+\begin{center}
+
+\tabcaption{PC s meracími kartami a ich vybrané parametre}
+\label{tab:PCsWithMeasurementCards2}    
+
+\begin{tabular*}{\textwidth}{ @{\extracolsep{\fill}} p{3.5cm} p{8.5cm}}
+\toprule
+Oznečenie počítača & Vybrané parametre \\
+\midrule
+TODO\ldots\\
+% \textsf{\textbf{LK\textl{10}}} 
+% & 
+% \makebox[0pt][t]{%
+% \begin{tabular}{@{}l >{\lstyle}l}
+% CPU & i3-2100 \\
+% RAM & 8 GB \\
+% mer. karta & Advantech PCI-1711
+% \end{tabular}
+% }%
+% \\
+\bottomrule
+\end{tabular*}
+
+
+\end{center}
+
+
+
+
+
+
+
+
+
+\section{Laboratórne zariadenia s rozhraním na meraciu kartu}
+
+Ide o laboratórne zariadenia  predstavujúce reálne dynamické systémy, ktoré majú analógové vstupy a výstupy a rozhranie k týmto vstupom a výstupom je dizajnované tak, aby bolo možné ich pripojiť k~meracej karte.
+
+\subsection{Laboratórne zariadenie LMOT}
+
+LMOT je laboratórne zariadenie predstavujúce reálny dynamický systém. Pozostáva z malého jednosmerného motora, tachodynama, ktoré je na spoločnom hriadeli s~motorom, a z elektronických obvodov, ktoré zabezpečujú napájanie motora. Elektronickými obvodmi sú tiež dané dominantné statické a dynamické vlastnosti výsledného systému. Do istej miery je možné tieto vlastnosti meniť manuálnym nastavením príslušného potenciometra.
+
+Systém má jeden vstupný signál a jeden výstupný signál. Výstupný signál je priamo úmerný uhlovej rýchlosti jednosmerného motora, ktorá je snímaná tachodynamom. Vstupný signál ovláda napájanie motora.
+
+Polohou potenciometra je v podstate daná prevádzková podmienka zariadenia. K~dispozícii je signál zodpovedajúci polohe potenciometra a teda tým je k dispozícii informácia o prevádzkovej podmienke systému.
+
+LMOT (čítaj \emph{elmot}) je akronym pre „laboratórny motorček“, prípadne pre „little motor“.
+
+
+
+
+\subsection{Laboratórne zariadenie TS}
+
+TODO\ldots
+
+
+
+
+
+
+\subsection{Miestnosť D328}
+
+Zoznam laboratórnych zariadení s rozhraním na meraciu kartu je uvedený v~tabuľke~\ref{tab:lzD328}. Rozmiestnenie laboratórnych zariadení s rozhraním na meraciu kartu v miestnosti D328 je zobrazené na obrázku \ref{D328map_v2}.
+
+
+
+\begin{center}
+
+    \makebox[\textwidth][c]{%
+    \input{../SVG/D328map_v2.pdf_tex}
+    }
+
+    \figcaption{Rozmiestnenie laboratórnych zariadení v miestnosti D328} 
+    \label{D328map_v2}
+
+\end{center}
+
+
+
+
+
+
+\begin{center}
+
+\tabcaption{}
+\label{tab:lzD328}    
+
+\begin{tabular*}{\textwidth}{ @{\extracolsep{\fill}} p{3.5cm} p{8.5cm}<{\raggedright}}
+\toprule
+Oznečenie zariadenia & Info. \\
+\midrule
+\textsf{\textbf{LMOT\textl{01}}} 
+& 
+Pozostáva zo samostatných jednotiek LMOT\textl{01}a a~LMOT\textl{01}b čo umožňuje vytvoriť zložitejší systém s~dvomi vstupmi a dvomi výstupmi (MIMO systém).
+\\
+\midrule
+\textsf{\textbf{TS\textl{01}}} 
+& 
+\\
+\midrule
+\textsf{\textbf{TS\textl{04}}} 
+& 
+\\
+\midrule
+\textsf{\textbf{TS\textl{05}}} 
+& 
+\\
+\bottomrule
+\end{tabular*}
+
+\end{center}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+% \section{Pracoviská pre predmet Modelovanie a riadenie systémov}
+
+% Na nasledujúcom obrázku je zobrazené rozmiestnenie laboratórnych zariadení v~miestnosti D328.
+
+% \begin{center}
+
+%     \makebox[\textwidth][c]{%
+%     \input{../SVG/D328map_v0.pdf_tex}
+%     }
+
+% 	\figcaption{Rozmiestnenie laboratórnych zariadení v miestnosti D328} 
+% 	\label{D328map_v0}
+
+% \end{center}
+
+
+
+% \section{Opis }
+
+% \paragraph{Meranie ustálených hodnôt pri prevádkovej podmienke 10 [V]}
+
+% \begin{center}
+
+%     \vbox{%
+%         \makebox[\textwidth][c]{%
+%         \includegraphics{fj_01_data_pot10_panel_1.pdf}
+%         }
+
+%         \makebox[\textwidth][c]{%
+%         \includegraphics{fj_01_data_pot10_panel_3.pdf}
+%         }
+
+%         \makebox[\textwidth][c]{%
+%         \includegraphics{fj_01_data_pot10_panel_2.pdf}
+%         }
+
+%         \figcaption{ 
+%             Získané dáta pre vstupný signál a výstupný signál systému LMOT pri manuálne nastavenej prevádzkovej podmienke $10$ [V].
+%         }
+
+%         \label{fj_01_data_pot10}
+
+%     }%vbox
+
+% \end{center}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+% -----------------------------------------------------------------------------
+
+\end{document}
+
+% -----------------------------------------------------------------------------
