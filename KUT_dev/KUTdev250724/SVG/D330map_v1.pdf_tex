@@ -1,6 +1,6 @@
 %% Creator: Inkscape 1.3.2 (091e20e, 2023-11-25, custom), www.inkscape.org
 %% PDF/EPS/PS + LaTeX output extension by Johan Engelen, 2010
-%% Accompanies image file 'D328map_v2.pdf' (pdf, eps, ps)
+%% Accompanies image file 'D330map_v1.pdf' (pdf, eps, ps)
 %%
 %% To include the image in your LaTeX document, write
 %%   \input{<filename>.pdf_tex}
@@ -50,19 +50,15 @@
   \global\let\svgwidth\undefined%
   \global\let\svgscale\undefined%
   \makeatother%
-  \begin{picture}(1,0.92857143)%
+  \begin{picture}(1,1)%
     \lineheight{1}%
     \setlength\tabcolsep{0pt}%
-    \put(0,0){\includegraphics[width=\unitlength,page=1]{D328map_v2.pdf}}%
-    \put(0.35714286,0.58571429){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}\textbf{\textsf{LK\textl{31}}}\end{tabular}}}}%
-    \put(0.35714286,0.28571429){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}\textbf{\textsf{LK\textl{32}}}\end{tabular}}}}%
-    \put(0.55714286,0.28571429){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}\textbf{\textsf{LK\textl{10}}}\end{tabular}}}}%
-    \put(0.50923386,0.24452591){\color[rgb]{0,0,0}\rotatebox{90}{\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}\textbf{\textsf{\scriptsize LMOT\textl{01}}}\end{tabular}}}}}%
-    \put(0.50718912,0.50868064){\color[rgb]{0,0,0}\rotatebox{90}{\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}\textbf{\textsf{\scriptsize TS\textl{01}}}\end{tabular}}}}}%
-    \put(0.50923386,0.37881154){\color[rgb]{0,0,0}\rotatebox{90}{\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}\textbf{\textsf{\scriptsize TS\textl{05}}}\end{tabular}}}}}%
-    \put(0.54965548,0.77800713){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}\textbf{\textsf{\scriptsize TS\textl{04}}}\end{tabular}}}}%
-    \put(0.56428571,0.83571429){\color[rgb]{0,0,0}\rotatebox{90}{\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}\textbf{\textsf{LK\textl{23}}}\end{tabular}}}}}%
-    \put(0.25,0.9){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{0}\smash{\begin{tabular}[t]{c}okno\end{tabular}}}}%
-    \put(0.75,0.9){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{0}\smash{\begin{tabular}[t]{c}okno\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=1]{D330map_v1.pdf}}%
+    \put(0.35714286,0.65714286){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}\textbf{\textsf{LK\textl{21}}}\end{tabular}}}}%
+    \put(0.35714286,0.35714286){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}\textbf{\textsf{LK\textl{12}}}\end{tabular}}}}%
+    \put(0.55714286,0.35714286){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}\textbf{\textsf{LK\textl{11}}}\end{tabular}}}}%
+    \put(0.55714286,0.65714286){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}\textbf{\textsf{LK\textl{22}}}\end{tabular}}}}%
+    \put(0.25,0.97142857){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{0}\smash{\begin{tabular}[t]{c}okno\end{tabular}}}}%
+    \put(0.75,0.97142857){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{0}\smash{\begin{tabular}[t]{c}okno\end{tabular}}}}%
   \end{picture}%
 \endgroup%
