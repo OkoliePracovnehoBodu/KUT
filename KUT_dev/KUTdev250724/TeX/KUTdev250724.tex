@@ -206,16 +206,6 @@ mer. karta & Advantech PCI-1711U
 
 
 
-% \begin{center}
-
-%     \makebox[\textwidth][c]{%
-%     \input{../SVG/D328map_v1.pdf_tex}
-%     }
-
-% 	\figcaption{Rozmiestnenie počítačov s meracími kartami v miestnosti D328} 
-% 	\label{D328map_v1}
-
-% \end{center}
 
 \begin{figure}[t]
     \centering
@@ -251,6 +241,8 @@ Zoznam počítačov s meracími kartami a ich vybrané parametre sú uvedené v~
 
 
 \begin{center}
+
+\vbox{%    
 
 \tabcaption{PC s meracími kartami a ich vybrané parametre}
 \label{tab:PCsWithMeasurementCards2}    
@@ -297,6 +289,8 @@ mer. karta & Advantech PCI-1711
 \bottomrule
 \end{tabular*}
 
+}
+
 \end{center}
 
 
@@ -326,7 +320,15 @@ LMOT (čítaj \emph{elmot}) je akronym pre „laboratórny motorček“, prípad
 
 \subsection{Laboratórne zariadenie TS}
 
-TODO\ldots
+TS, skratka od \emph{tepelný systém} (thermal system), je laboratórne zariadenie predstavujúce reálny dynamický systém. Pozostáva zo sklenenej trubice umiestnenej na podstave. Na jednom konci trubice je upevnený ventilátor, ktorý do trubice vháňa vzduch. V trubici hneď za ventilátorom sa nachádza výhrevné teleso (výhrevná špirála). Za špirálou je umiestnený prvý teplotný snímač a druhý je umiestnený na opačnom konci trubice. V~podstave sa nachádza elektronika zabezpečujúca napájanie komponentov zariadenia a~rozhranie k meracej karte.
+
+Dostupnými sú dva vstupné a dva výstupné analógové signály. Prvý vstupný signál ovláda výkon vyhrievacieho telesa. Druhý vstupný signál ovláda výkon ventilátora. Prvý výstupný signál je teplota vzduchu v~trubici hneď za vyhrievacím telesom. Druhý výstupný signál je teplota vzduchu v trubici na opačnom konci od vyhrievacieho telesa.
+
+Z kybernetického hľadiska je zariadenie TS možné prevádzkovať ako mnohovstupový a~mnohovýstupový systém (MIMO systém) alebo ako jednovstupový a jedno výstupový systém (SISO systém). 
+
+Pri SISO systéme je vstupom signál ovládajúci výkon vyhrievacieho telesa. Signál pre ventilátor v podstate určuje prevádzkovú podmienku zariadenia keďže prúdenie vzduchu v trubici vo všeobecnosti vplýva na jeho ohrievanie a teplotu.
+
+
 
 
 
@@ -339,16 +341,6 @@ Zoznam laboratórnych zariadení s rozhraním na meraciu kartu je uvedený v~tab
 
 
 
-% \begin{center}
-
-%     \makebox[\textwidth][c]{%
-%     \input{../SVG/D328map_v2.pdf_tex}
-%     }
-
-%     \figcaption{Rozmiestnenie laboratórnych zariadení v miestnosti D328} 
-%     \label{D328map_v2}
-
-% \end{center}
 
 \begin{figure}[t]
     \centering
@@ -366,6 +358,8 @@ Zoznam laboratórnych zariadení s rozhraním na meraciu kartu je uvedený v~tab
 
 
 \begin{center}
+
+\vbox{%
 
 \tabcaption{}
 \label{tab:lzD328}    
@@ -395,6 +389,8 @@ Pozostáva zo samostatných jednotiek LMOT\textl{01}a a~LMOT\textl{01}b čo umo�
 \\
 \bottomrule
 \end{tabular*}
+
+}
 
 \end{center}
 
@@ -430,6 +426,8 @@ Zoznam laboratórnych zariadení s rozhraním na meraciu kartu je uvedený v~tab
 
 \begin{center}
 
+\vbox{%    
+
 \tabcaption{}
 \label{tab:lzD330}    
 
@@ -439,7 +437,7 @@ Oznečenie zariadenia & Info. \\
 \midrule
 \textsf{\textbf{LMOT\textl{02}}} 
 & 
-Pozostáva zo samostatných jednotiek LMOT\textl{02}a a~LMOT\textl{02}b. Tieto sú prevádzkované samostatne, teda sú pripojené k~rôznym počítačom s meracími kartami.
+Pozostáva zo samostatných jednotiek LMOT\textl{02}a a~LMOT\textl{02}b. Tieto sú prevádzkované samostatne, teda sú pripojené k~dvom rôznym počítačom s meracími kartami.
 \\
 \midrule
 \textsf{\textbf{LMOT\textl{03}}} 
@@ -449,23 +447,9 @@ Pozostáva zo samostatných jednotiek LMOT\textl{03}a a~LMOT\textl{03}b. Tieto s
 \bottomrule
 \end{tabular*}
 
+}
+
 \end{center}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
