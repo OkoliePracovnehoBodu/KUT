@@ -107,7 +107,7 @@ github.com/OkoliePracovnehoBodu/KUT
 \selectfont
 
 \begin{flushleft}
-    Náučný príklad: meranie prevodovej charakteristiky dynamického systému LMOT
+    Laboratórne zariadenie LMOT:\\ statické vlastnosti
 \end{flushleft}
 
 \bigskip
@@ -145,7 +145,17 @@ LMOT (čítaj \emph{elmot}) je akronym pre „laboratórny motorček“, prípad
 
 
 
-\section{Návrh merania}
+\section{Meranie prevodovej charakteristiky}
+
+V kontexte statických vlastností systému má vo všeobecnosti význam hovoriť o~prevodovej charakteristike systému. Prevodová charakteristika je závislosť ustálených hodnôt výstupného signálu systému od ustálených hodnôt vstupného signálu systému.
+
+Je zrejmé, že prevodová charakteristika sa týka systémov s prívlastkom statické, teda takých, ktoré nie sú astatické.
+
+Prevodová charakteristika, niekde sa nazýva aj statická charakteristika, teda charakterizuje systém len v~ustálených stavoch. Neobsahuje informáciu o dynamike systému.
+
+
+
+\subsection{Návrh merania}
 
 Z opisu predmetného dynamického systému vyplýva, že systém má jeden výstupný signál, jeden vstupný signál a manuálne nastaviteľnú prevádzkovú podmienku.
 
@@ -244,10 +254,11 @@ Celková dĺžka merania je teda $1200 + 120 = 1320$ sekúnd a počas tejto doby
 
 \section{Získané dáta}
 
-Príklad získaných dát podľa uvedeného postupu je znázornený na nasledujúcom obrázku.
+Príklad získaných dát podľa uvedeného postupu je znázornený na nasledujúcom obrázku \ref{fj_01_data_pot0}.  
 
 
-\begin{center}
+% \begin{center}
+    \begin{figure}[t]
 
     \vbox{%
         \makebox[\textwidth][c]{%
@@ -262,13 +273,15 @@ Príklad získaných dát podľa uvedeného postupu je znázornený na nasleduj�
         \includegraphics{fj_01_data_pot0_panel_2.pdf}
         }
 
-        \figcaption{ 
+        % \figcaption{ 
+        \caption{
             Získané dáta pre vstupný signál a výstupný signál systému LMOT pri manuálne nastavenej prevádzkovej podmienke $0$ [V].
         }
         \label{fj_01_data_pot0}
     }%vbox
 
-\end{center}
+    \end{figure}
+% \end{center}
 
 Získané dáta pre ostatné prevádzkové podmienky sú uvedené v~prílohách tohto textu. Vizualizované sú tu tak dáta pre všetky prevádzkové podmienky, ktoré sú v~tabuľke~\ref{tab:ustalene_hodnoty_podmienok}.
 
@@ -276,7 +289,6 @@ Získané dáta pre ostatné prevádzkové podmienky sú uvedené v~prílohách 
 
 
 
-\section{Spracovanie dát}
 
 
 
@@ -284,8 +296,14 @@ Získané dáta pre ostatné prevádzkové podmienky sú uvedené v~prílohách 
 
 
 
+\section{Spracovanie dát pre prevádzkovú podmienku 0 [V]}
 
-\begin{center}
+\subsection{Vykreslenie ustálených úsekov}
+
+Zo získaných dát na obrázku \ref{fj_01_data_pot0} je potrebné vyňať úseky, počas ktorých sú výstupný a~vstupný signál ustálené. V tomto prípade nech za ustálený stav sa považuje posledných 30 \% zvoleného časového intervalu pre ustálenie, teda posledných 36 sekúnd z celkových 120 sekúnd. Takto vyňaté úseky sú znázornené na obrázku \ref{fj_02_data_pot0}.
+
+% \begin{center}
+    \begin{figure}[t]
 
     \vbox{%
         \makebox[\textwidth][c]{%
@@ -296,14 +314,66 @@ Získané dáta pre ostatné prevádzkové podmienky sú uvedené v~prílohách 
         \includegraphics{fj_02_data_pot0_panel_3.pdf}
         }
 
-
-        \figcaption{ 
-            Získané dáta pre vstupný signál a výstupný signál systému LMOT pri manuálne nastavenej prevádzkovej podmienke $0$ [V].
+        % \figcaption{ 
+        \caption{
+            % 
         }
         \label{fj_02_data_pot0}
     }%vbox
 
-\end{center}
+\end{figure}
+% \end{center}
+
+
+
+
+
+
+
+\subsection{Nameraná prevodová charakteristika}
+
+Vyňaté úseky je možné zlúčiť do jedného dátového súboru. Obsahuje len hodnoty vstupného signálu a výstupného signálu, pre ktoré je možné konštatovať, že zodpovedajú ustálenému stavu. Takéto dáta charakterizujú systém v ustálených stavoch.
+
+Grafické znázornenie uvedených dát tak, že na x-ovej osi sú hodnoty vstupného signálu v ustálenom stave a na y-ovej osi sú prislúchajúce hodnoty výstupného signálu v~ustálenom stave, je vlastne grafickým vyjadrením nameranej prevodovej charakteristiky. Nameraná prevodová charakteristika je znázornená na obrázku \ref{fj_03_data_pot0_panel_1}.
+
+Pre lepšiu ilustráciu, že uvedený dataset neobsahuje takpovediac len niekoľko bodov, ale že každý ustálený stav je reprezentovaný viacerými hodnotami, je na obrázku \ref{fj_03_data_pot0_panel_2} zobrazený detail pre zvolenú hodnotu vstupného signálu.
+
+% \begin{center}
+    \begin{figure}[t]
+
+    \vbox{%
+        \makebox[\textwidth][c]{%
+        \includegraphics{fj_03_data_pot0_panel_1.pdf}
+        }
+
+        % \figcaption{ 
+        \caption{
+            Nameraná prevodová charakteristika pre prevádzkovú podmienku $0$ [V]. 
+        }
+        \label{fj_03_data_pot0_panel_1}
+    }%vbox
+
+\end{figure}
+% \end{center}
+
+
+% \begin{center}
+    \begin{figure}[t]
+
+    \vbox{%
+        \makebox[\textwidth][c]{%
+        \includegraphics{fj_03_data_pot0_panel_2.pdf}
+        }
+
+        % \figcaption{ 
+        \caption{
+            % 
+        }
+        \label{fj_03_data_pot0_panel_2}
+    }%vbox
+
+\end{figure}
+% \end{center}
 
 
 
@@ -315,18 +385,23 @@ Získané dáta pre ostatné prevádzkové podmienky sú uvedené v~prílohách 
 
 
 
+% \newpage
+\clearpage
+% \pagebreak
+
+\section{Príloha - vizualizácia získaných dát}
 
 
+\vspace{-6pt}
+
+\paragraph{Meranie ustálených hodnôt pri prevádzkovej podmienke 0 [V]}
+
+Pozri obrázok \ref{fj_01_data_pot0}.
+
+\vspace{-6pt}
 
 
-
-
-\newpage
-
-\section{Prílohy}
-
-
-\paragraph{Meranie ustálených hodnôt pri prevádkovej podmienke 1 [V]}
+\paragraph{Meranie ustálených hodnôt pri prevádzkovej podmienke 1 [V]}
 
 \begin{center}
 
@@ -351,7 +426,9 @@ Získané dáta pre ostatné prevádzkové podmienky sú uvedené v~prílohách 
 
 \end{center}
 
-\vfill
+% \vfill
+
+\vspace{-6pt}
 
 \paragraph{Meranie ustálených hodnôt pri prevádkovej podmienke 2 [V]}
 
@@ -378,15 +455,15 @@ Získané dáta pre ostatné prevádzkové podmienky sú uvedené v~prílohách 
 
 \end{center}
 
-\vfill
+% \vfill
 
-\phantom{}
+% \phantom{}
 
 \pagebreak
 
 
 
-\paragraph{Meranie ustálených hodnôt pri prevádkovej podmienke 3 [V]}
+\paragraph{Meranie ustálených hodnôt pri prevádzkovej podmienke 3 [V]}
 
 \begin{center}
 
@@ -413,7 +490,7 @@ Získané dáta pre ostatné prevádzkové podmienky sú uvedené v~prílohách 
 
 \vfill
 
-\paragraph{Meranie ustálených hodnôt pri prevádkovej podmienke 4 [V]}
+\paragraph{Meranie ustálených hodnôt pri prevádzkovej podmienke 4 [V]}
 
 \begin{center}
 
@@ -445,7 +522,7 @@ Získané dáta pre ostatné prevádzkové podmienky sú uvedené v~prílohách 
 
 \pagebreak
 
-\paragraph{Meranie ustálených hodnôt pri prevádkovej podmienke 5 [V]}
+\paragraph{Meranie ustálených hodnôt pri prevádzkovej podmienke 5 [V]}
 
 \begin{center}
 
@@ -474,7 +551,7 @@ Získané dáta pre ostatné prevádzkové podmienky sú uvedené v~prílohách 
 
 \vfill
 
-\paragraph{Meranie ustálených hodnôt pri prevádkovej podmienke 6 [V]}
+\paragraph{Meranie ustálených hodnôt pri prevádzkovej podmienke 6 [V]}
 
 \begin{center}
 
@@ -507,7 +584,7 @@ Získané dáta pre ostatné prevádzkové podmienky sú uvedené v~prílohách 
 
 \pagebreak
 
-\paragraph{Meranie ustálených hodnôt pri prevádkovej podmienke 7 [V]}
+\paragraph{Meranie ustálených hodnôt pri prevádzkovej podmienke 7 [V]}
 
 \begin{center}
 
@@ -536,7 +613,7 @@ Získané dáta pre ostatné prevádzkové podmienky sú uvedené v~prílohách 
 
 \vfill
 
-\paragraph{Meranie ustálených hodnôt pri prevádkovej podmienke 8 [V]}
+\paragraph{Meranie ustálených hodnôt pri prevádzkovej podmienke 8 [V]}
 
 \begin{center}
 
@@ -569,7 +646,7 @@ Získané dáta pre ostatné prevádzkové podmienky sú uvedené v~prílohách 
 
 \pagebreak
 
-\paragraph{Meranie ustálených hodnôt pri prevádkovej podmienke 9 [V]}
+\paragraph{Meranie ustálených hodnôt pri prevádzkovej podmienke 9 [V]}
 
 \begin{center}
 
@@ -598,7 +675,7 @@ Získané dáta pre ostatné prevádzkové podmienky sú uvedené v~prílohách 
 
 \vfill
 
-\paragraph{Meranie ustálených hodnôt pri prevádkovej podmienke 10 [V]}
+\paragraph{Meranie ustálených hodnôt pri prevádzkovej podmienke 10 [V]}
 
 \begin{center}
 
@@ -644,7 +721,39 @@ Získané dáta pre ostatné prevádzkové podmienky sú uvedené v~prílohách 
 
 
 
+\clearpage
 
+
+\dirtree{%
+ .1 .
+ .2 ML.
+ .3 dataRepo.
+ .4 dataSet01.
+ .5 \dots.
+ .4 rawData.
+ .5 \dots.
+ .3 SteadyStateChar.slx.
+ .3 logsout\_basicPlot.m.
+ .3 measurementSetup.m.
+ .2 PY.
+ .3 dataRepo.
+ .4 \dots.
+ .3 datajobs.
+ .4 dataJob\_02.py.
+ .3 fig.
+ .4 \dots.
+ .3 figjobs.
+ .4 figFcns\_TeX.py.
+ .4 figJob\_01.py.
+ .4 figJob\_02.py.
+ .4 figJob\_03.py.
+ .3 dataJob\_SSChar.ipynb.
+ .2 TeX.
+ .3 COMMONFILES.
+ .4 \dots.
+ .3 KUTdev250624.pdf.
+ .3 KUTdev250624.tex.
+}
 
 
 
