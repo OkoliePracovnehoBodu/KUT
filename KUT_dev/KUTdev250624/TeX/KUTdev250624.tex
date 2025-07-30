@@ -298,12 +298,12 @@ Získané dáta pre ostatné prevádzkové podmienky sú uvedené v~prílohách 
 
 \section{Spracovanie dát pre prevádzkovú podmienku 0 [V]}
 
-\subsection{Vykreslenie ustálených úsekov}
+\subsection{Vyznačenie ustálených úsekov}
 
 Zo získaných dát na obrázku \ref{fj_01_data_pot0} je potrebné vyňať úseky, počas ktorých sú výstupný a~vstupný signál ustálené. V tomto prípade nech za ustálený stav sa považuje posledných 30 \% zvoleného časového intervalu pre ustálenie, teda posledných 36 sekúnd z celkových 120 sekúnd. Takto vyňaté úseky sú znázornené na obrázku \ref{fj_02_data_pot0}.
 
 % \begin{center}
-    \begin{figure}[t]
+    \begin{figure}[!t]
 
     \vbox{%
         \makebox[\textwidth][c]{%
@@ -313,6 +313,8 @@ Zo získaných dát na obrázku \ref{fj_01_data_pot0} je potrebné vyňať úsek
         \makebox[\textwidth][c]{%
         \includegraphics{fj_02_data_pot0_panel_3.pdf}
         }
+
+        \vspace{-6pt}
 
         % \figcaption{ 
         \caption{
@@ -339,12 +341,14 @@ Grafické znázornenie uvedených dát tak, že na x-ovej osi sú hodnoty vstupn
 Pre lepšiu ilustráciu, že uvedený dataset neobsahuje takpovediac len niekoľko bodov, ale že každý ustálený stav je reprezentovaný viacerými hodnotami, je na obrázku \ref{fj_03_data_pot0_panel_2} zobrazený detail pre zvolenú hodnotu vstupného signálu.
 
 % \begin{center}
-    \begin{figure}[t]
+    \begin{figure}[!t]
 
     \vbox{%
         \makebox[\textwidth][c]{%
         \includegraphics{fj_03_data_pot0_panel_1.pdf}
         }
+
+        \vspace{-6pt}
 
         % \figcaption{ 
         \caption{
@@ -358,12 +362,14 @@ Pre lepšiu ilustráciu, že uvedený dataset neobsahuje takpovediac len niekoľ
 
 
 % \begin{center}
-    \begin{figure}[t]
+    \begin{figure}[!t]
 
     \vbox{%
         \makebox[\textwidth][c]{%
         \includegraphics{fj_03_data_pot0_panel_2.pdf}
         }
+
+        \vspace{-6pt}
 
         % \figcaption{ 
         \caption{
@@ -374,6 +380,100 @@ Pre lepšiu ilustráciu, že uvedený dataset neobsahuje takpovediac len niekoľ
 
 \end{figure}
 % \end{center}
+
+
+
+
+\subsection{Aproximácia prevodovej charakteristiky}
+
+Nameraná prevodová charakteristika znázornená na obrázku \ref{fj_03_data_pot0_panel_1} zachytáva vzťah medzi vstupným a výstupným signálom v konkrétnych ustálených stavoch. Pre pokrytie celého rozsahu vstupného a výstupného signálu je účelné identifikovať model, ktorý by aproximoval nameranú prevodovú charakteristiku. 
+
+Grafické znázornenie nameranej prevodovej charakteristiky na obrázku \ref{fj_03_data_pot0_panel_1}  ukazuje, že od hodnoty vstupného signálu $7$ [V] a viac je výstupná hodnota saturovaná na maxime (v podstate $10$ [V]). 
+
+Vstupnú veličinu označme ako $u$ a výstupnú veličinu ako $y$. Závislosť výstupnej veličiny od vstupnej veličiny potom je 
+\begin{equation}
+    y = f(u)
+\end{equation}
+kde $f$ je funkcia, ktorá vyjadruje prevodovú charakteristiku systému.
+
+
+
+Pre stanovenie modelu rozdeľme prevodovú charakteristiku na dve časti. Hľadáme funkciu $f_1$, ktorá bude aproximovať prevodovú charakteristiku pre hodnoty vstupného signálu $u$ v rozsahu $0 \leq u \leq 7$ [V] a funkciu $f_2$, ktorá bude aproximovať prevodovú charakteristiku pre hodnoty vstupného signálu $u$ v rozsahu $7 < u \leq 10$ [V].
+
+Funkcia $f_2$ je v tomto prípade konštantná, pretože výstupný signál je saturovaný na hodnote $10$ [V]. Výstup modelu $\hat y$ na príslušnom rozsahu teda je
+\begin{equation}
+    \hat y = f_2(u) = 10 \quad \text{pre } 7 < u \leq 10
+\end{equation}
+
+Na úseku $0 \leq u \leq 7$ [V], na základe grafického zobrazenia nameranej prevodovej charakteristiky, je možné usúdiť, že hľadaná závislosť je blízka priamke. Preto nech funkcia $f_1$ je daná polynómom prvého stupňa, teda
+\begin{equation}
+    f_1(u) = \Theta_1 u + \Theta_0
+\end{equation}
+kde $\Theta_1$ a $\Theta_0$ sú parametre, ktoré je potrebné určiť.
+
+Parametre je možné určiť metódou najmenších štvorcov, čo v tomto prípade znamená minimalizovať sumu štvorcov odchýlok medzi nameranými hodnotami výstupného signálu a hodnotami vypočítanými z modelu. Formálne je odchýlka $ e = y - \hat y$. Takúto polynomiálnu aproximáciu bežne implementujú knižnice pre numerické výpočty. V tomto prípade využijeme knižnicu \texttt{NumPy} a jej funkciu \texttt{polyfit}. Výsledkom je 
+\begin{equation}
+    f_1(u) = 1,399\ u - 0,1196
+\end{equation}
+a táto funkcia je znázornená na obrázku \ref{fj_04_data_pot0_panel_1}.
+
+% \begin{center}
+    \begin{figure}[!t]
+
+    \vbox{%
+        \makebox[\textwidth][c]{%
+        \includegraphics{fj_04_data_pot0_panel_1.pdf}
+        }
+
+        \vspace{-6pt}
+
+        % \figcaption{ 
+        \caption{
+            % 
+        }
+        \label{fj_04_data_pot0_panel_1}
+    }%vbox
+
+\end{figure}
+% \end{center}
+
+% \begin{center}
+    \begin{figure}[!b]
+
+    \vbox{%
+        \makebox[\textwidth][c]{%
+        \includegraphics{fj_04_data_pot0_panel_2.pdf}
+        }
+
+        \vspace{-6pt}
+
+        % \figcaption{ 
+        \caption{
+            % 
+        }
+        \label{fj_04_data_pot0_panel_2}
+    }%vbox
+
+\end{figure}
+% \end{center}
+
+Ak by sme chceli model vyjadriť ako celok, formálne je možné písať
+\begin{equation}
+    \hat y = 
+    \begin{cases}
+        f_1(u) = 1,399\ u - 0,1196 & \text{pre } 0 \leq u \leq 7 \\
+        f_2(u) = 10 & \text{pre } 7 < u \leq 10
+    \end{cases}
+\end{equation}
+Graficky je výstup modelu znázornený na obrázku \ref{fj_04_data_pot0_panel_2}.
+
+
+
+
+
+
+
+
 
 
 
@@ -719,41 +819,6 @@ Pozri obrázok \ref{fj_01_data_pot0}.
 
 
 
-
-
-\clearpage
-
-
-\dirtree{%
- .1 .
- .2 ML.
- .3 dataRepo.
- .4 dataSet01.
- .5 \dots.
- .4 rawData.
- .5 \dots.
- .3 SteadyStateChar.slx.
- .3 logsout\_basicPlot.m.
- .3 measurementSetup.m.
- .2 PY.
- .3 dataRepo.
- .4 \dots.
- .3 datajobs.
- .4 dataJob\_02.py.
- .3 fig.
- .4 \dots.
- .3 figjobs.
- .4 figFcns\_TeX.py.
- .4 figJob\_01.py.
- .4 figJob\_02.py.
- .4 figJob\_03.py.
- .3 dataJob\_SSChar.ipynb.
- .2 TeX.
- .3 COMMONFILES.
- .4 \dots.
- .3 KUTdev250624.pdf.
- .3 KUTdev250624.tex.
-}
 
 
 
