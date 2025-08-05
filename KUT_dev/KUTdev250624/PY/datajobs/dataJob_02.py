@@ -48,13 +48,14 @@ for tmpidx in range(0,len(data_inputTable[:,0])):
     tmp_time = data_main[tmp_mask,0]
     tmp_sigOut = data_main[tmp_mask,1]
     tmp_sigIn = data_main[tmp_mask,3]
+    tmp_sigPot = data_main[tmp_mask,2]
 
 
     np.savetxt(dataRepoDir + 'SCH_' + data_pot + '_span_{:02d}'.format(tmpidx) + '.csv',
-        np.column_stack((tmp_time, tmp_sigOut, tmp_sigIn)),
+        np.column_stack((tmp_time, tmp_sigOut, tmp_sigIn, tmp_sigPot)),
         delimiter=',',
         fmt='%.3f',
-        header='time,sigOut,sigIn',
+        header='time,sigOut,sigIn,sigPot',
         comments='',
     )
 

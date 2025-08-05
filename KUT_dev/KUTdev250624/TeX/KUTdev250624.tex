@@ -385,6 +385,7 @@ Pre lepšiu ilustráciu, že uvedený dataset neobsahuje takpovediac len niekoľ
 
 
 \subsection{Aproximácia prevodovej charakteristiky}
+\label{sec:Aproximácia prevodovej charakteristiky}
 
 Nameraná prevodová charakteristika znázornená na obrázku \ref{fj_03_data_pot0_panel_1} zachytáva vzťah medzi vstupným a výstupným signálom v konkrétnych ustálených stavoch. Pre pokrytie celého rozsahu vstupného a výstupného signálu je účelné identifikovať model, ktorý by aproximoval nameranú prevodovú charakteristiku. 
 
@@ -466,6 +467,181 @@ Ak by sme chceli model vyjadriť ako celok, formálne je možné písať
     \end{cases}
 \end{equation}
 Graficky je výstup modelu znázornený na obrázku \ref{fj_04_data_pot0_panel_2}.
+
+
+
+
+\subsection{Skript}
+
+Skript pre realizáciu vyššie uvedeného spracovania dát je dostupný v~súbore \texttt{dataJob\_SSChar.ipynb}.
+
+\input{../PY/jupynotex/tex/dataJob_SSCharipynb_5.tex}
+
+
+
+
+
+
+
+\section{Spracovanie dát pre všetky prevádzkové podmienky}
+
+Obdobne ako na obr.~\ref{fj_03_data_pot0_panel_1} je možné vizualizovať všetky namerané prevodové charakteristiky pre všetky prevádzkové podmienky, pozri obrázok \ref{fj_05__panel_1}. 
+
+% \begin{center}
+    \begin{figure}[!t]
+
+    \vbox{%
+        \makebox[\textwidth][c]{%
+        \includegraphics{fj_05__panel_1.png}
+        }
+
+        \vspace{-6pt}
+
+        % \figcaption{ 
+        \caption{
+            % 
+        }
+        \label{fj_05__panel_1}
+    }%vbox
+
+\end{figure}
+% \end{center}
+
+Na tieto dáta, a teda na skúmaný systém ako celok, sa dá nazerať ako na dáta zodpovedajúce systému s~dvomi vstupmi a jedným výstupom. Prvým vstupom je dosiaľ uvádzaný vstupný signál, druhým vstupom je signál o prevádzkovej podmienke. Dáta reprezentujúce ustálené stavy je potom možné vizualizovať ako funkciu dvoch premenných, pozri obrázok \ref{fj_06__panel_1}.
+
+% \begin{center}
+    \begin{figure}[!h]
+
+    \vspace{-4mm}
+
+    \vbox{%
+        \makebox[\textwidth][c]{%
+        \includegraphics{fj_06__panel_1.png}
+        }
+
+        \vspace{-6pt}
+
+        % \figcaption{ 
+        \caption{
+            % 
+        }
+        \label{fj_06__panel_1}
+    }%vbox
+
+\end{figure}
+% \end{center}
+
+
+\subsection{Aproximácia prevodovej charakteristiky pre každú prevádzkovú podmienku zvlášť}
+
+V princípe je možné zrealizovať aproximáciu prevodovej charakteristiky podľa postupu uvedeného v~časti \ref{sec:Aproximácia prevodovej charakteristiky} pre každú prevádzkovú podmienku zvlášť. 
+
+Vo všeobecnosti je však potrebné zvážiť aj saturáciu výstupného signálu, ktorá sa prejavuje pri nízkych hodnotách vstupného signálu. Napríklad pre prevádzkovú podmienku $5$ [V] je nameraná prevodová charakteristika znázornená na obrázku \ref{fj_04b_data_pot5_panel_2}.
+
+Nech hraničné hodnoty dolnej a hornej saturácie sú $1$ [V] a $9$ [V]. Potom model aproximujúci nameranú prevodovú charakteristiku pre je možné vyjadriť v tvare
+\begin{equation}
+    \hat y = 
+    \begin{cases}
+        f_1(u) = \Theta_1\ u - \Theta_0 & \text{pre } 1 \leq u \leq 9 \\
+        f_2(u) = 10 & \text{pre } u > 9 \\
+        f_3(u) = 0 & \text{pre } u < 1         
+    \end{cases}
+\end{equation}
+pričom v tomto prípade sú parametre $\Theta_1 = 1,185$ a $\Theta_0 = -1,172$.
+
+
+
+% \begin{center}
+    \begin{figure}[!t]
+
+    \vbox{%
+        \makebox[\textwidth][c]{%
+        \includegraphics{fj_04b_data_pot5_panel_2.pdf}
+        }
+
+        \vspace{-6pt}
+
+        % \figcaption{ 
+        \caption{
+            Nameraná prevodová charakteristika pre prevádzkovú podmienku $5$ [V]. 
+        }
+        \label{fj_04b_data_pot5_panel_2}
+    }%vbox
+
+\end{figure}
+% \end{center}
+
+
+
+\subsection{Aproximácia s využitím viacfaktorového modelu}
+
+Viac faktorovým modelom rozumieme taký, ktorý ma viac ako jeden vstup. V tomto prípade môžeme signál o polohe potenciometra využiť ako ďalší vstup do modelu. 
+
+% \begin{center}
+    \begin{figure}[!h]
+
+    \vspace{-10pt}
+
+    \vbox{%
+        \makebox[\textwidth][c]{%
+        \includegraphics{fj_06__panel_2.png}
+        }
+
+        \vspace{-12pt}
+
+        % \figcaption{ 
+        \caption{
+            Červenou farbou sú znázornené tie hodnoty v ustálonom stave, pre ktoré platí, že výstupný signál má hodnotu vyššiu ako $9,9$ [V]. Modrou farbou tie, pre ktoré platí, že výstupný signál má hodnotu nižšiu ako $0,1$ [V]. Zelenou farbou ostatné.  
+        }
+        \label{fj_06__panel_2}
+    }%vbox
+
+\end{figure}
+% \end{center}
+
+Na obrázku \ref{fj_06__panel_2} sú hodnoty v ustálenom stave znázornené ako funkcia dvoch premenných. Funkčnou hodnotou je výstupný signál a argumentmi sú vstupný signál a~prevádzková podmienka. Farebne sú odlíšené prípady, keď výstupný signál je saturovaný a keď nie je. Ak si odmyslíme saturované oblasti, potom môžeme usúdiť, že hodnoty v ustálenom stave tvoria rovinu v trojrozmernom priestore.
+
+Modelom nesaturovanej oblasti nech je funkčná závislosť v tvare
+\begin{equation}
+    \hat y = f_4(u_1, u_2) = \Theta_{11}\ u_1 + \Theta_{12}\ u_2 + \Theta_0
+\end{equation}
+kde $u_1$ je vstupný signál, $u_2$ je prevádzková podmienka a $\Theta_{11}$, $\Theta_{12}$ a $\Theta_0$ sú parametre, ktoré je potrebné určiť.
+
+Pre tento prípad boli v zmysle metódy najmenších štvorcov nájdené hodnoty parametrov $\Theta_{11} = 1,167 $, $\Theta_{12} = -0,37876$ a $\Theta_0 = 0,81$. Grafické porovnanie takéhoto modelu s nameranými hodnotami v nesaturovanej oblasti je znázornené na obrázku \ref{fj_07__panel_1}.
+
+% \begin{center}
+    \begin{figure}[!h]
+
+    \vspace{-10pt}
+
+    \vbox{%
+        \makebox[\textwidth][c]{%
+        \includegraphics{fj_07__panel_1.png}
+        }
+
+        \vspace{-12pt}
+
+        % \figcaption{ 
+        \caption{
+%  
+        }
+        \label{fj_07__panel_1}
+    }%vbox
+
+\end{figure}
+% \end{center}
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -616,9 +792,9 @@ Pozri obrázok \ref{fj_01_data_pot0}.
 
 \end{center}
 
-\vfill
+% \vfill
 
-\phantom{}
+% \phantom{}
 
 \pagebreak
 
@@ -678,9 +854,9 @@ Pozri obrázok \ref{fj_01_data_pot0}.
 
 \end{center}
 
-\vfill
+% \vfill
 
-\phantom{}
+% \phantom{}
 
 \pagebreak
 
@@ -740,9 +916,9 @@ Pozri obrázok \ref{fj_01_data_pot0}.
 
 \end{center}
 
-\vfill
+% \vfill
 
-\phantom{}
+% \phantom{}
 
 \pagebreak
 
@@ -802,9 +978,9 @@ Pozri obrázok \ref{fj_01_data_pot0}.
 
 \end{center}
 
-\vfill
+% \vfill
 
-\phantom{}
+% \phantom{}
 
 
 
