@@ -9,11 +9,11 @@ from figFcns_TeX import *
 figSaveDir = '../fig'
 os.makedirs(figSaveDir, exist_ok=True)
 
-figName = 'frekvencna_phase'
+figName = 'frekvencna_out'
 
 # load CSV
 data_main = pd.read_csv(
-    '../dataRepo/frekvencna_ampphase.csv', 
+    '../dataRepo/frekvencna_inout.csv', 
     header=None
 ).values  
 
@@ -26,11 +26,11 @@ ax0 = plt.subplot(subPlots[0])
 
 
 ax0.plot(data_main[:, 0], data_main[:, 2],
-         'x--', lw=0.5, color='k',
-         drawstyle='default')
+         '-', lw=0.2, color='k',
+         drawstyle='steps-post')
 
 fcnDefaultLayoutAdj(fig, figPlotParam[2], figPlotParam[3], figPlotParam[4], figPlotParam[5])
-fcn_setFigStyle_basicTimeSeries(fig, figPlotParam, ['log_{10}(Hz)', 'Fáza [rad]', 'Fázová frekvenčná charakteristika'])
+fcn_setFigStyle_basicTimeSeries(fig, figPlotParam, ['Čas [s]', 'Výstup [dE]', 'Výstup systému'])
 ax0.grid(True, which='both', linestyle='--', linewidth=0.1, color='k')
 
 # ax0.set_xlim(0, 255)
