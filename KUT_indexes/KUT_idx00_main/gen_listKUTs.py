@@ -30,7 +30,7 @@ output_file = 'idx00_maintable.tex'
 with open(output_file, 'w', encoding='utf-8') as file:
     for item, extracted_string in data:
 
-        extracted_string = extracted_string.replace('\\', ' ')
+        extracted_string = extracted_string.replace('\\', '')
 
         print(item, extracted_string)
 
