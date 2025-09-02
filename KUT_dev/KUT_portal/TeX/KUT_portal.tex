@@ -1,0 +1,258 @@
+\documentclass[a4paper, 11pt, ]{article}
+
+\input{./COMMONFILES/preamble.tex}
+
+% -----------------------------------------------------------------------------
+
+\def\oznacenieCelku{Kolekcia učebných textov}
+
+% -----------------------------------------------------------------------------
+
+
+\def\KUTporadoveCislo{portal}
+
+% \def\oznacenieVerzie{v0.9}
+\def\oznacenieVerzie{\phantom{v1.0}}
+
+\def\mesiacRok{}
+
+\def\authorslabel{}
+
+
+
+
+
+
+% -----------------------------------------------------------------------------
+
+\begin{document}
+
+% -----------------------------------------------------------------------------
+% Uvodny nadpis
+
+\noindent
+\parbox[t][18mm][c]{0.3\textwidth}{%
+\raisebox{-0.9\height}{%
+\phantom{.}\includegraphics[height=18mm]{./COMMONFILES/URKFEIlogo.pdf}%
+}%
+}%
+% \parbox[t][18mm][c]{0.7\textwidth}{%
+% \raggedleft
+
+% \sffamily
+% \fontsize{16pt}{18pt}
+% \fontseries{sbc}
+% \selectfont
+
+% \noindent
+% \textcolor[rgb]{0.75, 0.75, 0.75}{\textls[25]{\oznacenieCelku}}
+% }%
+
+% \noindent
+% \parbox[t][16mm][b]{0.5\textwidth}{%
+% \raggedright
+
+% \color{Gray}
+% \sffamily
+
+% \fontsize{12pt}{12pt}
+% \selectfont
+% \mesiacRok
+
+% \fontsize{6pt}{10pt}
+% \selectfont
+% \href{https://github.com/OkoliePracovnehoBodu/KUT}{github.com/OkoliePracovnehoBodu/KUT}
+
+% \fontsize{8pt}{10pt}
+% \selectfont
+% \authorslabel
+
+% }%
+% \parbox[t][16mm][b]{0.5\textwidth}{%
+% \raggedleft
+
+% \sffamily
+
+% \fontsize{6pt}{6pt}
+% \selectfont
+
+% \textcolor[rgb]{0.68, 0.68, 0.68}{\oznacenieVerzie}
+
+
+% \fontsize{14pt}{14pt}
+% \selectfont
+
+% \bfseries
+
+% \includegraphics[height=12pt]{./COMMONFILES/KUT_logo_v0.1.pdf}%
+% {%
+% \textls[-50]{\KUTporadoveCislo}
+% }%
+% }%
+
+% -----------------------------------------------------------------------------
+
+
+\phantom{}
+
+\vspace{15mm}
+
+% \vfill
+
+% % ---------------------------------------------
+% \sffamily
+% \bfseries
+% \fontsize{18pt}{21pt}
+% \selectfont
+
+% \begin{flushleft}
+%     Laboratórne zariadenie TS:\\ orientačný prehľad
+% \end{flushleft}
+
+% \bigskip
+
+% % -----------------------------------------------------------------------------
+% \normalsize
+% \normalfont
+% % -----------------------------------------------------------------------------
+
+% \lstset{style=mystyle}
+
+
+
+
+
+
+
+
+
+
+% \begin{center}
+%    \phantom{} \hspace{3mm} \includegraphics[height=18mm]{KUT_logo_v0.1t.pdf} \phantom{}
+% \end{center}
+
+% \vspace{-4mm}
+
+% \begin{center}
+%     \sffamily
+%     \fontsize{23pt}{22pt}
+%     \selectfont
+%     \phantom{} \hspace{-2mm} Krátke učebné texty \phantom{}
+% \end{center}
+
+
+
+
+
+
+
+% \vspace{30mm}
+
+
+\sffamily
+
+% \noindent
+% Projekt \includegraphics[height=8pt]{./COMMONFILES/KUT_logo_v0.1.pdf} je zameraný na tvorbu     sa zameriava sa vytvorenie
+
+
+\begin{center}
+
+\fontsize{32pt}{36pt}  
+\selectfont 
+
+Projekt \includegraphics[height=25pt]{./COMMONFILES/KUT_logo_v0.1.pdf}
+
+
+\vspace{20pt}
+
+\fontsize{10pt}{13pt}  
+\selectfont 
+
+
+
+\color{gray}{%
+Krátke učebné texty,
+
+kolekcia učebných textov,
+
+}
+
+\end{center}    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\vspace{15mm}
+
+
+\section*{O projekte}
+
+Projekt sa zameriava na tvorbu krátkych učebných textov využiteľných v rámci viacerých predmetov v oblasti teórie automatického riadenia, kybernetiky a robotiky.
+
+
+% ktorý bude slúžiť ako prostriedok na podporu vzájomnej spolupráce vo výučbe rôznych predmetov. Primárne ide o predmety súvisiace s oblasťou teórie automatického riadenia, kybernetiky a robotiky vo všeobecnosti.
+
+
+
+
+\section*{Kolekcia učebných textov}
+
+\subsection*{Hlavný index}
+
+Súbor \verb|KUT_idx00.pdf| je hlavným indexom kolekcie učebných textov. Obsahuje zoznam všetkých krátkych učebných textov.
+
+\bigskip
+
+\noindent
+\tcbox[center, nobeforeafter, colframe=FEIblue, colback=FEIblue, coltext=White]{
+    \href{run:../../../KUT_indexes/KUT_idx00_main/KUT_idx00.pdf}{KUT\_idx00.pdf}  
+}
+
+
+\subsection*{Ďalšie indexy}
+
+\noindent
+\begin{tabular*}{\textwidth}{ @{} >{\sffamily}p{2.5cm} @{\extracolsep{\fill}} p{10cm}<{\raggedright}}
+    \href{run:../../../KUT_indexes/KUT_idx01_devices/KUT_idx01.pdf}{KUTidx01} 
+    & 
+    \href{run:../../../KUT_indexes/KUT_idx01_devices/KUT_idx01.pdf}{Zoznam laboratórnych zariadení}
+\end{tabular*}
+
+
+
+\vspace{24pt}
+
+
+
+\section*{Organizácia repozitára}
+
+Repozitár \includegraphics[height=7.5pt]{./COMMONFILES/KUT_logo_v0.1.pdf} obsahuje dva hlavné adresáre:
+\begin{itemize}[leftmargin=0pt, labelsep=3mm, itemsep=0pt]
+    \item \verb|KUT_items| - obsahuje podadresáre \verb|KUT_###| s~krátkymi učebnými textami
+    \item \verb|KUT_indexes| - obsahuje podadresáre s~indexmi   
+\end{itemize}
+
+Každý krátky učebný text (KUT) obsahuje hlavný PDF dokument spravidla v~adresári \verb|TeX| s názvom \verb|KUT_###.pdf| a prípadne ďalšie súbory, ktoré sú súčasťou KUT-u. Napríklad vektorové obrázky patriace k textu sú v adresári \verb|SVG| a podobne.
+
+
+
+
+
+
+% -----------------------------------------------------------------------------
+
+\end{document}
+
+% -----------------------------------------------------------------------------
