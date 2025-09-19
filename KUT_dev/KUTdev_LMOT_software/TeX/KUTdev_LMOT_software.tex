@@ -109,7 +109,7 @@
 \selectfont
 
 \begin{flushleft}
-    Laboratórne zariadenie LMOT:\\ priradenie softwáru
+    Laboratórne zariadenie LMOT:\\ softwáre
 \end{flushleft}
 
 \bigskip
@@ -149,7 +149,7 @@ textu je priradenie softwárov Simulink ku laboratórneho zariadenia LMOT podľa
 
     \begin{tabular*}{\textwidth}{@{ \extracolsep{\fill}} llll}
         \toprule
-        Označenie počítača & Označenie LMOT & Softwáre & Stav \\
+        Označenie počítača & Zariadenie & Softwáre & Stav \\
         \midrule
         LK$10$ & LMOT$01$a & LMOT$01$a\_basicScheme.slx & \checkmark \\
         LK$11$ & LMOT$02$b & LMOT$02$b\_basicScheme.slx & \checkmark \\
@@ -162,12 +162,27 @@ textu je priradenie softwárov Simulink ku laboratórneho zariadenia LMOT podľa
 
 \end{center}
 
+\subsection{Použitie tabuľky priradenia}
+Tabuľka \ref{tab:priradenie_hardware_software} plní úlohu priradenia počítača k zariadeniu a následne k softwáru, teda v prípade, že obsluhujeme počítať LK$10$, tak nám je priradené zariadenie LMOT$01$a a so zoznamu softwárov si vyberieme a skopírujeme do nami obsluhovaného priečinku súbor LMOT$01$a\_basicScheme.slx.
+
+V prípade, že stav nie je "\checkmark", teda, zariadenie nie je k dispozícii. V prípade, že chcete pracovať na takto označenom laboratórnom zariadení, je potrebné si vybrať iné dostupné a volne zariadenie, ktorého stav je označený ako "\checkmark".
+
+\subsection{V skratke}
+\begin{enumerate}
+    \item V tabuľke \ref{tab:priradenie_hardware_software} pozrieť, či je k aktuálnemu počítaču priradené zariadenie, poprípade, čí je stav "\checkmark".
+    \item Ak nie a potrebujeme pracovať na zariadení, tak si presadneme a vrátime sa na krok $1$ - ak nepotrebujeme, tak sa informujeme u cvičiaceho, čo máme robiť. Ak ano, tak idem na daľší krok.
+    \item Z tabuľky \ref{tab:priradenie_hardware_software} vidíme priradené zariadenie a teda aj Simulink softwáre.
+    \item Nájdeme rovnko nazvaný súbor v priečinku \emph{MAT}.
+    \item Súbor si skopírujeme, tak aby bol rozlíšitelný od ostatných - najlepšie do vlastného priečinku.
+    \item Následne sa riadime inštrukciami cvičiaceho.
+\end{enumerate}
+
 
 
 
 
 \section{Opis Simulink softwáru}
-V tejto časti v skratke opíšeme zapojenie základnej Simulink schémy, ktorá je priradená ku zariadeniu.
+V tejto časti v skratke opíšeme zapojenie základnej Simulink schémy, ktorá je poskytnutá a priradená ku zariadeniu.
 
 \begin{center}
 
