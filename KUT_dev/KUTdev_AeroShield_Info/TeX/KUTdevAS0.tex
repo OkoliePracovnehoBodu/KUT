@@ -136,24 +136,25 @@ textu je opis laboratórneho zariadenia AeroShield predstavujúceho fyzický mod
 
 \section{Opis dynamického systému}
 
-AeroShield (daľej len \emph{AS}) je laboratórne zariadenie predstavujúce reálny dynamický systém. Pozostáva z jednoramenného kývadla, malého jednosmerného motora s rotorom na vystupnom hriadeli - uloženého na nevotknutom konci kývajúceho sa ramena. Následne je výstup snímaní magnetickým rotačným enkóderom AS5600, ktorý zabezpečuje presné meranie uhlovej polohy ramena a osadeného potenciometru, ktorý možno použiť na riadenie referenčnej veličiny systému alebo manuálne riadenie motora - záleži od implementácie, rovnako sa signál z potenciometra dá použiť na predčasné ukončenie merania.
+AeroShield (daľej len \emph{AS}) je laboratórne zariadenie predstavujúce reálny dynamický systém. Pozostáva z jednoramenného kývadla, malého jednosmerného motora s vrtuľkou na vystupnom hriadeli - uloženého na volnom konci ramena. Následne je výstup snímaní magnetickým rotačným enkóderom AS5600, ktorý zabezpečuje presné meranie uhlovej polohy ramena. Osadený potenciometer, ktorý nerobí nič, iba sa točí a jeho pozícia je snímana pomocou Arduino UNO zariadenia, možno ho využiť na rôzne účely napr. predčasné ukončenie simulácie ak je hodnota signálu > 500.
 
-Systém má jeden vstupný signál a jeden výstupný signál. Výstupný signál je priamo úmerný uhlovej polohe ramena, ktorá je snímaná enkóderom. Vstupný signál ovláda napájanie motora.
+Systém má jeden vstupný signál a jeden výstupný signál. Výstupný signál je priamo úmerný uhlovej polohe ramena, ktorá je snímaná enkóderom. Vstupný signál nepriamo ovláda napájanie motora cez otvorenie mosfet tranzisotra, ktorý priamo zásobuje napätie na motor.
 
-Polohou potenciometra je v podstate signál, ktorý vie uživateľ použiť na rôzne účeli, ale nijak ne ovplyvňuje systém ako taký, bez toho aby si to uživateľ sám neimplementoval.
+Polohou potenciometra je v podstate signál, ktorý vie uživateľ použiť na rôzne účeli, no neovplyvňuje systém ako taký, bez toho aby si to uživateľ sám neimplementoval.
 
 
 
 \section{Rozsahy a jednotky signálov}
 
-Z opisu predmetného dynamického systému vyplýva, že systém má jeden výstupný signál, jeden vstupný signál a manuálne nastaviteľnú prevádzkovú podmienku.
+Z opisu predmetného dynamického systému vyplýva, že systém má jeden výstupný signál, jeden vstupný signál a manuálne nastaviteľnú polohu potenciometra.
 
-Vstupný a výstupný signál nadobúdajú hodnoty v~rozsahu $0$ až $10$ pričom ide o~napäťové signály vo voltoch [V].
+\begin{itemize}
+    \item \emph{Vstupný signál} nadobúda hodnoty v rozmedzí $0$ až $255$.
 
-Prevádzkové podmienka systému sa nastavuje manuálne otáčaním potenciometra. Signál o polohe potenciometra nadobúda hodnoty v rozsahu $0$ [V] až $10$ [V].
+    \item \emph{Výstupný signál} nadobúda hodnoty v rozsahu \ang{-50} az \ang{210}.
 
-
-
+    \item \emph{Signal z potenciometra} nadobúda hodnoty v rozsahu $0$ až $1023$.
+\end{itemize}
 
 
 \begin{center}
@@ -169,9 +170,9 @@ Prevádzkové podmienka systému sa nastavuje manuálne otáčaním potenciometr
         \toprule
         Signál & Rozsah hodnôt & Jednotka \\
         \midrule
-        Vstup & $0$ až $10$ & V (volt) \\
-        Výstup & $0$ až $10$ & V (volt) \\
-        Prevádzkové nastavenie & $0$ až $10$ & V (volt) \\
+        Vstup & $0$ až $255$ & - \\
+        Výstup & \ang{-50} až \ang{210} & \si{\degreeCelsius} \\
+        Potenciometer & $0$ až $1023$ & - \\
         \bottomrule
     \end{tabular*}
 
@@ -193,11 +194,11 @@ Prevádzkové podmienka systému sa nastavuje manuálne otáčaním potenciometr
 
 
         \makebox[\textwidth][c]{%
-            \includegraphics{LMOT_sch1.pdf}
+            \includegraphics{AS_system.pdf}
         }
 
         \figcaption{
-            Signály systému LMOT.
+            Signály systému AS.
         }
         \label{LMOT_sch1}
     }%vbox
@@ -211,11 +212,11 @@ Prevádzkové podmienka systému sa nastavuje manuálne otáčaním potenciometr
 
 
         \makebox[\textwidth][c]{%
-            \includegraphics{LMOT_sch2.pdf}
+            \includegraphics{AS_system_pinout.pdf}
         }
 
         \figcaption{
-            Schéma pripojenia laboratórneho zariadenia k svorkám meracej karty Advantech PCI-1711, pričom AO~$0$ je analógový výstup meracej karty a~AI~$0$, AI~$1$ sú analógové vstupy meracej karty.
+            Schéma pripojenia laboratórneho zariadenia AS ku GPIO pinom Arduino UNO R$3$, pričom A$0$ je analógový vstup potenciometra, $\sim$D$5$ je výstup akčného zásahu na logickej úrovni \emph{PWM} (\href{https://docs.arduino.cc/learn/microcontrollers/analog-output/}{Pulse-Width Modulation}), I$2$C slúži na odčítanie uhlovej polohy ramena.
         }
         \label{LMOT_sch2}
     }%vbox

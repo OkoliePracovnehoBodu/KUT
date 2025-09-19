@@ -24,6 +24,9 @@ dev
 *.run.xml
 *.bcf
 *.bcf-SAVE-ERROR
+*.dvi
+
+.DS_STORE
 
 *.synctex.gz.sum.synctex
 
