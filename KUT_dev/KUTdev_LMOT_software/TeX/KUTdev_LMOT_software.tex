@@ -1,0 +1,207 @@
+\documentclass[a4paper, 10pt, ]{article}
+
+\input{./COMMONFILES/preamble.tex}
+\usepackage{siunitx}
+\usepackage{bbding}
+
+% -----------------------------------------------------------------------------
+
+\def\oznacenieCelku{Kolekcia učebných textov}
+
+% -----------------------------------------------------------------------------
+
+
+\def\KUTporadoveCislo{devLMOTsoftware}
+
+\def\oznacenieVerzie{v0.4}
+% \def\oznacenieVerzie{\phantom{v1.0}}
+
+\def\mesiacRok{september 2025}
+
+\def\authorslabel{RJ}
+
+
+
+
+
+
+% -----------------------------------------------------------------------------
+
+\begin{document}
+
+% -----------------------------------------------------------------------------
+% Uvodny nadpis
+
+\noindent
+\parbox[t][18mm][c]{0.3\textwidth}{%
+    \raisebox{-0.9\height}{%
+        \phantom{.}\includegraphics[height=18mm]{./COMMONFILES/URKFEIlogo.pdf}%
+    }%
+}%
+\parbox[t][18mm][c]{0.7\textwidth}{%
+    \raggedleft
+
+    \sffamily
+    \fontsize{16pt}{18pt}
+    \fontseries{sbc}
+    \selectfont
+
+    \noindent
+    \textcolor[rgb]{0.75, 0.75, 0.75}{\textls[25]{\oznacenieCelku}}
+}%
+
+\noindent
+\parbox[t][16mm][b]{0.5\textwidth}{%
+    \raggedright
+
+    \color{Gray}
+    \sffamily
+
+    \fontsize{12pt}{12pt}
+    \selectfont
+    \mesiacRok
+
+    \fontsize{6pt}{10pt}
+    \selectfont
+    \href{https://github.com/OkoliePracovnehoBodu/KUT}{github.com/OkoliePracovnehoBodu/KUT}
+
+    \fontsize{8pt}{10pt}
+    \selectfont
+    \authorslabel
+
+
+
+
+}%
+\parbox[t][16mm][b]{0.5\textwidth}{%
+    \raggedleft
+
+    \sffamily
+
+    \fontsize{6pt}{6pt}
+    \selectfont
+
+    \textcolor[rgb]{0.68, 0.68, 0.68}{\oznacenieVerzie}
+
+
+    \fontsize{14pt}{14pt}
+    \selectfont
+
+    \bfseries
+
+    \includegraphics[height=12pt]{./COMMONFILES/KUT_logo_v0.1.pdf}%
+    {%
+        \textls[-50]{\KUTporadoveCislo}
+    }%
+}%
+
+% -----------------------------------------------------------------------------
+
+
+
+
+\vspace{6mm}
+
+% ---------------------------------------------
+\sffamily
+\bfseries
+\fontsize{18pt}{21pt}
+\selectfont
+
+\begin{flushleft}
+    Laboratórne zariadenie LMOT:\\ priradenie softwáru
+\end{flushleft}
+
+\bigskip
+
+% -----------------------------------------------------------------------------
+\normalsize
+\normalfont
+% -----------------------------------------------------------------------------
+
+\lstset{style=mystyle}
+
+
+
+
+
+
+
+
+
+
+\noindent
+\lettrine[lines=1, nindent=1pt, loversize=0.0]{C}{ieľom}
+textu je priradenie softwárov Simulink ku laboratórneho zariadenia LMOT podľa označenia.
+
+
+\section{Priradeného Simulink softwáru}
+
+
+\begin{center}
+
+    \vspace{-10pt}
+
+    \tabcaption{Priradenie zariadení a softwárov}
+    \label{tab:priradenie_hardware_software}
+
+    \lstyle
+
+    \begin{tabular*}{\textwidth}{@{ \extracolsep{\fill}} llll}
+        \toprule
+        Označenie počítača & Označenie LMOT & Softwáre & Stav \\
+        \midrule
+        LK$10$ & LMOT$01$a & LMOT$01$a\_basicScheme.slx & \checkmark \\
+        LK$11$ & LMOT$02$b & LMOT$02$b\_basicScheme.slx & \checkmark \\
+        LK$12$ & LMOT$02$a & LMOT$02$a\_basicScheme.slx & \checkmark \\
+        LK$21$ & LMOT$03$a & LMOT$03$a\_basicScheme.slx & \checkmark \\
+        LK$22$ & LMOT$03$b & LMOT$03$b\_basicScheme.slx & \XSolidBrush \\
+        \bottomrule
+    \end{tabular*}
+
+
+\end{center}
+
+
+
+
+
+\section{Opis Simulink softwáru}
+V tejto časti v skratke opíšeme zapojenie základnej Simulink schémy, ktorá je priradená ku zariadeniu.
+
+\begin{center}
+
+    \vbox{%
+
+
+        \makebox[\textwidth][c]{%
+            \includegraphics{basicScheme.pdf}
+        }
+
+        \figcaption{
+            Základná poskytnutá schéma k zariadeniu LMOT.
+        }
+        \label{LMOT_basicScheme}
+    }%vbox
+
+\end{center}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+% -----------------------------------------------------------------------------
+
+\end{document}
+
+% -----------------------------------------------------------------------------
