@@ -184,28 +184,33 @@ V prípade, že stav nie je "\checkmark", teda, zariadenie nie je k dispozícii.
 \section{Opis Simulink softwáru}
 V tejto časti v skratke opíšeme zapojenie základnej Simulink schémy, ktorá je poskytnutá a priradená ku zariadeniu.
 
+\noindent
 \begin{center}
 
     \vbox{%
 
 
         \makebox[\textwidth][c]{%
-            \includegraphics{basicScheme.pdf}
+            \includegraphics[width=\textwidth]{scheme.png}
         }
 
         \figcaption{
-            Základná poskytnutá schéma k zariadeniu LMOT.
+            Základná schéma poskytnutá k zariadeniu LMOT.
         }
-        \label{LMOT_basicScheme}
+        \label{fig:LMOT_basicScheme}
+        \vspace{12pt}
     }%vbox
 
 \end{center}
 
 
+Ako si možeme všimnúť na obr. \ref{fig:LMOT_basicScheme} sýstem je teraz reprezentovaný ako subsystém, ktorý v sebe skrýva komunikáciu s meraciou kartou Avantech PCI-1711 pomocou Simulink Real-Time Desktop toolboxu. V tomto prípade sme obmedzení samotnou implementáciou toolboxu v rámci periódy vzorkovania, ktorá je nastavená na 100 milisekúnd.
 
+Vstupný signál do systému - volajme akčný zásah v scheme predstavuje generátor signálu, ktorý generuje pulzný signál s istou periódou a šírkou pulzu - označený na schéme písmenom \emph{u}, taktiež predstavuje výstup riadiaceho systému napr. PID.
 
+Výstup systému - označený písmenom \emph{y}, je v tejto schéme výstup z tachodynama, ktorý je priamoúmerný otáčkam motora a možno tento signál použiť ako spätnúväzbu pre riadenie otáčok motora.
 
-
+Posledný signál, ktorý máme k dispozícii zo systému je potentiometer, ktorý predstavuje nastavenie dynamiky systému. Očakávané správanie sa systému na zmenu je: zvýšením hodnoty potentiometra sa spomalý dynamika systému a pri znížení potentiometru sa naopak dynamika systému zvýši - pozorovateľný je to úkaz. Možno povedať, že týmto signálom meníme systém ako taký.
 
 
 
