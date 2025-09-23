@@ -10,12 +10,12 @@
 % -----------------------------------------------------------------------------
 
 
-\def\KUTporadoveCislo{devAS0}
+\def\KUTporadoveCislo{devAS1}
 
 \def\oznacenieVerzie{v1.0}
 % \def\oznacenieVerzie{\phantom{v1.0}}
 
-\def\mesiacRok{august 2025}
+\def\mesiacRok{september 2025}
 
 \def\authorslabel{RJ}
 
@@ -108,7 +108,7 @@
 \selectfont
 
 \begin{flushleft}
-    Laboratórne zariadenie AeroShield:\\ orientačný prehľad
+    Laboratórne zariadenie AeroShield:\\ softwáre Matlab
 \end{flushleft}
 
 \bigskip
@@ -131,20 +131,41 @@
 
 \noindent
 \lettrine[lines=1, nindent=1pt, loversize=0.0]{C}{ieľom}
-textu je opis laboratórneho zariadenia AeroShield predstavujúceho fyzický model spojitého dynamického systému.
+textu je zoznámenie sa s obslužným Matlab softwárom pre prácu so zariadením \emph{AS}, ktorý slúži na meranie a ovládanie spomínaného zariadenia.
 
 
-\section{Opis dynamického systému}
+\section{Popis softwáru}
+** TODO: Dopísať **
 
-AeroShield (daľej len \emph{AS}) je laboratórne zariadenie predstavujúce reálny dynamický systém. Pozostáva z jednoramenného kývadla, malého jednosmerného motora s vrtuľkou na vystupnom hriadeli - uloženého na volnom konci ramena. Následne je výstup snímaní magnetickým rotačným enkóderom AS5600, ktorý zabezpečuje presné meranie uhlovej polohy ramena. Osadený potenciometer, ktorý nerobí nič, iba sa točí a jeho pozícia je snímana pomocou Arduino UNO zariadenia, možno ho využiť na rôzne účely napr. predčasné ukončenie simulácie ak je hodnota signálu > 500.
+AS je laboratórne zariadenie predstavujúce reálny dynamický systém, ktorý sme predstavili v KUT dokumente Laboratórne zariadenie AeroShield:\\ orientačný prehľad. V prípade, že chceme odmerať statické vlastnosti systému, musíme vedieť rozsahy vstupov a výstupov, aby sme boli schopný korektne navrhnúť experiment na zmeranie vlastností systému.
+V prípade AS vieme, že vstupný signál je v rozsahu $0 - 255$, musíme si zvoliť rozumnú veľkosť kroku a dĺžku trvania kroku, aby sme dostatočne zachytili vlastnosti systému. Zvoľme si teda podľa tab. \ref{tab:config}.
 
-Systém má jeden vstupný signál a jeden výstupný signál. Výstupný signál je priamo úmerný uhlovej polohe ramena, ktorá je snímaná enkóderom. Vstupný signál nepriamo ovláda napájanie motora cez otvorenie mosfet tranzisotra, ktorý priamo zásobuje napätie na motor.
+\begin{center}
 
-Polohou potenciometra je v podstate signál, ktorý vie uživateľ použiť na rôzne účeli, no neovplyvňuje systém ako taký, bez toho aby si to uživateľ sám neimplementoval.
+    \vspace{-10pt}
+
+    \tabcaption{Nastavenia merania}
+    \label{tab:config}
+
+    \lstyle
+
+    \begin{tabular*}{\textwidth}{@{ \extracolsep{\fill}} lll}
+        \toprule
+        Nastavenie & Hodnota & Jednotka \\
+        \midrule
+        Veľkosť kroku & $1$ & - \\
+        Trvanie & $5$ & s \\
+        \bottomrule
+    \end{tabular*}
+
+\end{center}
+
+Nakoľko meriame statické vlastnosti, tak nás nezaujíma priebeh výstupného signálu v neustálenom stave. To znamená napr., ak vstupná hodnota je $10$ a už sme pre túto hodnotu ukončili meranie, a chceme sa presunúť na hodnotu $50$, tak akokoľvek sa na žiadanu hodnotu akčného zásahu dostaneme, je irelevantné. Nakoľko, musíme meranie uskutočniť až v čase, keď výstupný signál z AS je ustálený - ukážeme na príklade.
 
 
+\section{Meranie statickej charakteristiky}
 
-\section{Rozsahy a jednotky signálov}
+** TODO: Dopísať **
 
 Z opisu predmetného dynamického systému vyplýva, že systém má jeden výstupný signál, jeden vstupný signál a manuálne nastaviteľnú polohu potenciometra.
 
@@ -198,7 +219,7 @@ Z opisu predmetného dynamického systému vyplýva, že systém má jeden výst
         }
 
         \figcaption{
-            Signály systému \emph{AS}.
+            Signály systému AS.
         }
         \label{LMOT_sch1}
     }%vbox
@@ -216,7 +237,7 @@ Z opisu predmetného dynamického systému vyplýva, že systém má jeden výst
         }
 
         \figcaption{
-            Schéma pripojenia laboratórneho zariadenia \emph{AS} ku GPIO pinom Arduino UNO R$3$.
+            Schéma pripojenia laboratórneho zariadenia AS ku GPIO pinom Arduino UNO R$3$.
         }
         \label{AS_sch2}
     }%vbox
