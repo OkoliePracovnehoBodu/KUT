@@ -1,0 +1,408 @@
+\documentclass[a4paper, 10pt, ]{article}
+
+\input{./COMMONFILES/preamble.tex}
+
+% -----------------------------------------------------------------------------
+
+\def\oznacenieCelku{Kolekcia učebných textov}
+
+% -----------------------------------------------------------------------------
+
+
+\def\KUTporadoveCislo{devTS1}
+
+% \def\oznacenieVerzie{v0.9}
+\def\oznacenieVerzie{\phantom{v1.0}}
+
+\def\mesiacRok{september 2025}
+
+\def\authorslabel{AS}
+
+
+
+
+
+
+% -----------------------------------------------------------------------------
+
+\begin{document}
+
+% -----------------------------------------------------------------------------
+% Uvodny nadpis
+
+\noindent
+\parbox[t][18mm][c]{0.3\textwidth}{%
+\raisebox{-0.9\height}{%
+\phantom{.}\includegraphics[height=18mm]{./COMMONFILES/URKFEIlogo.pdf}%
+}%
+}%
+\parbox[t][18mm][c]{0.7\textwidth}{%
+\raggedleft
+
+\sffamily
+\fontsize{16pt}{18pt}
+\fontseries{sbc}
+\selectfont
+
+\noindent
+\textcolor[rgb]{0.75, 0.75, 0.75}{\textls[25]{\oznacenieCelku}}
+}%
+
+\noindent
+\parbox[t][16mm][b]{0.5\textwidth}{%
+\raggedright
+
+\color{Gray}
+\sffamily
+
+\fontsize{12pt}{12pt}
+\selectfont
+\mesiacRok
+
+\fontsize{6pt}{10pt}
+\selectfont
+github.com/OkoliePracovnehoBodu/KUT
+
+\fontsize{8pt}{10pt}
+\selectfont
+\authorslabel
+
+
+
+
+}%
+\parbox[t][16mm][b]{0.5\textwidth}{%
+\raggedleft
+
+\sffamily
+
+\fontsize{6pt}{6pt}
+\selectfont
+
+\textcolor[rgb]{0.68, 0.68, 0.68}{\oznacenieVerzie}
+
+
+\fontsize{14pt}{14pt}
+\selectfont
+
+\bfseries
+
+\includegraphics[height=12pt]{./COMMONFILES/KUT_logo_v0.1.pdf}%
+{%
+\textls[-50]{\KUTporadoveCislo}
+}%
+}%
+
+% -----------------------------------------------------------------------------
+
+
+
+
+\vspace{6mm}
+
+% ---------------------------------------------
+\sffamily
+\bfseries
+\fontsize{18pt}{21pt}
+\selectfont
+
+\begin{flushleft}
+    Statické vlastnosti systému: TS
+\end{flushleft}
+
+\bigskip
+
+% -----------------------------------------------------------------------------
+\normalsize
+\normalfont
+% -----------------------------------------------------------------------------
+
+\lstset{style=mystyle}
+
+
+\noindent
+\lettrine[lines=1, nindent=1pt, loversize=0.0]{C}{ieľom} 
+textu je opis statických vlastností modelu technického systému (TS).
+
+% -----------------Section1--------------------------------------------
+
+\section{Statické vlastnosti modelu TS}
+
+\noindent
+Na účely demonštrácie statických vlastností bol experimentálne 
+zvolený systém s dvoma vstupmi: výkon ohrevu špirály a 
+výkon ventilátora. Ide teda o MIMO systém 
+(Multi-Input Multi-Output), pričom v tejto časti sa zameriavame výhradne 
+na správanie vstupných signálov. Výstupné veličiny budú analyzované 
+v nasledujúcich kapitolách. 
+
+\medskip
+
+\noindent
+Prevodová charakteristika predstavuje závislosť medzi ustálenými 
+hodnotami vstupu a zodpovedajúcimi ustálenými hodnotami výstupu. 
+V tejto fáze je preto potrebné ukázať priebeh samotných vstupov, 
+ktoré budú slúžiť ako základ pre ďalšiu analýzu. 
+
+\medskip
+
+\noindent
+Výkon ohrevu špirály bol menený v krokoch po~1, pričom každá zmena 
+nastala v intervale 100~sekúnd. Rozsah hodnôt bol od 0 do 10. 
+
+\begin{center}
+    \vbox{%
+        \makebox[\textwidth][c]{%
+        \includegraphics[width=1.5\textwidth]{prev_spir.png}
+        }
+        \figcaption{ 
+            Priebeh vstupu: výkon ohrevu špirály počas experimentu.
+        }
+        \label{fig_spirala_time}
+    }%vbox
+\end{center}
+
+\noindent
+Experiment bol zopakovaný trikrát, pričom vždy bola zvolená konštantná 
+hodnota druhého vstupu – výkonu ventilátora. Tieto hodnoty boli 
+nastavené na 3, 6 a 9. 
+
+\medskip
+
+\newpage
+
+\noindent
+Na nasledujúcich obrázkoch sú zobrazené priebehy vstupu pre jednotlivé 
+experimenty:
+
+\begin{center}
+    \vbox{%
+        \makebox[\textwidth][c]{%
+        \includegraphics[width=1.5\textwidth]{prev3_vent.png}
+        }
+        \figcaption{ 
+            Priebeh vstupu: výkon ventilátora pre experiment 1.
+        }
+        \label{fig_exp1}
+    }%vbox
+\end{center}
+
+\begin{center}
+    \vbox{%
+        \makebox[\textwidth][c]{%
+        \includegraphics[width=1.5\textwidth]{prev6_vent.png}
+        }
+        \figcaption{ 
+            Priebeh vstupu: výkon ventilátora pre experiment 2.
+        }
+        \label{fig_exp2}
+    }%vbox
+\end{center}
+
+\begin{center}
+    \vbox{%
+        \makebox[\textwidth][c]{%
+        \includegraphics[width=1.5\textwidth]{prev9_vent.png}
+        }
+        \figcaption{ 
+            Priebeh vstupu: výkon ventilátora pre experiment 3.
+        }
+        \label{fig_exp3}
+    }%vbox
+\end{center}
+
+% -------Section2--------------------------------------------
+
+\newpage
+\section{Výsledky experimentu 1}
+
+\noindent
+V tejto časti sú prezentované výsledky prvého experimentu. 
+Cieľom bolo zaznamenať reakciu systému na postupné skokové zmeny vstupov. 
+Pre každý vstupný krok bola reakcia systému meraná dvomi senzormi. 
+
+\medskip
+
+\noindent
+Aby sme získali ustálené hodnoty výstupov, 
+pre každý skok sme vypočítali priemernú hodnotu zo všetkých meraní 
+v posledných 10 sekundách daného intervalu. 
+Tieto priemery sú v ďalšej analýze považované za ustálené hodnoty výstupov. 
+
+\subsection*{Výstupné signály systému}
+
+\begin{center}
+    \vbox{%
+        \makebox[\textwidth][c]{%
+        \includegraphics[width=1.5\textwidth]{prev3_snim1.png}
+        }
+        \figcaption{ 
+            Výstupný signál zo senzora 1.
+        }
+        \label{fig_exp1_sen1}
+    }%vbox
+\end{center}
+
+\begin{center}
+    \vbox{%
+        \makebox[\textwidth][c]{%
+        \includegraphics[width=1.5\textwidth]{prev3_snim2.png}
+        }
+        \figcaption{ 
+            Výstupný signál zo senzora 2.
+        }
+        \label{fig_exp1_sen2}
+    }%vbox
+\end{center}
+
+\subsection*{Prevodové charakteristiky}
+
+\begin{center}
+    \vbox{%
+        \makebox[\textwidth][c]{%
+        \includegraphics[width=1.5\textwidth]{prev3_stat1.png}
+        }
+        \figcaption{ 
+            Prevodová charakteristika pre senzor 1 – závislosť ustálenej hodnoty výstupu od vstupu.
+        }
+        \label{fig_exp1_trans1}
+    }%vbox
+\end{center}
+
+\begin{center}
+    \vbox{%
+        \makebox[\textwidth][c]{%
+        \includegraphics[width=1.5\textwidth]{prev3_stat2.png}
+        }
+        \figcaption{ 
+            Prevodová charakteristika pre senzor 2 – závislosť ustálenej hodnoty výstupu od vstupu.
+        }
+        \label{fig_exp1_trans2}
+    }%vbox
+\end{center}
+
+%---------------Section3--------------------------------------------
+
+\newpage
+\section{Výsledky experimentu 2}
+
+\noindent
+Výstupné signály a prevodové charakteristiky zaznamenané počas experimentu 2.
+
+\subsection*{Výstupné signály systému}
+
+\begin{center}
+    \vbox{%
+        \makebox[\textwidth][c]{%
+        \includegraphics[width=1.5\textwidth]{prev6_snim1.png}
+        }
+        \figcaption{ 
+            Výstupný signál zo senzora 1.
+        }
+        \label{fig_exp1_sen1}
+    }%vbox
+\end{center}
+
+\begin{center}
+    \vbox{%
+        \makebox[\textwidth][c]{%
+        \includegraphics[width=1.5\textwidth]{prev6_snim2.png}
+        }
+        \figcaption{ 
+            Výstupný signál zo senzora 2.
+        }
+        \label{fig_exp1_sen2}
+    }%vbox
+\end{center}
+
+\subsection*{Prevodové charakteristiky}
+
+\begin{center}
+    \vbox{%
+        \makebox[\textwidth][c]{%
+        \includegraphics[width=1.5\textwidth]{prev6_stat1.png}
+        }
+        \figcaption{ 
+            Prevodová charakteristika pre senzor 1 – závislosť ustálenej hodnoty výstupu od vstupu.
+        }
+        \label{fig_exp1_trans1}
+    }%vbox
+\end{center}
+
+\begin{center}
+    \vbox{%
+        \makebox[\textwidth][c]{%
+        \includegraphics[width=1.5\textwidth]{prev6_stat2.png}
+        }
+        \figcaption{ 
+            Prevodová charakteristika pre senzor 2 – závislosť ustálenej hodnoty výstupu od vstupu.
+        }
+        \label{fig_exp1_trans2}
+    }%vbox
+\end{center}
+
+%---------------Section4--------------------------------------------
+
+\newpage
+\section{Výsledky experimentu 3}
+
+\noindent
+Výstupné signály a prevodové charakteristiky zaznamenané počas experimentu 3.
+
+\subsection*{Výstupné signály systému}
+
+\begin{center}
+    \vbox{%
+        \makebox[\textwidth][c]{%
+        \includegraphics[width=1.5\textwidth]{prev9_snim1.png}
+        }
+        \figcaption{ 
+            Výstupný signál zo senzora 1.
+        }
+        \label{fig_exp1_sen1}
+    }%vbox
+\end{center}
+
+\begin{center}
+    \vbox{%
+        \makebox[\textwidth][c]{%
+        \includegraphics[width=1.5\textwidth]{prev9_snim2.png}
+        }
+        \figcaption{ 
+            Výstupný signál zo senzora 2.
+        }
+        \label{fig_exp1_sen2}
+    }%vbox
+\end{center}
+
+\subsection*{Prevodové charakteristiky}
+
+\begin{center}
+    \vbox{%
+        \makebox[\textwidth][c]{%
+        \includegraphics[width=1.5\textwidth]{prev9_stat1.png}
+        }
+        \figcaption{ 
+            Prevodová charakteristika pre senzor 1 – závislosť ustálenej hodnoty výstupu od vstupu.
+        }
+        \label{fig_exp1_trans1}
+    }%vbox
+\end{center}
+
+\begin{center}
+    \vbox{%
+        \makebox[\textwidth][c]{%
+        \includegraphics[width=1.5\textwidth]{prev9_stat2.png}
+        }
+        \figcaption{ 
+            Prevodová charakteristika pre senzor 2 – závislosť ustálenej hodnoty výstupu od vstupu.
+        }
+        \label{fig_exp1_trans2}
+    }%vbox
+\end{center}
+
+% -----------------------------------------------------------------------------
+
+\end{document}
+
+% -----------------------------------------------------------------------------
