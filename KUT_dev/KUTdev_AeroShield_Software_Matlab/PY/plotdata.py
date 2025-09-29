@@ -4,7 +4,7 @@ import pandas as pd
 import qplot
 
 
-datafile = "../DATA/data.csv"
+datafile = "./DATA/data.csv"
 
 sns.set_theme(style="ticks", palette="gray", context="paper")  # clean look
 # sns.set_palette("whiteblack")  # grayscale palette
