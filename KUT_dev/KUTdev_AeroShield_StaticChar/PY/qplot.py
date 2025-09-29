@@ -122,8 +122,8 @@ def subplots(x, signals, labels=None,
             x, 
             signals, 
             labels=lbls, 
-            xlabel=((xlabels if xlabels is str else xlabels[0]) if idx == nrows - 1 else "") if nxlabels <= 1 else (xlabels[nxlabes-1 if idx >= nxlabels else idx]),  # only bottom gets xlabel
-            ylabel=ylabels if nylabels == 1 else ylabels[nylabes-1 if idx >= nylabels else idx], 
+            xlabel=((xlabels if xlabels is str else xlabels[0]) if idx == nrows - 1 else "") if nxlabels <= 1 else (xlabels[nxlabels-1 if idx >= nxlabels else idx]),  # only bottom gets xlabel
+            ylabel=ylabels if nylabels == 1 else ylabels[nylabels-1 if idx >= nylabels else idx], 
             title=title, 
             reference_signal=reference_signal,
             ax=ax
@@ -166,8 +166,8 @@ def scatter(x, signals, labels=None, reference=None,
         isarraywithinarray = True
 
     # Define grayscale markers
-    colors = ["black", "dimgray", "gray", "lightgray"]
-    markers = ["x", "o", "s", "D", "^", "v", "P", "X"]
+    colors = ["dimgray", "black", "gray", "lightgray"]
+    markers = [".", "x", "o", "s", "D", "^", "v", "P", "X"]
     style_cycle = itertools.cycle([(c, m) for m in markers for c in colors])
 
     fig, ax = plt.subplots(figsize=(7,4))
@@ -177,8 +177,9 @@ def scatter(x, signals, labels=None, reference=None,
         ax.scatter(x[0] if isarraywithinarray else x, reference, color="black", marker="x", label="Reference", s=size)
 
     for i, y in enumerate(signals):
+        if y is reference:
+            continue  # already plotted as reference
         color, marker = next(style_cycle)
-        print(len(x[i]), len(y))
         lbl = labels[i] if labels and i < len(labels) else f"Signal {i+1}"
         ax.scatter(x[i] if isarraywithinarray else x, y, color=color, marker=marker, label=lbl, s=size)
 
@@ -187,6 +188,7 @@ def scatter(x, signals, labels=None, reference=None,
     if title:
         ax.set_title(title, fontsize=11)
     ax.legend(frameon=False)
+    ax.grid(True, linestyle=":", linewidth=0.5, alpha=0.7)
     sns.despine(ax=ax)
     plt.tight_layout()
 

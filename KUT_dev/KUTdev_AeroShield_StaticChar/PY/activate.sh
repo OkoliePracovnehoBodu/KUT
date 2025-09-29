@@ -12,10 +12,17 @@ else
     echo "✅ Virtual environment already exists."
 fi
 
-# Activate venv
+# Activate venv - detect OS and use appropriate path
 echo "⚙️  Activating virtual environment..."
-# shellcheck disable=SC1091
-source .venv/bin/activate
+if [[ "$OSTYPE" == "msys" || "$OSTYPE" == "cygwin" || "$OSTYPE" == "win32" ]]; then
+    # Windows (Git Bash, Cygwin, or native Windows)
+    # shellcheck disable=SC1091
+    source .venv/Scripts/activate
+else
+    # Linux/Unix-based systems
+    # shellcheck disable=SC1091
+    source .venv/bin/activate
+fi
 
 # Upgrade pip
 echo "⚙️  Upgrading pip..."
@@ -29,4 +36,9 @@ else
     echo "⚠️  No requirements.txt found, skipping package installation."
 fi
 
-echo "🎉 Environment ready. Run 'source .venv/bin/activate' to use it."
+# Display appropriate activation command based on OS
+if [[ "$OSTYPE" == "msys" || "$OSTYPE" == "cygwin" || "$OSTYPE" == "win32" ]]; then
+    echo "🎉 Environment ready. Run 'source .venv/Scripts/activate' to use it."
+else
+    echo "🎉 Environment ready. Run 'source .venv/bin/activate' to use it."
+fi
