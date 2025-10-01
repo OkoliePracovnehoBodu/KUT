@@ -4,8 +4,36 @@ import itertools
 import numpy as np
 import pandas as pd
 
+def set_paper_style(single_column: bool = True):
+    """
+    Configure Seaborn/Matplotlib for scientific paper figures.
+    - single_column=True -> ~3.5 inch width
+    - single_column=False -> ~7 inch width (double column)
+    """
+    sns.set_theme(style="whitegrid", palette="dark")  # grayscale-like palette
+    
+    if single_column:
+        fig_width = 6.0
+    else:
+        fig_width = 3.0
+    
+    fig_height = fig_width * 0.3  # keep aspect ratio
+    plt.rcParams.update({
+        "figure.figsize": (fig_width, fig_height),
+        "font.size": 10,
+        "axes.labelsize": 10,
+        "axes.titlesize": 11,
+        "legend.fontsize": 9,
+        "xtick.labelsize": 9,
+        "ytick.labelsize": 9,
+        "lines.linewidth": 0.5,
+        "lines.markersize": 2.5,
+        "axes.grid": True,
+        "grid.linewidth": 0.25
+    })
+
 def plot(x, signals, labels=None, xlabel="Time", ylabel="Value", 
-                    title=None, savepath=None, reference_signal=None, ax=None):
+                    title=None, savepath=None, reference_signal=None, markers=None, scatter_signals=None, linewidth=1, ax=None):
     """
     Plot multiple signals in black & white with different line styles.
     Optionally highlight a reference signal (always black dashed).
@@ -39,7 +67,7 @@ def plot(x, signals, labels=None, xlabel="Time", ylabel="Value",
 
     # Prepare figure/axes
     if ax is None:
-        fig, ax = plt.subplots(figsize=(7, 4))
+        fig, ax = plt.subplots(dpi=300)
     else:
         fig = ax.figure
 
@@ -57,8 +85,20 @@ def plot(x, signals, labels=None, xlabel="Time", ylabel="Value",
             color, ls = "black", "--"
         else:
             color, ls = next(style_cycle)
+            marker = markers[i] if markers is not None and len(markers) > i else None
+            ax.plot((x[0] if isarraywithinarray else x) if y is reference_signal else (x[i] if isarraywithinarray else x), y, label=lbl, color=color, linestyle=ls, linewidth=linewidth, marker=marker, markersize=2)
 
-        ax.plot(x[0] if y is reference_signal else x[i] if isarraywithinarray else x, y, label=lbl, color=color, linestyle=ls, linewidth=1.2)
+    if scatter_signals is not None:
+        for i, scatters in enumerate(scatter_signals):
+            nscatters = len(scatters)
+            print(nscatters)
+            x_scatter = scatters[0]
+            y_scatter = scatters[1]
+            label = scatters[2] if nscatters >= 3 else f"y{i}"
+            color = scatters[3] if nscatters >= 4 else "red"
+            size = scatters[4] if nscatters >= 5 else 10
+            marker = scatters[5] if nscatters >= 6 else '.'
+            ax.scatter(x_scatter, y_scatter, color=color, marker=marker, label=label, s=size)
 
     ax.set_xlabel(xlabel)
     ax.set_ylabel(ylabel)
@@ -107,12 +147,10 @@ def subplots(x, signals, labels=None,
     nrows = len(signals)
     nylabels = 1 if ylabels is str else len(ylabels)
     nxlabels = 1 if xlabels is str else len(xlabels)
-    fig, axes = plt.subplots(nrows=nrows, ncols=1, figsize=(7, 3*nrows), sharex=True)
+    fig, axes = plt.subplots(nrows=nrows, ncols=1, figsize=(3.5, 2 * nrows), sharex=True, dpi=300)
 
     if nrows == 1:
         axes = [axes]
-
-
 
     for idx, (signals, ax) in enumerate(zip(signals, axes)):
         lbls = labels[idx] if labels and idx < len(labels) else None
@@ -138,7 +176,7 @@ def subplots(x, signals, labels=None,
     plt.show()
 
 def scatter(x, signals, labels=None, reference=None,
-                    xlabel="Time", ylabel="Value", size=25, title=None, savepath=None):
+                    xlabel="Time", ylabel="Value", size=10, title=None, savepath=None):
     """
     Plot multiple signals as scatter (points only, no connecting lines),
     black & white with different markers.
@@ -166,15 +204,15 @@ def scatter(x, signals, labels=None, reference=None,
         isarraywithinarray = True
 
     # Define grayscale markers
-    colors = ["dimgray", "black", "gray", "lightgray"]
-    markers = [".", "x", "o", "s", "D", "^", "v", "P", "X"]
+    colors = ["black", "dimgray", "gray", "lightgray"]
+    markers = [".", "o", "s", "D", "^", "v", "P", "x", "X"]
     style_cycle = itertools.cycle([(c, m) for m in markers for c in colors])
 
-    fig, ax = plt.subplots(figsize=(7,4))
+    fig, ax = plt.subplots(dpi=300)
 
     # Plot reference if provided
     if reference is not None:
-        ax.scatter(x[0] if isarraywithinarray else x, reference, color="black", marker="x", label="Reference", s=size)
+        ax.scatter(x[0] if isarraywithinarray else x, reference, color="red", marker="x", label="Reference", s=np.ceil(size*0.5))
 
     for i, y in enumerate(signals):
         if y is reference:
