@@ -9,6 +9,8 @@ FILE_PATH = './DATA/dyn_char.csv'
 sns.set_theme(style="ticks", palette="gray", context="paper")  # clean look
 sns.set_context("paper", font_scale=1.2)
 
+qplt.set_paper_style(single_column=True)
+
 
 df = pd.read_csv(FILE_PATH)
 df.columns = df.columns.str.strip()

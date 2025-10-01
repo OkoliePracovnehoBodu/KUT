@@ -23,7 +23,7 @@ end
 DateString = convertCharsToStrings(datestr(datetime('now'), "yyyy_mm_dd_HH_MM_ss"));
 
 datafileID = fopen("./" + DDIR + "/" + "dataFile_" + DateString + ".csv",'w');
-fprintf(datafileID, 't,tp,r,y,u,dt_plant,dt\n');
+fprintf(datafileID, 't,tp,r,y,u,freq,status,dt_plant,dt\n'); % added freq column and status (easier post-processing)
 
 % ----------------------------------
 % ----------------------------------
@@ -37,33 +37,45 @@ T_start = 0;
 
 T_sample = 0.06;      % [sec]
 
-STEP_SIZE = 5; % [%PWM]
+AMPLITUDE = 5; % [%PWM]
 
 U_PB = 20; % [%PWM] pracovny bod, OP - operating point
 
-T_step_time = 15; % [sec]
 
-STEP_SHAPE = [1, 0, -1, 0, 1, -1, 1, 0]; % step up, down, down, up, up, large down, large up, down
 
-nsteps = length(STEP_SHAPE);
+FREQ_SHAPE = 0.1:0.2:4.1; % freqs in Hz
+
+T_step_time = 20; % [sec]
+
+nfreqs = length(FREQ_SHAPE);
+
+freq = 0; % current freq
 
 T_stabilize_time = 30; % [sec] Cas stabilizacie v PB
+
+T_stop = T_stabilize_time * nfreqs + T_step_time * nfreqs;  % [sec]
+
+% Status defines
+
+STATUS_IDLE = 0;
+STATUS_START = 1;
+STATUS_END = -1;
 
 % Define control parameters
 
 U_MAX = 100.0;
 U_MIN = 0.0;
-Y_SAFETY = 100.0;
+Y_SAFETY = 180.0;
 
 % Define STOP TIME
 
-T_stop = T_stabilize_time + T_step_time * nsteps;  % [sec]
+
 
 % Define U increments to get to the U_PB smoothly
 dU = ceil(U_PB/T_stabilize_time*10)/10;
 
 
-fprintf(2, "Simulation will be running for the next: %8.3f seconds, with %8.3f steps\n", T_stop, nsteps + 1);
+fprintf(2, "Simulation will be running for the next: %8.3f seconds, with %8.3f steps\n", T_stop, nfreqs + 1);
 
 % ----------------------------------
 % ----------------------------------
@@ -73,10 +85,10 @@ fprintf(2, "Simulation will be running for the next: %8.3f seconds, with %8.3f s
 % ----------------------------------
 % Initiate Plot Figure
 % ----------------------------------
-
+ 
 plot_window = 20;
 plot_idx_num = floor(plot_window/T_sample);
- 
+
 plot_t = nan(plot_idx_num,1);
 plot_sig_1 = nan(plot_idx_num,1);
 plot_sig_2 = nan(plot_idx_num,1);
@@ -97,11 +109,11 @@ clf;
 
 function updateInfo(datafileID, dt, Ts, x)
     if ((dt/1000) > (Ts*1.05))
-        fprintf('%8.3f %8.3f %8.3f %8.3f %8.3f %8.3f %8.3f --\n', x);
+        fprintf('%8.3f %8.3f %8.3f %8.3f %8.3f %8.3f %8.3f %8.3f %8.3f--\n', x);
     else
-        fprintf('%8.3f %8.3f %8.3f %8.3f %8.3f %8.3f %8.3f\n', x);
+        fprintf('%8.3f %8.3f %8.3f %8.3f %8.3f %8.3f %8.3f %8.3f %8.3f\n', x);
     end
-    fprintf(datafileID, '%8.3f,%8.3f,%8.3f,%8.3f,%8.3f,%8.3f,%8.3f\n', x);
+    fprintf(datafileID, '%8.3f,%8.3f,%8.3f,%8.3f,%8.3f,%8.3f,%8.3f,%8.3f,%8.3f\n', x);
 end
 
 doUpdate = @(x) updateInfo(datafileID, x(end), T_sample, x);
@@ -139,7 +151,7 @@ plant_input = serLineList(4);
 plant_dt = serLineList(5);
 
 % Display and record the received data
-tmp_printlist = [0, plant_time, plant_potentiometer, plant_output, plant_input, plant_dt/1000, T_sample * 1000];
+tmp_printlist = [0, plant_time, plant_potentiometer, plant_output, plant_input, freq, STATUS_IDLE, plant_dt/1000, T_sample * 1000];
 doUpdate(tmp_printlist);
 
 % ----------------------------------
@@ -154,9 +166,11 @@ doUpdate(tmp_printlist);
 u = 0;
 u_send = u;
 
-istep = 1; % Holding the step index within the STEP_SHAPE matrix
-wasstepchange = false; % Check whether a change in step happened within the iteration
+istep = 1; % Holding the step index within the FREQ_SHAPE matrix
+wasfreqchange = false; % Check whether a change in step happened within the iteration
 isstable = false;
+isstable_between = true;
+currentstatus = STATUS_IDLE;
 
 % Get the initial time
 time_start = datetime('now');
@@ -177,20 +191,37 @@ while true
     
     % Calculate time elapsed since last iteration
     time_delta = milliseconds(time_curr - time_tick);
+    time_step_delta = milliseconds(time_curr - time_step)/1000;
 
     % ----------------------------------
     % Logic behind the measurement, before sending the data
     % ----------------------------------
     
-    if (~isstable && milliseconds(time_curr - time_stabilize)/1000 >= T_stabilize_time)
-        isstable = true;
+    if (~isstable)
+        if (milliseconds(time_curr - time_stabilize)/1000 >= T_stabilize_time)
+            isstable = true;
+            isstable_between = true;
+        end
     end
 
-    if (isstable && milliseconds(time_curr - time_step)/1000 >= T_step_time)
-        time_step = time_curr;
-        u = U_PB + STEP_SHAPE(istep) * STEP_SIZE;
-        istep = istep + 1;
-        wasstepchange = true;
+
+
+    if (isstable && time_step_delta >= T_step_time)
+        if (~isstable_between) % initial freq change
+            isstable = false;
+            time_stabilize = time_curr;
+            currentstatus = STATUS_END;
+        else
+            isstable_between = false;
+            currentstatus = STATUS_START;
+            time_step = time_curr;
+            if(istep > nfreqs) % End the measurement when outside of the array bounds
+                break;
+            end
+            freq = FREQ_SHAPE(istep);
+            istep = istep + 1;
+            wasfreqchange = true;
+        end
     end
 
     % ----------------------------------
@@ -202,8 +233,8 @@ while true
     % ----------------------------------
 
     % Check if it's time to send a new command
-    if (wasstepchange || time_delta >= T_sample * 1000)
-        wasstepchange = false; % Reset the step change variable, to keep to the defined sampling period
+    if (wasfreqchange || time_delta >= T_sample * 1000)
+        wasfreqchange = false; % Reset the step change variable, to keep to the defined sampling period
         time_tick = time_curr;
         
         % Calculate total time elapsed
@@ -223,9 +254,13 @@ while true
         plant_dt = serLineList(5);
         
         % Display the received data
-        tmp_printlist = [time_elapsed, plant_time, plant_potentiometer, plant_output, plant_input, plant_dt/1000, time_delta];
+        tmp_printlist = [time_elapsed, plant_time, plant_potentiometer, plant_output, plant_input, freq, currentstatus, plant_dt/1000, time_delta];
 
         doUpdate(tmp_printlist);
+
+        if (currentstatus ~= STATUS_IDLE)
+            currentstatus = STATUS_IDLE;
+        end
 
         % ----------------------------------
         % Plot the measured data in real time
@@ -257,8 +292,10 @@ while true
         % ----------------------------------
         % Calcualte 'u' - control output (akcny zasah)
         % ----------------------------------
-        if(~isstable && u < U_PB)
-            u = min(u + dU, U_PB);
+        if(~isstable)
+            u = min(U_PB/2 * (tanh(time_elapsed - 4) + 1) , U_PB);
+        else
+            u = AMPLITUDE * sin(2*pi*freq*time_step_delta) + U_PB;
         end
 
         u_send = u;
@@ -277,7 +314,7 @@ while true
         % End loop condition - check if the simulation should stop
         % ----------------------------------
         
-        if time_elapsed >= T_stop || plant_output >= Y_SAFETY 
+        if time_elapsed >= T_stop || plant_output >= Y_SAFETY
             break;
         end
 
@@ -296,6 +333,7 @@ end
 
 % Send a final command and close the serial port
 write(serPort, 0.0, 'single');
+readline(serPort);
 clear serPort;
 fclose(datafileID);
 
@@ -308,7 +346,7 @@ fclose(datafileID);
 
 logsout = readtable("./" + DDIR + "/" + "dataFile_" + DateString + ".csv", "VariableNamingRule","preserve","Delimiter",",");
 
-save("./" + DDIR + "/" + "dataFile_" + DateString, "U_MAX", "U_MIN", "Y_SAFETY", "T_sample", "T_start", "T_stop", "T_stabilize_time", "T_step_time", "U_PB", "dU", "STEP_SHAPE", "STEP_SIZE", "u", "logsout");
+save("./" + DDIR + "/" + "dataFile_" + DateString, "U_MAX", "U_MIN", "Y_SAFETY", "T_sample", "T_start", "T_stop", "T_stabilize_time", "T_step_time", "U_PB", "dU", "FREQ_SHAPE", "AMPLITUDE", "u", "logsout");
 
 % ----------------------------------
 % ----------------------------------
