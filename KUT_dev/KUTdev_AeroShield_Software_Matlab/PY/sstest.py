@@ -13,6 +13,12 @@ B = np.array([[0, 1/m]], dtype=np.float32).T
 C = np.array([[1, 0]], dtype=np.float32)
 D = np.array([[0]], dtype=np.float32)
 
+# The following is the SS model identified for the pendulum on the AeroShield at the OP u=20
+A = np.array([[-0.325866930037375, -7.94125578662953], [8.42682850696799, -0.624630448942036]])
+B = np.array([[0.0361088744883682, 0.103903056977437]]).T
+C = np.array([[-120.096911579255, 24.6979868760439]])
+D = np.array([[0]])
+
 x_init = np.array([[0, 0]], dtype=np.float32).T
 
 t = 0.0
@@ -54,7 +60,8 @@ while t < t_stop:
 	e_int += e * dt
 	e_old = e
 
-	u = P * e + I * e_int + D * e_der
+	# u = P * e + I * e_int + D * e_der
+	u = 20
 
 	Gs.compute(u)
 
@@ -62,7 +69,7 @@ while t < t_stop:
 	x1 = Gs.x.copy().flatten()[0]
 	x2 = Gs.x.copy().flatten()[1]
 
-	logsout.append([t, r, y.flatten(), u.flatten(), e.flatten(), de.flatten(), x1, x2])
+	logsout.append([t, r, y, u, e, de, x1, x2])
 	t += dt
 
 
@@ -70,5 +77,6 @@ import pandas as pd
 df = pd.DataFrame(logsout, columns=column_names)
 df.to_csv("logsout.csv", index=False)
 
-qplot.subplots(df.t, signals=[[df.r, df.y], [df.u]], reference_signal=df.r, xlabels=['t [s]'], ylabels=['angle [rad]', 'input [N]'], titles=['System response', 'Control output'], labels=[['r','y'],'u'], savepath='pendulum_pid.pdf')
+qplot.plot(df.t, signals=[df.y], xlabel='x1 [rad]', ylabel='x2 [rad/s]', title='Phase portrait', savepath='pp_pid.pdf')
+qplot.subplots(df.t, signals=[[df.r, df.y], [df.u]], reference_signal=df.r, xlabels=['t [s]'], ylabels=[r'$\phi [rad]$', 'input [N]'], titles=['System response', 'Control output'], labels=[['r','y'],'u'], savepath='pendulum_pid.pdf')
 qplot.plot(df.e, signals=[df.de], xlabel='x1 [rad]', ylabel='x2 [rad/s]', title='Phase portrait', savepath='pp_pid.pdf')

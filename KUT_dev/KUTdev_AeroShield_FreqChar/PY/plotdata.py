@@ -14,7 +14,7 @@ df.columns = df.columns.str.strip()
 print("Columns: ", df.columns, ' | count: ', df.t.count())
 
 # Plot the response in a subplot
-qplt.subplots(df.t, signals=[[df.y], [df.u], [df.status]], ylabels=[r'$\varphi [^\circ]$', 'u [%PWM]', 'status'], titles=['System Response', 'Input Signal', 'Measurement Status'], labels=[r'$\varphi$','u', 'status'], savepath='freq_char_measurement.pdf')
+qplt.subplots(df.t, signals=[[df.y], [df.u], [df.freq]], ylabels=[r'$\varphi [^\circ]$', 'u [%PWM]', 'status'], titles=['System Response', 'Input Signal', 'Measurement Status'], labels=[r'$\varphi$','u', 'status'], savepath='freq_char_measurement.pdf')
 
 
 
