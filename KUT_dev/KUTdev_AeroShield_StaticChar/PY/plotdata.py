@@ -28,8 +28,8 @@ print(dtind_diff.agg(['std', 'mean', 'max', 'min']))
 qplt.plot(df.t, signals=[df.y], xlabel='t [s]', ylabel=r'$\varphi [^\circ]$', title='System Response', labels=[r'$\varphi$'], savepath='measurement.pdf')
 
 
-qplt.scatter(df.u, signals=[df.y], xlabel='u [%PWM]', ylabel=r'$\varphi [^\circ]$', title='Gain response', labels=['gain'], size=5, savepath='gain_response.pdf')
-qplt.subplots(df.t, signals=[[df.y], [df.y/df.u], [df.u]], ylabels=[r'$\varphi [^\circ]$', r'$\frac{\varphi}{u} [^\circ/\%PWM]$','u [%PWM]'], xlabels=['t [s]'], titles=['System Response', r'Gain $\frac{\varphi}{U}$', 'Control output'], labels=['y','y/u','u'], savepath='multiplot_response.pdf')
+qplt.scatter(df.u, signals=[df.y], xlabel='u [%PWM]', ylabel=r'$\varphi [^\circ]$', title='Control response', labels=['data'], size=5, savepath='gain_response.pdf')
+qplt.subplots(df.t, signals=[[df.y], [df.y/df.u], [df.u]], ylabels=[r'$\varphi [^\circ]$', r'$\frac{\varphi}{u} [^\circ/\%PWM]$','u [%PWM]'], xlabels=['t [s]'], titles=['System Response', r'$\frac{\varphi}{U}$ response', 'Control output'], labels=['y','y/u','u'], savepath='multiplot_response.pdf')
 
 # Plot the derivative of the y response signal
 dy = df.y.diff()/df.dt
@@ -70,7 +70,7 @@ df_zoom_stable = pd.concat([dfzoom.iloc[start:end] for start, end in du_zoom_ran
 
 qplt.plot([t_zoom[:-1]], signals=[dy_zoom], title="Zoomed dY", xlabel='t [s]', ylabel=r'$\omega [^\circ/s]$', labels=[r'$\omega$'], savepath="zoomed_dy.pdf")
 
-qplt.plot(t_zoom, signals=[y_zoom, u_zoom], scatter_signals=[(df_zoom_stable.t, df_zoom_stable.y, "steady")], reference_signal=u_zoom, labels=[r'$\varphi$','u'], xlabel='t [s]', ylabel='value', title='Measurement zoom', savepath='measurement_zoom.pdf')
+qplt.plot(t_zoom, signals=[y_zoom, u_zoom], scatter_signals=[(df_zoom_stable.t, df_zoom_stable.y, "steady")], reference_signal=u_zoom, labels=[r'$\varphi$','u'], xlabel='t [s]', ylabel=r'$\varphi [^\circ]$', title='Measurement zoom', savepath='measurement_zoom.pdf')
 
 
 dtind_max = np.concatenate([np.where(mask)[0] - 1, [df.t.count() - 1]])
@@ -112,7 +112,7 @@ print("✅ Processed data saved to ss_char_processed.csv")
 
 qplt.plot([df.t, t_filt, ts, ts], signals=[df.y, y_filt, means, us], reference_signal=df.y, xlabel='t [s]', ylabel='du', title='Static Characteristic', labels=['y', 'y_filt', 'y_mean', 'u_mean'], savepath='ss_char.pdf')
 
-qplt.scatter(us, signals=[means], xlabel='u [%PWM]', ylabel=r'$\varphi [^\circ]$', title='Static Characteristic', labels=[r'$\frac{\varphi}{u}$'], savepath='ss_char_gain.pdf')
+qplt.scatter(us, signals=[means], xlabel='u [%PWM]', ylabel=r'$\varphi [^\circ]$', title='Static Characteristic', labels=['data'], savepath='ss_char_gain.pdf')
 
 fit_range = (4, 96)
 us_fit_find = us[fit_range[0]:fit_range[1]]
@@ -123,7 +123,7 @@ fit_df = pd.DataFrame({"t": ts_fit_find, "u": us_fit_find, "y": ys_fit_find})
 fit_df.to_csv('ss_char_fitdata.csv', index=False)
 print("✅ Fit data saved to ss_char_fitdata.csv")
 
-qplt.scatter([us, fit_df['u']], signals=[means, fit_df['y']], xlabel='u [%PWM]', ylabel=r'$\varphi [^\circ]$', title='Static Characteristic', labels=[r'$\frac{\varphi}{u}$',r'$\frac{\varphi}{u}~-~\text{zoom}$'], savepath='ss_char_linear_gain.pdf')
+qplt.scatter([us, fit_df['u']], signals=[means, fit_df['y']], xlabel='u [%PWM]', ylabel=r'$\varphi [^\circ]$', title='Static Characteristic Comparison', labels=['data','data zoom'], savepath='ss_char_linear_gain.pdf')
 
 poly = None
 MSE = float('inf')

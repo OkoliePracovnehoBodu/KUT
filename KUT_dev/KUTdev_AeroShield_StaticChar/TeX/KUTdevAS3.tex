@@ -142,7 +142,7 @@ textu je opis a príklad merania statickej charakteristiky (prevodová charakter
 
 \section{Postup návrhu merania statickej charakteristiky}
 
-AS je laboratórne zariadenie predstavujúce reálny dynamický systém, ktorý sme predstavili v KUT dokumente Laboratórne zariadenie AeroShield:\\ orientačný prehľad. V prípade, že chceme odmerať statické vlastnosti systému, musíme vedieť rozsahy vstupov a výstupov, aby sme boli schopný korektne navrhnúť experiment na zmeranie vlastností systému.
+AS je laboratórne zariadenie predstavujúce reálny dynamický systém, ktorý sme predstavili v \href{run:../../KUTdev_AeroShield_Info/TeX/KUTdevAS0.pdf}{KUT dokumente Laboratórne zariadenie AeroShield:\\ orientačný prehľad}. V prípade, že chceme odmerať statické vlastnosti systému, musíme vedieť rozsahy vstupov a výstupov, aby sme boli schopný korektne navrhnúť experiment na zmeranie vlastností systému.
 V prípade AS vieme, že vstupný signál je v rozsahu $0\% - 100\%$, musíme si zvoliť rozumnú veľkosť kroku a dĺžku trvania kroku, aby sme dostatočne zachytili vlastnosti systému. Zvoľme si teda podľa tab. \ref{tab:config}.
 
 \begin{center}
@@ -165,11 +165,14 @@ V prípade AS vieme, že vstupný signál je v rozsahu $0\% - 100\%$, musíme si
 
 \end{center}
 
-Nakoľko meriame statické vlastnosti, tak nás nezaujíma priebeh výstupného signálu v neustálenom stave. To znamená napr., ak vstupná hodnota je $10\%$ a už sme pre túto hodnotu ukončili meranie, a chceme sa presunúť na hodnotu $50\%$, tak akokoľvek sa na žiadanu hodnotu akčného zásahu dostaneme, je irelevantné. Nakoľko, meranie uskutočníme až v čase, keď výstupný signál z AS je ustálený - ukážeme na príklade.
+Nakoľko meriame statické vlastnosti, tak nás zaujíma iba priebeh výstupného signálu v \emph{ustálenom stave}. Teda keď systém neprejavuje žiadne dynamické vlastnosti, t.j. neprebieha žiaden nami vyžiadaný dynamický dej.
+
+% Bolo by fajn sa pokusit nejak zadefinovat pojem ustaleny stav.
+% Čo považujeme za ustálený stav podrobnejšie najdete v KUT ustálený stav.
 
 
 \section{Meranie statickej charakteristiky}
-Nastavíme si veľkosť kroku a dĺžku kroku. Veľkosť kroku si volíme podľa potreby, v rámci merania sme vybrali veľkosť kroku $1$, nakoľko sme chceli ukázať, že zachytíme nelinearitu systému pri rozbehu - možno nazvať "mrtva zóna" teda \emph{deadzone}. Zároveň sme sa upísali k meraniu, ktoré bude zbytočne dĺho trvať (viď \figref{fig:ss_raw}).
+Veľkosť kroku si volíme podľa potreby, v rámci merania sme vybrali veľkosť kroku $1$, nakoľko sme chceli ukázať, nelinearity systému t.j. \emph{deadzone} (suché trenie) a \emph{saturation} (saturácia/ohraničenie). Stojí nás to čas trvania merania (viď \figref{fig:ss_raw}), však v realite, by sme meranie zastavili hneď po dovršení konečnej saturácie, nakoľko chceme predísť možným poškodeniam systému alebo okoliu.
 
 \begin{center}
 
@@ -188,36 +191,60 @@ Nastavíme si veľkosť kroku a dĺžku kroku. Veľkosť kroku si volíme podľa
 
 \end{center}
 
+Ako si možeme všimnúť na \figref{fig:ss_raw} v okolí $t = 0$ a $t = 500$ sa prejavujú nelinearity systému, ktoré chceme v rámci identifikácie lineárneho modelu systému opomenúť, nakoľko sú \emph{nelineárne}. Možno lepšie znázorniť nelineárne časti systému, použitím iného spôsobu náhladu dát \figref{fig:ss_raw_gain}.
 
 \begin{center}
 
-    \vspace{-10pt}
+    \vbox{%
 
-    \tabcaption{Rozsahy a jednotky signálov}
-    \label{tab:rozsahy_a_jednotky_signalu}
 
-    \lstyle
+        \makebox[\textwidth][c]{%
+            \includegraphics{gain_response.pdf}
+        }
 
-    \begin{tabular*}{\textwidth}{@{ \extracolsep{\fill}} lll}
-        \toprule
-        Signál & Rozsah hodnôt & Jednotka \\
-        \midrule
-        Vstup & $0$ až $255$ & - \\
-        Výstup & \ang{-50} až \ang{210} & \si{\degree} \\
-        Potenciometer & $0$ až $100$ & - \\
-        \bottomrule
-    \end{tabular*}
-
+        \figcaption{
+            Vstupno-výstupná charakteristika.
+        }
+        \label{fig:ss_raw_gain}
+    }%vbox
 
 \end{center}
 
+\section{Spracovanie merania statickej charakteristiky}
+Ako sme spomínali, chceme odstrániť nelinearnej časti, z ktorých si vieme následne vyčítať hodnoty nelinearít, ktoré vieme následne využiť pri identifikácii a konštrukcii nelineárneho modelu systému. V tejto časti však chceme dostať model statickej charakteristiky zariadenia, postup je následovný.
+
+\begin{enumerate}
+
+\item Získame si intervaly merania, kedy je výstupný signál systému ustálený.
+\item Použijeme vhodné kritérium na vyhodnotenie ustálenej hodnoty systému pre jednotku akčného zásahu. (stredná hodnota)
+\item Priradíme si vypočítanú ustálenú hodnotu systému ku veľkosti akčného zásahu.
+\item Následne vykreslíme hodnoty ustálených hodnôt a akčných zásahov, čo predstavuje statickú charakteristiku systému.
+\item Model vytvoríme z kvázi lineárnej časti statickej charakteristiky, z ktorej si vyberáme pracovné body.
+\item Odstránime nelinearity, ktoré by spôsobovali vysoký rád modelu.
+\item Nakoniec optimálne spojimé vyhodnotené body výstupnej veličiny v závislosti od akčého zásahu. (Nafitujeme polynomickú funkciu n-tého rádu na konečné dáta)
+
+\end{enumerate}
+
+\begin{center}
+
+    \vbox{%
 
 
+        \makebox[\textwidth][c]{%
+            \includegraphics{measurement_zoom.pdf}
+        }
 
+        \figcaption{
+            Detail nameraných dát a zobrazenie intervalov ustálených hodnôt merania.
+        }
+        \label{fig:ss_raw_zoom}
+    }%vbox
 
+\end{center}
 
+Na \figref{fig:ss_raw_zoom} je detail začiatku merania, na ktorom vyznačujeme intervaly ustálených hodnôt merania, v našom prípade merania sme si zadefinovali, že ustálenie nastáva v $50\%$ dĺžky trvania skoku. V inom prípade, by sme museli buď zaviesť nové kritérium pre nájdenie kvázi ustáleného stavu alebo ručne pre každé meranie vyznačiť interval. Kritérium derivácie rovnej 0 alebo konštante nemožno v realite použiť bez rôznych ošetrení, nakoľko do meraniu vstupujú vonkajšie vplyvy, ktoré zašumia snímaný signál a teda vnášajú nepresnosť do merania a spracovania dát.
 
-\section{Schematické znázornenie systému}
+Následne sme použili jednoduchý výpočet strednej hodnoty množiny výstupných hodnôt v intervale ustálených výstupných hodnôt, čo je znázornené na \figref{fig:ss_char}, kde sme priradili stredné hodnoty ustalených hodnôt k vstupnej veličine teda akčnému zásahu.
 
 
 \begin{center}
@@ -226,17 +253,33 @@ Nastavíme si veľkosť kroku a dĺžku kroku. Veľkosť kroku si volíme podľa
 
 
         \makebox[\textwidth][c]{%
-            \includegraphics{AS_system.pdf}
+            \includegraphics{ss_char_gain.pdf}
         }
 
         \figcaption{
-            Signály systému AS.
+            Statická (Prevodová) charakteristika zariadenia AeroShield.
         }
-        \label{LMOT_sch1}
+        \label{fig:ss_char}
     }%vbox
 
 \end{center}
 
+
+Nakoniec vytvoríme jednoduchý polynomický model statickej charaktertistiky, ktorý nám posluži pri predikcii ustáleného stavu pre naše zariadenie. Odstránime nelineárne časti - teda body, ktoré nevieme preložiť jednoduchou priamkou od počiatočne zvoleného bodu po koncovo zvolený bod, nakoľko v našom prípade by model bol vysokého rádu pri ponechaní nelinearít - viac ako 10. rád. Takto sme si zjednodušili model, vypočtovú náročnosť a zanedbali sme vonkajšie poruchy, ktoré nám skreslujú meranie a model. Vybrali sme si identifikovať model 3. rádu (viď \eqref{eq:poly_model}), nakoľko v pomere náročnosť a presnosť je postačujúci. Náš navrhovaný model vyzerá nasledovne:
+
+\begin{equation}
+    y(u) = b_3 u^3 + b_2 u^2 + b_1 u + b_0.
+    \label{eq:poly_model}
+\end{equation}
+
+Po použití funkcie \emph{polyfit}, sme dostali výsledný vzťah:
+
+\begin{equation}
+    y(u) = 0.0004 u^3 + (-0.0289) u^2 + 2.1281 u + (-3.3064).
+    \label{eq:poly_model_full}
+\end{equation}
+
+Následne, keď do modelu \eqref{eq:poly_model_full} dosadime hodnoty akčných zásahov, v rozmedzí intervalu, ktoré sme nemerali napr. hodnotu $u = 15.5$, dostaneme približnú hodnotu, na ktorej sa reálne zariadenie ustály, pri danej hodnote akčného zásahu. Tento model je znázornený na \figref{fig:ss_char_model} bodmi, zatiaľ čo namerané hodnotý červenými krížíkmi. Dodatočne sme vyjadrili chybovosť modelu pomocou kritéria priemeru rozdielu štvorcou (Mean Square Error \emph(MSE)).
 
 \begin{center}
 
@@ -244,161 +287,16 @@ Nastavíme si veľkosť kroku a dĺžku kroku. Veľkosť kroku si volíme podľa
 
 
         \makebox[\textwidth][c]{%
-            \includegraphics{AS_system_pinout.pdf}
+            \includegraphics{ss_char_polyfit.pdf}
         }
 
         \figcaption{
-            Schéma pripojenia laboratórneho zariadenia AS ku GPIO pinom Arduino UNO R$3$.
+            Identifikovaný polynomický model statickej charakteristiky 3. rádu.
         }
-        \label{AS_sch2}
+        \label{fig:ss_char_model}
     }%vbox
 
 \end{center}
-
-Na obr. \ref{AS_sch2} môžeme vidieť, že A$0$ je analógový vstup potenciometra, $\sim$D$5$ je fyzický výstup akčného zásahu na logickej úrovni vo forme \emph{PWM} (\href{https://docs.arduino.cc/learn/microcontrollers/analog-output/}{Pulse-Width Modulation}), I$2$C slúži na odčítanie uhlovej polohy ramena.
-
-
-
-\section{Fotografie}
-
-Zoznam fotografií:
-
-\begin{itemize}
-    \item Obr. \ref{IMG_6874_toPDF}: Celkový pohľad na laboratórne zariadenie LMOT.
-    \item Obr. \ref{IMG_6922_toPDF}: Motor a tachodynamo.
-    \item Obr. \ref{IMG_6941_toPDF}: Elektronické obvody zariadenia.
-    \item Obr. \ref{IMG_6931_toPDF}: Predný panel so svorkami a potenciometrom.
-\end{itemize}
-
-
-
-
-
-\noindent
-\vbox{%
-
-    \makebox[\textwidth][c]{%
-        \includegraphics{IMG_6874_toPDF.jpg}
-    }
-
-    \figcaption{
-        Celkový pohľad na laboratórne zariadenie LMOT.
-    }
-
-    \vspace{12pt}
-
-    \label{IMG_6874_toPDF}
-}%vbox
-
-
-
-\noindent
-\vbox{%
-
-    \makebox[\textwidth][c]{%
-        \includegraphics{IMG_6922_toPDF.jpg}
-    }
-
-    \figcaption{
-        Motor a tachodynamo.
-    }
-
-    \vspace{12pt}
-
-    \label{IMG_6922_toPDF}
-}%vbox
-
-
-
-
-\noindent
-\vbox{%
-
-    \makebox[\textwidth][c]{%
-        \includegraphics{IMG_6941_toPDF.jpg}
-    }
-
-    \figcaption{
-        Elektronické obvody zariadenia.
-    }
-
-    \vspace{12pt}
-
-    \label{IMG_6941_toPDF}
-}%vbox
-
-
-
-
-\noindent
-\vbox{%
-
-    \makebox[\textwidth][c]{%
-        \includegraphics{IMG_6931_toPDF.jpg}
-    }
-
-    \figcaption{
-        Predný panel so svorkami a potenciometrom.
-    }
-
-    \vspace{12pt}
-
-    \label{IMG_6931_toPDF}
-}%vbox
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
