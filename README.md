@@ -11,13 +11,18 @@
 
 ### Adresáre
 
-Adresár `KUT_items` obsahuje krátke učebné texty vo forme podadresárov `KUT_###`.
+Adresár `KUT_items` obsahuje krátke učebné texty vo forme podadresárov `KUT###`.
 
-Každý krátky učebný text (KUT) obsahuje hlavný PDF dokument spravidla v adresári `TeX` s názvom `KUT_###.pdf` a prípadne ďalšie súbory, ktoré sú súčasťou KUT-u. Napríklad vektorové obrázky patriace k textu sú v adresári `SVG` a podobne. 
+Každý krátky učebný text (KUT) obsahuje hlavný PDF dokument spravidla v adresári `TeX` s názvom `KUT###.pdf` a prípadne ďalšie súbory, ktoré sú súčasťou KUT-u. Napríklad vektorové obrázky patriace k textu sú v adresári `SVG` a podobne. 
 
 Adresár `KUT_indexes` obsahuje indexy jednotlivých položiek v adresári `KUT_items`, inými slovami zoznami krátkych učebných textov. Prirodzene zoznam všetkých textov ale tiež aj tematicky zamerané zoznamy. Tieto indexy spravidla obsahujú odkazy na hlavné PDF dokumenty krátkych učebných textov.
 
+Súbor `KUT_portal.pdf` je vstupnou stránkou kolekcie učebných textov, predstavuje projekt a obsahuje odkazy na indexy v adresári `KUT_indexes`.
+
 Repozitár ako celok je možné [stiahnuť ako zip súbor](https://github.com/PracovnyBod/KUT/archive/refs/heads/main.zip).
+
+
+
 
 ### Vývojové vetvy (branches)
 
