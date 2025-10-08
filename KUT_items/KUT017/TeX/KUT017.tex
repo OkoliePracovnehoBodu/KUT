@@ -11,8 +11,8 @@
 
 \def\KUTporadoveCislo{017}
 
-% \def\oznacenieVerzie{v0.9}
-\def\oznacenieVerzie{\phantom{v1.0}}
+\def\oznacenieVerzie{v1.1}
+% \def\oznacenieVerzie{\phantom{v1.0}}
 
 \def\mesiacRok{október 2025}
 
@@ -147,9 +147,9 @@ Nasledujúce informácie nadväzujú na opis laboratórneho zariadenia TS a aktu
 \noindent
 \begin{tabular*}{\textwidth}{ @{} >{\sffamily}p{2.0cm} @{\extracolsep{\fill}} p{11cm}<{\raggedright}}
 
-    \href{run:../../KUT_items/KUT015/TeX/KUT015.pdf}{KUT015} & \href{run:../../KUT_items/KUT015/TeX/KUT015.pdf}{Laboratórne zariadenie TS: orientačný prehľad} \\ \addlinespace[3pt]  
+    \href{run:../../KUT015/TeX/KUT015.pdf}{KUT015} & \href{run:../../KUT015/TeX/KUT015.pdf}{Laboratórne zariadenie TS: orientačný prehľad} \\ \addlinespace[3pt]  
 
-    \href{run:../../KUT_items/KUT013/TeX/KUT013.pdf}{KUT013} & \href{run:../../KUT_items/KUT013/TeX/KUT013.pdf}{Laboratórium kybernetiky: zoznam laboratórnych zariadení} \\ \addlinespace[3pt]  
+    \href{run:../../KUT013/TeX/KUT013.pdf}{KUT013} & \href{run:../../KUT013/TeX/KUT013.pdf}{Laboratórium kybernetiky: zoznam laboratórnych zariadení} \\ \addlinespace[3pt]  
 
 \end{tabular*}
 
@@ -157,20 +157,21 @@ Nasledujúce informácie nadväzujú na opis laboratórneho zariadenia TS a aktu
 
 
 
+
 \paragraph{MATLAB - Simulink schémy}
 
 Softvérom tu uvedením sú  MATLAB - Simulink schémy (modely) s nakonfigurovanými blokmi prepájajúcimi prostredie Simulink so zariadením TS prostredníctvom meracej karty. 
-
 V laboratóriu je niekoľko zariadení TS a každé je pripojené ku konkrétnej počítačovej zostave. Ku každému zariadeniu prislúcha zodpovedajúca Simulink schéma. Všetky Simulink schémy sú uložené v adresári \texttt{ML} prislúchajúcom k tomuto \textsf{KUT}:
 
 \noindent
 \input{../PY/latex-dirtree-gen-output/dirTree_ML.tex}
 
+\medskip
+
+\noindent
+Verzia MATLAB 22b bola použitá na vytvorenie uvedených schém.
 
 
-
-
-% \textl{01}
 
 \section{Softvér pre jednotlivé zariadenia}
 
@@ -237,14 +238,17 @@ Vnútorné zapojenie bloku \textl{TS01} pre túto schému je zobrazené na obr. 
 
 
 
+
+\subsection{Zariadenie TS02, schéma \texttt{TS02\_start.slx}}
+
+Zariadenie \textsf{TS\textl{02}} je pripojené k počítačovej zostave \textsf{LK\textl{32}}. Zodpovedajúca Simulink schéma je \texttt{TS02\_start.slx}. Opis schémy je analogický ako v predchádzajúcej časti.
+
 \subsection{Zariadenie TS04, schéma \texttt{TS04\_start.slx}}
 
 Zariadenie \textsf{TS\textl{04}} je pripojené k počítačovej zostave \textsf{LK\textl{23}}. Zodpovedajúca Simulink schéma je \texttt{TS04\_start.slx}. Opis schémy je analogický ako v predchádzajúcej časti.
 
 
-\subsection{Zariadenie TS05, schéma \texttt{TS05\_start.slx}}
 
-Zariadenie \textsf{TS\textl{05}} je pripojené k počítačovej zostave \textsf{LK\textl{32}}. Zodpovedajúca Simulink schéma je \texttt{TS05\_start.slx}. Opis schémy je analogický ako v predchádzajúcej časti.
 
 
 
