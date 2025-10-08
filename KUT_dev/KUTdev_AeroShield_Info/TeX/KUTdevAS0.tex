@@ -2,6 +2,38 @@
 
 \input{./COMMONFILES/preamble.tex}
 \usepackage{siunitx}
+\usepackage{tikz}
+
+% Import required TikZ libraries
+\usetikzlibrary{arrows.meta,shapes,shadows,positioning,calc}
+
+% Font sizes
+% \tiny
+% \scriptsize
+% \footnotesize
+% \small
+% \normalsize
+% \large
+% \Large
+% \LARGE
+% \huge
+% \Huge
+
+% Define common style for path lines - this style is labeled "myPath"
+% Define some reusable styles
+\tikzstyle{decision} = [diamond, draw, fill=white]
+\tikzstyle{line} = [arrows = {-Straight Barb[scale length=3,angle'=35, round]}, line width=0.2mm, font=\footnotesize]
+\tikzstyle{elli}= [draw, ellipse, fill=gray!20, minimum height=8mm, text width=5em, text centered]
+\tikzstyle{block} = [draw, rectangle, fill=white, text width=2cm, font=\normalsize, text centered, minimum height=15mm, node distance=2cm]
+
+% Figures: "obr. 1"
+\newcommand{\figref}[1]{\hyperref[#1]{obr.~\ref*{#1}}}
+
+% Tables: "tab. 1"
+\newcommand{\tabref}[1]{\hyperref[#1]{tab.~\ref*{#1}}}
+
+% Equations: "rov. (1)"
+\newcommand{\eqrefsk}[1]{\hyperref[#1]{rov.~(\ref*{#1})}}
 
 % -----------------------------------------------------------------------------
 
@@ -136,7 +168,7 @@ textu je opis laboratórneho zariadenia AeroShield predstavujúceho fyzický mod
 
 \section{Opis dynamického systému}
 
-AeroShield (daľej len \emph{AS}) je laboratórne zariadenie predstavujúce reálny dynamický systém. Pozostáva z jednoramenného kývadla, malého jednosmerného motora s vrtuľkou na vystupnom hriadeli - uloženého na volnom konci ramena. Následne je výstup snímaní magnetickým rotačným enkóderom AS5600, ktorý zabezpečuje presné meranie uhlovej polohy ramena. Osadený potenciometer, ktorý nerobí nič, iba sa točí a jeho pozícia je snímana pomocou Arduino UNO zariadenia, možno ho využiť na rôzne účely napr. predčasné ukončenie simulácie ak je hodnota signálu > 500.
+AeroShield (daľej len \emph{AS}) je laboratórne zariadenie predstavujúce reálny dynamický systém. Pozostáva z jednoramenného kývadla, malého jednosmerného motora s vrtuľkou na vystupnom hriadeli - uloženého na volnom konci ramena. Následne je výstup snímaní magnetickým rotačným enkóderom AS5600, ktorý zabezpečuje presné meranie uhlovej polohy ramena. Osadený potenciometer, ktorý nerobí nič, iba sa točí a jeho pozícia je snímana pomocou Arduino UNO zariadenia, možno ho využiť na rôzne účely napr. predčasné ukončenie simulácie ak je hodnota signálu > 90\%.
 
 Systém má jeden vstupný signál a jeden výstupný signál. Výstupný signál je priamo úmerný uhlovej polohe ramena, ktorá je snímaná enkóderom. Vstupný signál nepriamo ovláda napájanie motora cez otvorenie mosfet tranzisotra, ktorý priamo zásobuje napätie na motor.
 
@@ -181,10 +213,6 @@ Z opisu predmetného dynamického systému vyplýva, že systém má jeden výst
 
 
 
-
-
-
-
 \section{Schematické znázornenie systému}
 
 
@@ -194,17 +222,18 @@ Z opisu predmetného dynamického systému vyplýva, že systém má jeden výst
 
 
         \makebox[\textwidth][c]{%
-            \includegraphics{AS_system.pdf}
+            \includegraphics{SystemSchemeBase.pdf}
         }
 
         \figcaption{
             Signály systému \emph{AS}.
         }
-        \label{LMOT_sch1}
+        \label{AS_scheme}
     }%vbox
 
 \end{center}
 
+Na schéme, ktora je zobrazená na \figref{AS_scheme}, sú znázornené merané a dostupné signály, ktoré sú posielané cez Sériovú linku z Arduina do Matlab-u, okrem iných pomocných signálov. Následne predstavíme schematické zapojenie Matlab, Arduino a AeroShield rozhrania, obsahujúce fyzické zapojenie na GPIO piny samotného Arduina.
 
 \begin{center}
 
@@ -212,18 +241,18 @@ Z opisu predmetného dynamického systému vyplýva, že systém má jeden výst
 
 
         \makebox[\textwidth][c]{%
-            \includegraphics{AS_system_pinout.pdf}
+            \includegraphics{SystemScheme.pdf}
         }
 
         \figcaption{
-            Schéma pripojenia laboratórneho zariadenia \emph{AS} ku GPIO pinom Arduino UNO R$3$.
+            Schéma zapojenia \emph{AS} a rozhrania.
         }
-        \label{AS_sch2}
+        \label{AS_scheme2}
     }%vbox
 
 \end{center}
 
-Na obr. \ref{AS_sch2} môžeme vidieť, že A$0$ je analógový vstup potenciometra, $\sim$D$5$ je fyzický výstup akčného zásahu na logickej úrovni vo forme \emph{PWM} (\href{https://docs.arduino.cc/learn/microcontrollers/analog-output/}{Pulse-Width Modulation}), I$2$C slúži na odčítanie uhlovej polohy ramena.
+Na \figref{AS_scheme2} môžeme vidieť, A$0$ je analógový vstup potenciometra, $\sim$D$5$ je výstup akčného zásahu na logickej úrovni (0V - 5V) vo forme \emph{PWM} (\href{https://docs.arduino.cc/learn/microcontrollers/analog-output/}{Pulse-Width Modulation}), I$2$C slúži na odčítanie uhlovej polohy ramena. $u^*$ predstavuje žiadaný akčný zásah odoslaný z Matlab-u do Arduina, táto veličina sa líši od akčného zásahu z Arduina do AeroShield-u, preto rozlišujeme medzi $u^*$ a $u$.
 
 
 

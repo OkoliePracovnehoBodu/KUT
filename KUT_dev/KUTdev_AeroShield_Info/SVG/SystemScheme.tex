@@ -1,0 +1,39 @@
+\documentclass[
+    tikz
+    ,border = 3.14mm
+]{standalone}
+\usepackage{tikz}
+
+% Import required TikZ libraries
+\usetikzlibrary{arrows.meta,shapes,shadows,positioning,calc}
+\tikzstyle{decision} = [diamond, draw, fill=white]
+\tikzstyle{line} = [arrows = {-Straight Barb[scale length=3,angle'=35, round]}, line width=0.2mm, font=\footnotesize]
+\tikzstyle{elli}= [draw, ellipse, fill=gray!20, minimum height=8mm, text width=5em, text centered]
+\tikzstyle{block} = [draw, rectangle, fill=white, text width=2cm, font=\normalsize, text centered, minimum height=15mm, node distance=2cm]
+\begin{document}
+\tikz
+{
+
+	\node [block, align=center] (matlab) {Matlab}
+	\node [block, align=center, below=1.5cm of matlab] (control) {Arduino Uno R3};
+	\node [block, align=center, right=2cm of control] (plant) {Systém\\AeroShield};
+
+	\node [left=of matlab, xshaift=-1.75cm] (node_user) {};
+	\node [left=of control, xshift=-1.75cm, yshift=0.6] (node_control_pot) {};
+
+
+	\draw [line] (node_control_pot) -- (control)
+	    node[midway, above] {Potentiometer $\sim$ \texttt{A0}};
+	\draw [line] (node_user) -- (matlab)
+	    node[midway, above,align=center] {Vstup\\uživateľa};
+	\draw [line] ($(control.east)+(0,-0.4)$) -- ($(plant.west)+(0,-0.4)$)
+	    node[midway, above] {u $\sim$ \texttt{D5}};
+	\draw [line] ($(plant.west)+(0,0.4)$) -- ($(control.east)+(0,0.4)$)
+	    node[midway, above] {y $\sim$ \texttt{I2C}};
+	\draw [line] ($(matlab.south)+(-0.5,0)$) -- ($(control.north)+(-0.5,0)$)
+	    node[midway, left,align=right] {\texttt{Seriová linka}\\$u^*$};
+	\draw[line] ($(control.north)+(0.5,0)$) -- ($(matlab.south)+(0.5,0)$)
+	    node[midway, right, align=left, text width=2cm] {\texttt{Seriová linka}\\t,r,y,u,pot.,dt};
+
+}
+\end{document}

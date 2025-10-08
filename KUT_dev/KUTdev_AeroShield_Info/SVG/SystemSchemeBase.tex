@@ -1,0 +1,39 @@
+\documentclass[
+    tikz
+    ,border = 3.14mm
+]{standalone}
+\usepackage{tikz}
+
+% Import required TikZ libraries
+\usetikzlibrary{arrows.meta,shapes,shadows,positioning,calc}
+\tikzstyle{decision} = [diamond, draw, fill=white]
+\tikzstyle{line} = [arrows = {-Straight Barb[scale length=3,angle'=35, round]}, line width=0.2mm, font=\footnotesize]
+\tikzstyle{elli}= [draw, ellipse, fill=gray!20, minimum height=8mm, text width=5em, text centered]
+\tikzstyle{block} = [draw, rectangle, fill=white, text width=2cm, font=\normalsize, text centered, minimum height=15mm, node distance=2cm]
+\begin{document}
+\tikz
+{
+
+	% Draw the blocks of the system
+    % \node [block, xshift=-2cm] (control_law) {Control Law};
+    % \node [block, right of=control_law, xshift=4cm] (plant) {Plant};
+
+    % \node [block] (plant) {\texttt{Plant}};
+    \node [block, align=center] (plant) {Systém\\AeroShield};
+    \node [left of=plant,xshift=-2cm] (input_node);
+    \node [right of=plant,xshift=3cm,yshift=0.6cm] (output_node);
+    \node [right of=plant,xshift=3cm,yshift=-0.6cm] (pot_node);
+
+
+    % Connect the blocks with lines
+    \draw[line] (input_node) -- (plant)
+        node[midway, above, align=center] {Vstup\\$0 - 100$ [\%]};
+
+    \draw [line] ($(plant.east)+(0,0.6cm)$) -- (output_node)
+        node[midway,above,align=center] {Vystup\\$-50 - 210$ [$^\circ$]};
+
+    \draw [line] ($(plant.east)+(0,-0.6cm)$) -- (pot_node)
+        node[midway,above,align=center] {Potentiometer\\$0 - 100$ [\%]};
+
+}
+\end{document}
