@@ -2,6 +2,27 @@
 
 \input{./COMMONFILES/preamble.tex}
 \usepackage{siunitx}
+\usepackage{xcolor}
+
+% Define a custom color
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+\definecolor{codegreen}{rgb}{0,0.6,0}
+
+% Define a custom style
+\lstdefinestyle{myStyle}{
+    belowcaptionskip=1\baselineskip,
+    breaklines=true,
+    frame=none,
+    numbers=left, 
+    basicstyle=\footnotesize\ttfamily,
+    keywordstyle=\bfseries\color{blue!70!black},
+    commentstyle=\color{green!40!black},
+    identifierstyle=\color{gray!50!black},
+    backgroundcolor=\color{white},
+}
+
+% Use \lstset to make myStyle the global default
+\lstset{style=myStyle}
 
 % -----------------------------------------------------------------------------
 
