@@ -155,268 +155,282 @@
 textu je opis firmwarovej stránky \emph{AS} implementovaná na Arduino UNO R3, ktorá slúži ako komunikačný most medzi Matlab-om a fyzickým zariadením \emph{AS}.
 
 
-\section{Popis firmwáru}
-\lstinputlisting[caption=Sample Code Listing C++, label={lst:listing-cpp}, language=C++]{../PIO/src/main.cpp}
-\begin{lstlisting}
-for (int i=0; i<iterations;i++)
+\section{Pomocné funkcie časovačov}
+%\lstinputlisting[caption=Sample Code Listing C++, label={lst:listing-cpp}, language=C++]{../PIO/src/main.cpp}
+\begin{lstlisting}[caption=Obslužné funkcie interných časovačov Arduina., label={code:timer_misc}, language=C++]
+// -------------------------------
+// Define Timer related macros, functions
+// -------------------------------
+
+#define CPUF 16000000UL                                      // CPU frequency for Arduino UNO
+#define DIF(Tms) (1000.0f / Tms)                             // Frequency divider macro
+#define CMR(PS, DIF) (static_cast<int>(CPUF / PS / DIF) - 1) // Compare match register value calculation macro
+#define PS(CMR, DIR) ((CPUF / (CMR + 1)) / DIR)              // Prescaler value calculation macro
+#define CHECK_TIMER(CMR) (CMR < 256)                         // Check if CMR value fits in 8-bit register
+#define CURRENT_PS 1024 // Current prescaler value
+
+// -------------------------------
+// -------------------------------
+\end{lstlisting}
+
+Definícia premenných a pomocných funkcií na prácu a nastavenie interných časovačov Arduina - viď blok \ref{code:timer_misc}.
+
+\section{Premenné zabudovanej LED}
+
+\begin{lstlisting}[caption=Definície premenných zabudovanej LED., label={code:led_config}, language=C++]
+// -------------------------------
+// Built-in LED configs
+// -------------------------------
+
+const static int BUILT_IN_LED_PIN = 13; // PIN pre zabudovanu LED
+const static unsigned long T_sample = 1000;
+const static unsigned long LED_onTime = 15;
+bool LED_on = false;
+
+// -------------------------------
+// -------------------------------
+\end{lstlisting}
+
+Definície premenných na zabezpečenie blikania v kontexte zabudovanej LED na zadefinovanej frekvencii - viď výpis \ref{code:led_config}, priradenie konštánt pre zjednodušenie následného použitia premenných v kóde. \texttt{LED\_on} premenná zabezpečuje prepínanie stavu LED medzi emitovaním a zhasnutým stavom.
+
+\section{Premenné signálov a komunikácie}
+
+\begin{lstlisting}[caption=Definície premenných signálov a komunikácie., label={code:sig_config}, language=C++]
+// -------------------------------
+// Required variables and constexpr functions
+// -------------------------------
+
+byte Ts_user = 1; // sampling time in ms
+
+constexpr float TS_INTERVAL_MIN(byte Ts)
 {
-    do something
+    return (static_cast<float>(Ts) * 1000.0f) * 0.95f;
+}
+
+float uSig = 0.0f, ySig = 0.0f, potSig = 0.0f, dtoffset = 0.0f, dtoffset_interval = 0.0f; // control, output, reference, time offset
+
+unsigned long currentTime, dt, lastTime;
+
+// -------------------------------
+// -------------------------------
+\end{lstlisting}
+
+Definícia podstatných premenných, ktoré používame na uloženie terajších meraní, konfigurácia časovaní posielania dát, nakoniec ukladanie času trvania merania pre Arduino a diferencia času medzi terajšou komunikáciou a predošlou, môžeme vidieť na výpise kódu \ref{code:sig_config}. Hodnotu diferencie času sa používa na časovú synchronizáciu komunikácie, aby sa perióda vzorkovania hýbala v okolí žiadanej periódy vzorkovania, nakoľko zabezpečenie presnej periódy vzorkovania si vyžaduje hardwarové riešenie.
+
+\section{Metódy čítania a zapisovania}
+
+\begin{lstlisting}[caption=Obslužné funkcie čítania a zapisovania signálov., label={code:sig_funcs}, language=C++]
+// -------------------------------
+// API calls
+// -------------------------------
+
+void updateOutput()
+{
+    ySig = AeroShield.sensorReadDegree();
+}
+
+void updatePotentiometer()
+{
+    potSig = AeroShield.referenceRead();
+}
+
+void updateControl(const float &u)
+{
+    uSig = u;
+}
+
+void writeControl()
+{
+    AeroShield.actuatorWrite(uSig);
+}
+
+// -------------------------------
+// -------------------------------
+\end{lstlisting}
+
+Funkcie, ktoré možeme vidieť na výpise kódu \ref{code:sig_funcs} slúžia iba na prehladnosť a čistosť kódu. Zabezpečujú zapisovanie hodnôt do definovaných premenných signálov alebo fyzikálnu realizáciu žiadanej akčnej veličiny v tomto prípade funkcia \texttt{writeControl()}.
+
+\section{Sériová komunikácia}
+
+\begin{lstlisting}[caption=Funkcia na posielanie dát po sériovej linke., label={code:send}, language=C++]
+// -------------------------------
+// Write data into serial comms
+// -------------------------------
+
+void printData()
+{
+    dt = currentTime - lastTime;
+    dtoffset = dtoffset_interval - dt;
+    if (dtoffset > 0)
+    {
+        if (dtoffset > 1000)
+        {
+            dtoffset = static_cast<unsigned long>(floor(dtoffset / 1000)); // round to nearest 1ms
+            delay(dtoffset);
+        }
+        else
+        {
+            dtoffset = static_cast<unsigned long>(floor(dtoffset / 100) * 100); // round to nearest 100us
+            delayMicroseconds(dtoffset);
+        }
+        currentTime = micros();
+        dt = currentTime - lastTime;
+    }
+    lastTime = currentTime;
+
+    Serial.print(currentTime);
+    Serial.print(" ");
+    Serial.print(uSig);
+    Serial.print(" ");
+    Serial.print(ySig);
+    Serial.print(" ");
+    Serial.print(potSig);
+    Serial.print(" ");
+    Serial.print(dt);
+    Serial.println();
+}
+
+// -------------------------------
+// -------------------------------
+\end{lstlisting}
+
+Kód \ref{code:send} je komunikačná funkcia, ktorá zabezpečuje posielanie meraných veličín po sériovej linke von - do Matlab-u. Zároveň implementuje algoritmus, ktorý zabezpečuje komunikáciu s kvázi stabilnou periódou vzorkovania a odosiela dáta čo najskôr. Nakoľko dĺžka trvania jedného cyklu \texttt{loop()} je variabilná a závisí od tohto času následná komunikácia, tak sme časovanie implementovali spôsobom: ak program môže poslať dáta skôr ako je žiadané, tak čaká \texttt{dtoffset} čas a následne posiela dáta, v prípade, že je neskôr, tak okamžite posiela dáta, ktoré sú najnovšie v pamäti.
+
+\section{Čítanie signálov, sériovej linky a logika riadenia merania}
+\begin{lstlisting}[caption=Čítanie signálov, sériovej linky a definícia poradia akcií riadenia., label={code:read}, language=C++]
+// -------------------------------
+// Read new values from serial com and inputs
+// -------------------------------
+void readData()
+{
+    updateOutput();
+    updatePotentiometer();
+}
+
+int recvByte()
+{
+    if (Serial.available() >= 4)
+    {
+        Serial.readBytes((char *)&uSig, 4); // Read 4 bytes from Serial
+        return 0;                           // Success
+    }
+    return 1; // No new data received
+}
+
+void processNewData()
+{
+    if (recvByte())
+    {
+        currentTime = micros();
+
+        readData(); // Read the sensor and reference values
+
+        writeControl(); // Write the control signal to the actuator
+
+        printData();
+    }
+}
+// -------------------------------
+// -------------------------------
+\end{lstlisting}
+
+V bloku kódu \ref{code:read} sú 3 rôzne funkcie, z čoho sú 2 na čítanie dát a posledna na riadenia komunikácie medzi Matlabom, a AeroShield-om. V prvej funkcii \texttt{readData()} čítame hodnoty zo samotného AeroShield-u, teda fyzikálne veličiny ako natočenie vrtuľky a potenciometra. Funkcia \texttt{recvByte()} zabezpečuje čítanie žiadanej akčnej veličiny z Matlab-u po sériovej linke, čítanie je priamo implementované pre dátový typ \texttt{float32}. Nakoniec funkcia \texttt{processNewData()} zabezpečuje, meranie veličín zariadenia, spracovanie požiadaviek z Matlab-u a následnú fyzikálnu realizáciu - PWM signál posielaný priamo na \emph{Gate} pin MOSFET tranzistoru a odoslanie nameraných dát späť po sériovej linke.
+
+\section{Inicializácia Arduina}
+
+\begin{lstlisting}[caption=Inicializačná metóda Arduina., label={code:setup}, language=C++]
+// -------------------------------
+// Setup the Arduino board
+// -------------------------------
+void setup()
+{
+    Serial.begin(115200); // Initialize Serial communication at 115200 baud rate
+    Serial.flush();
+    pinMode(BUILT_IN_LED_PIN, OUTPUT); // for LED
+
+    AeroShield.begin();
+    AeroShield.calibrate();
+
+    Serial.println("--- MCU config ---");
+    while (!Serial.available())
+    {
+        delay(1); // Wait for user to open terminal
+    }
+
+    Ts_user = Serial.read(); // sampling time in ms
+
+    if (Ts_user == 0)
+    {
+        Ts_user = 1; // minimum 1 ms
+    }
+
+    if (Ts_user > 10)
+    {
+        dtoffset_interval = static_cast<float>(Ts_user) * 1000.0f;
+    }
+    else
+    {
+        dtoffset_interval = TS_INTERVAL_MIN(Ts_user);
+    }
+
+    // Calculate the timers
+    const int cmr = CMR(CURRENT_PS, DIF(T_sample));
+
+    cli();
+
+    // Timer1 for LED blink
+    TCCR1A = 0; // Normal mode
+    TCCR1B = 0;
+    TCNT1 = 0;                           // Initialize counter value to 0
+    OCR1A = cmr;                         // Set compare match register for desired timer count
+    TCCR1B |= (1 << WGM12);              // CTC mode
+    TCCR1B |= (1 << CS12) | (1 << CS10); // Set prescaler to 1024 and start the timer
+    TIMSK1 |= (1 << OCIE1A);             // Enable timer compare interrupt
+
+    sei();
+
+    Serial.println("--- MCU starting [" + String(Ts_user) + "] ---");
+    currentTime = micros();
+    lastTime = currentTime - (Ts_user * 1000); // better for statistics
+
+    // Initial reads and writes
+    readData();
+    updateControl(0.0f);
+    writeControl();
+
+    printData();
+}
+// -------------------------------
+// -------------------------------
+\end{lstlisting}
+
+V rámci inicializačnej funkcie \ref{code:setup} sa nastavuje komunikácia po sériovej linke (Universal Serial Bus - \emph{USB}), módy GPIO pinov, inicializácia AeroShield firmwáru, perióda vzorkovania - posiela Matlab v našom prípade, výpočet doveleného oskorenia/oneskorenia posielania dát - slúži na zabezpečenie najrýchlejšej možnej komunikácie pre žiadanu periódu vzorkovania, časovač preblikávania zabudovanej LED, po celkovej inicializácii posielame správu o začiatku merania a nakoniec posielame počiatočný stav zariadena. Následne po poslaní počiatočného stavu sa začne volať funkcia \texttt{loop()} samotným Arduinom, ktorá následne riadi dej merania.
+
+\section{Obslužná funkcia časovaču (spínanie LED)}
+\begin{lstlisting}[caption=Spínanie LED v obslužnej funkcii \emph{Časovača 1.}, label={code:timer_callback}, language=C++]
+// -------------------------------
+// Timer 1 callback function for when triggered
+// -------------------------------
+ISR(TIMER1_COMPA_vect)
+{
+    LED_on = !LED_on;
+    digitalWrite(BUILT_IN_LED_PIN, LED_on);
+}
+// -------------------------------
+// -------------------------------
+\end{lstlisting}
+
+Metóda zobrazená vo výpise \ref{code:timer_callback} je špecialne definovaná samotným Arduinom, na ktorú sme sa pripojili, aby sa následne volal kód, ktorý sme vo vnútri tejto funkcie definovali. Funkcia je volaná iba vtedy, keď sa Časovač 1 zopne, podľa toho ako si definujeme interval zopínania časovača v inicializačnej funkcii.
+
+\section{Hlavná slučka firmwáru}
+\begin{lstlisting}[caption=Hlavná slučka Arduino programu., label={code:loop}, language=C++]
+void loop()
+{
+    processNewData();
 }
 \end{lstlisting}
-** TODO: Dopísať **
 
-AS je laboratórne zariadenie predstavujúce reálny dynamický systém, ktorý sme predstavili v KUT dokumente Laboratórne zariadenie AeroShield:\\ orientačný prehľad. V prípade, že chceme odmerať statické vlastnosti systému, musíme vedieť rozsahy vstupov a výstupov, aby sme boli schopný korektne navrhnúť experiment na zmeranie vlastností systému.
-V prípade AS vieme, že vstupný signál je v rozsahu $0 - 255$, musíme si zvoliť rozumnú veľkosť kroku a dĺžku trvania kroku, aby sme dostatočne zachytili vlastnosti systému. Zvoľme si teda podľa tab. \ref{tab:config}.
-
-\begin{center}
-
-    \vspace{-10pt}
-
-    \tabcaption{Nastavenia merania}
-    \label{tab:config}
-
-    \lstyle
-
-    \begin{tabular*}{\textwidth}{@{ \extracolsep{\fill}} lll}
-        \toprule
-        Nastavenie & Hodnota & Jednotka \\
-        \midrule
-        Veľkosť kroku & $1$ & - \\
-        Trvanie & $5$ & s \\
-        \bottomrule
-    \end{tabular*}
-
-\end{center}
-
-Nakoľko meriame statické vlastnosti, tak nás nezaujíma priebeh výstupného signálu v neustálenom stave. To znamená napr., ak vstupná hodnota je $10$ a už sme pre túto hodnotu ukončili meranie, a chceme sa presunúť na hodnotu $50$, tak akokoľvek sa na žiadanu hodnotu akčného zásahu dostaneme, je irelevantné. Nakoľko, musíme meranie uskutočniť až v čase, keď výstupný signál z AS je ustálený - ukážeme na príklade.
-
-
-\section{Meranie statickej charakteristiky}
-
-** TODO: Dopísať **
-
-Z opisu predmetného dynamického systému vyplýva, že systém má jeden výstupný signál, jeden vstupný signál a manuálne nastaviteľnú polohu potenciometra.
-
-\begin{itemize}
-    \item \emph{Vstupný signál} nadobúda hodnoty v rozmedzí $0$ až $255$.
-
-    \item \emph{Výstupný signál} nadobúda hodnoty v rozsahu \ang{-50} az \ang{210}.
-
-    \item \emph{Signal z potenciometra} nadobúda hodnoty v rozsahu $0$ až $1023$.
-\end{itemize}
-
-
-\begin{center}
-
-    \vspace{-10pt}
-
-    \tabcaption{Rozsahy a jednotky signálov}
-    \label{tab:rozsahy_a_jednotky_signalu}
-
-    \lstyle
-
-    \begin{tabular*}{\textwidth}{@{ \extracolsep{\fill}} lll}
-        \toprule
-        Signál & Rozsah hodnôt & Jednotka \\
-        \midrule
-        Vstup & $0$ až $255$ & - \\
-        Výstup & \ang{-50} až \ang{210} & \si{\degree} \\
-        Potenciometer & $0$ až $1023$ & - \\
-        \bottomrule
-    \end{tabular*}
-
-
-\end{center}
-
-
-
-
-
-
-
-\section{Schematické znázornenie systému}
-
-
-\begin{center}
-
-    \vbox{%
-
-
-        \makebox[\textwidth][c]{%
-            \includegraphics{AS_system.pdf}
-        }
-
-        \figcaption{
-            Signály systému AS.
-        }
-        \label{LMOT_sch1}
-    }%vbox
-
-\end{center}
-
-
-\begin{center}
-
-    \vbox{%
-
-
-        \makebox[\textwidth][c]{%
-            \includegraphics{AS_system_pinout.pdf}
-        }
-
-        \figcaption{
-            Schéma pripojenia laboratórneho zariadenia AS ku GPIO pinom Arduino UNO R$3$.
-        }
-        \label{AS_sch2}
-    }%vbox
-
-\end{center}
-
-Na obr. \ref{AS_sch2} môžeme vidieť, že A$0$ je analógový vstup potenciometra, $\sim$D$5$ je fyzický výstup akčného zásahu na logickej úrovni vo forme \emph{PWM} (\href{https://docs.arduino.cc/learn/microcontrollers/analog-output/}{Pulse-Width Modulation}), I$2$C slúži na odčítanie uhlovej polohy ramena.
-
-
-
-\section{Fotografie}
-
-Zoznam fotografií:
-
-\begin{itemize}
-    \item Obr. \ref{IMG_6874_toPDF}: Celkový pohľad na laboratórne zariadenie LMOT.
-    \item Obr. \ref{IMG_6922_toPDF}: Motor a tachodynamo.
-    \item Obr. \ref{IMG_6941_toPDF}: Elektronické obvody zariadenia.
-    \item Obr. \ref{IMG_6931_toPDF}: Predný panel so svorkami a potenciometrom.
-\end{itemize}
-
-
-
-
-
-\noindent
-\vbox{%
-
-    \makebox[\textwidth][c]{%
-        \includegraphics{IMG_6874_toPDF.jpg}
-    }
-
-    \figcaption{
-        Celkový pohľad na laboratórne zariadenie LMOT.
-    }
-
-    \vspace{12pt}
-
-    \label{IMG_6874_toPDF}
-}%vbox
-
-
-
-\noindent
-\vbox{%
-
-    \makebox[\textwidth][c]{%
-        \includegraphics{IMG_6922_toPDF.jpg}
-    }
-
-    \figcaption{
-        Motor a tachodynamo.
-    }
-
-    \vspace{12pt}
-
-    \label{IMG_6922_toPDF}
-}%vbox
-
-
-
-
-\noindent
-\vbox{%
-
-    \makebox[\textwidth][c]{%
-        \includegraphics{IMG_6941_toPDF.jpg}
-    }
-
-    \figcaption{
-        Elektronické obvody zariadenia.
-    }
-
-    \vspace{12pt}
-
-    \label{IMG_6941_toPDF}
-}%vbox
-
-
-
-
-\noindent
-\vbox{%
-
-    \makebox[\textwidth][c]{%
-        \includegraphics{IMG_6931_toPDF.jpg}
-    }
-
-    \figcaption{
-        Predný panel so svorkami a potenciometrom.
-    }
-
-    \vspace{12pt}
-
-    \label{IMG_6931_toPDF}
-}%vbox
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+Funkciu znázornenú vo výpise kódu \ref{code:loop} možno nazvať hlavnou funkciou celého programu, nakoľko pomocou tejto funkcie sa Arduino rozhoduje, čo má v každom čase po inicializácii robiť. Funkciu \texttt{loop()} si možeme predstaviť ako nekonečnú slučku, ktorú Arduino volá vždy po inicializácii. To znamená, že v tejto funkcii definujeme, čo má Arduino robiť. V našom prípade sa volá funkcia \texttt{processNewData()}, ktorá sa stará o riadenie komunikácie medzi sériovou linkou a výstup/vstupom Arduina.
 
 
 % -----------------------------------------------------------------------------

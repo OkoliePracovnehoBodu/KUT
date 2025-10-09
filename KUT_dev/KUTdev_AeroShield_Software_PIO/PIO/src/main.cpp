@@ -147,8 +147,6 @@ void processNewData()
         printData();
     }
 }
-
-
 // -------------------------------
 // -------------------------------
 
@@ -156,7 +154,6 @@ void processNewData()
 // -------------------------------
 // Setup the Arduino board
 // -------------------------------
-
 void setup()
 {
     Serial.begin(115200); // Initialize Serial communication at 115200 baud rate
@@ -215,7 +212,6 @@ void setup()
 
     printData();
 }
-
 // -------------------------------
 // -------------------------------
 
@@ -223,13 +219,11 @@ void setup()
 // -------------------------------
 // Timer 1 callback function for when triggered
 // -------------------------------
-
 ISR(TIMER1_COMPA_vect)
 {
     LED_on = !LED_on;
     digitalWrite(BUILT_IN_LED_PIN, LED_on);
 }
-
 // -------------------------------
 // -------------------------------
 
