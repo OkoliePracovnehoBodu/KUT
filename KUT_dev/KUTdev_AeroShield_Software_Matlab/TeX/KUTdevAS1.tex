@@ -44,7 +44,14 @@
 \def\authorslabel{RJ}
 
 
+% Figures: "obr. 1"
+\newcommand{\figref}[1]{\hyperref[#1]{obr.~\ref*{#1}}}
 
+% Tables: "tab. 1"
+\newcommand{\tabref}[1]{\hyperref[#1]{tab.~\ref*{#1}}}
+
+% Equations: "rov. (1)"
+\newcommand{\eqrefsk}[1]{\hyperref[#1]{rov.~(\ref*{#1})}}
 
 
 
@@ -170,7 +177,8 @@ textu je zoznámenie sa s obslužným Matlab softwárom pre prácu so zariadení
 % ----------------------------------
 \end{lstlisting}
 
-Info.
+Zavolaním funckie \texttt{runArduinoPlot()} sa začne navrhnuté meranie, ktoré následne automaticky skončí, čí uz po vypršaní času merania alebo inou podmienkov, ktorú si vieme zadefinovať samostatne. Definícia ukončovacích podmienok bude spomenutá nižšie. Ako môžeme vidieť na výpise kódu \ref{code:main}, funkcia vracia dáta, ktoré následne možno použiť.
+Ktoré dáta vracia si vieme následne vo funkcii zadefinovať, poprípade si vieme dodať, daľšie pre nás dôležité veličiny.
 
 \section{Dátový priečinok}
 \begin{lstlisting}[caption=Vytvorenie dátového priečinku., label={code:repo}, language=Matlab]
@@ -186,7 +194,8 @@ end
 % ----------------------------------
 \end{lstlisting}
 
-Info.
+Kód, ktorý je ukázaný vo výpise \ref{code:repo}, slúži na vytvorenie adresáru (priečinku) pre uloženie meraní. Do tohto priečinka sa bežne ukladajú merania av dvoch formátoch \emph{CSV} a \emph{MAT}. \emph{CSV} súbor obsahuje merané veličiny dostatné po sériovej linke, \emph{MAT} súbor obsahuje celý Matlab workspace - všetky definované premenné v Matlab-e.
+\emph{Je odporúčané si manuálne vytvoriť nový adresár, do ktorého si budeme kopírovať (CTRL+C & CTRL+V) merania, s ktorými chceme následne pracovať, aby sme vždy mali netknuté dáta z merania v zálohe.}
 
 \section{Definícia premenných}
 \begin{lstlisting}[caption=Definícia všetkých potrebných premenných., label={code:vars}, language=Matlab]
@@ -230,8 +239,36 @@ timer_potentiometer = [];
 % ----------------------------------
 \end{lstlisting}
 
-Info.
+Táto časť kódu (\ref{code:vars}) slúži na definíciu všetkých potrebných premenných pre dané meranie, v tomto prípade sme si zadefinovali premenné pre PID regulátor a $\alpha-\beta$ filter, aby sme ukázali možné riešenia implementácie riadenia a pozorovania. Následne v \tabref{tab:quick_desc} budú potrebné premenné pre priebeh merania popísané, ostatné premenné sú špecificky zvolené pre tento poskytnutý náhľadový kód - nebudú potrebne pre napr. meranie dynamických vlastností systému.
 
+\begin{center}
+
+    \vspace{-10pt}
+
+    \tabcaption{Krátky popisok nevyhnutných premenných}
+    \label{tab:quick_desc}
+
+    \lstyle
+
+    \begin{tabular*}{\textwidth}{@{ \extracolsep{\fill}} ll|l}
+        \toprule
+        Premenná & Jednotka & Popis \\
+        \midrule
+        \texttt{T\_start} & s & Čas začiatku merania. \\
+        \texttt{T\_sample} & ms & Perióda vzorkovania v rozsahu 1 až 255. \\
+        \texttt{T\_stop} & s & Čas trvania merania. \\
+        \texttt{U\_MAX} & \% & Maximálny akčný zásah. \\
+        \texttt{U\_MIN} & \% & Minimálny akčný zásah. \\
+        \texttt{Y\_SAFETY} & $^\circ$ & Maximálna hodnota výstupnej veličiny. \\
+        \texttt{timer\_t} & s & Pole časov v ktorých prebehla komunikácia. \\
+        \texttt{timer\_y} & $^\circ$ & Pole výstupov zo zariadenia AeroShield. \\
+        \texttt{timer\_u} & \% & Pole vstupov do zariadenia AeroShield. \\
+        \texttt{timer\_potentiometer} & \% & Pole hodnôt z potenciometra. \\
+        \bottomrule
+    \end{tabular*}
+\end{center}
+
+\newpage
 \section{Vykreslenie dát v reálnom čase}
 \begin{lstlisting}[caption=Definícia časovača na vykreslenie meraných dát v reálnom čase., label={code:plot_timer}, language=Matlab]
 % ----------------------------------
