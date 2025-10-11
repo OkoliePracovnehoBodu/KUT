@@ -276,6 +276,9 @@ Táto časť kódu (\ref{code:vars}) slúži na definíciu všetkých potrebnýc
 % ----------------------------------
 function plotData()
     persistent hy hr hu;
+    
+    % persistent example
+    
     try
         if isempty(hy) || isempty(hr) || isempty(hu)
             f = figure(9999); clf(f);
@@ -284,6 +287,9 @@ function plotData()
             hy = plot(ax, nan, nan, '.b');
             hr = plot(ax, nan, nan, '.r');
             hu = plot(ax, nan, nan, '.k');
+
+            % example = plot(ax, nan, nan, '.g');
+            
             grid minor;
             title("Real-Time System Response");
             xlabel("t [s]");
@@ -291,14 +297,13 @@ function plotData()
             legend(ax, "y","ref", "yhat", 'Location', 'southeast');
             
         end
-       
-        % plot(plot_t, plot_sig_3,'.b', plot_t, plot_sig_2,'.r', plot_t,
-        % plot_sig_1,'.k')
-        % print(timer_t(1));
 
         set(hy, 'YData', timer_y, 'XData', timer_t);
         set(hr, 'YData', timer_potentiometer, 'XData', timer_t);
         set(hu, 'YData', timer_yhat, 'XData', timer_t);
+        
+        % set(example, 'YData', example_y, 'XData', example_x);
+        
         drawnow limitrate nocallbacks;
     catch err
        fprintf(2, "Plot thread: " + err.message + "\n");
@@ -311,7 +316,7 @@ start(tPlot);
 % ----------------------------------
 \end{lstlisting}
 
-Info.
+Obslužná funkcia \texttt{plotData} na vykreslovanie grafov v reálnom čase, ktorá je následne volaná časovačom \texttt{tPlot} v intervale $500$ milisekúnd pokiaľ sa neukončí meranie. V prípade, že by sme chceli dodať daľší signál do grafu, môžeme postupovať podľa už predrobeného príkladu, kedy sme v bloku kódu \ref{code:plot_timer} zakomentovali $3$ riadky. Avšak, keď pridáme nový signál na vykreslovanie, tak je pre funkčnosť a plynulosť dôležité zvýšiť periódu vykreslovania. Nakoľko počet dát na vykreslenie sa zvýši a vykreslovanie v Matlab-e, nie je obzvlásť rýchle.
 
 \section{Záznamové súbory merania}
 \begin{lstlisting}[caption=Inicializácia záznamových súborov., label={code:files}, language=Matlab]
@@ -326,8 +331,7 @@ FILENAME = "dataFile";
 function fullpath = getfilename(dirpath, filename, datestr, ext)
     if nargin < 3
         error("At least the first 3 parameters need to be provided.");
-    end
-    if nargin == 3
+    elseif nargin == 3
         ext = "csv";
     end
 
@@ -348,7 +352,7 @@ fprintf(datafileID, 't, tp, r, y, u, dtp, dt\n');
 % ----------------------------------
 \end{lstlisting}
 
-Info.
+Vytvorenie súboru na zapísanie merania a zapísanie názvov stĺpcov, ktoré sú do súboru zapisované. V prípade, že súbor už existuje alebo je aktívny v Matlab prostredí, tak sa zavrie, aby každé meranie bolo vložené do vlastného súboru. Ak chceme zmeniť cestu ukladania súborov merania, tak vo funkcii \texttt{getfilename} musíme zmeniť premennú \texttt{fullpath}. Keď pridáme nový signál do súboru, je nutné pridať aj meno stĺpca, aby nedošlo k nesprávnemu načítaniu, keď budeme dáta potrebovať načítať.
 
 \section{Zapisovanie dát merania}
 \begin{lstlisting}[caption=Zapisovanie meraných dát do súboru a konzoly., label={code:files_write}, language=Matlab]
@@ -358,11 +362,12 @@ Info.
 
 function updateInfo(datafileID, dt, Ts, x)
     if ((dt) > (Ts*1.05))
-        fprintf('%8.3f %8.3f %8.3f %8.3f %8.3f %8.3f %8.3f  --\n', x);
+        fprintf('%8.3f %8.3f %8.3f %8.3f %8.3f %8.3f %8.3f  --\n', x); % write to console, measurement took too long
     else
-        fprintf('%8.3f %8.3f %8.3f %8.3f %8.3f %8.3f %8.3f\n', x);
+        fprintf('%8.3f %8.3f %8.3f %8.3f %8.3f %8.3f %8.3f\n', x); % write to console
     end
-    fprintf(datafileID, '%8.3f, %8.3f, %8.3f, %8.3f, %8.3f, %8.3f, %8.3f\n', x);
+    fprintf(datafileID, '%8.3f,%8.3f,%8.3f,%8.3f,%8.3f,%8.3f,%8.3f\n', x); % write to file
+
     timer_t = [timer_t x(1)];
     timer_y = [timer_y x(4)];
     timer_u = [timer_u x(5)];
@@ -375,7 +380,9 @@ doUpdate = @(x) updateInfo(datafileID, x(end), T_sample, x);
 % ----------------------------------
 \end{lstlisting}
 
-Info.
+Funkcia \texttt{updateInfo} vo výpise kódu \ref{code:files_write} slúži na zapisovanie dát do súboru \emph{CSV} a do konzoly.
+
+Ak pridáme nový signál do zapisovania dát, musíme pridať \texttt{,\%8.3f} do riadku s komentárom \emph{\% write to file} pred text \texttt{\textbackslash{n}}. Následne sa do súboru bude ukladať nový signál.
 
 \section{Sériová komunikácia}
 \begin{lstlisting}[caption=Inicializácia sériovej komunikácie a konfigurácia., label={code:init_serial}, language=Matlab]
@@ -421,7 +428,14 @@ serLineList = str2num(serLine); %#ok<ST2NM>
 % ----------------------------------
 \end{lstlisting}
 
-Info.
+V tejto sekcii kódu \ref{code:init_serial} popisujeme postup inicializácie sériovej komunikácie s Arduinom a zároveň nastavenie periódy vzorkovania. Je v záujme čitateľa predom porozumieť, fungovanie sériovej komunikácie a poskytnutého kódu pred snahou modifikácie tejto časti kódu.
+V skrate, otvárame sériovú komunikácie na porte \texttt{COM3}, v prípade, že dojde k situácii, kedy Matlab vypíše chybné hlásenie o nenajdení alebo nedostupnosti zariadenia na tomto porte, tak sú 3 možnosti, ktoré vieme aplikovať na vyriešenie tohto problému.
+
+\begin{enumerate}
+    \item Vypojiť a následne zapojiť zariadenie z počítača pomocou USB káblu.
+    \item Pozrieť pripojené fyzické porty k počítaču v termináli pomocou príkazu \texttt{mode} na zariadení s operačným systémom Windows, \texttt{sudo dmesg | grep -i tty} na Linux/MacOS. Ak, nájdeme pripojené zariadenia, tak v prípade Windows-u zmeníme v kóde \texttt{COM3} na iný \texttt{COM#}, pri Linux-e/MacOS je názov portu v tvare \texttt{/dev/ttyS###}, následne aplikujeme rovnaký postup ako pri Windows zariadení.
+    \item Nakoniec, môže dojsť ku chybe komunikácie a zariadenie nebude reagovať, tak do Matlab konzoly napíšeme \texttt{save; clear;} a spustíme - uložíme si týmto spôsobom dáta a zaroveň vymažeme celé prostredie Matlab-u. Následne spustíme meranie, ktoré predčasne ukončíme, keď sa inicializuje komunikácia a vstup do systému bude \emph{0} - predčasné ukočenie vieme dosiahnuť tak, že pri spúštaní podržíme vrtulku v nulovej pozícii (kyvadlo je vo zvyslej polohe, kde má uhoľ natočenia rovný \emph{0}). Keď meranie začne, tak vrtulku manuálne vyvrhneme nad bezpečnostnú hranicu výstupu - nami definovaná hodnota je $190^\circ$. Ak to nepomôže, tak vtedy je potrebné zariadenie odpojiť od napájania (zásuvky) a následne pripojiť, aby sa resetovalo Arduino, podľa možností možeme natvrdo resetovať Arduino.
+\end{enumerate}
 
 \section{Počiatočné hodnoty}
 \begin{lstlisting}[caption=Zaznamenanie počiatočných hodnôt., label={code:init_values}, language=Matlab]
