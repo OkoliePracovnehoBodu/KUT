@@ -1,0 +1,207 @@
+\documentclass[a4paper, 10pt, ]{article}
+
+\input{./COMMONFILES/preamble.tex}
+
+% -----------------------------------------------------------------------------
+
+\def\oznacenieCelku{Kolekcia učebných textov}
+
+% -----------------------------------------------------------------------------
+
+
+\def\KUTporadoveCislo{dev}
+
+% \def\oznacenieVerzie{v0.9}
+\def\oznacenieVerzie{\phantom{v1.0}}
+
+\def\mesiacRok{október 2025}
+
+\def\authorslabel{MT}
+
+
+
+
+
+
+% -----------------------------------------------------------------------------
+
+\begin{document}
+
+% -----------------------------------------------------------------------------
+% Uvodny nadpis
+
+\noindent
+\parbox[t][18mm][c]{0.3\textwidth}{%
+\raisebox{-0.9\height}{%
+\phantom{.}\includegraphics[height=18mm]{./COMMONFILES/URKFEIlogo.pdf}%
+}%
+}%
+\parbox[t][18mm][c]{0.7\textwidth}{%
+\raggedleft
+
+\sffamily
+\fontsize{16pt}{18pt}
+\fontseries{sbc}
+\selectfont
+
+\noindent
+\textcolor[rgb]{0.75, 0.75, 0.75}{\textls[25]{\oznacenieCelku}}
+}%
+
+\noindent
+\parbox[t][16mm][b]{0.5\textwidth}{%
+\raggedright
+
+\color{Gray}
+\sffamily
+
+\fontsize{12pt}{12pt}
+\selectfont
+\mesiacRok
+
+\fontsize{6pt}{10pt}
+\selectfont
+github.com/OkoliePracovnehoBodu/KUT
+
+\fontsize{8pt}{10pt}
+\selectfont
+\authorslabel
+
+
+
+
+}%
+\parbox[t][16mm][b]{0.5\textwidth}{%
+\raggedleft
+
+\sffamily
+
+\fontsize{6pt}{6pt}
+\selectfont
+
+\textcolor[rgb]{0.68, 0.68, 0.68}{\oznacenieVerzie}
+
+
+\fontsize{14pt}{14pt}
+\selectfont
+
+\bfseries
+
+\includegraphics[height=12pt]{./COMMONFILES/KUT_logo_v0.1.pdf}%
+{%
+\textls[-50]{\KUTporadoveCislo}
+}%
+}%
+
+% -----------------------------------------------------------------------------
+
+
+
+
+\vspace{6mm}
+
+% ---------------------------------------------
+\sffamily
+\bfseries
+\fontsize{18pt}{21pt}
+\selectfont
+
+\begin{flushleft}
+    Laboratórne zariadenie TS\textl{05}:\\ statické vlastnosti
+\end{flushleft}
+
+\bigskip
+
+% -----------------------------------------------------------------------------
+\normalsize
+\normalfont
+% -----------------------------------------------------------------------------
+
+\lstset{style=mystyle}
+
+
+
+
+
+
+
+
+
+
+\noindent
+\lettrine[lines=1, nindent=1pt, loversize=0.0]{C}{ieľom} 
+textu je opis laboratórneho dynamického systému TS\textl{05} z hľadiska jeho statických vlastností. Základný opis systému poskytuje text \textsf{KUT015}.
+
+% TODO link na KUT015
+
+
+
+\section{Dáta pre určenie prevodovej charakteristiky}
+
+\subsection{Východiská}
+
+Predmetný systém uvažujeme ako SISO systém pričom nech vstupom systému je Vstup 1 (vyhrievacie teleso) a výstupom systému je Výstup 1 (snímač teploty 1).
+
+\newpage
+
+\subsection{Získané dáta}
+
+
+\noindent
+\vbox{%
+        \makebox[\textwidth][c]{%
+        \includegraphics{fj_01_data_251010_01_panel_1.pdf}
+        }
+
+        \makebox[\textwidth][c]{%
+        \includegraphics{fj_01_data_251010_01_panel_2.pdf}
+        }
+
+        \makebox[\textwidth][c]{%
+        \includegraphics{fj_01_data_251010_01_panel_3.pdf}
+        }
+
+        \makebox[\textwidth][c]{%
+        \includegraphics{fj_01_data_251010_01_panel_4.pdf}
+        }        
+
+        \figcaption{ 
+            Získané dáta pre prevádzkovej podmienke $5$ [V].
+        }
+
+        \label{fj_01_data_251010_01}
+
+    }%vbox
+
+\noindent
+\vbox{%
+        \makebox[\textwidth][c]{%
+        \includegraphics{fj_01_data_251010_01_panel_1.pdf}
+        }
+
+        \makebox[\textwidth][c]{%
+        \includegraphics{fj_01_data_251010_01_panel_2.pdf}
+        }
+
+        \makebox[\textwidth][c]{%
+        \includegraphics{fj_01_data_251010_01_panel_3.pdf}
+        }
+
+        \makebox[\textwidth][c]{%
+        \includegraphics{fj_01_data_251010_01_panel_4.pdf}
+        }        
+
+        \figcaption{ 
+            Získané dáta pre prevádzkovej podmienke $5$ [V].
+        }
+
+        \label{fj_01_data_251010_01}
+
+    }%vbox
+
+
+% -----------------------------------------------------------------------------
+
+\end{document}
+
+% -----------------------------------------------------------------------------
