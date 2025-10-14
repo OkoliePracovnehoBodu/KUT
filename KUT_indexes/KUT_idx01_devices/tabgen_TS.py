@@ -40,7 +40,7 @@ def tabgen():
 
                 print(item, extracted_string)
 
-                file.write(f"\\href{{run:../../KUT_items/{item}/TeX/{item}.pdf}}{{{item}}} & {extracted_string} \\\\ \\addlinespace[3pt]  \n")
+                file.write(f"\\href{{run:../../KUT_items/{item}/TeX/{item}.pdf}}{{{item}}} & \\href{{run:../../KUT_items/{item}/TeX/{item}.pdf}}{{{extracted_string}}} \\\\ \\addlinespace[3pt]  \n")
 
 
 
@@ -53,6 +53,15 @@ output_file = 'tab01_rows_TS.tex'
 
 selected_KUT_items = [
     'KUT015', 
+]
+
+tabgen()
+
+# -----------------------------------------------------------------------------
+output_file = 'tab02_rows_TS.tex'
+
+selected_KUT_items = [
+    'KUT017', 
 ]
 
 tabgen()
