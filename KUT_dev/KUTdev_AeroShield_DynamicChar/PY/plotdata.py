@@ -18,8 +18,7 @@ df.columns = df.columns.str.strip()
 print("Columns: ", df.columns, ' | count: ', df.t.count())
 
 # Plot the response in a subplot
-qplt.subplots(df.t, signals=[[df.y], [df.u]], ylabels=['angle [deg]', 'u [%PWM]'], titles=['System Response', 'Input Signal'], labels=['y','u'], savepath='dyn_char_measurement.pdf')
-
+qplt.subplots(df.t, signals=[[df.y], [df.u]], xlabels=['t [s]'], ylabels=[r'$\varphi [^\circ]$', 'u [%PWM]'], titles=['System Response', 'Input Signal'], labels=['y','u'], savepath='dyn_char_measurement.pdf')
 
 # Split the data into segments where u is changing after stable period
 # Find the first change in control input after getting to the U_PB
@@ -56,7 +55,7 @@ df_clean.t = df_clean.t - df_clean.t.iloc[0]  # reset time to 0
 df_clean.to_csv('dyn_char_clean.csv', index=False)
 print("✅ Cleaned data saved to dyn_char_clean.csv")
 
-qplt.subplots(df_clean.t, signals=[[df_clean.y], [df_clean.u]], xlabels=['t [s]'], ylabels=['y [deg]', 'u [%PWM]'], titles=['Cleaned System Response','Cleaned input signal'], labels=['y','u'], savepath='dyn_char_u_clean.pdf')
+qplt.subplots(df_clean.t, signals=[[df_clean.y], [df_clean.u]], xlabels=['t [s]'], ylabels=[r'$\varphi [^\circ]$', 'u [%PWM]'], titles=['Cleaned System Response','Cleaned input signal'], labels=[r'$\varphi$','u'], savepath='dyn_char_u_clean.pdf')
 
 change_points_clean = change_points["data_mask"].copy().reset_index(drop=True)
 change_points_clean = change_points_clean - change_points_clean.iloc[0]  # reset index to 0
@@ -71,7 +70,7 @@ for i, (rmin, rmax) in enumerate(ranges):
 	seg['step_size'] = STEP_SIZE
 	seg.drop(columns=['data_mask'], inplace=True)
 	seg.to_csv(f'dyn_char_step_{i:02d}.csv', index=False)
-	qplt.subplots(seg.t, signals=[[seg.y], [seg.u]], xlabels=['t [s]'], ylabels=['output [deg]', 'u [%PWM]'], titles=[f'Step {i:02d} - Size: {STEP_SIZE}', 'Control Input'], labels=['y','u'], savepath=f'dyn_char_step_{i:02d}.pdf')
+	qplt.subplots(seg.t, signals=[[seg.y], [seg.u]], xlabels=['t [s]'], ylabels=[r'$\varphi [^\circ]$', 'u [%PWM]'], titles=[f'Step {i:02d} - Size: {STEP_SIZE}', 'Control Input'], labels=['y','u'], savepath=f'dyn_char_step_{i:02d}.pdf')
 	print(f"✅ Step {i:02d} saved to dyn_char_step_{i:02d}.csv")
 
 # Overlapping steps (include the change point in both steps)
