@@ -33,7 +33,7 @@ def set_paper_style(single_column: bool = True):
     })
 
 def plot(x, signals, labels=None, xlabel="Time", ylabel="Value", 
-                    title=None, savepath=None, reference_signal=None, markers=None, scatter_signals=None, linewidth=1, ax=None):
+                    title=None, savepath=None, reference_signal=None, markers=None, scatter_signals=None, linewidth=1, ax=None, show_legend=True, show_plot=True):
     """
     Plot multiple signals in black & white with different line styles.
     Optionally highlight a reference signal (always black dashed).
@@ -104,7 +104,8 @@ def plot(x, signals, labels=None, xlabel="Time", ylabel="Value",
     ax.set_ylabel(ylabel)
     if title:
         ax.set_title(title, fontsize=11)
-    ax.legend(frameon=False)
+    if show_legend:
+        ax.legend(frameon=False)
     ax.grid(True, linestyle=":", linewidth=0.5, alpha=0.7)
     sns.despine(ax=ax)
 
@@ -114,13 +115,15 @@ def plot(x, signals, labels=None, xlabel="Time", ylabel="Value",
         fig.savefig(savepath, format="pdf", bbox_inches="tight")
         print(f"✅ Figure saved to {savepath}")
 
-    if show_image:
+    if show_image and show_plot:
         plt.show()
+    else:
+        plt.close(fig)
 
 
 def subplots(x, signals, labels=None, 
                      xlabels="Time", ylabels="Value", titles=None, 
-                     savepath=None, reference_signal=None):
+                     savepath=None, reference_signal=None, show_plot=True, show_legend=True):
     """
     Plot multiple vertically aligned subplots in B&W.
     Each subplot can contain one or more signals.
@@ -164,7 +167,9 @@ def subplots(x, signals, labels=None,
             ylabel=ylabels if nylabels == 1 else ylabels[nylabels-1 if idx >= nylabels else idx], 
             title=title, 
             reference_signal=reference_signal,
-            ax=ax
+            ax=ax,
+            show_legend=show_legend,
+            show_plot=show_plot
         )
 
     plt.tight_layout()
@@ -172,8 +177,11 @@ def subplots(x, signals, labels=None,
     if savepath:
         fig.savefig(savepath, format="pdf", bbox_inches="tight")
         print(f"✅ Figure saved to {savepath}")
-
-    plt.show()
+    
+    if show_plot:        
+        plt.show()
+    else:
+        plt.close(fig)
 
 def scatter(x, signals, labels=None, reference=None,
                     xlabel="Time", ylabel="Value", size=10, title=None, savepath=None):
