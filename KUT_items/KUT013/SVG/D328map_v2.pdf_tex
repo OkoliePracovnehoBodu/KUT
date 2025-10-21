@@ -59,7 +59,7 @@
     \put(0.55714286,0.28571429){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}\textbf{\textsf{LK\textl{10}}}\end{tabular}}}}%
     \put(0.50923386,0.24452591){\color[rgb]{0,0,0}\rotatebox{90}{\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}\textbf{\textsf{\scriptsize LMOT\textl{01}}}\end{tabular}}}}}%
     \put(0.50718912,0.50868064){\color[rgb]{0,0,0}\rotatebox{90}{\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}\textbf{\textsf{\scriptsize TS\textl{01}}}\end{tabular}}}}}%
-    \put(0.50923386,0.37881154){\color[rgb]{0,0,0}\rotatebox{90}{\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}\textbf{\textsf{\scriptsize TS\textl{05}}}\end{tabular}}}}}%
+    \put(0.50923386,0.37881154){\color[rgb]{0,0,0}\rotatebox{90}{\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}\textbf{\textsf{\scriptsize TS\textl{02}}}\end{tabular}}}}}%
     \put(0.54965548,0.77800713){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}\textbf{\textsf{\scriptsize TS\textl{04}}}\end{tabular}}}}%
     \put(0.56428571,0.83571429){\color[rgb]{0,0,0}\rotatebox{90}{\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}\textbf{\textsf{LK\textl{23}}}\end{tabular}}}}}%
     \put(0.25,0.9){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{0}\smash{\begin{tabular}[t]{c}okno\end{tabular}}}}%
