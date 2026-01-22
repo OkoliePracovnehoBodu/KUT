@@ -3,7 +3,7 @@
 import os
 
 directory = "../../KUT_items"
-items = os.listdir(directory)
+items = [i for i in os.listdir(directory) if i != 'KUT000']
 
 
 data = []
