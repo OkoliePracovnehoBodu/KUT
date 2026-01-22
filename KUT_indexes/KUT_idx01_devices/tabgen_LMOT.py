@@ -3,7 +3,9 @@
 import os
 
 directory = "../../KUT_items"
-items = os.listdir(directory)
+items = [i for i in os.listdir(directory) if i != 'KUT000']
+
+
 
 
 # -----------------------------------------------------------------------------
@@ -49,16 +51,19 @@ def tabgen():
 
 
 # -----------------------------------------------------------------------------
+# Opis a vlastnosti
 output_file = 'tab01_rows_LMOT.tex'
 
 selected_KUT_items = [
     'KUT014', 
+    'KUT018',
 ]
 
 tabgen()
 
 
 # -----------------------------------------------------------------------------
+# Softvér
 output_file = 'tab02_rows_LMOT.tex'
 
 selected_KUT_items = [
@@ -68,6 +73,7 @@ selected_KUT_items = [
 tabgen()
 
 # -----------------------------------------------------------------------------
+# Rôzne
 output_file = 'tab03_rows_LMOT.tex'
 
 selected_KUT_items = [
