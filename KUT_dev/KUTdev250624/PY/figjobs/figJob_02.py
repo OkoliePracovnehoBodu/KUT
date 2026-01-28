@@ -81,7 +81,7 @@ for sch_file in sch_files:
              label='',
              )
 
-ax0.set_ylim(0, 10)
+
 
 #---------------------------------------------
 
@@ -146,7 +146,7 @@ for sch_file in sch_files:
              label='',
              )
 
-ax0.set_ylim(0, 10)
+# ax0.set_ylim(0, 10)
 
 #---------------------------------------------
 

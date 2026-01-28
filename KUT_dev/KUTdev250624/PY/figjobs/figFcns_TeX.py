@@ -31,6 +31,14 @@ mpl.rcParams['text.latex.preamble'] = r'\usepackage[T1]{fontenc} \usepackage{lmo
 
 ###############################################################################
 
+import locale
+locale.setlocale(locale.LC_NUMERIC, 'sk_SK.UTF-8')
+
+mpl.rcParams['axes.formatter.use_locale'] = True
+
+
+###############################################################################
+
 mpl.rcParams['xtick.direction'] = 'out'
 mpl.rcParams['xtick.labelsize'] = mpl.rcParams['font.size']
 
@@ -120,6 +128,7 @@ def fcnDefaultTwinAxisStyle(ax):
 from matplotlib.ticker import (AutoMinorLocator,
                                MultipleLocator,
                                FormatStrFormatter,
+                               FuncFormatter,
                                LinearLocator,
                                )
 
@@ -140,6 +149,10 @@ def fcn_setFigStyle_basicTimeSeries(fig, figPlotParam, XYT_labels):
     for ax in fig.get_axes():
 
         fcnDefaultAxisStyle(ax)
+
+        # 
+        # ax.yaxis.set_major_locator(LinearLocator(5))
+        ax.yaxis.set_major_locator(MultipleLocator(2))
 
         ax.yaxis.set_minor_locator(AutoMinorLocator())
         ax.xaxis.set_minor_locator(AutoMinorLocator())
@@ -189,6 +202,67 @@ def fcn_setFigStyle_basicTimeSeries(fig, figPlotParam, XYT_labels):
 
 
 
+
+
+
+
+
+def fcn_setFigStyle_for_figJob_03_panel_2(fig, figPlotParam, XYT_labels):
+
+    fcnDefaultLayoutAdj(fig, figPlotParam[2], figPlotParam[3], figPlotParam[4], figPlotParam[5])
+
+    for ax in fig.get_axes():
+
+        fcnDefaultAxisStyle(ax)
+
+        # 
+        # ax.yaxis.set_major_locator(LinearLocator(5))
+        # ax.yaxis.set_major_locator(MultipleLocator(1))
+
+
+        ax.ticklabel_format(useLocale=True)
+
+        ax.yaxis.set_minor_locator(AutoMinorLocator())
+        ax.xaxis.set_minor_locator(AutoMinorLocator())
+
+        ax.ticklabel_format(axis='y', useOffset=False)
+
+        ax.set_xlabel(
+            XYT_labels[0], 
+            ha='left', 
+            va='top',
+            )
+
+        ax.xaxis.set_label_coords(1.068, -0.068, transform=ax.transAxes)  
+
+        ax.set_ylabel(
+            XYT_labels[1], 
+            ha='right', 
+            va='bottom', 
+            rotation=0,  
+            )
+
+        ax.yaxis.set_label_coords(-0.068, 1.068, transform=ax.transAxes)
+
+        ax.set_title(
+            XYT_labels[2], 
+            ha='left', 
+            va='bottom',
+            x=0.0,
+            y=1.068,
+            transform=ax.transAxes
+            )
+
+        
+        handles_ax, labels_ax = ax.get_legend_handles_labels()
+
+        ax.legend(
+            handles_ax, labels_ax, 
+            ncol=1, 
+            handlelength=0.8, 
+            markerfirst=True, 
+            loc=2, bbox_to_anchor=(1.01, 1.00)
+        )
 
 
 

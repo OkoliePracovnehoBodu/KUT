@@ -1,6 +1,6 @@
 \documentclass[a4paper, 10pt, ]{article}
 
-\input{./COMMONFILES/preamble.tex}
+\input{../../KUT000/preamble_v1.0.tex}
 
 % -----------------------------------------------------------------------------
 
@@ -9,9 +9,9 @@
 % -----------------------------------------------------------------------------
 
 
-\def\KUTporadoveCislo{dev250624}
+\def\KUTporadoveCislo{019}
 
-\def\oznacenieVerzie{v0.9}
+\def\oznacenieVerzie{v0.95}
 % \def\oznacenieVerzie{\phantom{v1.0}}
 
 \def\mesiacRok{jún 2025}
@@ -33,7 +33,7 @@
 \noindent
 \parbox[t][18mm][c]{0.3\textwidth}{%
 \raisebox{-0.9\height}{%
-\phantom{.}\includegraphics[height=18mm]{./COMMONFILES/URKFEIlogo.pdf}%
+\phantom{.}\includegraphics[height=18mm]{../../KUT000/URKFEIlogo_v0.1.pdf}%
 }%
 }%
 \parbox[t][18mm][c]{0.7\textwidth}{%
@@ -87,7 +87,7 @@ github.com/OkoliePracovnehoBodu/KUT
 
 \bfseries
 
-\includegraphics[height=12pt]{./COMMONFILES/KUT_logo_v0.1.pdf}%
+\includegraphics[height=12pt]{../../KUT000/KUT_logo_v0.1.pdf}%
 {%
 \textls[-50]{\KUTporadoveCislo}
 }%
@@ -107,7 +107,7 @@ github.com/OkoliePracovnehoBodu/KUT
 \selectfont
 
 \begin{flushleft}
-    Laboratórne zariadenie LMOT:\\ statické vlastnosti
+    LMOT: Príklad spracovania datasetu pre prevodovú charakteristiku
 \end{flushleft}
 
 \bigskip
@@ -130,135 +130,22 @@ github.com/OkoliePracovnehoBodu/KUT
 
 \noindent
 \lettrine[lines=1, nindent=1pt, loversize=0.0]{C}{ieľom} 
-textu je opis laboratórneho dynamického systému LMOT z hľadiska jeho statických vlastností.
+textu je uvedenie prikladu spracovania dát, z ktorých je možné získať prevodovú charakteristiku daného dynamického systému. Tento text priamo nadväzuje na \href{run:../../KUT018/TeX/KUT018.pdf}{\textsf{KUT018}}, kde je prezentovaný práve súbor takýchto dát.
 
-
-\section{Opis dynamického systému LMOT}
-
-LMOT je laboratórne zariadenie predstavujúce reálny dynamický systém. Pozostáva z malého jednosmerného motora, tachodynama, ktoré je na spoločnom hriadeli s~motorom, a z elektronických obvodov, ktoré zabezpečujú napájanie motora. Elektronickymi obvodmi sú tiež dané dominantné statické a dynamické vlastnosti výsledného systému. Do istej miery je možné tieto vlastnosti meniť manuálnym nastavením príslušného potenciometra.
-
-Systém má jeden vstupný signál a jeden výstupný signál. Výstupný signál je priamo úmerný uhlovej rýchlosti jednosmerného motora, ktorá je snímaná tachodynamom. Vstupný signál ovláda napájanie motora.
-
-Polohou potenciometra je v podstate daná prevádzková podmienka zariadenia. K~dispozícii je signál zodpovedajúci polohe potenciometra a teda tým je k dispozícii informácia o prevádzkovej podmienke systému.
-
-LMOT (čítaj \emph{elmot}) je akronym pre „laboratórny motorček“, prípadne pre „little motor“.
+ 
 
 
 
-\section{Meranie prevodovej charakteristiky}
-
-V kontexte statických vlastností systému má vo všeobecnosti význam hovoriť o~prevodovej charakteristike systému. Prevodová charakteristika je závislosť ustálených hodnôt výstupného signálu systému od ustálených hodnôt vstupného signálu systému.
-
-Je zrejmé, že prevodová charakteristika sa týka systémov s prívlastkom statické, teda takých, ktoré nie sú astatické.
-
-Prevodová charakteristika, niekde sa nazýva aj statická charakteristika, teda charakterizuje systém len v~ustálených stavoch. Neobsahuje informáciu o dynamike systému.
-
-
-
-\subsection{Návrh merania}
-
-Z opisu predmetného dynamického systému vyplýva, že systém má jeden výstupný signál, jeden vstupný signál a manuálne nastaviteľnú prevádzkovú podmienku.
-
-\paragraph{Rozsahy a jednotky signálov}
-
-Vstupný a výstupný signál nadobúdajú hodnoty v~rozsahu $0$ až $10$ pričom ide o~napäťové signály vo voltoch [V].
-
-Prevádzková podmienka systému sa nastavuje manuálne otáčaním potenciometra. Signál o polohe potenciometra nadobúda hodnoty v rozsahu $0$ [V] až $10$ [V].
-
-\paragraph{Voľba ustálených hodnôt vstupov}
-
-O predmetnom systéme je známe, že výstup systému sa ustáli vždy ak sú vstupy systému ustálené. Pre vyšetrovanie ustálených stavov je teda možné využiť celý rozsah vstupného signálu a celý rozsah prevádzkových podmienok.
-
-Návrh uvažuje ustálené hodnoty vstupného signálu uvedené v tabuľke~\ref{tab:ustalene_hodnoty_vstupneho_signalu} a zároveň ustálené hodnoty reprezentujúce prevádzkové podmienky podľa tabuľky \ref{tab:ustalene_hodnoty_podmienok}.
-
-
-\begin{center}
-
-\vspace{-10pt}    
-    
-\tabcaption{Ustálené hodnoty vstupného signálu [V]}
-\label{tab:ustalene_hodnoty_vstupneho_signalu}
-
-\lstyle
-
-\begin{tabular*}{\textwidth}{@{ \extracolsep{\fill}} ccccccccccc}
-\toprule
-0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 \\
-\bottomrule
-\end{tabular*}
-
-
-\tabcaption{Ustálené hodnoty signálu o prevádkových podmienkach [V]}
-\label{tab:ustalene_hodnoty_podmienok}
-
-\lstyle
-
-\begin{tabular*}{\textwidth}{@{ \extracolsep{\fill}} ccccccccccc}
-\toprule
-0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 \\
-\bottomrule
-\end{tabular*}
-
-\end{center}
-
-
-\paragraph{Voľba časového intervalu pre ustálenie výstupu systému}
-
-Empirické skúsenosti so systémom ukazujú, že z praktického hľadiska sa systém ustáli do $15$ sekúnd po zmene na vstupe systému. Ukazuje sa však aj náchylnosť systému k poruchám spôsobeným zväčša mechanickými nedostatkami a vibráciami zrejme spôsobujúcimi zmeny trenia v mechanických častiach systému. Pre pozorovanie a~vyhodnotenie vplyvu týchto porúch v ustálenom stave je časový interval pre ustálenie zvolený na $120$ sekúnd.
-
-
-
-\paragraph{Postup merania}
-
-Vzhľadom na uvedené voľby ustálených hodnôt a časového intervalu návrh predpokladá nasledovný postup.
-
-\begin{enumerate}[leftmargin=0pt, labelsep=4mm, itemsep=0pt]
-    \item Manuálne nastavenie prevádzkových podmienok na hodnotu z tabuľky~\ref{tab:ustalene_hodnoty_podmienok}.
-    \item Postupná zmena vstupného signálu na hodnoty z tabuľky~\ref{tab:ustalene_hodnoty_vstupneho_signalu} so zvoleným časovým intervalom. Takúto postupnú zmenu vyjadruje nasledujúca tabuľka \ref{tab:postupna_zmena_vstupneho_signalu}.
-    
-\end{enumerate}
-
-
-\begin{center}
-
-\vspace{-10pt}    
-
-\tabcaption{Postupná zmena vstupného signálu}
-\label{tab:postupna_zmena_vstupneho_signalu}
-
-\lstyle
-
-\begin{tabular*}{\textwidth}{@{ \extracolsep{\fill}} cc}
-\toprule
-Čas zmeny vstupného signálu [s] & Hodnota vstupného signál [V] \\
-\midrule
-0 & 0 \\
-120 & 1 \\
-240 & 2 \\
-360 & 3 \\
-480 & 4 \\
-600 & 5 \\
-720 & 6 \\
-840 & 7 \\
-960 & 8 \\
-1080 & 9 \\
-1200 & 10 \\
-\bottomrule
-\end{tabular*}
-
-\end{center}
-
-Celková dĺžka merania je teda $1200 + 120 = 1320$ sekúnd a počas tejto doby sú prevádzkové podmienky konštantné.
 
 
 
 \section{Získané dáta}
 
-Príklad získaných dát podľa uvedeného postupu je znázornený na nasledujúcom obrázku \ref{fj_01_data_pot0}.  
+Príklad získaných dát z datasetu opísaného v dokumente \href{run:../../KUT018/TeX/KUT018.pdf}{\textsf{KUT018}} je znázornený na nasledujúcom obrázku \ref{fj_01_data_pot0}.  
 
 
 % \begin{center}
-    \begin{figure}[t]
+    \begin{figure}[!b]
 
     \vbox{%
         \makebox[\textwidth][c]{%
@@ -273,8 +160,8 @@ Príklad získaných dát podľa uvedeného postupu je znázornený na nasleduj�
         \includegraphics{fj_01_data_pot0_panel_2.pdf}
         }
 
-        % \figcaption{ 
-        \caption{
+        \figcaption{ 
+        % \caption{
             Získané dáta pre vstupný signál a výstupný signál systému LMOT pri manuálne nastavenej prevádzkovej podmienke $0$ [V].
         }
         \label{fj_01_data_pot0}
@@ -283,11 +170,56 @@ Príklad získaných dát podľa uvedeného postupu je znázornený na nasleduj�
     \end{figure}
 % \end{center}
 
-Získané dáta pre ostatné prevádzkové podmienky sú uvedené v~prílohách tohto textu. Vizualizované sú tu tak dáta pre všetky prevádzkové podmienky, ktoré sú v~tabuľke~\ref{tab:ustalene_hodnoty_podmienok}.
+Dátový súbor obsahuje informácie o ustálených stavoch systému vo zvolených ustálených hodnotách vstupu a prevádzkovej podmienky (manuálneho vstupu) ako je uvedené v tabuľke \ref{tab:ustalene_hodnoty_vstupneho_signalu} a~v~tabuľke \ref{tab:ustalene_hodnoty_podmienok}. Dáta na obrázku \ref{fj_01_data_pot0} teda poskytujú informácie o~ustálených stavoch systému pri prevádzkovej podmienke $0$ [V] a pre rozsah vstupného signálu od $0$ [V] do $10$ [V]. Všetky získané dáta pre ostatné prevádzkové podmienky sú uvedené takýmto spôsobom vizualizované v texte \href{run:../../KUT018/TeX/KUT018.pdf}{\textsf{KUT018}}.
 
 
 
 
+
+% \begin{center}
+\begin{table}[!h]
+
+% \vspace{-10pt}    
+    
+\tabcaption{Ustálené hodnoty vstupného signálu [V]}
+\label{tab:ustalene_hodnoty_vstupneho_signalu}
+
+\vspace{-10pt}
+
+\lstyle
+
+\begin{tabular*}{\textwidth}{@{ \extracolsep{\fill}} ccccccccccc}
+\toprule
+0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 \\
+\bottomrule
+\end{tabular*}
+
+\end{table}
+% \end{center}
+
+
+
+
+% \begin{center}
+\begin{table}[!h]
+
+% \vspace{-10pt}   
+
+\tabcaption{Ustálené hodnoty signálu o prevádkových podmienkach [V]}
+\label{tab:ustalene_hodnoty_podmienok}
+
+\vspace{-10pt}
+
+\lstyle
+
+\begin{tabular*}{\textwidth}{@{ \extracolsep{\fill}} ccccccccccc}
+\toprule
+0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 \\
+\bottomrule
+\end{tabular*}
+
+\end{table}
+% \end{center}
 
 
 
@@ -302,8 +234,9 @@ Získané dáta pre ostatné prevádzkové podmienky sú uvedené v~prílohách 
 
 Zo získaných dát na obrázku \ref{fj_01_data_pot0} je potrebné vyňať úseky, počas ktorých sú výstupný a~vstupný signál ustálené. V tomto prípade nech za ustálený stav sa považuje posledných 30 \% zvoleného časového intervalu pre ustálenie, teda posledných 36 sekúnd z celkových 120 sekúnd. Takto vyňaté úseky sú znázornené na obrázku \ref{fj_02_data_pot0}.
 
+
 % \begin{center}
-    \begin{figure}[!t]
+    \begin{figure}[!b]
 
     \vbox{%
         \makebox[\textwidth][c]{%
@@ -325,6 +258,8 @@ Zo získaných dát na obrázku \ref{fj_01_data_pot0} je potrebné vyňať úsek
 
 \end{figure}
 % \end{center}
+
+
 
 
 
@@ -371,11 +306,14 @@ Pre lepšiu ilustráciu, že uvedený dataset neobsahuje takpovediac len niekoľ
 
         \vspace{-6pt}
 
-        % \figcaption{ 
-        \caption{
+        \figcaption{ 
+        % \caption{
             % 
         }
         \label{fj_03_data_pot0_panel_2}
+
+        \vspace{-6pt}
+
     }%vbox
 
 \end{figure}
@@ -387,6 +325,28 @@ Pre lepšiu ilustráciu, že uvedený dataset neobsahuje takpovediac len niekoľ
 \subsection{Aproximácia prevodovej charakteristiky}
 \label{sec:Aproximácia prevodovej charakteristiky}
 
+
+% \begin{center}
+    \begin{figure}[!b]
+
+    \vbox{%
+        \makebox[\textwidth][c]{%
+        \includegraphics{fj_04_data_pot0_panel_1.pdf}
+        }
+
+        \vspace{-6pt}
+
+        \figcaption{ 
+        % \caption{
+            % 
+        }
+        \label{fj_04_data_pot0_panel_1}
+    }%vbox
+
+\end{figure}
+% \end{center}
+
+
 Nameraná prevodová charakteristika znázornená na obrázku \ref{fj_03_data_pot0_panel_1} zachytáva vzťah medzi vstupným a výstupným signálom v konkrétnych ustálených stavoch. Pre pokrytie celého rozsahu vstupného a výstupného signálu je účelné identifikovať model, ktorý by aproximoval nameranú prevodovú charakteristiku. 
 
 Grafické znázornenie nameranej prevodovej charakteristiky na obrázku \ref{fj_03_data_pot0_panel_1}  ukazuje, že od hodnoty vstupného signálu $7$ [V] a viac je výstupná hodnota saturovaná na maxime (v podstate $10$ [V]). 
@@ -396,7 +356,6 @@ Vstupnú veličinu označme ako $u$ a výstupnú veličinu ako $y$. Závislosť 
     y = f(u)
 \end{equation}
 kde $f$ je funkcia, ktorá vyjadruje prevodovú charakteristiku systému.
-
 
 
 Pre stanovenie modelu rozdeľme prevodovú charakteristiku na dve časti. Hľadáme funkciu $f_1$, ktorá bude aproximovať prevodovú charakteristiku pre hodnoty vstupného signálu $u$ v rozsahu $0 \leq u \leq 7$ [V] a funkciu $f_2$, ktorá bude aproximovať prevodovú charakteristiku pre hodnoty vstupného signálu $u$ v rozsahu $7 < u \leq 10$ [V].
@@ -418,21 +377,25 @@ Parametre je možné určiť metódou najmenších štvorcov, čo v tomto prípa
 \end{equation}
 a táto funkcia je znázornená na obrázku \ref{fj_04_data_pot0_panel_1}.
 
+
+
 % \begin{center}
     \begin{figure}[!t]
 
     \vbox{%
         \makebox[\textwidth][c]{%
-        \includegraphics{fj_04_data_pot0_panel_1.pdf}
+        \includegraphics{fj_04_data_pot0_panel_2.pdf}
         }
 
         \vspace{-6pt}
 
-        % \figcaption{ 
-        \caption{
-            % 
+        \figcaption{ 
+            %
         }
-        \label{fj_04_data_pot0_panel_1}
+        \label{fj_04_data_pot0_panel_2}
+
+        \vspace{-6pt}
+
     }%vbox
 
 \end{figure}
@@ -443,7 +406,7 @@ a táto funkcia je znázornená na obrázku \ref{fj_04_data_pot0_panel_1}.
 
     \vbox{%
         \makebox[\textwidth][c]{%
-        \includegraphics{fj_04_data_pot0_panel_2.pdf}
+        \includegraphics{fj_05__panel_1.png}
         }
 
         \vspace{-6pt}
@@ -452,7 +415,10 @@ a táto funkcia je znázornená na obrázku \ref{fj_04_data_pot0_panel_1}.
         \caption{
             % 
         }
-        \label{fj_04_data_pot0_panel_2}
+        \label{fj_05__panel_1}
+
+        \vspace{-6pt}
+
     }%vbox
 
 \end{figure}
@@ -471,11 +437,7 @@ Graficky je výstup modelu znázornený na obrázku \ref{fj_04_data_pot0_panel_2
 
 
 
-\subsection{Skript}
 
-Python skript pre realizáciu vyššie uvedeného spracovania dát je dostupný v~súbore \texttt{dataJob\_SSChar.ipynb}. Ide o Jupyter notebook pričom tento skript je v bunke č.~5.
-
-\input{../PY/jupynotex/tex/dataJob_SSCharipynb_5.tex}
 
 
 
@@ -487,32 +449,14 @@ Python skript pre realizáciu vyššie uvedeného spracovania dát je dostupný 
 
 Obdobne ako na obr.~\ref{fj_03_data_pot0_panel_1} je možné vizualizovať všetky namerané prevodové charakteristiky pre všetky prevádzkové podmienky, pozri obrázok \ref{fj_05__panel_1}. 
 
-% \begin{center}
-    \begin{figure}[!t]
 
-    \vbox{%
-        \makebox[\textwidth][c]{%
-        \includegraphics{fj_05__panel_1.png}
-        }
-
-        \vspace{-6pt}
-
-        % \figcaption{ 
-        \caption{
-            % 
-        }
-        \label{fj_05__panel_1}
-    }%vbox
-
-\end{figure}
-% \end{center}
 
 Na tieto dáta, a teda na skúmaný systém ako celok, sa dá nazerať ako na dáta zodpovedajúce systému s~dvomi vstupmi a jedným výstupom. Prvým vstupom je dosiaľ uvádzaný vstupný signál, druhým vstupom je signál o prevádzkovej podmienke. Dáta reprezentujúce ustálené stavy je potom možné vizualizovať ako funkciu dvoch premenných, pozri obrázok \ref{fj_06__panel_1}.
 
 % \begin{center}
-    \begin{figure}[!h]
+    \begin{figure}[!t]
 
-    \vspace{-4mm}
+    \vspace{-10mm}
 
     \vbox{%
         \makebox[\textwidth][c]{%
@@ -526,6 +470,9 @@ Na tieto dáta, a teda na skúmaný systém ako celok, sa dá nazerať ako na d�
             % 
         }
         \label{fj_06__panel_1}
+
+        \vspace{-6pt}
+
     }%vbox
 
 \end{figure}
@@ -535,6 +482,36 @@ Na tieto dáta, a teda na skúmaný systém ako celok, sa dá nazerať ako na d�
 \subsection{Aproximácia prevodovej charakteristiky pre každú prevádzkovú podmienku zvlášť}
 
 V princípe je možné zrealizovať aproximáciu prevodovej charakteristiky podľa postupu uvedeného v~časti \ref{sec:Aproximácia prevodovej charakteristiky} pre každú prevádzkovú podmienku zvlášť. 
+
+
+
+
+
+
+% \begin{center}
+    \begin{figure}[!b]
+
+    \vbox{%
+        \makebox[\textwidth][c]{%
+        \includegraphics{fj_04b_data_pot5_panel_2.pdf}
+        }
+
+        \vspace{-6pt}
+
+        % \figcaption{ 
+        \caption{
+            Nameraná prevodová charakteristika pre prevádzkovú podmienku $5$ [V]. 
+        }
+        \label{fj_04b_data_pot5_panel_2}
+
+        \vspace{-6pt}
+
+    }%vbox
+
+\end{figure}
+% \end{center}
+
+\paragraph{Zovšeobecňujúci príklad pri prevádzkovej podmienke 5 [V]}
 
 Vo všeobecnosti je však potrebné zvážiť aj saturáciu výstupného signálu, ktorá sa prejavuje pri nízkych hodnotách vstupného signálu. Napríklad pre prevádzkovú podmienku $5$ [V] je nameraná prevodová charakteristika znázornená na obrázku \ref{fj_04b_data_pot5_panel_2}.
 
@@ -551,36 +528,14 @@ pričom v tomto prípade sú parametre $\Theta_1 = 1,185$ a $\Theta_0 = -1,172$.
 
 
 
+
+
+
+
 % \begin{center}
     \begin{figure}[!t]
 
-    \vbox{%
-        \makebox[\textwidth][c]{%
-        \includegraphics{fj_04b_data_pot5_panel_2.pdf}
-        }
-
-        \vspace{-6pt}
-
-        % \figcaption{ 
-        \caption{
-            Nameraná prevodová charakteristika pre prevádzkovú podmienku $5$ [V]. 
-        }
-        \label{fj_04b_data_pot5_panel_2}
-    }%vbox
-
-\end{figure}
-% \end{center}
-
-
-
-\subsection{Aproximácia s využitím viacfaktorového modelu}
-
-Viac faktorovým modelom rozumieme taký, ktorý ma viac ako jeden vstup. V tomto prípade môžeme signál o polohe potenciometra využiť ako ďalší vstup do modelu. 
-
-% \begin{center}
-    \begin{figure}[!h]
-
-    \vspace{-10pt}
+    \vspace{-10mm}
 
     \vbox{%
         \makebox[\textwidth][c]{%
@@ -599,20 +554,13 @@ Viac faktorovým modelom rozumieme taký, ktorý ma viac ako jeden vstup. V tomt
 \end{figure}
 % \end{center}
 
-Na obrázku \ref{fj_06__panel_2} sú hodnoty v ustálenom stave znázornené ako funkcia dvoch premenných. Funkčnou hodnotou je výstupný signál a argumentmi sú vstupný signál a~prevádzková podmienka. Farebne sú odlíšené prípady, keď výstupný signál je saturovaný a keď nie je. Ak si odmyslíme saturované oblasti, potom môžeme usúdiť, že hodnoty v ustálenom stave tvoria rovinu v trojrozmernom priestore.
 
-Modelom nesaturovanej oblasti nech je funkčná závislosť v tvare
-\begin{equation}
-    \hat y = f_4(u_1, u_2) = \Theta_{11}\ u_1 + \Theta_{12}\ u_2 + \Theta_0
-\end{equation}
-kde $u_1$ je vstupný signál, $u_2$ je prevádzková podmienka a $\Theta_{11}$, $\Theta_{12}$ a $\Theta_0$ sú parametre, ktoré je potrebné určiť.
 
-Pre tento prípad boli v zmysle metódy najmenších štvorcov nájdené hodnoty parametrov $\Theta_{11} = 1,167 $, $\Theta_{12} = -0,37876$ a $\Theta_0 = 0,81$. Grafické porovnanie takéhoto modelu s nameranými hodnotami v nesaturovanej oblasti je znázornené na obrázku \ref{fj_07__panel_1}.
 
 % \begin{center}
-    \begin{figure}[!h]
+    \begin{figure}[!b]
 
-    \vspace{-10pt}
+    \vspace{-2mm}
 
     \vbox{%
         \makebox[\textwidth][c]{%
@@ -639,11 +587,20 @@ Pre tento prípad boli v zmysle metódy najmenších štvorcov nájdené hodnoty
 
 
 
+\subsection{Aproximácia s využitím viacfaktorového modelu}
 
+Viac faktorovým modelom rozumieme taký, ktorý ma viac ako jeden vstup. V tomto prípade môžeme signál o polohe potenciometra využiť ako ďalší vstup do modelu. 
 
 
+Na obrázku \ref{fj_06__panel_2} sú hodnoty v ustálenom stave znázornené ako funkcia dvoch premenných. Funkčnou hodnotou je výstupný signál a argumentmi sú vstupný signál a~prevádzková podmienka. Farebne sú odlíšené prípady, keď výstupný signál je saturovaný a keď nie je. Ak si odmyslíme saturované oblasti, potom môžeme usúdiť, že hodnoty v ustálenom stave tvoria rovinu v trojrozmernom priestore.
 
+Modelom nesaturovanej oblasti nech je funkčná závislosť v tvare
+\begin{equation}
+    \hat y = f_4(u_1, u_2) = \Theta_{11}\ u_1 + \Theta_{12}\ u_2 + \Theta_0
+\end{equation}
+kde $u_1$ je vstupný signál, $u_2$ je prevádzková podmienka a $\Theta_{11}$, $\Theta_{12}$ a $\Theta_0$ sú parametre, ktoré je potrebné určiť.
 
+Pre tento prípad boli v zmysle metódy najmenších štvorcov nájdené hodnoty parametrov $\Theta_{11} = 1,167 $, $\Theta_{12} = -0,37876$ a $\Theta_0 = 0,81$. Grafické porovnanie takéhoto modelu s nameranými hodnotami v nesaturovanej oblasti je znázornené na obrázku \ref{fj_07__panel_1}.
 
 
 
@@ -661,326 +618,16 @@ Pre tento prípad boli v zmysle metódy najmenších štvorcov nájdené hodnoty
 
 
 
-% \newpage
-\clearpage
-% \pagebreak
 
-\section{Príloha - vizualizácia získaných dát}
 
 
-\vspace{-6pt}
 
-\paragraph{Meranie ustálených hodnôt pri prevádzkovej podmienke 0 [V]}
 
-Pozri obrázok \ref{fj_01_data_pot0}.
 
-\vspace{-6pt}
 
 
-\paragraph{Meranie ustálených hodnôt pri prevádzkovej podmienke 1 [V]}
 
-\begin{center}
 
-    \vbox{%
-        \makebox[\textwidth][c]{%
-        \includegraphics{fj_01_data_pot1_panel_1.pdf}
-        }
-
-        \makebox[\textwidth][c]{%
-        \includegraphics{fj_01_data_pot1_panel_3.pdf}
-        }
-
-        \makebox[\textwidth][c]{%
-        \includegraphics{fj_01_data_pot1_panel_2.pdf}
-        }
-
-        \figcaption{ 
-            Získané dáta pre vstupný signál a výstupný signál systému LMOT pri manuálne nastavenej prevádzkovej podmienke $1$ [V].
-        }
-        \label{fj_01_data_pot1}
-    }%vbox
-
-\end{center}
-
-% \vfill
-
-\vspace{-6pt}
-
-\paragraph{Meranie ustálených hodnôt pri prevádkovej podmienke 2 [V]}
-
-\begin{center}
-
-    \vbox{%
-        \makebox[\textwidth][c]{%
-        \includegraphics{fj_01_data_pot2_panel_1.pdf}
-        }
-
-        \makebox[\textwidth][c]{%
-        \includegraphics{fj_01_data_pot2_panel_3.pdf}
-        }
-
-        \makebox[\textwidth][c]{%
-        \includegraphics{fj_01_data_pot2_panel_2.pdf}
-        }
-
-        \figcaption{ 
-            Získané dáta pre vstupný signál a výstupný signál systému LMOT pri manuálne nastavenej prevádzkovej podmienke $2$ [V].
-        }
-        \label{fj_01_data_pot2}
-    }%vbox
-
-\end{center}
-
-% \vfill
-
-% \phantom{}
-
-\pagebreak
-
-
-
-\paragraph{Meranie ustálených hodnôt pri prevádzkovej podmienke 3 [V]}
-
-\begin{center}
-
-    \vbox{%
-        \makebox[\textwidth][c]{%
-        \includegraphics{fj_01_data_pot3_panel_1.pdf}
-        }
-
-        \makebox[\textwidth][c]{%
-        \includegraphics{fj_01_data_pot3_panel_3.pdf}
-        }
-
-        \makebox[\textwidth][c]{%
-        \includegraphics{fj_01_data_pot3_panel_2.pdf}
-        }
-
-        \figcaption{ 
-            Získané dáta pre vstupný signál a výstupný signál systému LMOT pri manuálne nastavenej prevádzkovej podmienke $3$ [V].
-        }
-        \label{fj_01_data_pot3}
-    }%vbox
-
-\end{center}
-
-\vfill
-
-\paragraph{Meranie ustálených hodnôt pri prevádzkovej podmienke 4 [V]}
-
-\begin{center}
-
-    \vbox{%
-        \makebox[\textwidth][c]{%
-        \includegraphics{fj_01_data_pot4_panel_1.pdf}
-        }
-
-        \makebox[\textwidth][c]{%
-        \includegraphics{fj_01_data_pot4_panel_3.pdf}
-        }
-
-        \makebox[\textwidth][c]{%
-        \includegraphics{fj_01_data_pot4_panel_2.pdf}
-        }
-
-        \figcaption{ 
-            Získané dáta pre vstupný signál a výstupný signál systému LMOT pri manuálne nastavenej prevádzkovej podmienke $4$ [V].
-        }
-
-        \label{fj_01_data_pot4}
-    }%vbox
-
-\end{center}
-
-% \vfill
-
-% \phantom{}
-
-\pagebreak
-
-\paragraph{Meranie ustálených hodnôt pri prevádzkovej podmienke 5 [V]}
-
-\begin{center}
-
-    \vbox{%
-        \makebox[\textwidth][c]{%
-        \includegraphics{fj_01_data_pot5_panel_1.pdf}
-        }
-
-        \makebox[\textwidth][c]{%
-        \includegraphics{fj_01_data_pot5_panel_3.pdf}
-        }
-
-        \makebox[\textwidth][c]{%
-        \includegraphics{fj_01_data_pot5_panel_2.pdf}
-        }
-
-        \figcaption{ 
-            Získané dáta pre vstupný signál a výstupný signál systému LMOT pri manuálne nastavenej prevádzkovej podmienke $5$ [V].
-        }
-
-        \label{fj_01_data_pot5}
-
-    }%vbox
-
-\end{center}
-
-\vfill
-
-\paragraph{Meranie ustálených hodnôt pri prevádzkovej podmienke 6 [V]}
-
-\begin{center}
-
-    \vbox{%
-        \makebox[\textwidth][c]{%
-        \includegraphics{fj_01_data_pot6_panel_1.pdf}
-        }
-
-        \makebox[\textwidth][c]{%
-        \includegraphics{fj_01_data_pot6_panel_3.pdf}
-        }
-
-        \makebox[\textwidth][c]{%
-        \includegraphics{fj_01_data_pot6_panel_2.pdf}
-        }
-
-        \figcaption{ 
-            Získané dáta pre vstupný signál a výstupný signál systému LMOT pri manuálne nastavenej prevádzkovej podmienke $6$ [V].
-        }
-
-        \label{fj_01_data_pot6}
-
-    }%vbox
-
-\end{center}
-
-% \vfill
-
-% \phantom{}
-
-\pagebreak
-
-\paragraph{Meranie ustálených hodnôt pri prevádzkovej podmienke 7 [V]}
-
-\begin{center}
-
-    \vbox{%
-        \makebox[\textwidth][c]{%
-        \includegraphics{fj_01_data_pot7_panel_1.pdf}
-        }
-
-        \makebox[\textwidth][c]{%
-        \includegraphics{fj_01_data_pot7_panel_3.pdf}
-        }
-
-        \makebox[\textwidth][c]{%
-        \includegraphics{fj_01_data_pot7_panel_2.pdf}
-        }
-
-        \figcaption{ 
-            Získané dáta pre vstupný signál a výstupný signál systému LMOT pri manuálne nastavenej prevádzkovej podmienke $7$ [V].
-        }
-
-        \label{fj_01_data_pot7}
-
-    }%vbox
-
-\end{center}
-
-\vfill
-
-\paragraph{Meranie ustálených hodnôt pri prevádzkovej podmienke 8 [V]}
-
-\begin{center}
-
-    \vbox{%
-        \makebox[\textwidth][c]{%
-        \includegraphics{fj_01_data_pot8_panel_1.pdf}
-        }
-
-        \makebox[\textwidth][c]{%
-        \includegraphics{fj_01_data_pot8_panel_3.pdf}
-        }
-
-        \makebox[\textwidth][c]{%
-        \includegraphics{fj_01_data_pot8_panel_2.pdf}
-        }
-
-        \figcaption{ 
-            Získané dáta pre vstupný signál a výstupný signál systému LMOT pri manuálne nastavenej prevádzkovej podmienke $8$ [V].
-        }
-
-        \label{fj_01_data_pot8}
-
-    }%vbox
-
-\end{center}
-
-% \vfill
-
-% \phantom{}
-
-\pagebreak
-
-\paragraph{Meranie ustálených hodnôt pri prevádzkovej podmienke 9 [V]}
-
-\begin{center}
-
-    \vbox{%
-        \makebox[\textwidth][c]{%
-        \includegraphics{fj_01_data_pot9_panel_1.pdf}
-        }
-
-        \makebox[\textwidth][c]{%
-        \includegraphics{fj_01_data_pot9_panel_3.pdf}
-        }
-
-        \makebox[\textwidth][c]{%
-        \includegraphics{fj_01_data_pot9_panel_2.pdf}
-        }
-
-        \figcaption{ 
-            Získané dáta pre vstupný signál a výstupný signál systému LMOT pri manuálne nastavenej prevádzkovej podmienke $9$ [V].
-        }
-
-        \label{fj_01_data_pot9}
-
-    }%vbox
-
-\end{center}
-
-\vfill
-
-\paragraph{Meranie ustálených hodnôt pri prevádzkovej podmienke 10 [V]}
-
-\begin{center}
-
-    \vbox{%
-        \makebox[\textwidth][c]{%
-        \includegraphics{fj_01_data_pot10_panel_1.pdf}
-        }
-
-        \makebox[\textwidth][c]{%
-        \includegraphics{fj_01_data_pot10_panel_3.pdf}
-        }
-
-        \makebox[\textwidth][c]{%
-        \includegraphics{fj_01_data_pot10_panel_2.pdf}
-        }
-
-        \figcaption{ 
-            Získané dáta pre vstupný signál a výstupný signál systému LMOT pri manuálne nastavenej prevádzkovej podmienke $10$ [V].
-        }
-
-        \label{fj_01_data_pot10}
-
-    }%vbox
-
-\end{center}
-
-% \vfill
-
-% \phantom{}
 
 
 

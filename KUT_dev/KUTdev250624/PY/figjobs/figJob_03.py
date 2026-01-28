@@ -95,7 +95,7 @@ PANELNAME = 'panel_2'
 
 #------------------
 
-figPlotParam = fcnDefaultFigSize(4, 0.17, (1-0.15), 0.15, 0.5, 13)
+figPlotParam = fcnDefaultFigSize(3.5, 0.17, (1-0.16), 0.16, 0.5, 13)
 fig = plt.figure(figsize=figPlotParam[0:2])
 
 subPlots = gridspec.GridSpec(1, 1,
@@ -122,9 +122,9 @@ ax0.plot(steadyStateData[tmpMask, 1], steadyStateData[tmpMask, 0],
 
 #---------------------------------------------
 
-XYT_labels = ['Vstup [V]', 'Výstup [V]', 'Nameraná prevodová charakteristika - detail pre vstupnú hodnotu {:.1f} V'.format(tmpInValue)]
+XYT_labels = ['Vstup [V]', 'Výstup [V]', f'Nameraná prevodová charakteristika - detail pre vstupnú hodnotu {tmpInValue:.1f} V'.replace('.', ',')]
 
-fcn_setFigStyle_basicTimeSeries(fig, figPlotParam, XYT_labels)
+fcn_setFigStyle_for_figJob_03_panel_2(fig, figPlotParam, XYT_labels)
 
 #---------------------------------------------
 
