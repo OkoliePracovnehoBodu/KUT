@@ -57,6 +57,7 @@ output_file = 'tab01_rows_LMOT.tex'
 selected_KUT_items = [
     'KUT014', 
     'KUT018',
+    'KUT019',
 ]
 
 tabgen()
