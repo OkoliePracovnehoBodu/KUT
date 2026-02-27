@@ -34,7 +34,7 @@ with open(output_file, 'w', encoding='utf-8') as file:
 
         print(item, extracted_string)
 
-        file.write(f"\\href{{run:../../KUT_items/{item}/TeX/{item}.pdf}}{{{item}}} & {extracted_string} \\\\ \\addlinespace[3pt]  \n")
+        file.write(f"\\href{{run:../../KUT_items/{item}/TeX/{item}.pdf}}{{{item}}} & \\href{{run:../../KUT_items/{item}/TeX/{item}.pdf}}{{{extracted_string}}} \\\\ \\addlinespace[3pt]  \n")
 
 
 
