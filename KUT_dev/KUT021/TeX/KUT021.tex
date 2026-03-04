@@ -1,0 +1,483 @@
+\documentclass[a4paper, 10pt, ]{article}
+
+\input{../../KUT000/preamble_v1.0.tex}
+
+% -----------------------------------------------------------------------------
+
+\def\oznacenieCelku{Kolekcia učebných textov}
+
+% -----------------------------------------------------------------------------
+
+
+\def\KUTporadoveCislo{021}
+
+% \def\oznacenieVerzie{v1.0}
+\def\oznacenieVerzie{\phantom{v1.0}}
+
+\def\mesiacRok{december 2025}
+
+\def\authorslabel{MT, RJ}
+
+
+
+
+
+
+% -----------------------------------------------------------------------------
+
+\begin{document} 
+
+% -----------------------------------------------------------------------------
+% Uvodny nadpis
+
+\noindent
+\parbox[t][18mm][c]{0.3\textwidth}{%
+\raisebox{-0.9\height}{%
+\phantom{.}\includegraphics[height=18mm]{../../KUT000/URKFEIlogo_v0.1.pdf}%
+}%
+}%
+\parbox[t][18mm][c]{0.7\textwidth}{%
+\raggedleft
+
+\sffamily
+\fontsize{16pt}{18pt}
+\fontseries{sbc}
+\selectfont
+
+\noindent
+\textcolor[rgb]{0.75, 0.75, 0.75}{\textls[25]{\oznacenieCelku}}
+}%
+
+\noindent
+\parbox[t][16mm][b]{0.5\textwidth}{%
+\raggedright
+
+\color{Gray}
+\sffamily
+
+\fontsize{12pt}{12pt}
+\selectfont
+\mesiacRok
+
+\fontsize{6pt}{10pt}
+\selectfont
+github.com/OkoliePracovnehoBodu/KUT
+
+\fontsize{8pt}{10pt}
+\selectfont
+\authorslabel
+
+
+
+
+}%
+\parbox[t][16mm][b]{0.5\textwidth}{%
+\raggedleft
+
+\sffamily
+
+\fontsize{6pt}{6pt}
+\selectfont
+
+\textcolor[rgb]{0.68, 0.68, 0.68}{\oznacenieVerzie}
+
+
+\fontsize{14pt}{14pt}
+\selectfont
+
+\bfseries
+
+\includegraphics[height=12pt]{../../KUT000/KUT_logo_v0.1.pdf}%
+{%
+\textls[-50]{\KUTporadoveCislo}
+}%
+}%
+
+% -----------------------------------------------------------------------------
+
+
+
+\vspace{6mm}
+
+% ---------------------------------------------
+\sffamily
+\bfseries
+\fontsize{18pt}{21pt}
+\selectfont
+
+\begin{flushleft}
+    AeroShield:\\ návrh gray-box modelu bez vstupu
+\end{flushleft}
+
+\bigskip
+
+% -----------------------------------------------------------------------------
+\normalsize
+\normalfont
+% -----------------------------------------------------------------------------
+
+\lstset{style=mystyle}
+
+
+
+
+
+
+
+
+
+
+\noindent
+\lettrine[lines=1, nindent=1pt, loversize=0.0]{C}{ieľom} 
+textu je opis a matematického modelu zodpovedajúceho pohybu ramena laboratórneho zariadenia AeroShield. Ide o~model založený na fyzikálnych zákonoch a~z~hľadiska teórie systémov ide o model sivej skrinky (angl. \textit{grey-box model}).
+
+{\color{Red}
+Nasledujúce informácie nadväzujú na opis laboratórneho zariadenia AeroShield uvedený v~dokumente:
+\medskip
+
+\noindent
+\begin{tabular*}{\textwidth}{ @{} >{\sffamily}p{2.0cm} @{\extracolsep{\fill}} p{11cm}<{\raggedright}}
+
+    \href{run:../../KUT020/TeX/KUT020.pdf}{KUT020} & \href{run:../../KUT020/TeX/KUT020.pdf}{Lab. zariadenie AeroShield: orientačný prehľad} \\ \addlinespace[3pt]  
+
+\end{tabular*}
+}
+
+\medskip
+
+
+{\color{Red}
+\section{Východiskové predpoklady}
+
+\begin{itemize}[leftmargin=0pt, labelsep=3mm, itemsep=0pt]
+    \item Uvažuje sa zariadenie ako pasívne kyvadlo bez pohonu.
+\end{itemize}
+
+}
+
+
+\section{Pohybová rovnica}
+
+Uvažujme ideálne tuhé teleso, ktoré je zavesené a môže sa otáčať okolo pevnej osi, ktorá je kolmá na rovinu jeho pohybu. Takéto teleso sa nazýva fyzikálne kyvadlo (obr.~\ref{kyv_itt_f1}). 
+
+\begin{center}
+
+    \vspace{-1mm}
+
+    \vbox{%
+    \makebox[\textwidth][c]{%
+    \input{../SVG/kyv_itt_f1.pdf_tex}
+	}
+
+    \vspace{-6mm}
+
+	\figcaption{Všeobecné fyzikálne kyvadlo}
+    \label{kyv_itt_f1}
+    }
+	
+
+    \vspace{-1mm}
+
+\end{center}
+
+Poloha ťažiska telesa je určená uhlom $\varphi$ [rad] a dĺžkou $L_T$ [m]. Uhol $\varphi$ je uhol,  ktorý zviera zvislá priamka prechádzajúca osou otáčania s~priamkou spájajúcou os otáčania a~ťažisko telesa. Dĺžka $L_T$ je vzdialenosť ťažiska od osi otáčania. 
+
+Uhol $\varphi$ sa mení v~čase $t$ [s], označme $\varphi(t)$. Nulová poloha kyvadla, teda uhol $\varphi(t) = 0$ , je keď je kyvadlo v~zvislej polohe smerom dole.
+
+Hmotnosť telesa je $m_k$ [kg], gravitačné zrýchlenie je $g$ [m/s$^2$]. 
+
+
+
+\subsection{Potenciálna energia}
+
+Vychýlením kyvadla z~nulovej polohy sa mení jeho potenciálna energia $U$ [J]. Vo všeobecnosti potenciálna energia je 
+\begin{equation}
+    U =  m_k \  g \  \left( L_T \ (1 -\cos(\varphi)) \right) 
+\end{equation}
+Z hľadiska pohybových rovníc sa zaujímame o~zmenu potenciálnej energie, typicky sa uvažuje vyjadrenie potenciálnej energie v tvare
+\begin{equation}
+    U = - \  m_k \  g \   L_T \  \cos(\varphi) 
+\end{equation}
+
+
+
+
+\subsection{Kinetická energia}
+
+Kinetická energia rotačného pohybu ideálne tuhého telesa vo všeobecnosti je 
+\begin{equation}
+    K = \frac{1}{2} \  I_k \  \omega^2
+\end{equation}
+kde $I_k$ [kg$\ $m$^2$] je moment zotrvačnosti telesa vzhľadom na os otáčania a $\omega$ [rad/s] je uhlová rýchlosť telesa. V tomto prípade uhlová rýchlosť $\omega$ je 
+\begin{equation}
+    \omega(t) = \frac{\text{d}}{\text{d}t} \varphi(t) =   \dot\varphi(t)
+\end{equation}
+a teda kinetická energia je
+\begin{equation}
+    K = \frac{1}{2} \  I_k \  \dot\varphi^2
+\end{equation}
+
+
+\subsection{Lagrangeova funkcia a Lagrangeova rovnica}
+
+Lagrangeova funkcia $L$ [J] je definovaná ako rozdiel kinetickej a potenciálnej energie
+\begin{equation}
+    L = K - U
+\end{equation}
+V uvažovanom prípade teda
+\begin{equation}
+    L = \frac{1}{2} \  I_k \  \dot\varphi^2 + m_k \  g \   L_T \  \cos(\varphi)
+\end{equation}
+
+Lagrangeova rovnica je vo všeobecnosti v tvare
+\begin{equation} \label{lagrangeovaRovnica}
+    \frac{\text{d}}{\text{d}t} \left( \frac{\partial L}{\partial \dot{q}} \right) - \frac{\partial L}{\partial q} = 0
+\end{equation}
+kde $q$ uvažujeme ako stupeň voľnosti pohybu systému (je možné voľne zvoliť jeho začiatočné podmienky/hodnoty) a táto rovnica tak vo všeobecnosti predstavuje pohybovú rovnicu systému. 
+
+V uvažovanom prípade má systém jeden stupeň voľnosti, uhol $\varphi(t)$. Lagrangeova rovnica v tomto prípade je
+\begin{equation}
+    \frac{\text{d}}{\text{d}t} \left( \frac{\partial L}{\partial \dot{\varphi}} \right) - \frac{\partial L}{\partial \varphi} = 0
+\end{equation}
+
+Vyjadrime
+\begin{equation}
+    \frac{\partial L}{\partial \dot{\varphi}} = \frac{\partial}{\partial \dot{\varphi}} \left( \frac{1}{2} \  I_k \  \dot\varphi^2 + m_k \  g \   L_T \  \cos(\varphi) \right) = I_k \  \dot\varphi
+\end{equation}
+ďalej
+\begin{equation}
+    \frac{\text{d}}{\text{d}t} \left( \frac{\partial L}{\partial \dot{\varphi}} \right) = \frac{\text{d}}{\text{d}t} \left( I_k \  \dot\varphi \right) = I_k \  \ddot\varphi
+\end{equation}
+a nakoniec
+\begin{equation}
+    \frac{\partial L}{\partial \varphi} = \frac{\partial}{\partial \varphi} \left( \frac{1}{2} \  I_k \  \dot\varphi^2 + m_k \  g \   L_T \  \cos(\varphi) \right) = - m_k \  g \   L_T \  \sin(\varphi)
+\end{equation}
+Konkrétna Lagrangeova rovnica teda je
+\begin{equation} \label{pohybovaRovnicaKyvadla}
+    I_k \  \ddot\varphi(t) + m_k \  g \   L_T \  \sin(\varphi(t)) = 0
+\end{equation}
+a z fyzikálneho hľadiska ide o pohybovú rovnicu uvažovaného fyzikálneho kyvadla.
+
+
+
+\subsection{Trenie}
+
+V uvedenej Lagrangeovej rovnici \eqref{lagrangeovaRovnica} nie sú vo všeobecnosti uvažovné tzv. nepotenciálové sily (pravá strana rovnice je nulová). Vzhľadom na uvažované fyzikálne kyvadlo ide typicky o externý moment sily (pohon) a moment sily spôsobený trením.
+
+Principiálne sa tu bude uvažovať moment sily $\tau_f$ [N m] spôsobený trením daný vzťahom
+\begin{equation}
+    \tau_f = F_{c} \left| \dot \varphi \right|^{z} \text{sgn}(\dot \varphi) 
+\end{equation}
+kde $\dot \varphi$ [rad/s] je uhlová rýchlosť, $F_{c}$ [N m/(rad/s)$^z$] je koeficient trenia a $z$ je exponent určujúci typ trenia. Pre $z = 0$ ide o suché trenie, pre $z = 1$ ide o viskózne trenie.
+
+Uvažujme suché a viskózne trenie, potom pohybová rovnica \eqref{pohybovaRovnicaKyvadla} má tvar
+\begin{equation} \label{pohybovaRovnicaKyvadlaTrenie}
+    I_k \  \ddot\varphi(t) + m_k \  g \   L_T \  \sin(\varphi(t)) = - \tau_0 - \tau_1
+\end{equation}
+kde $\tau_0$ je moment sily spôsobený suchým trením a $\tau_1$ je moment sily spôsobený viskóznym trením.
+
+
+\subsubsection{Suché trenie}
+
+Nech konkrétny model suchého trenia je nasledovný
+% \begin{subequations}
+% \begin{align}
+%     &\text{ak}  \quad \dot \varphi \neq 0 :&     \tau_0 &= F_{c0} \ \tanh(hc\cdot \dot \varphi) \label{sucheNormalMode} \\
+%     &\text{ak}  \quad \dot \varphi = 0 \quad \text{a} \quad \varphi(0) \neq 0 :&  \tau_0 &= F_{c0} \ \tanh(hc\cdot \dot \varphi) \label{sucheInitMode} \\
+%     &\text{inak} :&  \tau_0 &= - m g L_T \sin(\varphi) \label{sucheStuckMode}
+% \end{align}
+% \end{subequations}
+% \begin{subequations}
+% \begin{align}
+%     \tau_0 &= F_{c0} \ \tanh(hc\cdot \dot \varphi) & \text{ak}   \ \dot \varphi &\neq 0  \label{sucheNormalMode} \\
+%     \tau_0 &= F_{c0} \ \tanh(hc\cdot \dot \varphi) & \text{ak}   \ \dot \varphi &= 0 \quad \text{a} \quad t = 0 \quad \text{a} \quad \varphi(0) \neq 0  \label{sucheInitMode} \\
+%     \tau_0 &= - m_k g L_T \sin(\varphi) &  (\text{inak})\  \text{ak}   \ \dot \varphi &= 0    \label{sucheStuckMode}
+% \end{align}
+% \end{subequations}
+% \begin{subequations}
+\begin{align}
+    \tau_0 &= 
+    \begin{cases} 
+        F_{c0} \ \tanh(hc\cdot \dot \varphi) & \text{ak}   \ \dot \varphi \neq 0  \\
+        F_{c0} \ \tanh(hc\cdot      \varphi) & \text{ak}   \ \dot \varphi = 0 \quad \text{a} \quad \left|\tau_s\right| \geq F_{c0} \\
+        \tau_s &  \text{ak}  \ \dot \varphi = 0 \quad \text{a} \quad \left|\tau_s\right| < F_{c0}
+    \end{cases}         
+\end{align}
+% \end{subequations}
+kde $F_{c0}$ [N m] je koeficient suchého trenia a $hc$ je konštanta určujúca strmosť prechodu z~jedného smeru momentu sily do druhého smeru v okolí nulovej rýchlosti pričom použitie funkcie $\tanh()$ zabezpečuje spojitosť na rozdiel od použitia funkcie $\text{sgn}()$. 
+% Vzťahom \eqref{sucheNormalMode} je dané suché trenie pri normálnom pohybe kyvadla (nenulová uhlová rýchlosť), vzťahom \eqref{sucheInitMode} je ošetrený prípad, keď je kyvadlo v začiatočnej polohe mimo nulovej polohy pretože inak vzťah \eqref{sucheStuckMode}, ktorý určuje veľkosť momentu sily suchého trenia pri nulovej uhlovej rýchlosti, by spôsobil, že kyvadlo by sa vôbec nepohlo.
+Moment sily $\tau_s$ [N m] predstavuje súčet všetkých momentov síl pôsobiacich keď platí $\dot \varphi = 0$ okrem momentu sily spôsobeného suchým trením. V tomto prípade
+\begin{equation}
+    \tau_s = - m_k g L_T \sin(\varphi)
+\end{equation}
+
+
+\subsubsection{Viskózne trenie}
+Nech konkrétny model viskózneho trenia je nasledovný
+\begin{align}
+    \tau_1 = F_{c1} \ \dot \varphi
+\end{align}
+kde $F_{c1}$ [N m/(rad/s)] je koeficient viskózneho trenia.
+
+
+
+
+\subsection{Pohybová rovnica: zhrnutie}
+
+Výstupnou veličinou uvažovaného systému je $\varphi(t)$, dynamika je daná diferenciálnou rovnicou
+\begin{subequations}
+\begin{equation} 
+    I_k \  \ddot\varphi(t) + m_k \  g \   L_T \  \sin(\varphi(t)) = - \tau_0 - \tau_1
+\end{equation}
+pričom
+\begin{align}
+    \tau_s &= - m_k g L_T \sin(\varphi) \\
+    \tau_0 &= 
+    \begin{cases} 
+        F_{c0} \ \tanh(hc\cdot \dot \varphi) & \text{ak}   \ \dot \varphi \neq 0  \\
+        F_{c0} \ \tanh(hc\cdot      \varphi) & \text{ak}   \ \dot \varphi = 0 \quad \text{a} \quad \left|\tau_s\right| \geq F_{c0} \\
+        \tau_s &  \text{ak}  \ \dot \varphi = 0 \quad \text{a} \quad \left|\tau_s\right| < F_{c0}
+    \end{cases}  \\
+    \tau_1 &= F_{c1} \ \dot \varphi
+\end{align}
+\end{subequations}
+a parametre systému sú
+\begin{align}
+    m_k \qquad I_k \qquad L_T \qquad F_{c0} \qquad hc \qquad F_{c1}
+\end{align}
+Gravitačná konštanta $g$ je známa.
+
+
+\section{Zápis pre hľadanie numerického riešenia}
+
+Pre hľadanie numerického riešenia predmetnej pohybovej rovnice je potrebné ju rozložiť na sústavu rovníc prvého rádu. Nech
+\begin{subequations}
+\begin{align}
+    x_1(t) &= \varphi(t) \\
+    x_2(t) &= \dot \varphi(t)
+\end{align}
+\end{subequations}
+Potom
+\begin{subequations}
+\begin{align}
+    \dot x_1(t) &= x_2(t) \\
+    \dot x_2(t) &= - \frac{1}{I_k}\ m_k \  g \   L_T\  \sin(x_1(t)) - \frac{1}{I_k} \tau_0(t) - \frac{1}{I_k} \tau_1(t)
+\end{align}
+\end{subequations}
+a pritom
+\begin{subequations}
+\begin{align}
+    \tau_s &= - m_k g L_T \sin(x_1) \\
+    \tau_0 &= 
+    \begin{cases} 
+        F_{c0} \ \tanh(hc\cdot x_2) & \text{ak}   \ x_2 \neq 0  \\
+        F_{c0} \ \tanh(hc\cdot      x_1) & \text{ak}   \ x_2 = 0 \quad \text{a} \quad \left|\tau_s\right| \geq F_{c0} \\
+        \tau_s &  \text{ak}  \ x_2 = 0 \quad \text{a} \quad \left|\tau_s\right| < F_{c0}
+    \end{cases}  \\
+    \tau_1 &= F_{c1} \ x_2
+\end{align}
+\end{subequations}
+
+Parameter $hc$ (napr. $hc = 10^6$) a konštantu $g = 9,81$ [m/s\(^2\)] je možné považovať za predvolené. Zvyšné parametre je vo všeobecnosti potrebné určiť.
+
+Hmotnosť ramena kyvadla $m_k$ a vzdialenosť ťažiska od osi otáčania $L_T$ je možné relatívne presne stanoviť meraním. Pre určenie ostatných parametrov ($I_k$, $F_{c0}$, $F_{c1}$) je typicky možné využiť metódy identifikácie systémov na základe nameraných dát z~reálneho systému (časové priebehy výstupu systému).
+
+Uvedený matematicky definovaný model je možné implementovať vo forme funkcie, ktorú vo všeobecnosti využíva ODE solver na hľadanie numerického riešenia. Nasledujúci kód predstavuje implementáciu uvedeného modelu v~jazyku Python (s~využitím knižnice NumPy). 
+
+
+{\catcode`\-=12
+\lstinputlisting[language=Python,
+                 caption={Súbor \lstinline{/PY/fcn_dynModel/dynSysFyzKyv_suchvisk.py}},
+				 consecutivenumbers=false,
+                 ]{../PY/fcn_dynModel/dynSysFyzKyv_suchvisk.py}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\section{Verifikácia modelu}
+
+Majme experiment, kde manuálne vychýlime rameno kyvadla laboratórneho zariadenia AeroShield na doraz v smere zápornej hodnoty uhla a následne ho pustíme. Takto získané dáta sú na nasledujúcom obrázku označené ako \emph{meranie}.
+
+% \begin{center}
+
+%     \vbox{%
+%         \makebox[\textwidth][c]{%
+%         \includegraphics{fj_01_file3_panel_1.pdf}
+%         }
+
+%         \makebox[\textwidth][c]{%
+%         \includegraphics{fj_01_file3_panel_2.pdf}
+%         }
+
+%         \figcaption{ 
+%             Voľné kmity ramena kyvadla laboratórneho zariadenia AeroShield. V čase $t = 2,54$ je kyvadlo uvolnené z~vychýlenej polohy.
+%         }
+%         \label{fj_01_file3}
+%     }%vbox
+
+% \end{center}
+
+\begin{center}
+
+    \vbox{%
+        \makebox[\textwidth][c]{%
+        \includegraphics{fj_02_file3_panel_1.pdf}
+        }
+
+        \makebox[\textwidth][c]{%
+        \includegraphics{fj_02_file3_panel_2.pdf}
+        }
+
+        \figcaption{ 
+            Voľné kmity ramena kyvadla laboratórneho zariadenia AeroShield. V čase $t = 2,54$ je kyvadlo uvolnené z~vychýlenej polohy.
+        }
+        \label{fj_02_file3}
+    }%vbox
+
+\end{center}
+
+Od času $t = 2,54$ [s] sú na obrázku zobrazené voľné kmity ramena kyvadla. Verifikácia modelu spočíva v porovnaní nameraných dát a simulácie. Tu sa obmedzíme na grafické porovnanie v rámci obr. \ref{fj_02_file3}, kde sú simulované dáta označené ako \emph{simulácia}.
+
+Pre simuláciu boli použité nasledovné hodnoty parametrov modelu. Podrobnejší opis postupu určenia týchto hodnôt je nad rámec tohto textu.
+\begin{align*}
+    g &= 9,81 &\ \text{[m/s}^2\text{]} \\
+    hc &= 10^6 \\
+    m_k &= 12 &\ \text{[g]} \\
+    L_T &= 6 &\ \text{[cm]} \\
+    I_k &= 0.00007979 &\ \text{[kg m}^2\text{]} \\
+    F_{c0} &= 0.00013296 &\ \text{[N m]} \\
+    F_{c1} &= 0.00000629 &\ \text{[N m/(rad/s)]}
+\end{align*}
+
+
+\noindent
+Model sa považuje za verifikovaný.
+
+
+
+
+
+
+
+
+
+
+
+
+
+% -----------------------------------------------------------------------------
+
+\end{document}
+
+% -----------------------------------------------------------------------------
