@@ -9,7 +9,7 @@
 % -----------------------------------------------------------------------------
 
 
-\def\KUTporadoveCislo{021}
+\def\KUTporadoveCislo{022}
 
 % \def\oznacenieVerzie{v1.0}
 \def\oznacenieVerzie{\phantom{v1.0}}
@@ -131,29 +131,17 @@ github.com/OkoliePracovnehoBodu/KUT
 \lettrine[lines=1, nindent=1pt, loversize=0.0]{C}{ieľom} 
 textu je opis a matematického modelu zodpovedajúceho pohybu ramena laboratórneho zariadenia AeroShield. Ide o~model založený na fyzikálnych zákonoch a~z~hľadiska teórie systémov ide o model sivej skrinky (angl. \textit{grey-box model}).
 
-{\color{Red}
-Nasledujúce informácie nadväzujú na opis laboratórneho zariadenia AeroShield uvedený v~dokumente:
-\medskip
+
+
+\bigskip
+
 
 \noindent
-\begin{tabular*}{\textwidth}{ @{} >{\sffamily}p{2.0cm} @{\extracolsep{\fill}} p{11cm}<{\raggedright}}
-
-    \href{run:../../KUT020/TeX/KUT020.pdf}{KUT020} & \href{run:../../KUT020/TeX/KUT020.pdf}{Lab. zariadenie AeroShield: orientačný prehľad} \\ \addlinespace[3pt]  
-
-\end{tabular*}
-}
-
-\medskip
+Nasledujúce informácie nadväzujú na opis laboratórneho zariadenia AeroShield uvedený v~dokumente \href{run:../../KUT020/TeX/KUT020.pdf}{\textsf{KUT020}}. Uvažuje sa zariadenie ako pasívne kyvadlo bez pohonu.
 
 
-{\color{Red}
-\section{Východiskové predpoklady}
 
-\begin{itemize}[leftmargin=0pt, labelsep=3mm, itemsep=0pt]
-    \item Uvažuje sa zariadenie ako pasívne kyvadlo bez pohonu.
-\end{itemize}
 
-}
 
 
 \section{Pohybová rovnica}
@@ -407,28 +395,10 @@ Uvedený matematicky definovaný model je možné implementovať vo forme funkci
 
 \section{Verifikácia modelu}
 
-Majme experiment, kde manuálne vychýlime rameno kyvadla laboratórneho zariadenia AeroShield na doraz v smere zápornej hodnoty uhla a následne ho pustíme. Takto získané dáta sú na nasledujúcom obrázku označené ako \emph{meranie}.
+Majme experiment, kde manuálne vychýlime rameno kyvadla laboratórneho zariadenia AeroShield na doraz v smere zápornej hodnoty uhla a následne ho pustíme. Takto získané dáta sú na obrázku~\ref{fj_02_file3} označené ako \emph{meranie}.
 
+\begin{figure}[!t]
 % \begin{center}
-
-%     \vbox{%
-%         \makebox[\textwidth][c]{%
-%         \includegraphics{fj_01_file3_panel_1.pdf}
-%         }
-
-%         \makebox[\textwidth][c]{%
-%         \includegraphics{fj_01_file3_panel_2.pdf}
-%         }
-
-%         \figcaption{ 
-%             Voľné kmity ramena kyvadla laboratórneho zariadenia AeroShield. V čase $t = 2,54$ je kyvadlo uvolnené z~vychýlenej polohy.
-%         }
-%         \label{fj_01_file3}
-%     }%vbox
-
-% \end{center}
-
-\begin{center}
 
     \vbox{%
         \makebox[\textwidth][c]{%
@@ -445,35 +415,61 @@ Majme experiment, kde manuálne vychýlime rameno kyvadla laboratórneho zariade
         \label{fj_02_file3}
     }%vbox
 
-\end{center}
+% \end{center}
+\end{figure}
 
 Od času $t = 2,54$ [s] sú na obrázku zobrazené voľné kmity ramena kyvadla. Verifikácia modelu spočíva v porovnaní nameraných dát a simulácie. Tu sa obmedzíme na grafické porovnanie v rámci obr. \ref{fj_02_file3}, kde sú simulované dáta označené ako \emph{simulácia}.
 
-Pre simuláciu boli použité nasledovné hodnoty parametrov modelu. Podrobnejší opis postupu určenia týchto hodnôt je nad rámec tohto textu.
+Pre simuláciu boli použité nasledovné hodnoty parametrov modelu. 
 \begin{align*}
     g &= 9,81 &\ \text{[m/s}^2\text{]} \\
-    hc &= 10^6 \\
-    m_k &= 12 &\ \text{[g]} \\
-    L_T &= 6 &\ \text{[cm]} \\
-    I_k &= 0.00007979 &\ \text{[kg m}^2\text{]} \\
-    F_{c0} &= 0.00013296 &\ \text{[N m]} \\
-    F_{c1} &= 0.00000629 &\ \text{[N m/(rad/s)]}
+    hc &= 10^6 &\ \text{[bezrozmerné]} \\
+    m_k &= 11,57 &\ \text{[g]} \\
+    L_T &= 7,3 &\ \text{[cm]} \\
+    I_k &= 0,00009367 &\ \text{[kg m}^2\text{]} \\
+    F_{c0} &= 0,00014065 &\ \text{[N m]} \\
+    F_{c1} &= 0,00001051 &\ \text{[N m/(rad/s)]}
 \end{align*}
 
 
 \noindent
-Model sa považuje za verifikovaný.
+Podrobnejší opis postupu určenia týchto hodnôt je nad rámec tohto textu. Model sa považuje za verifikovaný.
 
 
 
 
 
+\section{Záverečné poznámky}
 
+Skript pre výpočty a obrázky, ktoré sú uvedené v texte vyššie je v súbore \lstinline{/PY/job_computations.ipynb}. Adresárová štruktúra všetkých dátových súborov, obrázkov a~skriptov prislúchajúcich k~tomuto textu je nasledovná:
 
+\vbox{%
 
+\noindent
+\dirtree{%
+ .1 /.
+ .2 PY.
+ .3 dataRepo.
+ .4 volneKyv\_mk2.
+ .5 physicalMeasurement\_2025\_12\_19\_12\_48\_56.csv.
+ .5 physicalMeasurement\_2025\_12\_19\_12\_49\_36.csv.
+ .5 physicalMeasurement\_2025\_12\_19\_12\_50\_16.csv.
+ .5 physicalMeasurement\_2025\_12\_19\_12\_51\_09.csv.
+ .3 datajobs.
+ .4 dJob\_volneKyv\_01b.py.
+ .4 dJob\_volneKyv\_01c.py.
+ .3 fcn\_dynModel.
+ .4 dynSysFyzKyv\_suchvisk.py.
+ .3 fig.
+ .3 figjobs.
+ .4 figFcns\_TeX.py.
+ .4 figJob\_01.py.
+ .4 figJob\_02.py.
+ .3 job\_computations.ipynb.
+ .2 SVG.
+}
 
-
-
+}
 
 
 % -----------------------------------------------------------------------------
