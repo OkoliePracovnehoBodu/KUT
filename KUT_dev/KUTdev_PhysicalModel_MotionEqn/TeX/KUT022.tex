@@ -129,7 +129,7 @@ github.com/OkoliePracovnehoBodu/KUT
 
 \noindent
 \lettrine[lines=1, nindent=1pt, loversize=0.0]{C}{ieľom} 
-textu je opis a matematického modelu zodpovedajúceho pohybu ramena laboratórneho zariadenia AeroShield. Ide o~model založený na fyzikálnych zákonoch a~z~hľadiska teórie systémov ide o model sivej skrinky (angl. \textit{grey-box model}).
+textu je opis matematického modelu zodpovedajúceho pohybu ramena laboratórneho zariadenia AeroShield. Ide o~model založený na fyzikálnych zákonoch a~z~hľadiska teórie systémov ide o model sivej skrinky (angl. \textit{grey-box model}).
 
 
 
@@ -157,7 +157,7 @@ Uvažujme ideálne tuhé teleso, ktoré je zavesené a môže sa otáčať okolo
     \input{../SVG/kyv_itt_f1.pdf_tex}
 	}
 
-    \vspace{-6mm}
+    \vspace{-2.5mm}
 
 	\figcaption{Všeobecné fyzikálne kyvadlo}
     \label{kyv_itt_f1}
@@ -170,7 +170,7 @@ Uvažujme ideálne tuhé teleso, ktoré je zavesené a môže sa otáčať okolo
 
 Poloha ťažiska telesa je určená uhlom $\varphi$ [rad] a dĺžkou $L_T$ [m]. Uhol $\varphi$ je uhol,  ktorý zviera zvislá priamka prechádzajúca osou otáčania s~priamkou spájajúcou os otáčania a~ťažisko telesa. Dĺžka $L_T$ je vzdialenosť ťažiska od osi otáčania. 
 
-Uhol $\varphi$ sa mení v~čase $t$ [s], označme $\varphi(t)$. Nulová poloha kyvadla, teda uhol $\varphi(t) = 0$ , je keď je kyvadlo v~zvislej polohe smerom dole.
+Uhol $\varphi$ sa mení v~čase $t$ [s], označme $\varphi(t)$. Za nulovú polohu kyvadla považujeme, keď je os kyvadla totožná so zvislicou (prekrývajú sa), teda uhol $\varphi(t) = 0$.
 
 Hmotnosť telesa je $m_k$ [kg], gravitačné zrýchlenie je $g$ [m/s$^2$]. 
 
@@ -270,15 +270,15 @@ kde $\tau_0$ je moment sily spôsobený suchým trením a $\tau_1$ je moment sil
 Nech konkrétny model suchého trenia je nasledovný
 % \begin{subequations}
 % \begin{align}
-%     &\text{ak}  \quad \dot \varphi \neq 0 :&     \tau_0 &= F_{c0} \ \tanh(hc\cdot \dot \varphi) \label{sucheNormalMode} \\
-%     &\text{ak}  \quad \dot \varphi = 0 \quad \text{a} \quad \varphi(0) \neq 0 :&  \tau_0 &= F_{c0} \ \tanh(hc\cdot \dot \varphi) \label{sucheInitMode} \\
+%     &\text{ak}  \quad \dot \varphi \neq 0 :&     \tau_0 &= F_{c0} \ \tanh(h_c\cdot \dot \varphi) \label{sucheNormalMode} \\
+%     &\text{ak}  \quad \dot \varphi = 0 \quad \text{a} \quad \varphi(0) \neq 0 :&  \tau_0 &= F_{c0} \ \tanh(h_c\cdot \dot \varphi) \label{sucheInitMode} \\
 %     &\text{inak} :&  \tau_0 &= - m g L_T \sin(\varphi) \label{sucheStuckMode}
 % \end{align}
 % \end{subequations}
 % \begin{subequations}
 % \begin{align}
-%     \tau_0 &= F_{c0} \ \tanh(hc\cdot \dot \varphi) & \text{ak}   \ \dot \varphi &\neq 0  \label{sucheNormalMode} \\
-%     \tau_0 &= F_{c0} \ \tanh(hc\cdot \dot \varphi) & \text{ak}   \ \dot \varphi &= 0 \quad \text{a} \quad t = 0 \quad \text{a} \quad \varphi(0) \neq 0  \label{sucheInitMode} \\
+%     \tau_0 &= F_{c0} \ \tanh(h_c\cdot \dot \varphi) & \text{ak}   \ \dot \varphi &\neq 0  \label{sucheNormalMode} \\
+%     \tau_0 &= F_{c0} \ \tanh(h_c\cdot \dot \varphi) & \text{ak}   \ \dot \varphi &= 0 \quad \text{a} \quad t = 0 \quad \text{a} \quad \varphi(0) \neq 0  \label{sucheInitMode} \\
 %     \tau_0 &= - m_k g L_T \sin(\varphi) &  (\text{inak})\  \text{ak}   \ \dot \varphi &= 0    \label{sucheStuckMode}
 % \end{align}
 % \end{subequations}
@@ -286,17 +286,17 @@ Nech konkrétny model suchého trenia je nasledovný
 \begin{align}
     \tau_0 &= 
     \begin{cases} 
-        F_{c0} \ \tanh(hc\cdot \dot \varphi) & \text{ak}   \ \dot \varphi \neq 0  \\
-        F_{c0} \ \tanh(hc\cdot      \varphi) & \text{ak}   \ \dot \varphi = 0 \quad \text{a} \quad \left|\tau_s\right| \geq F_{c0} \\
+        F_{c0} \ \tanh(h_c\cdot \dot \varphi) & \text{ak}   \ \dot \varphi \neq 0  \\
+        F_{c0} \ \tanh(h_c\cdot      \varphi) & \text{ak}   \ \dot \varphi = 0 \quad \text{a} \quad \left|\tau_s\right| \geq F_{c0} \\
         \tau_s &  \text{ak}  \ \dot \varphi = 0 \quad \text{a} \quad \left|\tau_s\right| < F_{c0}
     \end{cases}         
 \end{align}
 % \end{subequations}
-kde $F_{c0}$ [N m] je koeficient suchého trenia a $hc$ je konštanta určujúca strmosť prechodu z~jedného smeru momentu sily do druhého smeru v okolí nulovej rýchlosti pričom použitie funkcie $\tanh()$ zabezpečuje spojitosť na rozdiel od použitia funkcie $\text{sgn}()$. 
+kde $F_{c0}$ [N m] je koeficient suchého trenia a $h_c$ je konštanta určujúca strmosť prechodu z~jedného smeru momentu sily do druhého smeru v okolí nulovej rýchlosti pričom použitie funkcie $\tanh()$ zabezpečuje spojitosť na rozdiel od použitia funkcie $\text{sgn}()$. 
 % Vzťahom \eqref{sucheNormalMode} je dané suché trenie pri normálnom pohybe kyvadla (nenulová uhlová rýchlosť), vzťahom \eqref{sucheInitMode} je ošetrený prípad, keď je kyvadlo v začiatočnej polohe mimo nulovej polohy pretože inak vzťah \eqref{sucheStuckMode}, ktorý určuje veľkosť momentu sily suchého trenia pri nulovej uhlovej rýchlosti, by spôsobil, že kyvadlo by sa vôbec nepohlo.
 Moment sily $\tau_s$ [N m] predstavuje súčet všetkých momentov síl pôsobiacich keď platí $\dot \varphi = 0$ okrem momentu sily spôsobeného suchým trením. V tomto prípade
 \begin{equation}
-    \tau_s = - m_k g L_T \sin(\varphi)
+    \tau_s = - m_k \ g \ L_T  \ \sin(\varphi)
 \end{equation}
 
 
@@ -322,8 +322,8 @@ pričom
     \tau_s &= - m_k g L_T \sin(\varphi) \\
     \tau_0 &= 
     \begin{cases} 
-        F_{c0} \ \tanh(hc\cdot \dot \varphi) & \text{ak}   \ \dot \varphi \neq 0  \\
-        F_{c0} \ \tanh(hc\cdot      \varphi) & \text{ak}   \ \dot \varphi = 0 \quad \text{a} \quad \left|\tau_s\right| \geq F_{c0} \\
+        F_{c0} \ \tanh(h_c\cdot \dot \varphi) & \text{ak}   \ \dot \varphi \neq 0  \\
+        F_{c0} \ \tanh(h_c\cdot      \varphi) & \text{ak}   \ \dot \varphi = 0 \quad \text{a} \quad \left|\tau_s\right| \geq F_{c0} \\
         \tau_s &  \text{ak}  \ \dot \varphi = 0 \quad \text{a} \quad \left|\tau_s\right| < F_{c0}
     \end{cases}  \\
     \tau_1 &= F_{c1} \ \dot \varphi
@@ -331,7 +331,7 @@ pričom
 \end{subequations}
 a parametre systému sú
 \begin{align}
-    m_k \qquad I_k \qquad L_T \qquad F_{c0} \qquad hc \qquad F_{c1}
+    m_k \qquad I_k \qquad L_T \qquad F_{c0} \qquad h_c \qquad F_{c1}
 \end{align}
 Gravitačná konštanta $g$ je známa.
 
@@ -358,15 +358,15 @@ a pritom
     \tau_s &= - m_k g L_T \sin(x_1) \\
     \tau_0 &= 
     \begin{cases} 
-        F_{c0} \ \tanh(hc\cdot x_2) & \text{ak}   \ x_2 \neq 0  \\
-        F_{c0} \ \tanh(hc\cdot      x_1) & \text{ak}   \ x_2 = 0 \quad \text{a} \quad \left|\tau_s\right| \geq F_{c0} \\
+        F_{c0} \ \tanh(h_c\cdot x_2) & \text{ak}   \ x_2 \neq 0  \\
+        F_{c0} \ \tanh(h_c\cdot      x_1) & \text{ak}   \ x_2 = 0 \quad \text{a} \quad \left|\tau_s\right| \geq F_{c0} \\
         \tau_s &  \text{ak}  \ x_2 = 0 \quad \text{a} \quad \left|\tau_s\right| < F_{c0}
     \end{cases}  \\
     \tau_1 &= F_{c1} \ x_2
 \end{align}
 \end{subequations}
 
-Parameter $hc$ (napr. $hc = 10^6$) a konštantu $g = 9,81$ [m/s\(^2\)] je možné považovať za predvolené. Zvyšné parametre je vo všeobecnosti potrebné určiť.
+Parameter $h_c$ (napr. $h_c = 10^6$) a konštantu $g = 9,81$ [m/s\(^2\)] je možné považovať za predvolené. Zvyšné parametre je vo všeobecnosti potrebné určiť.
 
 Hmotnosť ramena kyvadla $m_k$ a vzdialenosť ťažiska od osi otáčania $L_T$ je možné relatívne presne stanoviť meraním. Pre určenie ostatných parametrov ($I_k$, $F_{c0}$, $F_{c1}$) je typicky možné využiť metódy identifikácie systémov na základe nameraných dát z~reálneho systému (časové priebehy výstupu systému).
 
@@ -423,9 +423,9 @@ Od času $t = 2,54$ [s] sú na obrázku zobrazené voľné kmity ramena kyvadla.
 Pre simuláciu boli použité nasledovné hodnoty parametrov modelu. 
 \begin{align*}
     g &= 9,81 &\ \text{[m/s}^2\text{]} \\
-    hc &= 10^6 &\ \text{[bezrozmerné]} \\
-    m_k &= 11,57 &\ \text{[g]} \\
-    L_T &= 7,3 &\ \text{[cm]} \\
+    h_c &= 10^6 &\ \text{[bezrozmerné]} \\
+    m_k &= 0,01157 &\ \text{[kg]} \\
+    L_T &= 0,073 &\ \text{[m]} \\
     I_k &= 0,00009367 &\ \text{[kg m}^2\text{]} \\
     F_{c0} &= 0,00014065 &\ \text{[N m]} \\
     F_{c1} &= 0,00001051 &\ \text{[N m/(rad/s)]}

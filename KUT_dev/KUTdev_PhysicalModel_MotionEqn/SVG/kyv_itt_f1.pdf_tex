@@ -38,7 +38,7 @@
   \newcommand*\fsize{\dimexpr\f@size pt\relax}%
   \newcommand*\lineheight[1]{\fontsize{\fsize}{#1\fsize}\selectfont}%
   \ifx\svgwidth\undefined%
-    \setlength{\unitlength}{141.73228346bp}%
+    \setlength{\unitlength}{305.55997593bp}%
     \ifx\svgscale\undefined%
       \relax%
     \else%
@@ -50,15 +50,17 @@
   \global\let\svgwidth\undefined%
   \global\let\svgscale\undefined%
   \makeatother%
-  \begin{picture}(1,1)%
+  \begin{picture}(1,0.35397274)%
     \lineheight{1}%
     \setlength\tabcolsep{0pt}%
     \put(0,0){\includegraphics[width=\unitlength,page=1]{kyv_itt_f1.pdf}}%
-    \put(0.76178726,0.41085979){\color[rgb]{0.50196078,0.50196078,0.50196078}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\scriptsize ťažisko\end{tabular}}}}%
-    \put(0.02,0.7){\color[rgb]{0.50196078,0.50196078,0.50196078}\makebox(0,0)[rt]{\lineheight{1.25}\smash{\begin{tabular}[t]{r}\scriptsize os otáčania\end{tabular}}}}%
-    \put(0.49627876,0.15291588){\color[rgb]{0,0,0}\makebox(0,0)[t]{\smash{\begin{tabular}[t]{c}$\varphi$\end{tabular}}}}%
-    \put(0.61700752,0.77748123){\color[rgb]{0,0,0}\makebox(0,0)[t]{\smash{\begin{tabular}[t]{c}$L_T$\end{tabular}}}}%
-    \put(0.92,0.84){\color[rgb]{0,0,0}\makebox(0,0)[t]{\smash{\begin{tabular}[t]{c}$g$\end{tabular}}}}%
-    \put(0.72586701,0.29480583){\color[rgb]{0,0,0}\makebox(0,0)[t]{\smash{\begin{tabular}[t]{c}$m_k$\end{tabular}}}}%
+    \put(0.66603673,0.11901617){\color[rgb]{0.50196078,0.50196078,0.50196078}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\scriptsize ťažisko\end{tabular}}}}%
+    \put(0.32196287,0.25313223){\color[rgb]{0.50196078,0.50196078,0.50196078}\makebox(0,0)[rt]{\lineheight{1.25}\smash{\begin{tabular}[t]{r}\scriptsize os otáčania\end{tabular}}}}%
+    \put(0.53326421,0.00658374){\color[rgb]{0,0,0}\makebox(0,0)[t]{\smash{\begin{tabular}[t]{c}$\varphi$\end{tabular}}}}%
+    \put(0.59888146,0.28907147){\color[rgb]{0,0,0}\makebox(0,0)[t]{\smash{\begin{tabular}[t]{c}$L_T$\end{tabular}}}}%
+    \put(0.73942283,0.31807045){\color[rgb]{0,0,0}\makebox(0,0)[t]{\smash{\begin{tabular}[t]{c}$g$\end{tabular}}}}%
+    \put(0.67438184,0.16424942){\color[rgb]{0,0,0}\makebox(0,0)[t]{\smash{\begin{tabular}[t]{c}$m_k$\end{tabular}}}}%
+    \put(0.33842775,0.09118053){\color[rgb]{0.50196078,0.50196078,0.50196078}\makebox(0,0)[rt]{\lineheight{1.25}\smash{\begin{tabular}[t]{r}\scriptsize zvislica\end{tabular}}}}%
+    \put(0.69219533,0.04315219){\color[rgb]{0.50196078,0.50196078,0.50196078}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\scriptsize os kyvadla\end{tabular}}}}%
   \end{picture}%
 \endgroup%
