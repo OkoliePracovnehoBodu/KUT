@@ -3,7 +3,7 @@
 import os
 
 directory = "../../KUT_items"
-items = os.listdir(directory)
+items = [i for i in os.listdir(directory) if i != 'KUT000']
 
 
 # -----------------------------------------------------------------------------
@@ -36,7 +36,7 @@ def tabgen():
 
             if item in selected_KUT_items:
 
-                extracted_string = extracted_string.replace('\\', '')
+                extracted_string = extracted_string.replace('\\', ' ')
 
                 print(item, extracted_string)
 
@@ -53,6 +53,7 @@ output_file = 'tab01_rows_TS.tex'
 
 selected_KUT_items = [
     'KUT015', 
+    'KUT021', 
 ]
 
 tabgen()
