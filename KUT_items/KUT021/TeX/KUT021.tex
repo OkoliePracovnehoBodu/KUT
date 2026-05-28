@@ -1,0 +1,463 @@
+\documentclass[a4paper, 10pt, ]{article}
+
+\input{../../KUT000/preamble_v1.0.tex}
+
+% -----------------------------------------------------------------------------
+
+\def\oznacenieCelku{Kolekcia učebných textov}
+
+% -----------------------------------------------------------------------------
+
+
+\def\KUTporadoveCislo{021}
+
+\def\oznacenieVerzie{v0.97}
+% \def\oznacenieVerzie{\phantom{v1.0}}
+
+\def\mesiacRok{marec 2026}
+
+\def\authorslabel{AS, MT}
+
+
+
+
+
+
+% -----------------------------------------------------------------------------
+
+\begin{document}
+
+% -----------------------------------------------------------------------------
+% Uvodny nadpis
+
+\noindent
+\parbox[t][18mm][c]{0.3\textwidth}{%
+\raisebox{-0.9\height}{%
+\phantom{.}\includegraphics[height=18mm]{../../KUT000/URKFEIlogo_v0.1.pdf}%
+}%
+}%
+\parbox[t][18mm][c]{0.7\textwidth}{%
+\raggedleft
+
+\sffamily
+\fontsize{16pt}{18pt}
+\fontseries{sbc}
+\selectfont
+
+\noindent
+\textcolor[rgb]{0.75, 0.75, 0.75}{\textls[25]{\oznacenieCelku}}
+}%
+
+\noindent
+\parbox[t][16mm][b]{0.5\textwidth}{%
+\raggedright
+
+\color{Gray}
+\sffamily
+
+\fontsize{12pt}{12pt}
+\selectfont
+\mesiacRok
+
+\fontsize{6pt}{10pt}
+\selectfont
+github.com/OkoliePracovnehoBodu/KUT
+
+\fontsize{8pt}{10pt}
+\selectfont
+\authorslabel
+
+
+
+
+}%
+\parbox[t][16mm][b]{0.5\textwidth}{%
+\raggedleft
+
+\sffamily
+
+\fontsize{6pt}{6pt}
+\selectfont
+
+\textcolor[rgb]{0.68, 0.68, 0.68}{\oznacenieVerzie}
+
+
+\fontsize{14pt}{14pt}
+\selectfont
+
+\bfseries
+
+\includegraphics[height=12pt]{../../KUT000/KUT_logo_v0.1.pdf}%
+{%
+\textls[-50]{\KUTporadoveCislo}
+}%
+}%
+
+% -----------------------------------------------------------------------------
+
+
+
+
+\vspace{6mm}
+
+% ---------------------------------------------
+\sffamily
+\bfseries
+\fontsize{18pt}{21pt}
+\selectfont
+
+\begin{flushleft}
+    TS: Príklad datasetu\\pre prevodovú charakteristiku
+\end{flushleft}
+
+\bigskip
+
+% -----------------------------------------------------------------------------
+\normalsize
+\normalfont
+% -----------------------------------------------------------------------------
+
+\lstset{style=mystyle}
+
+
+
+
+
+
+
+
+
+
+\noindent
+\lettrine[lines=1, nindent=1pt, loversize=0.0]{C}{ieľom} 
+textu je sprostredkovanie a opis meraní a dát súvisiacich so statickými vlastnosťami laboratórneho dynamického systému TS. Predchádzajúce texty súvisiace so zariadením TS: \href{run:../../KUT017/TeX/KUT017.pdf}{\textsf{KUT017}}, \href{run:../../KUT015/TeX/KUT015.pdf}{\textsf{KUT015}} 
+
+
+
+
+
+
+
+\section{Meranie prevodovej charakteristiky}
+
+V kontexte statických vlastností systému má vo všeobecnosti význam hovoriť o~prevodovej charakteristike systému. Prevodová charakteristika je závislosť ustálených hodnôt výstupného signálu systému od ustálených hodnôt vstupného signálu systému.
+
+Je zrejmé, že prevodová charakteristika sa týka systémov s prívlastkom statické, teda takých, ktoré nie sú astatické.
+
+Prevodová charakteristika, niekde sa nazýva aj statická charakteristika, teda charakterizuje systém len v~ustálených stavoch. Neobsahuje informáciu o dynamike systému.
+
+
+
+\subsection{Návrh merania}
+
+Z opisu predmetného dynamického systému [\href{run:../../KUT015/TeX/KUT015.pdf}{\textsf{KUT015}}] vyplýva, že systém má dva výstupné signály, a dva vstupné signály teda vo všeobecnosti ide o MIMO systém. Systém je možné vnímať ako SISO systém, ak budeme uvažovať, že jeden zo vstupov slúži len na nastavenie prevádzkovej podmienky systému.
+
+V nasledujúcom sa uvažuje, že vstupným signálom je ten, ktorý ovláda ohrev špirály (Vstup~1). Prevádzková podmienka systému je realizovaná ventilátorom (Vstup~2).
+
+Systém má dva výstupy – signály zo senzora 1 a senzora 2. Všetky signály (vstupný, výstupné aj signál prevádzkovej podmienky) nadobúdajú hodnoty v rozsahu $0$ až $10$ pričom ide o napäťové signály vo voltoch [V].
+
+
+
+
+
+\subsubsection{Voľba ustálených hodnôt vstupov}
+
+O predmetnom systéme je známe, že výstupy systému sa ustália vždy, ak sú vstupný signál a prevádzková podmienka ustálené. Pre vyšetrovanie ustálených stavov bol využitý celý rozsah vstupného signálu a vybrané hodnoty reprezentujúce prevádzkové podmienky.
+
+Návrh uvažuje ustálené hodnoty vstupného signálu uvedené v tabuľke~\ref{tab:ustalene_hodnoty_vstupneho_signalu} a zároveň vybrané ustálené hodnoty prevádzkových podmienok podľa tabuľky~\ref{tab:ustalene_hodnoty_podmienok}.
+
+\begin{center}
+
+\vspace{-10pt}    
+    
+\tabcaption{Ustálené hodnoty vstupného signálu [V]}
+\label{tab:ustalene_hodnoty_vstupneho_signalu}
+
+\lstyle
+
+\begin{tabular*}{\textwidth}{@{ \extracolsep{\fill}} ccccccccccc}
+\toprule
+0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 \\
+\bottomrule
+\end{tabular*}
+
+
+\tabcaption{Vybrané ustálené hodnoty signálu o prevádzkových podmienkach [V]}
+\label{tab:ustalene_hodnoty_podmienok}
+
+\lstyle
+
+\begin{tabular*}{\textwidth}{@{ \extracolsep{\fill}} ccccc}
+\toprule
+2 & 4 & 6 & 8 & 10 \\
+\bottomrule
+\end{tabular*}
+
+\end{center}
+
+
+\subsubsection{Voľba časového intervalu pre ustálenie výstupu systému}
+
+Empirické skúsenosti so systémom ukazujú, že predmetný systém  má relatívne pomalú dynamiku. Vo všeobecnosti sa systém dokáže úplne ustáliť približne do $1$ až $3$ minút po zmene vstupného signálu, avšak v niektorých prípadoch nemusí byť ani čas $10$ minút postačujúci na úplné ustálenie.
+
+Ako kompromis medzi presnosťou merania a celkovou dĺžkou experimentu bol zvolený čas ustálenia $5$ minút pre ustálené hodnoty vstupného signálu $1$ až $10$ [V]. Pre nulovú hodnotu vstupného signálu bol z dôvodu pomalšieho poklesu teploty zvolený čas ustálenia $10$ minút. Celková dĺžka jedného merania tak dosahuje jednu hodinu.
+
+
+
+\subsubsection{Postup merania}
+
+Vzhľadom na uvedené voľby ustálených hodnôt a časového intervalu návrh predpokladá nasledovný postup.
+
+\begin{enumerate}[leftmargin=0pt, labelsep=4mm, itemsep=0pt]
+    \item Nastavenie prevádzkových podmienok na hodnotu z tabuľky~\ref{tab:ustalene_hodnoty_podmienok}.
+    \item Postupná zmena vstupného signálu na hodnoty z tabuľky~\ref{tab:ustalene_hodnoty_vstupneho_signalu} so zvoleným časovým intervalom. Takúto postupnú zmenu vyjadruje nasledujúca tabuľka \ref{tab:postupna_zmena_vstupneho_signalu}.
+    
+\end{enumerate}
+
+
+\begin{center}
+
+\vspace{-10pt}    
+
+\tabcaption{Postupná zmena vstupného signálu}
+\label{tab:postupna_zmena_vstupneho_signalu}
+
+\lstyle
+
+\begin{tabular*}{\textwidth}{@{ \extracolsep{\fill}} cc}
+\toprule
+Čas zmeny vstupného signálu [s] & Hodnota vstupného signál [V] \\
+\midrule
+0 & 0 \\
+600 & 1 \\
+900 & 2 \\
+1200 & 3 \\
+1500 & 4 \\
+1800 & 5 \\
+2100 & 6 \\
+2400 & 7 \\
+2700 & 8 \\
+3000 & 9 \\
+3300 & 10 \\
+\bottomrule
+\end{tabular*}
+
+\end{center}
+
+Celková dĺžka merania je teda $3300 + 300 = 3600$ sekúnd (1 hodina) a počas tejto doby sú prevádzkové podmienky konštantné.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\section{Získané dáta}
+
+
+Na základe uvedeného návrhu a postupu merania boli vytvorené skripty a simulačné schémy v rámci prostredia MATLAB - Simulink. Ich opis a dokumentácia nech sú nad rámec tohto textu. Výsledný dataset sa nachádza v adresári \texttt{dataRepo}.
+
+Vizualizácia týchto dát je realizovaná pomocou Python skriptu v Jupyter notebooku \texttt{PY/job\_makeFigs.ipynb}.
+
+Získané dáta všetky prevádzkové podmienky, ktoré sú v~tabuľke~\ref{tab:ustalene_hodnoty_podmienok}, sú vizualizované na nasledujúcich obrázkoch.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\paragraph{Meranie ustálených hodnôt pri prevádzkovej podmienke 2 [V]}
+
+\begin{center}
+
+    \vbox{%
+        \makebox[\textwidth][c]{%
+        \includegraphics{fj_01_exp1_panel_1.pdf}
+        }
+
+        \makebox[\textwidth][c]{%
+        \includegraphics{fj_01_exp1_panel_3.pdf}
+        }
+
+        \makebox[\textwidth][c]{%
+        \includegraphics{fj_01_exp1_panel_2.pdf}
+        }
+
+        \figcaption{ 
+           Meranie pri nastavenej prevádzkovej podmienke $2$ [V].
+           Dáta na obrázku dostupné ako dátové súbory v~adresári \texttt{PY/fig/fj\_01\_exp1\_panel\_\#.csv}
+        }
+        \label{fj_01_exp1}
+    }%vbox
+
+\end{center}
+
+\vfill
+
+\paragraph{Meranie ustálených hodnôt pri prevádzkovej podmienke 4 [V]}
+
+\begin{center}
+
+    \vbox{%
+        \makebox[\textwidth][c]{%
+        \includegraphics{fj_01_exp2_panel_1.pdf}
+        }
+
+        \makebox[\textwidth][c]{%
+        \includegraphics{fj_01_exp2_panel_3.pdf}
+        }
+
+        \makebox[\textwidth][c]{%
+        \includegraphics{fj_01_exp2_panel_2.pdf}
+        }
+
+        \figcaption{ 
+            Meranie pri nastavenej prevádzkovej podmienke $4$ [V].
+            Dáta na obrázku dostupné ako dátové súbory v~adresári \texttt{PY/fig/fj\_01\_exp2\_panel\_\#.csv}
+        }
+
+        \label{fj_01_exp2}
+    }%vbox
+
+\end{center}
+
+
+\pagebreak
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\paragraph{Meranie ustálených hodnôt pri prevádzkovej podmienke 6 [V]}
+
+\begin{center}
+
+    \vbox{%
+        \makebox[\textwidth][c]{%
+        \includegraphics{fj_01_exp3_panel_1.pdf}
+        }
+
+        \makebox[\textwidth][c]{%
+        \includegraphics{fj_01_exp3_panel_3.pdf}
+        }
+
+        \makebox[\textwidth][c]{%
+        \includegraphics{fj_01_exp3_panel_2.pdf}
+        }
+
+        \figcaption{ 
+           Meranie pri nastavenej prevádzkovej podmienke $6$ [V].
+           Dáta na obrázku dostupné ako dátové súbory v~adresári \texttt{PY/fig/fj\_01\_exp3\_panel\_\#.csv}
+        }
+        \label{fj_01_exp3}
+    }%vbox
+
+\end{center}
+
+\vfill
+
+\paragraph{Meranie ustálených hodnôt pri prevádzkovej podmienke 8 [V]}
+
+\begin{center}
+
+    \vbox{%
+        \makebox[\textwidth][c]{%
+        \includegraphics{fj_01_exp4_panel_1.pdf}
+        }
+
+        \makebox[\textwidth][c]{%
+        \includegraphics{fj_01_exp4_panel_3.pdf}
+        }
+
+        \makebox[\textwidth][c]{%
+        \includegraphics{fj_01_exp4_panel_2.pdf}
+        }
+
+        \figcaption{ 
+            Meranie pri nastavenej prevádzkovej podmienke $8$ [V].
+            Dáta na obrázku dostupné ako dátové súbory v~adresári \texttt{PY/fig/fj\_01\_exp4\_panel\_\#.csv}
+        }
+
+        \label{fj_01_exp4}
+    }%vbox
+
+\end{center}
+
+
+\pagebreak
+
+
+
+
+
+
+
+
+
+
+
+\paragraph{Meranie ustálených hodnôt pri prevádzkovej podmienke 10 [V]}
+
+\begin{center}
+
+    \vbox{%
+        \makebox[\textwidth][c]{%
+        \includegraphics{fj_01_exp5_panel_1.pdf}
+        }
+
+        \makebox[\textwidth][c]{%
+        \includegraphics{fj_01_exp5_panel_3.pdf}
+        }
+
+        \makebox[\textwidth][c]{%
+        \includegraphics{fj_01_exp5_panel_2.pdf}
+        }
+
+        \figcaption{ 
+           Meranie pri nastavenej prevádzkovej podmienke $10$ [V].
+           Dáta na obrázku dostupné ako dátové súbory v~adresári \texttt{PY/fig/fj\_01\_exp5\_panel\_\#.csv}
+        }
+        \label{fj_01_exp5}
+    }%vbox
+
+\end{center}
+
+\vfill
+
+
+
+
+
+
+
+% -----------------------------------------------------------------------------
+
+\end{document}
+
+% -----------------------------------------------------------------------------
