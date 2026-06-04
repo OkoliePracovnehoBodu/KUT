@@ -1,0 +1,643 @@
+\documentclass[a4paper, 10pt, ]{article}
+
+\input{../../KUT000/preamble_v1.0.tex}
+
+% -----------------------------------------------------------------------------
+
+\def\oznacenieCelku{Kolekcia učebných textov}
+
+% -----------------------------------------------------------------------------
+
+
+\def\KUTporadoveCislo{022}
+
+\def\oznacenieVerzie{v0.96}
+% \def\oznacenieVerzie{\phantom{v1.0}}
+
+\def\mesiacRok{marec 2026}
+
+\def\authorslabel{AS, MT}
+
+
+
+
+
+% -----------------------------------------------------------------------------
+
+\begin{document}
+
+% -----------------------------------------------------------------------------
+% Uvodny nadpis
+
+\noindent
+\parbox[t][18mm][c]{0.3\textwidth}{%
+\raisebox{-0.9\height}{%
+\phantom{.}\includegraphics[height=18mm]{../../KUT000/URKFEIlogo_v0.1.pdf}%
+}%
+}%
+\parbox[t][18mm][c]{0.7\textwidth}{%
+\raggedleft
+
+\sffamily
+\fontsize{16pt}{18pt}
+\fontseries{sbc}
+\selectfont
+
+\noindent
+\textcolor[rgb]{0.75, 0.75, 0.75}{\textls[25]{\oznacenieCelku}}
+}%
+
+\noindent
+\parbox[t][16mm][b]{0.5\textwidth}{%
+\raggedright
+
+\color{Gray}
+\sffamily
+
+\fontsize{12pt}{12pt}
+\selectfont
+\mesiacRok
+
+\fontsize{6pt}{10pt}
+\selectfont
+github.com/OkoliePracovnehoBodu/KUT
+
+\fontsize{8pt}{10pt}
+\selectfont
+\authorslabel
+
+
+
+
+}%
+\parbox[t][16mm][b]{0.5\textwidth}{%
+\raggedleft
+
+\sffamily
+
+\fontsize{6pt}{6pt}
+\selectfont
+
+\textcolor[rgb]{0.68, 0.68, 0.68}{\oznacenieVerzie}
+
+
+\fontsize{14pt}{14pt}
+\selectfont
+
+\bfseries
+
+\includegraphics[height=12pt]{../../KUT000/KUT_logo_v0.1.pdf}%
+{%
+\textls[-50]{\KUTporadoveCislo}
+}%
+}%
+
+% -----------------------------------------------------------------------------
+
+
+
+
+\vspace{6mm}
+
+% ---------------------------------------------
+\sffamily
+\bfseries
+\fontsize{18pt}{21pt}
+\selectfont
+
+\begin{flushleft}
+    TS: Príklad spracovania datasetu pre prevodovú charakteristiku
+\end{flushleft}
+
+\bigskip
+
+% -----------------------------------------------------------------------------
+\normalsize
+\normalfont
+% -----------------------------------------------------------------------------
+
+\lstset{style=mystyle}
+
+
+
+
+
+
+
+
+
+
+\noindent
+\lettrine[lines=1, nindent=1pt, loversize=0.0]{C}{ieľom} 
+textu je uvedenie príkladu spracovania dát, z ktorých je možné získať prevodovú charakteristiku daného dynamického systému. Tento text priamo nadväzuje na \href{run:../../KUT021/TeX/KUT021.pdf}{\textsf{KUT021}}, kde je prezentovaný práve súbor takýchto dát.
+
+ 
+
+
+
+
+
+
+\section{Získané dáta}
+
+
+Príklad získaných dát pre systém TS pri prevádzkovej podmienke $6$~[V] je znázornený na nasledujúcom obrázku \ref{fj_01_data_ts_pot6}.
+
+\begin{figure}[!b]
+
+\vbox{%
+    \makebox[\textwidth][c]{%
+    \includegraphics{exp3_meranie.png}
+    }
+
+    \figcaption{
+        Získané dáta pre vstupný signál a výstupné signály systému TS pri manuálne nastavenej prevádzkovej podmienke ventilátora $6$~[V].
+    }
+    \label{fj_01_data_ts_pot6}
+}%vbox
+
+\end{figure}
+
+Dátový súbor obsahuje informácie o ustálených stavoch systému TS pre zvolené hodnoty vstupného signálu $u_1$ (napätie ovládajúce výhrevné teleso) a prevádzkovej podmienky $u_2$ (napätie ovládajúce ventilátor). V experimentoch boli realizované merania pre vstupný signál $u_1$ v rozsahu od $0$~[V] do $10$~[V] s~krokom $1$~[V] a~pre prevádzkovú podmienku $u_2$ v hodnotách uvedených v tabuľke \ref{tab:ustalene_hodnoty_podmienok_TS}. Ustálené hodnoty vstupného signálu $u_1$ sú uvedené v tabuľke \ref{tab:ustalene_hodnoty_vstupneho_signalu_TS}.
+
+
+
+
+\begin{figure}[!t]
+
+\vbox{%
+    \makebox[\textwidth][c]{%
+    \includegraphics{exp1_meranie.png}
+    }
+
+    \figcaption{
+        Získané dáta systému TS pri prevádzkovej podmienke ventilátora $2$~[V], pri ktorých dochádza k prechodu systému do havarijného režimu.
+    }
+    \label{fj_01_data_ts_emergency}
+}%vbox
+
+\end{figure}
+
+
+
+\begin{table}[t!]
+
+    \vbox{%
+    \tabcaption{Ustálené hodnoty vstupného signálu (výhrevné teleso) [V]}
+    \label{tab:ustalene_hodnoty_vstupneho_signalu_TS}
+
+    \vspace{-10pt}
+
+    \lstyle
+
+    \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} ccccccccccc}
+    \toprule
+    0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 \\
+    \bottomrule
+    \end{tabular*}
+    }%vbox
+
+\end{table}
+
+
+
+\begin{table}[t!]
+
+    \vbox{%
+    \tabcaption{Ustálené hodnoty prevádzkovej podmienky (ventilátor) [V]}
+    \label{tab:ustalene_hodnoty_podmienok_TS}
+
+    \vspace{-10pt}
+
+    \lstyle
+
+    \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} ccccc}
+    \toprule
+    2 & 4 & 6 & 8 & 10 \\
+    \bottomrule
+    \end{tabular*}
+    }%vbox
+
+\end{table}
+
+
+
+
+
+\subsection{Výskyt neštandardných meraní}
+
+Dáta na obrázku \ref{fj_01_data_ts_pot6} poskytujú informácie o ustálených stavoch systému pri prevádzkovej podmienke $6$~[V] a pre rozsah vstupného signálu od $0$~[V] do $10$~[V].
+
+Systém TS je vybavený ochranou proti prekročeniu maximálnej teploty. Ak senzory indikujú dosiahnutie limitnej hodnoty, ventilátory sa automaticky prepnú na maximálny výkon a vypne sa výhrevné teleso, zariadenie prechádza do havarijného režimu.
+Príklad merania, pri ktorom zariadenie prechádza do havarijného režimu, je znázornený na obrázku \ref{fj_01_data_ts_emergency}. V tomto experimente bola prevádzková podmienka ventilátora nastavená na hodnotu $2$~[V].
+
+
+V experimente je možné pozorovať, že pri vstupnom napätí špirály približne od $7$~[V] do $10$~[V] dochádza k aktivácii tejto ochrany. V tejto oblasti preto systém nedosahuje ustálený stav a tieto merania sa pri ďalšej analýze neuvažujú ako ustálené stavy.
+
+
+
+
+
+
+
+
+
+
+
+\section{Spracovanie dát pre prevádzkovú podmienku 6 [V]}
+
+\subsection{Vyznačenie ustálených úsekov}
+
+Zo získaných dát na obrázku \ref{fj_01_data_ts_pot6} je potrebné vyňať úseky, počas ktorých sú výstupné a~vstupné signály ustálené. V tomto prípade nech za ustálený stav sa považuje posledných $30$ sekúnd zvoleného časového intervalu pre ustálenie, pričom posledných $0.1$ sekundy merania sa neuvažuje. Takto vyňaté úseky sú znázornené na obrázku \ref{fj_02_data_ts_pot6}.
+
+
+\begin{figure}[!t]
+
+\vbox{%
+    \makebox[\textwidth][c]{%
+    \includegraphics{exp3_meranie_steadyPoints.png}
+    }
+
+    \vspace{-6pt}
+
+    \caption{
+        %
+    }
+    \label{fj_02_data_ts_pot6}
+}%vbox
+
+\vspace{-10pt}
+
+\end{figure}
+
+
+
+
+
+
+
+
+
+\subsection{Nameraná prevodová charakteristika}
+
+Vyňaté úseky je možné zlúčiť do jedného dátového súboru. Obsahuje len hodnoty vstupného signálu a výstupných signálov, pre ktoré je možné konštatovať, že zodpovedajú ustálenému stavu. Takéto dáta charakterizujú systém v ustálených stavoch.
+
+Grafické znázornenie uvedených dát tak, že na x-ovej osi sú hodnoty vstupného signálu v ustálenom stave a na y-ovej osi sú prislúchajúce hodnoty výstupných signálov zo snímača 1 a snímača 2 v ustálenom stave, je grafickým vyjadrením nameranej prevodovej charakteristiky systému. Nameraná prevodová charakteristika je znázornená na obrázku \ref{fj_03_data_ts_panel_1}.
+
+Pre lepšiu ilustráciu, že uvedený dataset neobsahuje len niekoľko bodov, ale že každý ustálený stav je reprezentovaný viacerými hodnotami, je na obrázku \ref{fj_03_data_ts_panel_2} zobrazený detail pre zvolenú hodnotu vstupného signálu.
+
+% \begin{center}
+\begin{figure}[!b]
+
+\vspace{-12pt}
+
+\vbox{%
+    \makebox[\textwidth][c]{%
+    \includegraphics{exp3_prevodova.png}
+    }
+
+    \vspace{-6pt}
+
+    \caption{
+        Nameraná prevodová charakteristika systému TS pre prevádzkovú podmienku $6$ [V].
+    }
+    \label{fj_03_data_ts_panel_1}
+}%vbox
+
+\vspace{-10pt}
+
+\end{figure}
+% \end{center}
+
+
+
+
+% \begin{center}
+\begin{figure}[!t]
+
+\vbox{%
+    \makebox[\textwidth][c]{%
+    \includegraphics{exp3_prevodova_u1.png}
+    }
+
+    \vspace{-6pt}
+
+    \figcaption{
+        %
+    }
+    \label{fj_03_data_ts_panel_2}
+
+    \vspace{-6pt}
+
+}%vbox
+
+\end{figure}
+% \end{center}
+
+
+
+
+
+\begin{figure}[!b]
+
+\vbox{%
+    \makebox[\textwidth][c]{%
+    \includegraphics{exp3_prevodova_fit_sat.png}
+    }
+
+    \vspace{-6pt}
+
+    \figcaption{
+        Aproximácia nameranej prevodovej charakteristiky systému TS lineárnym modelom so saturovanou časťou.
+    }
+    \label{fj_04_data_ts_panel_1}
+}%vbox
+
+\end{figure}
+
+
+
+
+
+\subsection{Aproximácia prevodovej charakteristiky}
+\label{sec:Aproximácia prevodovej charakteristiky}
+
+
+Nameraná prevodová charakteristika znázornená na obrázku \ref{fj_03_data_ts_panel_1} zachytáva vzťah medzi vstupným signálom a výstupnými signálmi systému v ustálených stavoch. Výstup systému je v tomto prípade reprezentovaný dvoma meraniami zo snímača~1 a snímača~2, ktoré označme ako $y_1$ a $y_2$.
+
+Grafické znázornenie ukazuje, že pre hodnoty vstupného signálu približne od $7$~[V] dochádza k saturovaniu výstupných veličín. Z tohto dôvodu je účelné rozdeliť prevodovú charakteristiku na dve časti.
+
+Vstupnú veličinu označme ako $u$. Závislosť výstupných veličín od vstupnej veličiny potom je
+\begin{equation}
+y_1 = f_1(u), \qquad y_2 = f_2(u)
+\end{equation}
+
+Na úseku $0 \leq u \leq 7$~[V] je možné na základe grafického zobrazenia nameraných dát aproximovať závislosť lineárnou funkciou. Parametre lineárnej aproximácie boli určené metódou najmenších štvorcov pomocou funkcie \texttt{polyfit} z knižnice \texttt{NumPy}. Výsledkom sú modely
+\begin{align}
+y_1 &= 0,709533\,u + 3,951781 \\
+y_2 &= 0,559831\,u + 4,135048
+\end{align}
+
+
+Pre hodnoty vstupného signálu $7 < u \leq 10$~[V] sú výstupné veličiny saturované. Priemerné hodnoty výstupov v tejto oblasti sú
+\begin{align}
+y_1 &= 8,500301 \\
+y_2 &= 7,815181
+\end{align}
+
+Takto získaná aproximácia prevodovej charakteristiky je znázornená na obrázku \ref{fj_04_data_ts_panel_1}.
+
+
+
+\begin{figure}[!t]
+
+\vbox{%
+    \makebox[\textwidth][c]{%
+    \includegraphics{exp3_prevodova_fit_sat_poly2.png}
+    }
+
+    \vspace{-6pt}
+
+    \figcaption{
+        Aproximácia prevodovej charakteristiky systému TS polynómom druhého stupňa so saturovanou časťou.
+    }
+    \label{fj_04_data_ts_panel_2}
+
+    \vspace{-10pt}
+
+}%vbox
+
+\end{figure}
+
+
+\begin{figure}[!b]
+
+    \vspace{-10pt}
+
+    \vbox{%
+    \makebox[\textwidth][c]{%
+    \includegraphics{allExp_prevodova.png}
+    }
+
+    \vspace{-6pt}
+
+    \caption{
+        Prevodové charakteristiky systému TS pre rôzne prevádzkové podmienky ventilátora.
+    }
+    \label{fj_05_ts_panel_1}
+
+    \vspace{-10pt}
+
+    }%vbox
+
+\end{figure}
+
+ 
+
+
+Okrem lineárnej aproximácie bola zostrojená aj aproximácia polynómom druhého stupňa. Parametre modelu boli opäť určené pomocou funkcie \texttt{polyfit}. Pre úsek $0 \leq u \leq 7$~[V] majú modely tvar
+\begin{align}
+y_1 &= -0,046524\,u^2 + 1,035201\,u + 3,626113 \\
+y_2 &= -0,025066\,u^2 + 0,735293\,u + 3,959586
+\end{align}
+
+Aj v tomto prípade je pre rozsah $7 < u \leq 10$~[V] výstup modelu reprezentovaný konštantnou hodnotou zodpovedajúcou saturovanej oblasti merania.
+
+Ak by sme chceli model vyjadriť ako celok, formálne je možné písať pre lineárnu aproximáciu
+\begin{align}
+\hat y_1 &=
+\begin{cases}
+0,709533\,u + 3,951781 & \text{pre } 0 \leq u \leq 7 \\
+8,500301 & \text{pre } 7 < u \leq 10
+\end{cases}
+\\
+\hat y_2 &=
+\begin{cases}
+0,559831\,u + 4,135048 & \text{pre } 0 \leq u \leq 7 \\
+7,815181 & \text{pre } 7 < u \leq 10
+\end{cases}
+\end{align}
+Analogicky je možné zapísať aj model založený na polynóme druhého stupňa
+\begin{align}
+\hat y_1 &=
+\begin{cases}
+-0,046524\,u^2 + 1,035201\,u + 3,626113 & \text{pre } 0 \leq u \leq 7 \\
+8,500301 & \text{pre } 7 < u \leq 10
+\end{cases}
+\\
+\hat y_2 &=
+\begin{cases}
+-0,025066\,u^2 + 0,735293\,u + 3,959586 & \text{pre } 0 \leq u \leq 7 \\
+7,815181 & \text{pre } 7 < u \leq 10
+\end{cases}
+\end{align}
+
+
+
+
+
+
+
+
+
+
+
+
+\section{Spracovanie dát pre všetky prevádzkové podmienky}
+
+Obdobne ako na obr.~\ref{fj_03_data_ts_panel_1} je možné vizualizovať všetky namerané prevodové charakteristiky pre všetky prevádzkové podmienky (p.p.), pozri obrázok \ref{fj_05_ts_panel_1}. 
+
+Na tieto dáta, a teda na skúmaný systém ako celok, je možné nazerať ako na dáta zodpovedajúce systému s dvomi vstupmi a dvomi výstupmi. Prvým vstupom je vstupný signál $u$ (napätie špirály), druhým vstupom je prevádzková podmienka $u_2$ (napätie ventilátora). Výstupy systému sú reprezentované hodnotami zo snímača~1~a~snímača~2, ktoré označme ako $y_1$ a~$y_2$.
+
+Dáta reprezentujúce ustálené stavy je potom možné vizualizovať ako funkciu dvoch premenných. Takéto grafické znázornenie je uvedené na obrázku \ref{fj_06_ts_panel_1}.
+
+
+
+
+
+
+
+
+
+
+
+
+
+\subsection{Aproximácia s využitím viacfaktorového modelu}
+
+Na základe uvedených dát je možné zostrojiť model systému, ktorý závisí od dvoch vstupných veličín. Model bol určený metódou najmenších štvorcov s využitím dát zo všetkých experimentov.
+
+Model lineárneho typu má tvar
+\begin{align}
+y_1 &= -0,142576\,u_2 + 0,770612\,u + 4,815384 \\
+y_2 &= -0,051529\,u_2 + 0,595590\,u + 4,375411
+\end{align}
+Grafické porovnanie takéhoto modelu s nameranými hodnotami je znázornené na obrázku \ref{fj_07_ts_panel_1}.
+
+
+
+Okrem lineárneho modelu je možné zostrojiť aj model založený na polynóme druhého stupňa. Pre výstupy systému majú modely tvar
+\begin{align}
+\begin{aligned}
+y_1 &=
+0,025350\,u_2^2
+-0,061827\,u_1^2
+\\&-0,039657\,u_2 u_1
+-0,312671\,u_2
++1,447598\,u_1
++4,275240
+\end{aligned}
+\\
+\begin{aligned}
+y_2 &=
+-0,001441\,u_2^2
+-0,032007\,u_1^2
+\\&-0,023818\,u_2 u_1
++0,047715\,u_2
++0,964436\,u_1
++3,615530
+\end{aligned}
+\end{align}
+Grafické znázornenie takéhoto modelu je uvedené na obrázku \ref{fj_07_ts_panel_2}.
+
+
+\section{Záverečné poznámky}
+
+Skripty pre spracovanie dát a generovanie obrázkov, ktoré sú uvedené v texte vyššie, sa nachádzajú v podadresári \texttt{PY}, konkrétne v súboroch \texttt{dataJob.ipynb} a \texttt{figJob.ipynb}.
+
+
+
+
+
+
+
+
+% \begin{figure}[!b]
+\begin{center}
+
+% \vspace{-10mm}
+
+\vbox{%
+    \makebox[\textwidth][c]{%
+    \includegraphics{allExp_3D_static_characteristic.png}
+    }
+
+    \vspace{-8mm}
+
+    \figcaption{
+        Vizualizácia ustálených stavov systému TS v trojrozmernom priestore. Čiernou farbou sú znázornené hodnoty pre vstupný signál $0 \leq u \leq 7$~[V], červenou farbou hodnoty v saturovanej oblasti $8 \leq u \leq 10$~[V]. Červené krížiky označujú merania, pri ktorých systém prešiel do havarijného režimu.
+    }
+    \label{fj_06_ts_panel_1}
+
+}%vbox
+
+\end{center}
+% \end{figure}
+
+
+
+
+% \begin{figure}[p]
+\begin{center}
+
+\vspace{-10mm}
+
+\vbox{%
+    \makebox[\textwidth][c]{%
+    \includegraphics{allExp_3D_static_characteristic_with_plane.png}
+    }
+
+    \vspace{-8mm}
+
+    \figcaption{
+        Porovnanie lineárneho viacfaktorového modelu s nameranými dátami. Fialová plocha predstavuje model určený metódou najmenších štvorcov.
+    }
+    \label{fj_07_ts_panel_1}
+
+    }%vbox
+
+\end{center}
+% \end{figure}
+
+\vfill
+
+% \begin{figure}[p]
+\begin{center}
+
+    \vspace{-10mm}
+
+    \vbox{%
+    \makebox[\textwidth][c]{%
+    \includegraphics{allExp_3D_static_characteristic_with_quad_surface.png}
+    }
+
+    \vspace{-8mm}
+
+    \figcaption{
+        Porovnanie kvadratického viacfaktorového modelu s nameranými dátami. Fialová plocha predstavuje model určený metódou najmenších štvorcov.
+    }
+    \label{fj_07_ts_panel_2}
+
+    \vspace{20pt}
+
+    }%vbox
+
+\end{center}
+% \end{figure}
+
+
+
+
+
+
+
+
+
+
+
+
+% -----------------------------------------------------------------------------
+
+\end{document}
+
+% -----------------------------------------------------------------------------
