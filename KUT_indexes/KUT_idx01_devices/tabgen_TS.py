@@ -52,8 +52,9 @@ def tabgen():
 output_file = 'tab01_rows_TS.tex'
 
 selected_KUT_items = [
-    'KUT015', 
-    'KUT021', 
+    'KUT015',
+    'KUT021',
+    'KUT022',
 ]
 
 tabgen()
