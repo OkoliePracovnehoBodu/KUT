@@ -56,6 +56,7 @@ output_file = 'tab01_rows_AeroShield.tex'
 
 selected_KUT_items = [
     'KUT020', 
+    'KUT023',
 
 ]
 
