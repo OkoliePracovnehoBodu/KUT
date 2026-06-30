@@ -4,8 +4,6 @@
 > Vyrobil Ústav robotiky a kybernetiky FEI STU v Bratislave.
 
 
-> [!CAUTION]
-> Projekt je vo veľmi skorých štádiách vývoja.
 
 ## Vysvetlivky
 
@@ -21,14 +19,6 @@ Súbor `KUT_portal.pdf` je vstupnou stránkou kolekcie učebných textov, predst
 
 Repozitár ako celok je možné [stiahnuť ako zip súbor](https://github.com/PracovnyBod/KUT/archive/refs/heads/main.zip).
 
-
-
-
-### Vývojové vetvy (branches)
-
-Repozitár obsahuje viacero tzv. vetiev.  Hlavná vetva je `main`. Táto vetva obsahuje hotové a dokončené krátke učebné texty. Materiál v tejto hlavnej vetve možno považovať za overený, vhodný pre bežného používateľa.
-
-Iné vetvy sú napríklad miestom kde autor alebo skupina autorov priebežne vytvára texty a iný obsah. Typicky obsahuje aj iné adresáre ako hlavná vetva a ich obsah môže byť hodnotný pre pokročilého používateľa. Ďalšia konkretizácia obsahu a účelu týchto iných vetiev je nad rámec týchto vysvetliviek.
 
 
 ## O projekte
